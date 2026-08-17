@@ -1,0 +1,14 @@
+{
+  "name": "jisan-blog",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "紙散 (JISAN) — 구요한의 저자 블로그. Vault-as-CMS static blog for jisan.cmdspace.work",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs && npx serve dist"
+  },
+  "dependencies": {
+    "marked": "^15.0.0"
+  }
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { background:#fff; }
+  .frame { width:1600px; padding:88px 96px 76px; background:#fff;
+    font-family:-apple-system,"SF Pro Display","SF Pro KR",Pretendard,"Apple SD Gothic Neo",sans-serif; color:#10231c; }
+  .eyebrow { font-size:22px; font-weight:600; letter-spacing:.14em; color:#5a7268; text-transform:uppercase; }
+  h1 { font-size:46px; font-weight:800; letter-spacing:-0.02em; margin-top:14px; }
+  .sub { font-size:24px; color:#5a7268; margin-top:12px; }
+  svg text { font-family:inherit; }
+  .foot { margin-top:34px; padding-top:26px; border-top:1px solid #e3e9e5; display:flex; justify-content:space-between; font-size:20px; color:#5a7268; }
+</style></head><body>
+<div class="frame" id="cap">
+  <div class="eyebrow">AKM Index · 한 시스템의 6회차, 30일</div>
+  <h1>만들면 오르고, 안 돌리면 내려간다</h1>
+  <div class="sub">park-joon의 재평가 궤적 — 상승분은 구현이 아니라 운영 누적이 만들었고, 하락 두 번은 스스로 보고했다</div>
+  <svg width="1408" height="560" viewBox="0 0 1408 560" style="margin-top:44px">
+    <!-- grid -->
+    <g stroke="#eef2ef" stroke-width="2">
+      <line x1="80" y1="60"  x2="1380" y2="60"/>
+      <line x1="80" y1="170" x2="1380" y2="170"/>
+      <line x1="80" y1="280" x2="1380" y2="280"/>
+      <line x1="80" y1="390" x2="1380" y2="390"/>
+      <line x1="80" y1="500" x2="1380" y2="500"/>
+    </g>
+    <g fill="#8ba095" font-size="20" text-anchor="end">
+      <text x="66" y="67">85</text><text x="66" y="177">80</text>
+      <text x="66" y="287">75</text><text x="66" y="397">70</text><text x="66" y="507">65</text>
+    </g>
+    <!-- M4 threshold 81.25 → y = 60 + (85-81.25)/20*440 = 142.5 -->
+    <line x1="80" y1="142" x2="1380" y2="142" stroke="#E985A2" stroke-width="2.5" stroke-dasharray="10 8"/>
+    <text x="1380" y="132" fill="#c4506f" font-size="20" font-weight="600" text-anchor="end">M4 문턱 81.25</text>
+    <!-- points: y = 60 + (85-score)/20*440 -->
+    <!-- 65.5→489  71→368  75.75→263.5  74→302  81.5→137  80.5→159 -->
+    <polyline points="140,489 388,368 636,263.5 884,302 1132,137 1330,159"
+      fill="none" stroke="#134538" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <g fill="#134538">
+      <circle cx="140" cy="489" r="11"/><circle cx="388" cy="368" r="11"/><circle cx="636" cy="263.5" r="11"/>
+      <circle cx="1132" cy="137" r="11"/>
+    </g>
+    <g fill="#E985A2">
+      <circle cx="884" cy="302" r="11"/><circle cx="1330" cy="159" r="11"/>
+    </g>
+    <!-- score labels -->
+    <g font-size="24" font-weight="700" fill="#10231c" text-anchor="middle">
+      <text x="140" y="459">65.5</text>
+      <text x="388" y="338">71</text>
+      <text x="636" y="233">75.75</text>
+      <text x="884" y="345" fill="#c4506f">74</text>
+      <text x="1132" y="107">81.5</text>
+      <text x="1330" y="205" fill="#c4506f">80.5</text>
+    </g>
+    <!-- x labels + annotations -->
+    <g font-size="19" fill="#5a7268" text-anchor="middle">
+      <text x="140" y="536">07-18 초회</text>
+      <text x="388" y="536">07-19 당일 개선</text>
+      <text x="636" y="536">07-19 도구 파도</text>
+      <text x="884" y="536">07-19 적대검증</text>
+      <text x="1132" y="536">08-08 운영 20일</text>
+      <text x="1330" y="536">08-16 회고 미작성</text>
+    </g>
+    <g font-size="19" font-weight="600" fill="#c4506f" text-anchor="middle">
+      <text x="884" y="378">과대채점 2건 자진 반박</text>
+      <text x="1275" y="235">주간회고 빠지자 L2 하락</text>
+    </g>
+    <g font-size="19" font-weight="600" fill="#134538" text-anchor="middle">
+      <text x="1132" y="76">+7.5는 운영 누적이 만든 점수</text>
+    </g>
+  </svg>
+  <div class="foot"><span>하락 2회 모두 자진 보고 — 보드 전체에서 점수 하락 6건, 전원이 자기 하향이었다</span><span>akm.cmdspace.work</span></div>
+</div>
+</body></html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 630px; overflow: hidden;
+    background: linear-gradient(135deg, #0d3328 0%, #134538 55%, #1a5c4a 100%);
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Pretendard', sans-serif;
+    color: #fff; display: flex; flex-direction: column; justify-content: space-between;
+    padding: 64px 72px;
+  }
+  .top { display: flex; align-items: center; gap: 14px; }
+  .top img { width: 44px; height: 44px; border-radius: 50%; }
+  .top span { font-size: 20px; font-weight: 600; letter-spacing: .14em; color: rgba(255,255,255,.75); text-transform: uppercase; }
+  .mid .hanja { font-size: 168px; font-weight: 800; letter-spacing: .02em; line-height: 1.05; }
+  .mid .hanja .dot { color: #E985A2; }
+  .mid .sub { margin-top: 18px; font-size: 34px; font-weight: 600; color: rgba(255,255,255,.92); letter-spacing: -0.01em; }
+  .bottom { display: flex; justify-content: space-between; align-items: baseline; }
+  .bottom .author { font-size: 24px; font-weight: 700; }
+  .bottom .domain { font-size: 22px; font-weight: 600; color: #b8e6d0; letter-spacing: .02em; }
+</style>
+</head>
+<body>
+  <div class="top"><img src="logo-round.png" alt=""><span>Jisan · Author Blog</span></div>
+  <div class="mid">
+    <div class="hanja">紙散<span class="dot">.</span></div>
+    <div class="sub">기록으로 지식을 세상에 퍼뜨리는 사람</div>
+  </div>
+  <div class="bottom">
+    <div class="author">구요한 · Yohan Koo</div>
+    <div class="domain">jisan.cmdspace.work</div>
+  </div>
+</body>
+</html>
