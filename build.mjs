@@ -172,7 +172,7 @@ article.post h1 { font-size: 2rem; font-weight: 800; letter-spacing: -.03em; lin
 `;
 
 // ─────────────────────── page shell ───────────────────────
-function metaTags({ title, desc, url, ogImage }) {
+function metaTags({ title, desc, url, ogImage, article }) {
   const robots = SITE.staging ? '<meta name="robots" content="noindex, nofollow">' : '<meta name="robots" content="index, follow">';
   return `<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -201,7 +201,10 @@ ${robots}
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(desc)}">
 <meta name="twitter:image" content="${ogImage}">
-<meta name="twitter:image:alt" content="${esc(title)}">`;
+<meta name="twitter:image:alt" content="${esc(title)}">${article ? `
+<meta property="article:published_time" content="${article.published}">
+<meta property="article:modified_time" content="${article.modified}">
+<meta property="article:author" content="https://cmdspace.work">` : ''}`;
 }
 
 const TOGGLE = `<button class="theme-toggle" id="themeToggle" aria-label="테마 전환">
@@ -225,13 +228,13 @@ const FOOT = `<footer class="site-foot"><div class="wrap">
 <p class="rss" style="margin-top:.3rem"><a href="/feed.xml">RSS 구독</a> · <a href="https://cmdspace.work">CMDSPACE</a> · <a href="https://bio.cmdspace.work">bio</a></p>
 </div></footer>`;
 
-function shell({ title, desc, url, body, jsonld }) {
-  const ogImage = `${SITE.url}/assets/og/og-jisan.png`;
+function shell({ title, desc, url, body, jsonld, article, ogImageOverride }) {
+  const ogImage = ogImageOverride || `${SITE.url}/assets/og/og-jisan.png`;
   const ld = jsonld ? `\n<script type="application/ld+json">${JSON.stringify(jsonld)}</script>` : '';
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
-${metaTags({ title, desc, url, ogImage })}${ld}
+${metaTags({ title, desc, url, ogImage, article })}${ld}
 <style>${CSS}</style>
 </head>
 <body>
@@ -297,7 +300,7 @@ for (const p of posts) {
     publisher: { '@type': 'Person', name: SITE.authorKo, alternateName: `${SITE.title} (Jisan)`, url: SITE.url },
     isPartOf: { '@type': 'Blog', name: SITE.title, url: SITE.url },
   };
-  writeFileSync(join(dir, 'index.html'), shell({ title: `${p.title} — ${SITE.title}`, desc: p.summary || SITE.description, url: p.url, body, jsonld }));
+  writeFileSync(join(dir, 'index.html'), shell({ title: `${p.title} — ${SITE.title}`, desc: p.summary || SITE.description, url: p.url, body, jsonld, ogImageOverride: heroMatch ? heroUrl : undefined, article: { published: p.date, modified: p.updated || p.date } }));
 }
 
 // ─────────────────────── index ───────────────────────
@@ -335,7 +338,9 @@ const rssItems = posts.map((p) => `<item>
 </item>`).join('\n');
 
 writeFileSync(join(DIST, 'feed.xml'), `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"><channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>
+<atom:link href="${SITE.url}/feed.xml" rel="self" type="application/rss+xml"/>
+<atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
 <title>${esc(SITE.title)}</title>
 <link>${SITE.url}</link>
 <description>${esc(SITE.description)}</description>
