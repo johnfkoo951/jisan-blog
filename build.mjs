@@ -225,12 +225,13 @@ const FOOT = `<footer class="site-foot"><div class="wrap">
 <p class="rss" style="margin-top:.3rem"><a href="/feed.xml">RSS 구독</a> · <a href="https://cmdspace.work">CMDSPACE</a> · <a href="https://bio.cmdspace.work">bio</a></p>
 </div></footer>`;
 
-function shell({ title, desc, url, body }) {
+function shell({ title, desc, url, body, jsonld }) {
   const ogImage = `${SITE.url}/assets/og/og-jisan.png`;
+  const ld = jsonld ? `\n<script type="application/ld+json">${JSON.stringify(jsonld)}</script>` : '';
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
-${metaTags({ title, desc, url, ogImage })}
+${metaTags({ title, desc, url, ogImage })}${ld}
 <style>${CSS}</style>
 </head>
 <body>
@@ -278,7 +279,25 @@ for (const p of posts) {
 <script>document.querySelectorAll('.cite-copy').forEach(function(b){b.addEventListener('click',function(){navigator.clipboard.writeText(b.dataset.cite).then(function(){b.textContent='복사됨';setTimeout(function(){b.textContent='복사';},1500);});});});</script>`;
   const dir = join(DIST, 'posts', p.slug);
   mkdirSync(dir, { recursive: true });
-  writeFileSync(join(dir, 'index.html'), shell({ title: `${p.title} — ${SITE.title}`, desc: p.summary || SITE.description, url: p.url, body }));
+  const heroMatch = p.html.match(/<img [^>]*src="([^"]+)"/);
+  const heroUrl = heroMatch ? (heroMatch[1].startsWith('http') ? heroMatch[1] : `${SITE.url}${heroMatch[1]}`) : `${SITE.url}/assets/og/og-jisan.png`;
+  const jsonld = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: p.title,
+    description: p.summary || SITE.description,
+    url: p.url,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': p.url },
+    datePublished: p.date,
+    dateModified: p.updated || p.date,
+    inLanguage: 'ko',
+    image: heroUrl,
+    license: SITE.licenseUrl,
+    author: { '@type': 'Person', name: SITE.authorKo, alternateName: SITE.author, url: 'https://cmdspace.work' },
+    publisher: { '@type': 'Person', name: SITE.authorKo, alternateName: `${SITE.title} (Jisan)`, url: SITE.url },
+    isPartOf: { '@type': 'Blog', name: SITE.title, url: SITE.url },
+  };
+  writeFileSync(join(dir, 'index.html'), shell({ title: `${p.title} — ${SITE.title}`, desc: p.summary || SITE.description, url: p.url, body, jsonld }));
 }
 
 // ─────────────────────── index ───────────────────────
@@ -293,6 +312,17 @@ writeFileSync(join(DIST, 'index.html'), shell({
   desc: SITE.description,
   url: `${SITE.url}/`,
   body: `<main class="wrap"><ul class="post-list">${listItems}</ul></main>`,
+  jsonld: {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: SITE.title,
+    alternateName: 'Jisan',
+    description: SITE.description,
+    url: SITE.url,
+    inLanguage: 'ko',
+    author: { '@type': 'Person', name: SITE.authorKo, alternateName: SITE.author, url: 'https://cmdspace.work', sameAs: ['https://bio.cmdspace.work', 'https://github.com/johnfkoo951'] },
+    blogPost: posts.map((p) => ({ '@type': 'BlogPosting', headline: p.title, url: p.url, datePublished: p.date })),
+  },
 }));
 
 // ─────────────────────── RSS ───────────────────────
@@ -319,11 +349,18 @@ writeFileSync(join(DIST, 'robots.txt'), SITE.staging
   : `User-agent: *\nAllow: /\nSitemap: ${SITE.url}/sitemap.xml\n`);
 
 if (!SITE.staging) {
-  const urls = [`${SITE.url}/`, ...posts.map((p) => p.url)];
+  const latest = posts.map((p) => p.updated || p.date).sort().pop();
+  const entries = [
+    { loc: `${SITE.url}/`, lastmod: latest },
+    ...posts.map((p) => ({ loc: p.url, lastmod: p.updated || p.date })),
+  ];
   writeFileSync(join(DIST, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map((u) => `<url><loc>${u}</loc></url>`).join('\n')}
+${entries.map((e) => `<url><loc>${e.loc}</loc><lastmod>${e.lastmod}</lastmod></url>`).join('\n')}
 </urlset>`);
 }
+
+// IndexNow key file (Bing·Naver 즉시 색인 핑용)
+writeFileSync(join(DIST, '64f0d0ae272fc4c0937b9f98a9ca9e9c.txt'), '64f0d0ae272fc4c0937b9f98a9ca9e9c');
 
 console.log(`✅ built ${posts.length} post(s) → dist/ (staging=${SITE.staging})`);

@@ -2,5 +2,18 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "cleanUrls": true,
-  "trailingSlash": true
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "jisan-blog.vercel.app"
+        }
+      ],
+      "destination": "https://jisan.cmdspace.work/$1",
+      "permanent": true
+    }
+  ]
 }
