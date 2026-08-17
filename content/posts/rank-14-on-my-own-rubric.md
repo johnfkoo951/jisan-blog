@@ -4,6 +4,7 @@ slug: rank-14-on-my-own-rubric
 date: 2026-07-26
 kind: 에세이
 summary: 지식관리 시스템을 채점하는 평가표 AKM Index를 만들어 공개했다. 만든 사람이 1등인 평가표는 평가표가 아니라 광고다. 자기 채점의 함정은 채점자를 신뢰하는 방식이 아니라, 채점자에게 증거를 요구하는 방식으로 해결된다.
+updated: 2026-08-17
 ---
 ![노트 위에 놓인 황동 자 — 내가 만든 평가표](/images/rank-14-on-my-own-rubric/hero-rank-14-on-my-own-rubric.jpg)
 

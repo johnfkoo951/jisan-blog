@@ -4,6 +4,7 @@ slug: between-raw-and-wiki
 date: 2026-04-03
 kind: 에세이
 summary: Karpathy는 "LLM이 raw를 위키로 컴파일한다"고 했고, Kepano는 "에이전트용 볼트를 분리하라"고 경고했다. 두 주장은 같은 문제의 양면이다. 나의 답 — 분리가 답이 아니라, 설계가 답이다.
+updated: 2026-08-17
 ---
 ![Raw 더미를 구조화된 지식으로 컴파일하는 렌즈](/images/between-raw-and-wiki/hero-between-raw-and-wiki.jpg)
 

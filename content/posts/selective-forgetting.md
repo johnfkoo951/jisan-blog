@@ -4,6 +4,7 @@ slug: selective-forgetting
 date: 2025-11-18
 kind: 에세이
 summary: AI 시대의 역량은 더 많이 기억하는 능력이 아니라 더 잘 잊고 더 빨리 연결하는 능력이다. Keep / Cache / Compost / Cold — 정보를 다루는 네 구역의 4C 프레임과 옵시디언 실전 세팅.
+updated: 2026-08-17
 ---
 ![머리에서 흘러나온 기억이 외부 금고로 옮겨지는 장면 — 선택적 망각](/images/selective-forgetting/hero-selective-forgetting.jpg)
 

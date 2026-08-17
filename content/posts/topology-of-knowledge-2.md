@@ -1,9 +1,12 @@
 ---
 title: 지식의 지형학 2부 — 아니면(Not)의 세계, 루만이 세운 의미의 경계
 slug: topology-of-knowledge-2
-date: 2026-01-27
+date: 2026-01-27T11:00
 kind: 에세이
 summary: 9만 장의 메모 카드로 70권의 책을 쓴 니클라스 루만. 그 압도적 생산성의 비밀은 근면함이 아니라 선택의 기술이었다. 의미는 연결에서가 아니라 차이에서 나온다 — 무엇을 제외했느냐가 태그의 진짜 기능이다.
+series: 지식의 지형학
+seriesOrder: 2
+updated: 2026-08-17
 ---
 ![미로 한가운데에서 카드를 연결하는 학자 — 루만의 체텔카스텐](/images/topology-of-knowledge-2/hero-topology-of-knowledge-2.jpg)
 

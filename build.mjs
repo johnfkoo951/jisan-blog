@@ -49,7 +49,7 @@ function parseFrontmatter(raw) {
 
 // ─────────────────────── helpers ───────────────────────
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-const fmtDate = (iso) => iso; // YYYY-MM-DD 그대로 (ISO 8601, vault 표준)
+const fmtDate = (iso) => iso.slice(0, 10); // 표시는 날짜만 — date 는 YYYY-MM-DD 또는 YYYY-MM-DDTHH:mm (시간은 동일 날짜 내 정렬용)
 const readingMin = (text) => Math.max(1, Math.round(text.replace(/\s/g, '').length / 500)); // 한국어 ~500자/분
 
 marked.setOptions({ gfm: true, breaks: false });
@@ -127,6 +127,11 @@ article.post .p-kind { font-size: .8rem; font-weight: 700; color: var(--accent);
 article.post h1 { font-size: 2rem; font-weight: 800; letter-spacing: -.03em; line-height: 1.28; margin: .4rem 0 .7rem; }
 .byline { color: var(--muted); font-size: .87rem; padding-bottom: 1.6rem; border-bottom: 1px solid var(--border); }
 .byline b { color: var(--text); font-weight: 600; }
+.series-box { margin: 1.4rem 0 0; border: 1px solid var(--border); border-radius: 10px; padding: .85rem 1.1rem; background: var(--tint); font-size: .88rem; }
+.series-box .series-label { font-weight: 700; color: var(--accent); font-size: .78rem; letter-spacing: .05em; margin-bottom: .35rem; }
+.series-box ol { margin: 0 0 0 1.2rem; }
+.series-box li { margin: .18rem 0; }
+.series-box .series-here { font-size: .72rem; color: var(--muted); margin-left: .35rem; }
 .prose { padding-top: 1.8rem; }
 .prose h2 { font-size: 1.45rem; font-weight: 800; letter-spacing: -.02em; margin: 2.4rem 0 .7rem; line-height: 1.35; }
 .prose h3 { font-size: 1.15rem; font-weight: 700; margin: 1.8rem 0 .5rem; }
@@ -254,7 +259,17 @@ const posts = readdirSync(postsDir).filter((f) => f.endsWith('.md')).map((f) => 
   if (!meta.slug || !meta.title || !meta.date) throw new Error(`missing slug/title/date in ${f}`);
   const html = postprocess(marked.parse(body));
   return { ...meta, body, html, min: readingMin(body), url: `${SITE.url}/posts/${meta.slug}/` };
-}).sort((a, b) => (a.date === b.date ? a.slug.localeCompare(b.slug) : a.date < b.date ? 1 : -1));
+}).sort((a, b) => {
+  const k = (p) => p.date.length > 10 ? p.date : p.date + 'T00:00';
+  return k(a) === k(b) ? a.slug.localeCompare(b.slug) : k(a) < k(b) ? 1 : -1;
+});
+
+// 시리즈 그룹핑 (frontmatter series + seriesOrder)
+const seriesMap = {};
+for (const p of posts) {
+  if (p.series) (seriesMap[p.series] ||= []).push(p);
+}
+for (const k of Object.keys(seriesMap)) seriesMap[k].sort((a, b) => Number(a.seriesOrder) - Number(b.seriesOrder));
 
 mkdirSync(DIST, { recursive: true });
 cpSync(join(ROOT, 'assets'), join(DIST, 'assets'), { recursive: true });
@@ -271,6 +286,7 @@ for (const p of posts) {
 <div class="p-kind">${esc(p.kind || '에세이')}</div>
 <h1>${esc(p.title)}</h1>
 <div class="byline"><b>${SITE.authorKo}</b> · 紙散 &nbsp;·&nbsp; <span>발행 <b>${fmtDate(p.date)}</b></span> ${updated} ${firstPub} &nbsp;·&nbsp; ${p.min}분 읽기</div>
+${p.series ? `<nav class="series-box"><div class="series-label">시리즈 · ${esc(p.series)}</div><ol>${seriesMap[p.series].map((sp) => sp.slug === p.slug ? `<li><b>${esc(sp.title)}</b> <span class="series-here">지금 읽는 글</span></li>` : `<li><a href="/posts/${sp.slug}/">${esc(sp.title)}</a></li>`).join('')}</ol></nav>` : ''}
 <div class="prose">${p.html}</div>
 <div class="cite-block">
 <div class="cite-head"><span>이 글을 인용하려면</span><button class="cite-copy" data-cite="${esc(citeText)}">복사</button></div>
@@ -291,8 +307,8 @@ for (const p of posts) {
     description: p.summary || SITE.description,
     url: p.url,
     mainEntityOfPage: { '@type': 'WebPage', '@id': p.url },
-    datePublished: p.date,
-    dateModified: p.updated || p.date,
+    datePublished: p.date.slice(0, 10),
+    dateModified: (p.updated || p.date).slice(0, 10),
     inLanguage: 'ko',
     image: heroUrl,
     license: SITE.licenseUrl,
@@ -300,7 +316,7 @@ for (const p of posts) {
     publisher: { '@type': 'Person', name: SITE.authorKo, alternateName: `${SITE.title} (Jisan)`, url: SITE.url },
     isPartOf: { '@type': 'Blog', name: SITE.title, url: SITE.url },
   };
-  writeFileSync(join(dir, 'index.html'), shell({ title: `${p.title} — ${SITE.title}`, desc: p.summary || SITE.description, url: p.url, body, jsonld, ogImageOverride: heroMatch ? heroUrl : undefined, article: { published: p.date, modified: p.updated || p.date } }));
+  writeFileSync(join(dir, 'index.html'), shell({ title: `${p.title} — ${SITE.title}`, desc: p.summary || SITE.description, url: p.url, body, jsonld, ogImageOverride: heroMatch ? heroUrl : undefined, article: { published: p.date.slice(0, 10), modified: (p.updated || p.date).slice(0, 10) } }));
 }
 
 // ─────────────────────── index ───────────────────────
@@ -324,7 +340,7 @@ writeFileSync(join(DIST, 'index.html'), shell({
     url: SITE.url,
     inLanguage: 'ko',
     author: { '@type': 'Person', name: SITE.authorKo, alternateName: SITE.author, url: 'https://cmdspace.work', sameAs: ['https://bio.cmdspace.work', 'https://github.com/johnfkoo951'] },
-    blogPost: posts.map((p) => ({ '@type': 'BlogPosting', headline: p.title, url: p.url, datePublished: p.date })),
+    blogPost: posts.map((p) => ({ '@type': 'BlogPosting', headline: p.title, url: p.url, datePublished: p.date.slice(0, 10) })),
   },
 }));
 
@@ -333,7 +349,7 @@ const rssItems = posts.map((p) => `<item>
 <title>${esc(p.title)}</title>
 <link>${p.url}</link>
 <guid isPermaLink="true">${p.url}</guid>
-<pubDate>${new Date(p.date + 'T09:00:00+09:00').toUTCString()}</pubDate>
+<pubDate>${new Date(p.date.length > 10 ? p.date + ':00+09:00' : p.date + 'T09:00:00+09:00').toUTCString()}</pubDate>
 <description>${esc(p.summary || '')}</description>
 </item>`).join('\n');
 
@@ -356,8 +372,8 @@ writeFileSync(join(DIST, 'robots.txt'), SITE.staging
 if (!SITE.staging) {
   const latest = posts.map((p) => p.updated || p.date).sort().pop();
   const entries = [
-    { loc: `${SITE.url}/`, lastmod: latest },
-    ...posts.map((p) => ({ loc: p.url, lastmod: p.updated || p.date })),
+    { loc: `${SITE.url}/`, lastmod: latest.slice(0, 10) },
+    ...posts.map((p) => ({ loc: p.url, lastmod: (p.updated || p.date).slice(0, 10) })),
   ];
   writeFileSync(join(DIST, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

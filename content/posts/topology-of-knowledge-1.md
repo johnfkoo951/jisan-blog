@@ -1,9 +1,12 @@
 ---
 title: 지식의 지형학 1부 — 그리고(And)의 세계, 리좀이 그린 태그의 풀밭
 slug: topology-of-knowledge-1
-date: 2026-01-27
+date: 2026-01-27T12:00
 kind: 에세이
 summary: 폴더는 맥락을 하나만 허용하지만, 우리 머릿속의 사과는 과일이자 물리학이자 동화다. 들뢰즈의 리좀으로 태그 시스템을 다시 읽는다. 그러나 모든 것이 모든 것과 연결될 때, 그것은 정보인가 소음인가.
+series: 지식의 지형학
+seriesOrder: 1
+updated: 2026-08-17
 ---
 ![풀밭 아래로 뻗은 리좀의 뿌리 네트워크](/images/topology-of-knowledge-1/hero-topology-of-knowledge-1.jpg)
 

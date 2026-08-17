@@ -4,6 +4,7 @@ slug: okf-third-arrival
 date: 2026-06-17
 kind: 프레임워크
 summary: Google Cloud가 지식을 마크다운+frontmatter 디렉토리로 표현하는 OKF v0.1을 공개했다. Karpathy와 kepano에 이은 세 번째 독립 수렴 — 이번엔 하이퍼스케일러가, 명세 형태로 도착했다. 그리고 OKF의 침묵이 곧 CMDS의 해자다.
+updated: 2026-08-17
 ---
 ![같은 아카이브로 열리는 세 개의 문 — 세 번째 도착](/images/okf-third-arrival/hero-okf-third-arrival.jpg)
 
