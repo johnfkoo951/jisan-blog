@@ -3,8 +3,8 @@ title: 선택적 망각의 기술 — AI 시대의 기억 설계와 두뇌-도�
 slug: selective-forgetting
 date: 2025-11-18
 kind: 에세이
-summary: AI 시대의 역량은 더 많이 기억하는 능력이 아니라 더 잘 잊고 더 빨리 연결하는 능력이다. Keep / Cache / Compost / Cold — 정보를 다루는 네 구역의 4C 프레임과 옵시디언 실전 세팅.
-updated: 2026-08-26
+summary: AI 시대의 역량은 더 많이 기억하는 능력이 아니라 더 잘 잊고 더 빨리 연결하는 능력이다. Core / Cache / Compost / Cold — 정보를 다루는 네 구역의 4C 프레임과 옵시디언 실전 세팅.
+updated: 2026-08-27
 ---
 ![머리에서 흘러나온 기억이 외부 금고로 옮겨지는 장면 — 선택적 망각](/images/selective-forgetting/hero-selective-forgetting.jpg)
 
@@ -31,11 +31,11 @@ updated: 2026-08-26
 
 대신 절대 잊지 않기로 한 것들이 있다. 회의에서 오간 결정과 그 이유, 문제를 해결한 과정, 내 언어로 다시 쓴 개념. 남의 글은 만료되어도 되지만, 내 판단의 기록은 만료되지 않는다. 이 구분이 서고 나니 쌓이는 것이 두렵지 않게 되었다. 잊어도 되는 이유는 시스템이 기억하기 때문이고, 시스템을 믿는 이유는 내가 그 규칙을 설계했기 때문이다.
 
-## 4C 프레임: Keep / Cache / Compost / Cold
+## 4C 프레임: Core / Cache / Compost / Cold
 
 정보를 다루는 네 개의 구역을 제안한다. 이름은 간단하지만, 경계는 명확하다.
 
-1. **Keep**: 지금 쓰는 것의 집합
+1. **Core**: 지금 쓰는 것의 집합
 	- 범위: 2주 안에 재사용할 내용(초안, 진행 중 문서, 현재 실험)
 	- 표식: `🔥 Active`, 리뷰 주기: 데일리/위클리
 	- 효과: 인지 부하 최소화, 작업 전환 속도 향상
@@ -57,7 +57,7 @@ updated: 2026-08-26
 
 | 구역 | 시간 지평 | 액션 | 대표 태그/속성 |
 |---|---|---|---|
-| Keep | 2주 | 집중 편집/작성 | 🔥 Active |
+| Core | 2주 | 집중 편집/작성 | 🔥 Active |
 | Cache | 30일 | 만료 시 요약만 남기기 | ⌛ TTL |
 | Compost | 월간 | 리믹스·링크 재배치 | ♻️ Compost |
 | Cold | 영구 | 검색 전용 | 🧊 Cold |
@@ -67,7 +67,7 @@ updated: 2026-08-26
 1) 폴더 맵핑
 
 - `00. Inbox` → 캡처
-- `11. Connect / 12. Merge` → Keep
+- `11. Connect / 12. Merge` → Core
 - `13. Develop` → Compost(실험·리믹스)
 - `30. Permanent Notes` → 정리된 결과(Cold의 인덱스는 이곳에서 연결)
 
@@ -93,27 +93,27 @@ SORT file.mtime ASC
 4) 리뷰 리듬(2–2–2 루프)
 
 - 2분: 캡처 직후 속성 부여(zone/ttl)
-- 2시간: 세션 종료 전 Keep 정리(3개 이하 유지)
+- 2시간: 세션 종료 전 Core 정리(3개 이하 유지)
 - 2주: Compost 일괄 리믹스→영구노트 전환 or Cold 이동
 
 5) 자동 요약으로 가벼워지기
 
-- `obsidian-textgenerator` 혹은 Smart-* 플러그인으로 Cache 만료 시 5문장 요약 생성→본문 Cold 이동→Keep에 요약만 남기기
+- `obsidian-textgenerator` 혹은 Smart-* 플러그인으로 Cache 만료 시 5문장 요약 생성→본문 Cold 이동→Core에 요약만 남기기
 
 ## 음악처럼: 쉼표가 만드는 연결성
 
-프롬프트가 악보라면, 망각은 쉼표에 가깝다. 모든 음을 끝까지 끌지 않고, 필요한 소리만 남길 때 앙상블은 또렷해진다. 믹싱에서 Mute와 Solo가 있듯, Keep은 Solo, Cold는 Mute, Compost는 Send 이펙트처럼 생각해보라. 선택적 망각은 소거가 아니라 편성이다.
+프롬프트가 악보라면, 망각은 쉼표에 가깝다. 모든 음을 끝까지 끌지 않고, 필요한 소리만 남길 때 앙상블은 또렷해진다. 믹싱에서 Mute와 Solo가 있듯, Core은 Solo, Cold는 Mute, Compost는 Send 이펙트처럼 생각해보라. 선택적 망각은 소거가 아니라 편성이다.
 
 ## 실행 체크리스트(한 장 요약)
 
-- 오늘: Keep 3개 이하 유지, Cache에 TTL 부여
+- 오늘: Core 3개 이하 유지, Cache에 TTL 부여
 - 금요일: Dataview 만료 큐 비우기(요약→Cold)
 - 매월 마지막 주: Compost 리믹스 세션 90분
 - 분기별: Cold 인덱스 재구성(링크백만 손보기)
 
 ## CMDS와 선택적 망각
 
-- Connect: 과감히 많이 붙이고(Keep/Cache),
+- Connect: 과감히 많이 붙이고(Core/Cache),
 - Merge: 겹치는 것을 줄이며(요약·태그 통합),
 - Develop: 남긴 것을 깊게 가공하고(Compost→Permanent),
 - Share: 결과만 또렷하게 남긴다(Cold는 검색 전용).
