@@ -4,7 +4,7 @@ slug: my-probability
 date: 2025-12-30T13:14
 kind: 에세이
 summary: 언어모델의 본질은 확률 분포다. 일반 모델은 인터넷 전체의 평균을 반영하고, 나의 모델은 나의 기록이 만든 확률을 반영한다. PKM은 메모 저장소가 아니라 나만의 확률값을 훈련시키는 데이터셋이다.
-updated: 2026-08-17
+updated: 2026-08-27
 ---
 ![나만의 확률값 - AI가 절대 가질 수 없는 것](/images/my-probability/hero-my-probability.png)
 
@@ -86,7 +86,7 @@ PKM은 단순한 메모 저장소가 아니다. 나만의 확률값을 훈련시
 ### 더 읽을거리
 
 - 📚 Sönke Ahrens, 《How to Take Smart Notes》 — 제텔카스텐과 지식 축적의 원리
-- 📚 로버트 루트번스타인, 《생각의 탄생》 — 창의적 사고와 연결의 힘
+- 📚 로버트·미셸 루트번스타인, 《생각의 탄생》 — 창의적 사고와 연결의 힘
 - 📄 《Attention Is All You Need》 논문 — Transformer 아키텍처와 확률 분포의 이해
 - 🎬 TED Talk: Patricia Kuhl, "The linguistic genius of babies" — 언어 학습과 확률 분포
 - 🛠️ Claude Code + Custom Skills — 개인화된 AI 워크플로우 구축

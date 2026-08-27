@@ -4,11 +4,11 @@ slug: between-raw-and-wiki
 date: 2026-04-03
 kind: 에세이
 summary: Karpathy는 "LLM이 raw를 위키로 컴파일한다"고 했고, Kepano는 "에이전트용 볼트를 분리하라"고 경고했다. 두 주장은 같은 문제의 양면이다. 나의 답 — 분리가 답이 아니라, 설계가 답이다.
-updated: 2026-08-17
+updated: 2026-08-27
 ---
 ![Raw 더미를 구조화된 지식으로 컴파일하는 렌즈](/images/between-raw-and-wiki/hero-between-raw-and-wiki.jpg)
 
-오늘 타임라인에 Andrej Karpathy와 Kepano(Obsidian 창시자)의 대화가 올라왔다. 46만 뷰를 찍은 이 스레드는, 필자가 3년간 옵시디언 볼트를 운영하면서 매일 마주해온 질문을 정확히 건드린다.
+오늘 타임라인에 Andrej Karpathy와 Kepano(Obsidian CEO)의 대화가 올라왔다. 46만 뷰를 찍은 이 스레드는, 필자가 3년간 옵시디언 볼트를 운영하면서 매일 마주해온 질문을 정확히 건드린다.
 
 Karpathy는 이렇게 말했다:
 
@@ -94,7 +94,6 @@ Kepano에게: 오염 경고에 동의한다. 하지만 볼트를 나누는 것�
 
 - 📚 Niklas Luhmann의 Zettelkasten — 카드 박스 시스템의 "오염 방지" 설계
 - 🔗 Andrej Karpathy, "Software 2.0" — 코드에서 데이터로의 패러다임 전환
-- 📄 디케이, [「Obsidian Vault를 Claude Code의 온디맨드 스킬 라이브러리로 활용하기」](https://share.note.sx/sne2ve0t)
 - 🛠️ Obsidian Web Clipper — Karpathy가 사용하는 웹 클리핑 도구
 
 ### 출처

@@ -24,6 +24,10 @@ const SITE = {
 const ROOT = new URL('.', import.meta.url).pathname;
 const DIST = join(ROOT, 'dist');
 
+// 카테고리 (frontmatter kind → URL slug). 새 kind 는 여기 한 줄 추가.
+const KINDS = { '에세이': 'essay', '프레임워크': 'framework', '소개': 'intro', '보고서': 'report' };
+const kindSlug = (kind) => KINDS[kind] || 'etc';
+
 // ─────────────────────── frontmatter ───────────────────────
 function parseFrontmatter(raw) {
   const m = raw.match(/^---\n([\s\S]*?)\n---\n?/);
@@ -173,6 +177,40 @@ article.post h1 { font-size: 2rem; font-weight: 800; letter-spacing: -.03em; lin
 /* footer */
 .site-foot { border-top: 1px solid var(--border); padding: 1.6rem 0 2.6rem; font-size: .8rem; color: var(--muted); }
 .site-foot .rss a { font-weight: 600; }
+
+/* kind tabs (list pages) */
+.kind-nav { display: flex; flex-wrap: wrap; gap: .45rem; padding: 1.2rem 0 0; }
+.kind-nav a { font-size: .82rem; font-weight: 600; padding: .3rem .8rem; border: 1px solid var(--border);
+  border-radius: 999px; color: var(--muted); }
+.kind-nav a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.kind-nav a.active { background: var(--accent); color: var(--accent-on); border-color: var(--accent); }
+.kind-nav .count { font-weight: 400; opacity: .75; font-size: .74rem; }
+article.post .p-kind a { color: inherit; }
+
+/* search (list pages) */
+.search-box { position: relative; margin-top: 1.1rem; }
+.search-box input { width: 100%; font: inherit; font-size: .95rem; color: var(--text);
+  background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px;
+  padding: .6rem 1rem .6rem 2.3rem; outline: none; transition: border-color .15s; }
+.search-box input:focus { border-color: var(--accent); }
+.search-box svg { position: absolute; left: .8rem; top: 50%; transform: translateY(-50%);
+  width: 15px; height: 15px; color: var(--muted); pointer-events: none; }
+.search-results { list-style: none; padding: .4rem 0 0; }
+.search-results li { padding: .85rem 0; border-bottom: 1px solid var(--border); }
+.search-results .s-meta { font-size: .76rem; color: var(--muted); display: flex; gap: .6rem; }
+.search-results .s-meta .p-kind { color: var(--accent); font-weight: 700; }
+.search-results h3 { font-size: 1.05rem; font-weight: 700; line-height: 1.4; margin: .15rem 0; }
+.search-results h3 a { color: inherit; }
+.search-results .s-snippet { font-size: .85rem; color: var(--muted); line-height: 1.6; }
+.search-results .s-snippet mark { background: none; color: var(--accent); font-weight: 700; }
+.search-empty { padding: 1.2rem 0; color: var(--muted); font-size: .9rem; }
+
+/* related posts */
+.related-box { margin: 2.4rem 0 0; border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.2rem; background: var(--tint); }
+.related-box .related-label { font-weight: 700; color: var(--accent); font-size: .78rem; letter-spacing: .05em; margin-bottom: .5rem; }
+.related-box ul { list-style: none; }
+.related-box li { margin: .35rem 0; font-size: .92rem; line-height: 1.5; }
+.related-box li .r-kind { font-size: .72rem; color: var(--muted); margin-left: .4rem; }
 @media (max-width: 640px) { body { font-size: 16px; } article.post h1 { font-size: 1.6rem; } }
 `;
 
@@ -233,13 +271,13 @@ const FOOT = `<footer class="site-foot"><div class="wrap">
 <p class="rss" style="margin-top:.3rem"><a href="/feed.xml">RSS 구독</a> · <a href="https://cmdspace.work">CMDSPACE</a> · <a href="https://bio.cmdspace.work">bio</a></p>
 </div></footer>`;
 
-function shell({ title, desc, url, body, jsonld, article, ogImageOverride }) {
+function shell({ title, desc, url, body, jsonld, article, ogImageOverride, extraHead }) {
   const ogImage = ogImageOverride || `${SITE.url}/assets/og/og-jisan.png`;
   const ld = jsonld ? `\n<script type="application/ld+json">${JSON.stringify(jsonld)}</script>` : '';
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
-${metaTags({ title, desc, url, ogImage, article })}${ld}
+${metaTags({ title, desc, url, ogImage, article })}${ld}${extraHead || ''}
 <style>${CSS}</style>
 </head>
 <body>
@@ -258,7 +296,17 @@ const posts = readdirSync(postsDir).filter((f) => f.endsWith('.md')).map((f) => 
   const { meta, body } = parseFrontmatter(raw);
   if (!meta.slug || !meta.title || !meta.date) throw new Error(`missing slug/title/date in ${f}`);
   const html = postprocess(marked.parse(body));
-  return { ...meta, body, html, min: readingMin(body), url: `${SITE.url}/posts/${meta.slug}/` };
+  // 검색 인덱스·관련 글 계산용: 소제목 + 마크다운 기호 제거한 플레인텍스트
+  const headings = [...body.matchAll(/^#{2,4}\s+(.+)$/gm)].map((m) => m[1].replace(/[*_`]/g, '').trim());
+  const plain = body
+    .replace(/```[\s\S]*?```/g, ' ')
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+    .replace(/^#{1,6}\s+/gm, '')
+    .replace(/[>*_`|]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return { ...meta, raw, body, html, headings, plain, min: readingMin(body), url: `${SITE.url}/posts/${meta.slug}/` };
 }).sort((a, b) => {
   const k = (p) => p.date.length > 10 ? p.date : p.date + 'T00:00';
   return k(a) === k(b) ? a.slug.localeCompare(b.slug) : k(a) < k(b) ? 1 : -1;
@@ -271,6 +319,102 @@ for (const p of posts) {
 }
 for (const k of Object.keys(seriesMap)) seriesMap[k].sort((a, b) => Number(a.seriesOrder) - Number(b.seriesOrder));
 
+// ─────────────────── 관련 글 (빌드 타임 유사도) ───────────────────
+// 음절 바이그램 코사인 유사도 — 한국어에서 형태소 분석 없이 견고한 근사.
+function bigramVec(s) {
+  const t = s.replace(/\s+/g, '');
+  const v = new Map();
+  for (let i = 0; i < t.length - 1; i++) {
+    const g = t.slice(i, i + 2);
+    v.set(g, (v.get(g) || 0) + 1);
+  }
+  return v;
+}
+function cosine(a, b) {
+  let dot = 0, na = 0, nb = 0;
+  for (const [, c] of a) na += c * c;
+  for (const [, c] of b) nb += c * c;
+  const [small, large] = a.size < b.size ? [a, b] : [b, a];
+  for (const [g, c] of small) { const d = large.get(g); if (d) dot += c * d; }
+  return dot / (Math.sqrt(na) * Math.sqrt(nb) || 1);
+}
+const vecs = new Map(posts.map((p) => [p.slug,
+  bigramVec([p.title, p.summary || '', p.headings.join(' '), p.plain.slice(0, 3000)].join(' '))]));
+const relatedMap = new Map();
+for (const p of posts) {
+  const scored = posts.filter((q) => q.slug !== p.slug).map((q) => {
+    let s = cosine(vecs.get(p.slug), vecs.get(q.slug));
+    if (p.series && p.series === q.series) s += 0.15; // 같은 시리즈 가산
+    if ((p.kind || '에세이') === (q.kind || '에세이')) s += 0.03;
+    return { q, s };
+  }).sort((x, y) => y.s - x.s).filter((x) => x.s > 0.08).slice(0, 3);
+  relatedMap.set(p.slug, scored.map((x) => x.q));
+}
+
+// ─────────────────── 리스트 페이지 공통 (탭 + 검색) ───────────────────
+const kindCounts = {};
+for (const p of posts) { const k = p.kind || '에세이'; kindCounts[k] = (kindCounts[k] || 0) + 1; }
+function kindNav(active) {
+  const tabs = [`<a href="/"${active === 'all' ? ' class="active"' : ''}>전체 <span class="count">${posts.length}</span></a>`];
+  for (const k of Object.keys(KINDS)) {
+    if (!kindCounts[k]) continue;
+    tabs.push(`<a href="/kind/${KINDS[k]}/"${active === k ? ' class="active"' : ''}>${esc(k)} <span class="count">${kindCounts[k]}</span></a>`);
+  }
+  return `<nav class="kind-nav" aria-label="글 유형">${tabs.join('')}</nav>`;
+}
+const SEARCH_UI = `<div class="search-box" role="search">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+<input id="q" type="search" placeholder="글 검색 — 제목·소제목·본문" autocomplete="off" aria-label="블로그 내 검색">
+</div>
+<ul class="search-results" id="sr" hidden></ul>`;
+const SEARCH_JS = `<script>
+(function(){
+var q=document.getElementById('q'),sr=document.getElementById('sr'),list=document.getElementById('postList');
+if(!q)return; var idx=null,loading=false;
+function load(){if(idx||loading)return;loading=true;
+fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;run();});}
+q.addEventListener('focus',load,{once:false});
+document.addEventListener('keydown',function(e){if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();q.focus();}});
+function esc(s){return s.replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function snippet(text,terms){var lower=text.toLowerCase(),pos=-1;
+for(var i=0;i<terms.length;i++){var x=lower.indexOf(terms[i]);if(x>=0){pos=x;break;}}
+if(pos<0)return esc(text.slice(0,110))+'…';
+var s=Math.max(0,pos-45),e=Math.min(text.length,pos+75);
+var frag=esc((s>0?'…':'')+text.slice(s,e)+(e<text.length?'…':''));
+terms.forEach(function(t){if(!t)return;frag=frag.replace(new RegExp('('+t.replace(/[.*+?^\${}()|[\\]\\\\]/g,'\\\\$&')+')','gi'),'<mark>$1</mark>');});
+return frag;}
+function run(){var raw=q.value.trim();
+if(!raw){sr.hidden=true;sr.innerHTML='';if(list)list.hidden=false;return;}
+if(!idx){load();return;}
+var terms=raw.toLowerCase().split(/\\s+/).filter(Boolean);
+var res=idx.map(function(p){var score=0,all=true;
+terms.forEach(function(t){var m=0;
+if(p.title.toLowerCase().indexOf(t)>=0){score+=10;m=1;}
+if(p.headings.join(' ').toLowerCase().indexOf(t)>=0){score+=5;m=1;}
+if((p.summary||'').toLowerCase().indexOf(t)>=0){score+=4;m=1;}
+var c=0,i=-1,body=p.text.toLowerCase();while((i=body.indexOf(t,i+1))>=0&&c<5)c++;
+if(c>0){score+=c;m=1;}
+if(!m)all=false;});
+return{p:p,score:all?score:0};
+}).filter(function(r){return r.score>0;}).sort(function(a,b){return b.score-a.score;}).slice(0,12);
+if(list)list.hidden=true;sr.hidden=false;
+sr.innerHTML=res.length?res.map(function(r){var p=r.p;
+return '<li><div class="s-meta"><span class="p-kind">'+esc(p.kind)+'</span><span>'+p.date.slice(0,10)+'</span></div>'+
+'<h3><a href="/posts/'+p.slug+'/">'+esc(p.title)+'</a></h3>'+
+'<div class="s-snippet">'+snippet(p.text,terms)+'</div></li>';}).join('')
+:'<li class="search-empty">"'+esc(raw)+'" 검색 결과가 없습니다.</li>';}
+var t;q.addEventListener('input',function(){clearTimeout(t);t=setTimeout(run,120);});
+})();
+</script>`;
+function listPage({ active, items }) {
+  return `<main class="wrap">${kindNav(active)}${SEARCH_UI}<ul class="post-list" id="postList">${items}</ul></main>${SEARCH_JS}`;
+}
+const listItem = (p) => `<li>
+<div class="p-meta"><span class="p-kind">${esc(p.kind || '에세이')}</span><span>${fmtDate(p.date)}</span><span>${p.min}분</span></div>
+<h2><a href="/posts/${p.slug}/">${esc(p.title)}</a></h2>
+<p class="p-summary">${esc(p.summary || '')}</p>
+</li>`;
+
 mkdirSync(DIST, { recursive: true });
 cpSync(join(ROOT, 'assets'), join(DIST, 'assets'), { recursive: true });
 // 본문 이미지: content/images/{slug}/ → dist/images/{slug}/ (본문에서 /images/{slug}/파일명 으로 참조)
@@ -282,12 +426,15 @@ for (const p of posts) {
   const citeText = `${SITE.authorKo}. (${p.date.slice(0, 4)}). ${p.title}. 紙散(지산). ${p.url}`;
   const firstPub = p.firstPublished ? `<span>최초 발행 <b>${esc(p.firstPublished)}</b></span>` : '';
   const updated = p.updated && p.updated !== p.date ? `<span>수정 <b>${fmtDate(p.updated)}</b></span>` : '';
+  const rel = relatedMap.get(p.slug) || [];
+  const relatedBox = rel.length ? `<aside class="related-box"><div class="related-label">함께 읽기</div><ul>${rel.map((r) => `<li><a href="/posts/${r.slug}/">${esc(r.title)}</a><span class="r-kind">${esc(r.kind || '에세이')} · ${fmtDate(r.date)}</span></li>`).join('')}</ul></aside>` : '';
   const body = `<main class="wrap"><article class="post">
-<div class="p-kind">${esc(p.kind || '에세이')}</div>
+<div class="p-kind"><a href="/kind/${kindSlug(p.kind || '에세이')}/">${esc(p.kind || '에세이')}</a></div>
 <h1>${esc(p.title)}</h1>
 <div class="byline"><b>${SITE.authorKo}</b> · 紙散 &nbsp;·&nbsp; <span>발행 <b>${fmtDate(p.date)}</b></span> ${updated} ${firstPub} &nbsp;·&nbsp; ${p.min}분 읽기</div>
 ${p.series ? `<nav class="series-box"><div class="series-label">시리즈 · ${esc(p.series)}</div><ol>${seriesMap[p.series].map((sp) => sp.slug === p.slug ? `<li><b>${esc(sp.title)}</b> <span class="series-here">지금 읽는 글</span></li>` : `<li><a href="/posts/${sp.slug}/">${esc(sp.title)}</a></li>`).join('')}</ol></nav>` : ''}
 <div class="prose">${p.html}</div>
+${relatedBox}
 <div class="cite-block">
 <div class="cite-head"><span>이 글을 인용하려면</span><button class="cite-copy" data-cite="${esc(citeText)}">복사</button></div>
 <div class="cite-body"><span class="cite-text">${esc(citeText)}</span>
@@ -316,33 +463,65 @@ ${p.series ? `<nav class="series-box"><div class="series-label">시리즈 · ${e
     publisher: { '@type': 'Person', name: SITE.authorKo, alternateName: `${SITE.title} (Jisan)`, url: SITE.url },
     isPartOf: { '@type': 'Blog', name: SITE.title, url: SITE.url },
   };
-  writeFileSync(join(dir, 'index.html'), shell({ title: `${p.title} — ${SITE.title}`, desc: p.summary || SITE.description, url: p.url, body, jsonld, ogImageOverride: heroMatch ? heroUrl : undefined, article: { published: p.date.slice(0, 10), modified: (p.updated || p.date).slice(0, 10) } }));
+  writeFileSync(join(dir, 'index.html'), shell({ title: `${p.title} — ${SITE.title}`, desc: p.summary || SITE.description, url: p.url, body, jsonld, ogImageOverride: heroMatch ? heroUrl : undefined, article: { published: p.date.slice(0, 10), modified: (p.updated || p.date).slice(0, 10) }, extraHead: `\n<link rel="alternate" type="text/markdown" href="${p.url}index.md" title="Markdown source">` }));
+  // GEO/AIO: 마크다운 원문 엔드포인트 — LLM·에이전트가 정본을 그대로 인용할 수 있게
+  writeFileSync(join(dir, 'index.md'), p.raw);
 }
 
-// ─────────────────────── index ───────────────────────
-const listItems = posts.map((p) => `<li>
-<div class="p-meta"><span class="p-kind">${esc(p.kind || '에세이')}</span><span>${fmtDate(p.date)}</span><span>${p.min}분</span></div>
-<h2><a href="/posts/${p.slug}/">${esc(p.title)}</a></h2>
-<p class="p-summary">${esc(p.summary || '')}</p>
-</li>`).join('\n');
+// ─────────────────────── index + 카테고리 페이지 ───────────────────────
+const blogJsonld = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: SITE.title,
+  alternateName: 'Jisan',
+  description: SITE.description,
+  url: SITE.url,
+  inLanguage: 'ko',
+  author: { '@type': 'Person', name: SITE.authorKo, alternateName: SITE.author, url: 'https://cmdspace.work', sameAs: ['https://bio.cmdspace.work', 'https://github.com/johnfkoo951'] },
+  blogPost: posts.map((p) => ({ '@type': 'BlogPosting', headline: p.title, url: p.url, datePublished: p.date.slice(0, 10) })),
+};
 
 writeFileSync(join(DIST, 'index.html'), shell({
   title: `${SITE.title} — ${SITE.tagline}`,
   desc: SITE.description,
   url: `${SITE.url}/`,
-  body: `<main class="wrap"><ul class="post-list">${listItems}</ul></main>`,
-  jsonld: {
-    '@context': 'https://schema.org',
-    '@type': 'Blog',
-    name: SITE.title,
-    alternateName: 'Jisan',
-    description: SITE.description,
-    url: SITE.url,
-    inLanguage: 'ko',
-    author: { '@type': 'Person', name: SITE.authorKo, alternateName: SITE.author, url: 'https://cmdspace.work', sameAs: ['https://bio.cmdspace.work', 'https://github.com/johnfkoo951'] },
-    blogPost: posts.map((p) => ({ '@type': 'BlogPosting', headline: p.title, url: p.url, datePublished: p.date.slice(0, 10) })),
-  },
+  body: listPage({ active: 'all', items: posts.map(listItem).join('\n') }),
+  jsonld: blogJsonld,
 }));
+
+for (const [kind, slug] of Object.entries(KINDS)) {
+  const kposts = posts.filter((p) => (p.kind || '에세이') === kind);
+  if (!kposts.length) continue;
+  const dir = join(DIST, 'kind', slug);
+  mkdirSync(dir, { recursive: true });
+  const url = `${SITE.url}/kind/${slug}/`;
+  writeFileSync(join(dir, 'index.html'), shell({
+    title: `${kind} — ${SITE.title}`,
+    desc: `${SITE.title} — ${kind} 글 ${kposts.length}편. ${SITE.description}`,
+    url,
+    body: listPage({ active: kind, items: kposts.map(listItem).join('\n') }),
+    jsonld: {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: `${kind} — ${SITE.title}`,
+      url,
+      inLanguage: 'ko',
+      isPartOf: { '@type': 'Blog', name: SITE.title, url: SITE.url },
+      hasPart: kposts.map((p) => ({ '@type': 'BlogPosting', headline: p.title, url: p.url, datePublished: p.date.slice(0, 10) })),
+    },
+  }));
+}
+
+// ─────────────────────── 검색 인덱스 ───────────────────────
+writeFileSync(join(DIST, 'search-index.json'), JSON.stringify(posts.map((p) => ({
+  slug: p.slug,
+  title: p.title,
+  kind: p.kind || '에세이',
+  date: p.date,
+  summary: p.summary || '',
+  headings: p.headings,
+  text: p.plain,
+}))));
 
 // ─────────────────────── RSS ───────────────────────
 const rssItems = posts.map((p) => `<item>
@@ -350,11 +529,13 @@ const rssItems = posts.map((p) => `<item>
 <link>${p.url}</link>
 <guid isPermaLink="true">${p.url}</guid>
 <pubDate>${new Date(p.date.length > 10 ? p.date + ':00+09:00' : p.date + 'T09:00:00+09:00').toUTCString()}</pubDate>
+<category>${esc(p.kind || '에세이')}</category>
 <description>${esc(p.summary || '')}</description>
+<content:encoded><![CDATA[${p.html.replace(/\]\]>/g, ']]]]><![CDATA[>')}]]></content:encoded>
 </item>`).join('\n');
 
 writeFileSync(join(DIST, 'feed.xml'), `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel>
 <atom:link href="${SITE.url}/feed.xml" rel="self" type="application/rss+xml"/>
 <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
 <title>${esc(SITE.title)}</title>
@@ -373,6 +554,10 @@ if (!SITE.staging) {
   const latest = posts.map((p) => p.updated || p.date).sort().pop();
   const entries = [
     { loc: `${SITE.url}/`, lastmod: latest.slice(0, 10) },
+    ...Object.entries(KINDS).filter(([k]) => kindCounts[k]).map(([k, slug]) => {
+      const kl = posts.filter((p) => (p.kind || '에세이') === k).map((p) => p.updated || p.date).sort().pop();
+      return { loc: `${SITE.url}/kind/${slug}/`, lastmod: kl.slice(0, 10) };
+    }),
     ...posts.map((p) => ({ loc: p.url, lastmod: (p.updated || p.date).slice(0, 10) })),
   ];
   writeFileSync(join(DIST, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
@@ -380,6 +565,25 @@ if (!SITE.staging) {
 ${entries.map((e) => `<url><loc>${e.loc}</loc><lastmod>${e.lastmod}</lastmod></url>`).join('\n')}
 </urlset>`);
 }
+
+// ─────────────────────── llms.txt (GEO/AIO — LLM용 사이트 안내) ───────────────────────
+const llmsPosts = Object.entries(KINDS).filter(([k]) => kindCounts[k]).map(([k, slug]) =>
+  `## ${k} (${kindCounts[k]}편)\n\n` +
+  posts.filter((p) => (p.kind || '에세이') === k)
+    .map((p) => `- [${p.title}](${p.url}): ${p.summary || ''} (발행 ${fmtDate(p.date)} · [Markdown](${p.url}index.md))`)
+    .join('\n')
+).join('\n\n');
+writeFileSync(join(DIST, 'llms.txt'), `# 紙散 (Jisan) — ${SITE.authorKo}(${SITE.author})의 저자 블로그
+
+> ${SITE.description} 모든 글은 ${SITE.license} 라이선스이며, 각 글의 영속 URL이 인용 정본이다. 각 글 URL 뒤에 index.md 를 붙이면 마크다운 원문을 그대로 읽을 수 있다 (LLM·에이전트 인용 권장 경로).
+
+- 저자: ${SITE.authorKo} (${SITE.author}) — https://cmdspace.work · https://bio.cmdspace.work
+- 인용 형식: ${SITE.authorKo}. (연도). 제목. 紙散(지산). URL
+- RSS (전문 포함): ${SITE.url}/feed.xml
+- 사이트맵: ${SITE.url}/sitemap.xml
+
+${llmsPosts}
+`);
 
 // IndexNow key file (Bing·Naver 즉시 색인 핑용)
 writeFileSync(join(DIST, '64f0d0ae272fc4c0937b9f98a9ca9e9c.txt'), '64f0d0ae272fc4c0937b9f98a9ca9e9c');

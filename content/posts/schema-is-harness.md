@@ -2,13 +2,13 @@
 title: Schema는 Harness다 — Karpathy LLM Wiki와 CMDS의 구조적 동치
 slug: schema-is-harness
 date: 2026-04-07
-updated: 2026-08-17
+updated: 2026-08-27
 kind: 프레임워크
 summary: Karpathy의 LLM Wiki, 구요한의 CMDS, 그리고 Google OKF — 서로 다른 분야에서 독립적으로 같은 구조에 도달했다. RAG는 매번 재유도하지만 Wiki는 누적된다. 그리고 Schema 레이어는 정확히 하네스다.
 ---
 ![세 갈래 길이 하나의 3층 구조로 수렴하는 풍경](/images/schema-is-harness/hero-schema-is-harness.jpg)
 
-> Karpathy의 LLM Wiki와 CMDS의 구조적 동치에 관한 보고서 · 2026-04-07 작성, 2026-06-22 OKF 후속 추가
+> Karpathy의 LLM Wiki와 CMDS의 구조적 동치에 관한 보고서 · 2026-04-07 작성, 2026-06-17 OKF 후속 추가
 
 > **Follow-up 구현 (2026-04-14)** — 본 보고서가 "CMDS는 Karpathy의 LLM Wiki를 이미 포함한다"고 논증한 이후, **별도 satellite 볼트로 Karpathy 패턴을 독립 구현**했습니다. 메인 볼트는 통합 PKM을, satellite는 LLM 컴파일 전용을 담당합니다. 구조 공개본: [llm-wiki.cmdspace.work](https://llm-wiki.cmdspace.work)
 
@@ -170,7 +170,7 @@ CMDS는 한 단계 더 나아가 **3-스택 모델**을 제시한다.
 
 ### 6.1 Autoresearch 프로젝트
 
-2026년 3월, Karpathy는 또 다른 프로젝트인 **Autoresearch**를 공개했다. 이 프로젝트는 GitHub에서 58,500+ stars를 받으며 큰 화제가 되었다. Autoresearch는 LLM이 자율적으로 머신러닝 연구를 수행하도록 설계된 시스템이다.
+2026년 3월, Karpathy는 또 다른 프로젝트인 **Autoresearch**를 공개했다. 이 프로젝트는 GitHub에서 큰 화제가 되었다. Autoresearch는 LLM이 자율적으로 머신러닝 연구를 수행하도록 설계된 시스템이다.
 
 | 파일 | 역할 |
 |------|------|
@@ -275,7 +275,7 @@ CMDS는 한 단계 더 나아가 **3-스택 모델**을 제시한다.
 ### 참고 자료
 
 - Andrej Karpathy, "LLM Wiki" (GitHub, 2026)
-- Andrej Karpathy, "Autoresearch" (GitHub, 2026, 58,500+ stars)
+- Andrej Karpathy, "Autoresearch" (GitHub, 2026)
 - OpenAI, "Building Agents" — *"the agent isn't the hard part — the harness is"*
 - Google Cloud, "Open Knowledge Format v0.1" (knowledge-catalog, 2026)
 - Tiago Forte, *Building a Second Brain* (2022)
