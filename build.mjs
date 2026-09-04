@@ -285,6 +285,7 @@ ${TOGGLE}
 ${HEAD_BRAND}
 ${body}
 ${FOOT}
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>`;
 }
