@@ -2,7 +2,7 @@
 title: Schema는 Harness다 — Karpathy LLM Wiki와 CMDS의 구조적 동치
 slug: schema-is-harness
 date: 2026-04-07
-updated: 2026-08-27
+updated: 2026-09-04
 kind: 프레임워크
 summary: Karpathy의 LLM Wiki, 구요한의 CMDS, 그리고 Google OKF — 서로 다른 분야에서 독립적으로 같은 구조에 도달했다. RAG는 매번 재유도하지만 Wiki는 누적된다. 그리고 Schema 레이어는 정확히 하네스다.
 ---
@@ -14,7 +14,7 @@ summary: Karpathy의 LLM Wiki, 구요한의 CMDS, 그리고 Google OKF — 서�
 
 ## Executive Summary
 
-2026년 4월, Andrej Karpathy(전 OpenAI, 전 Tesla AI)는 자신의 GitHub에 "LLM Wiki"라는 새로운 지식 관리 패턴을 제안했다. 핵심 주장은 단순하다. **"RAG는 매번 새로 유도하지만, Wiki는 누적된다(RAG re-derives, Wiki compounds)."** AI 시대에는 휘발성 검색이 아니라 영속적이고 누적되는 지식 산출물이 필요하다는 것이다.
+2026년, Andrej Karpathy(전 OpenAI, 전 Tesla AI)는 자신의 GitHub에 "LLM Wiki"라는 새로운 지식 관리 패턴을 제안했다. 핵심 주장은 단순하다. **"RAG는 매번 새로 유도하지만, Wiki는 누적된다(RAG re-derives, Wiki compounds)."** AI 시대에는 휘발성 검색이 아니라 영속적이고 누적되는 지식 산출물이 필요하다는 것이다.
 
 본 보고서는 Karpathy의 LLM Wiki 개념을 [CMDS(커맨드스페이스)](https://system.cmdspace.work) 시스템과 정밀하게 비교한 결과를 정리한다. 결론은 다음과 같다.
 
@@ -196,6 +196,7 @@ CMDS는 한 단계 더 나아가 **3-스택 모델**을 제시한다.
 
 - 2026년 Karpathy: 코드 연구에서 LLM Wiki / Autoresearch 패턴을 제안
 - 2023년~ 구요한: 같은 패턴을 지식 관리에 적용하여 10,000+ 노트로 3년간 운영
+- 2023년~ kepano(Obsidian CEO): "File over app" 선언으로 마크다운 파일을 도구보다 오래 사는 기질로 옹호 — 같은 구조를 노트 도구 쪽에서 증언
 
 이 비교는 단순한 자기 자랑이 아니다. **같은 시기에, 서로 다른 분야에서, 독립적으로 같은 구조에 도달했다는 사실은 그 구조가 보편적임을 강력히 시사한다.** 이는 CMDS가 한 개인의 취향이 아니라 시대적 필연이라는 증거다.
 
@@ -209,7 +210,7 @@ CMDS는 한 단계 더 나아가 **3-스택 모델**을 제시한다.
 
 | 도착자 | 시점 | 분야 | 산출 형태 |
 |--------|------|------|----------|
-| 구요한 (CMDS) | 2023~ | 지식 관리 | 운영 시스템 (8,000+ 노트) |
+| 구요한 (CMDS) | 2023~ | 지식 관리 | 운영 시스템 (마더십 8,000+ 노트, 7볼트 생태계 10,000+) |
 | Karpathy | 2026 | ML 연구 자동화 | LLM Wiki · Autoresearch |
 | **Google Cloud (OKF)** | **2026-06** | **데이터 카탈로그** | ***명세(spec)*** |
 
