@@ -37,3 +37,12 @@ test('all articles have an existing hero and truthful image metadata', () => {
     if (/\.jpe?g$/.test(image)) assert.match(html, /property="og:image:type" content="image\/jpeg"/);
   }
 });
+
+test('Korean bold closes before particles even after punctuation', () => {
+  const html = read('dist/posts/topology-of-knowledge-2/index.html');
+  assert.match(html, /<strong>환경의 압도적인 복잡성을 줄이는 것\(Complexity Reduction\)<\/strong>이다/);
+  for (const slug of slugs) {
+    const text = read(`dist/posts/${slug}/index.html`).replace(/<pre[\s\S]*?<\/pre>|<code[\s\S]*?<\/code>/g, '');
+    assert.doesNotMatch(text, /\*\*/, `unrendered bold: ${slug}`);
+  }
+});

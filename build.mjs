@@ -58,6 +58,18 @@ const readingMin = (text) => Math.max(1, Math.round(text.replace(/\s/g, '').leng
 
 marked.setOptions({ gfm: true, breaks: false });
 
+// 한국어 볼드 보정: CommonMark 는 `**…(괄호)**이다`·`**'따옴표'**에서` 처럼 닫는 ** 앞이 문장부호이고
+// 뒤에 조사가 붙으면 강조로 닫지 않는다. 단순한 **…** 한 쌍은 문장부호·조사와 무관하게 <strong> 으로 본다.
+marked.use({
+  tokenizer: {
+    emStrong(src) {
+      const m = /^\*\*(?=[^\s*])([^*\n]*?[^\s*])\*\*/.exec(src);
+      if (!m) return false; // 그 외(이탤릭·중첩 등)는 marked 기본 규칙
+      return { type: 'strong', raw: m[0], text: m[1], tokens: this.lexer.inlineTokens(m[1]) };
+    },
+  },
+});
+
 // 표를 가로 스크롤 래퍼로 감싼다 (모바일 가로 스크롤 — 페이지 body 는 넘치지 않게)
 // 단독 이미지 문단은 <figure> 로 승격: ![alt](src "캡션") 의 title 이 <figcaption> 이 된다.
 function postprocess(html) {
