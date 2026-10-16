@@ -76,6 +76,7 @@ function postprocess(html) {
 }
 
 // ─────────────────────── shared css ───────────────────────
+const READER_CSS = readFileSync(join(ROOT, 'assets', 'reader.css'), 'utf8');
 const CSS = `
 :root {
   --max: 720px;
@@ -255,10 +256,12 @@ const TOGGLE = `<button class="theme-toggle" id="themeToggle" aria-label="테마
 <svg id="iconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 9 0 0 0 9.8 9.8z"/></svg>
 </button>
 <script>
-(function(){var r=document.documentElement,k='jisan-theme',s=localStorage.getItem(k),m=window.matchMedia('(prefers-color-scheme: dark)');
-function ap(t){r.setAttribute('data-theme',t);var d=t==='dark';document.getElementById('iconSun').style.display=d?'none':'block';document.getElementById('iconMoon').style.display=d?'block':'none';}
-ap(s||(m.matches?'dark':'light'));
-document.getElementById('themeToggle').addEventListener('click',function(){var n=r.getAttribute('data-theme')==='dark'?'light':'dark';localStorage.setItem(k,n);ap(n);});})();
+(function(){var r=document.documentElement,k='jisan-theme',s=null,m=window.matchMedia('(prefers-color-scheme: dark)');
+function ap(t){r.setAttribute('data-theme',t);var d=t==='dark';document.getElementById('themeToggle').setAttribute('aria-label',d?'밝은 테마로 전환':'어두운 테마로 전환');document.getElementById('iconSun').style.display=d?'none':'block';document.getElementById('iconMoon').style.display=d?'block':'none';}
+try{s=localStorage.getItem(k);}catch{}
+ap(s==='dark'||s==='light'?s:(m.matches?'dark':'light'));
+m.addEventListener('change',function(e){if(!s)ap(e.matches?'dark':'light');});
+document.getElementById('themeToggle').addEventListener('click',function(){var n=r.getAttribute('data-theme')==='dark'?'light':'dark';s=n;try{localStorage.setItem(k,n);}catch{}ap(n);});})();
 </script>`;
 
 const HEAD_BRAND = `<header class="site-head"><div class="wrap">
@@ -278,13 +281,17 @@ function shell({ title, desc, url, body, jsonld, article, ogImageOverride, extra
 <html lang="ko">
 <head>
 ${metaTags({ title, desc, url, ogImage, article })}${ld}${extraHead || ''}
-<style>${CSS}</style>
+<script>try{var t=localStorage.getItem('jisan-theme');document.documentElement.dataset.theme=(t==='dark'||t==='light')?t:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch{document.documentElement.dataset.theme=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}</script>
+<style>${CSS}
+${READER_CSS}</style>
 </head>
 <body>
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
 ${TOGGLE}
 ${HEAD_BRAND}
 ${body}
 ${FOOT}
+<script defer src="/assets/reader.js"></script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>`;
@@ -296,7 +303,14 @@ const posts = readdirSync(postsDir).filter((f) => f.endsWith('.md')).map((f) => 
   const raw = readFileSync(join(postsDir, f), 'utf8');
   const { meta, body } = parseFrontmatter(raw);
   if (!meta.slug || !meta.title || !meta.date) throw new Error(`missing slug/title/date in ${f}`);
-  const html = postprocess(marked.parse(body));
+  let html = postprocess(marked.parse(body));
+  const toc = [];
+  html = html.replace(/<h([2-4])>([\s\S]*?)<\/h\1>/g, (match, level, label) => {
+    const id = `section-${toc.length + 1}`;
+    toc.push({ id, level: Number(level), label });
+    return `<h${level} id="${id}">${label}</h${level}>`;
+  });
+  html = html.replace(/<img ([^>]*?)loading="lazy"/, '<img $1loading="eager" fetchpriority="high"');
   // 검색 인덱스·관련 글 계산용: 소제목 + 마크다운 기호 제거한 플레인텍스트
   const headings = [...body.matchAll(/^#{2,4}\s+(.+)$/gm)].map((m) => m[1].replace(/[*_`]/g, '').trim());
   const plain = body
@@ -307,7 +321,7 @@ const posts = readdirSync(postsDir).filter((f) => f.endsWith('.md')).map((f) => 
     .replace(/[>*_`|]/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
-  return { ...meta, raw, body, html, headings, plain, min: readingMin(body), url: `${SITE.url}/posts/${meta.slug}/` };
+  return { ...meta, raw, body, html, toc, headings, plain, min: readingMin(body), url: `${SITE.url}/posts/${meta.slug}/` };
 }).sort((a, b) => {
   const k = (p) => p.date.length > 10 ? p.date : p.date + 'T00:00';
   return k(a) === k(b) ? a.slug.localeCompare(b.slug) : k(a) < k(b) ? 1 : -1;
@@ -356,65 +370,32 @@ for (const p of posts) {
 const kindCounts = {};
 for (const p of posts) { const k = p.kind || '에세이'; kindCounts[k] = (kindCounts[k] || 0) + 1; }
 function kindNav(active) {
-  const tabs = [`<a href="/"${active === 'all' ? ' class="active"' : ''}>전체 <span class="count">${posts.length}</span></a>`];
+  const tabs = [`<a href="/"${active === 'all' ? ' class="active" aria-current="page"' : ''}>전체 <span class="count">${posts.length}</span></a>`];
   for (const k of Object.keys(KINDS)) {
     if (!kindCounts[k]) continue;
-    tabs.push(`<a href="/kind/${KINDS[k]}/"${active === k ? ' class="active"' : ''}>${esc(k)} <span class="count">${kindCounts[k]}</span></a>`);
+    tabs.push(`<a href="/kind/${KINDS[k]}/"${active === k ? ' class="active" aria-current="page"' : ''}>${esc(k)} <span class="count">${kindCounts[k]}</span></a>`);
   }
   return `<nav class="kind-nav" aria-label="글 유형">${tabs.join('')}</nav>`;
 }
 const SEARCH_UI = `<div class="search-box" role="search">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
 <input id="q" type="search" placeholder="글 검색 — 제목·소제목·본문" autocomplete="off" aria-label="블로그 내 검색">
+<span class="search-key" aria-hidden="true">⌘ K /</span>
 </div>
+<p class="search-status" id="searchStatus" role="status" aria-live="polite"></p>
 <ul class="search-results" id="sr" hidden></ul>`;
-const SEARCH_JS = `<script>
-(function(){
-var q=document.getElementById('q'),sr=document.getElementById('sr'),list=document.getElementById('postList');
-if(!q)return; var idx=null,loading=false;
-function load(){if(idx||loading)return;loading=true;
-fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;run();});}
-q.addEventListener('focus',load,{once:false});
-document.addEventListener('keydown',function(e){if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();q.focus();}});
-function esc(s){return s.replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-function snippet(text,terms){var lower=text.toLowerCase(),pos=-1;
-for(var i=0;i<terms.length;i++){var x=lower.indexOf(terms[i]);if(x>=0){pos=x;break;}}
-if(pos<0)return esc(text.slice(0,110))+'…';
-var s=Math.max(0,pos-45),e=Math.min(text.length,pos+75);
-var frag=esc((s>0?'…':'')+text.slice(s,e)+(e<text.length?'…':''));
-terms.forEach(function(t){if(!t)return;frag=frag.replace(new RegExp('('+t.replace(/[.*+?^\${}()|[\\]\\\\]/g,'\\\\$&')+')','gi'),'<mark>$1</mark>');});
-return frag;}
-function run(){var raw=q.value.trim();
-if(!raw){sr.hidden=true;sr.innerHTML='';if(list)list.hidden=false;return;}
-if(!idx){load();return;}
-var terms=raw.toLowerCase().split(/\\s+/).filter(Boolean);
-var res=idx.map(function(p){var score=0,all=true;
-terms.forEach(function(t){var m=0;
-if(p.title.toLowerCase().indexOf(t)>=0){score+=10;m=1;}
-if(p.headings.join(' ').toLowerCase().indexOf(t)>=0){score+=5;m=1;}
-if((p.summary||'').toLowerCase().indexOf(t)>=0){score+=4;m=1;}
-var c=0,i=-1,body=p.text.toLowerCase();while((i=body.indexOf(t,i+1))>=0&&c<5)c++;
-if(c>0){score+=c;m=1;}
-if(!m)all=false;});
-return{p:p,score:all?score:0};
-}).filter(function(r){return r.score>0;}).sort(function(a,b){return b.score-a.score;}).slice(0,12);
-if(list)list.hidden=true;sr.hidden=false;
-sr.innerHTML=res.length?res.map(function(r){var p=r.p;
-return '<li><div class="s-meta"><span class="p-kind">'+esc(p.kind)+'</span><span>'+p.date.slice(0,10)+'</span></div>'+
-'<h3><a href="/posts/'+p.slug+'/">'+esc(p.title)+'</a></h3>'+
-'<div class="s-snippet">'+snippet(p.text,terms)+'</div></li>';}).join('')
-:'<li class="search-empty">"'+esc(raw)+'" 검색 결과가 없습니다.</li>';}
-var t;q.addEventListener('input',function(){clearTimeout(t);t=setTimeout(run,120);});
-})();
-</script>`;
+const SEARCH_JS = '<script defer src="/assets/search.js"></script>';
 function listPage({ active, items }) {
-  return `<main class="wrap">${kindNav(active)}${SEARCH_UI}<ul class="post-list" id="postList">${items}</ul></main>${SEARCH_JS}`;
+  return `<main id="main" class="wrap archive-page"><div class="archive-head"><h1>${active === 'all' ? '글 모음' : esc(active)}</h1><span>기록에서 연결로</span></div>${kindNav(active)}${SEARCH_UI}<ul class="post-list" id="postList">${items}</ul></main>${SEARCH_JS}`;
 }
-const listItem = (p) => `<li>
-<div class="p-meta"><span class="p-kind">${esc(p.kind || '에세이')}</span><span>${fmtDate(p.date)}</span><span>${p.min}분</span></div>
+const listItem = (p) => {
+  const image = p.html.match(/<img [^>]*src="([^"]+)"/);
+  const thumb = image ? `<a class="post-thumb" href="/posts/${p.slug}/" tabindex="-1" aria-hidden="true"><img src="${esc(image[1])}" alt="" loading="lazy" decoding="async" width="180" height="135"></a>` : '';
+  return `<li${image ? '' : ' class="no-thumb"'}><div>
+<div class="p-meta"><span class="p-kind">${esc(p.kind || '에세이')}</span><time datetime="${fmtDate(p.date)}">${fmtDate(p.date)}</time><span>${p.min}분 읽기</span></div>
 <h2><a href="/posts/${p.slug}/">${esc(p.title)}</a></h2>
-<p class="p-summary">${esc(p.summary || '')}</p>
-</li>`;
+<p class="p-summary">${esc(p.summary || '')}</p></div>${thumb}</li>`;
+};
 
 mkdirSync(DIST, { recursive: true });
 cpSync(join(ROOT, 'assets'), join(DIST, 'assets'), { recursive: true });
@@ -429,12 +410,19 @@ for (const p of posts) {
   const updated = p.updated && p.updated !== p.date ? `<span>수정 <b>${fmtDate(p.updated)}</b></span>` : '';
   const rel = relatedMap.get(p.slug) || [];
   const relatedBox = rel.length ? `<aside class="related-box"><div class="related-label">함께 읽기</div><ul>${rel.map((r) => `<li><a href="/posts/${r.slug}/">${esc(r.title)}</a><span class="r-kind">${esc(r.kind || '에세이')} · ${fmtDate(r.date)}</span></li>`).join('')}</ul></aside>` : '';
-  const body = `<main class="wrap"><article class="post">
+  const toc = p.toc.filter(h => h.level === 2);
+  const contents = toc.length > 1 ? `<details class="reader-toc"><summary>이 글의 목차 <span class="metrics">${toc.length}개</span></summary><nav aria-label="글 목차"><ol>${toc.map(h => `<li><a href="#${h.id}">${h.label.replace(/<[^>]*>/g, '')}</a></li>`).join('')}</ol></nav></details>` : '';
+  const body = `<div class="reading-progress" aria-hidden="true"><span></span></div><main id="main" class="wrap"><article class="post" data-slug="${esc(p.slug)}">
+<a class="back-link" href="/">← 글 모음</a>
 <div class="p-kind"><a href="/kind/${kindSlug(p.kind || '에세이')}/">${esc(p.kind || '에세이')}</a></div>
 <h1>${esc(p.title)}</h1>
-<div class="byline"><b>${SITE.authorKo}</b> · 紙散 &nbsp;·&nbsp; <span>발행 <b>${fmtDate(p.date)}</b></span> ${updated} ${firstPub} &nbsp;·&nbsp; ${p.min}분 읽기</div>
-${p.series ? `<nav class="series-box"><div class="series-label">시리즈 · ${esc(p.series)}</div><ol>${seriesMap[p.series].map((sp) => sp.slug === p.slug ? `<li><b>${esc(sp.title)}</b> <span class="series-here">지금 읽는 글</span></li>` : `<li><a href="/posts/${sp.slug}/">${esc(sp.title)}</a></li>`).join('')}</ol></nav>` : ''}
-<div class="prose">${p.html}</div>
+<div class="byline"><b>${SITE.authorKo}</b> · 紙散 &nbsp;·&nbsp; <span>발행 <b>${fmtDate(p.date)}</b></span> ${updated} ${firstPub} &nbsp;·&nbsp; ${p.min}분 읽기 <span class="metrics" id="viewCount" title="집계 도입 이후, 브라우저별 하루 한 번 집계한 조회수" hidden></span></div>
+${p.summary ? `<p class="article-summary">${esc(p.summary)}</p>` : ''}
+${p.series ? `<details class="series-box"><summary class="series-label">${esc(p.series)} <span class="series-here">${p.seriesOrder} / ${seriesMap[p.series].length}편 · 시리즈 보기</span></summary><nav aria-label="시리즈"><ol>${seriesMap[p.series].map((sp) => sp.slug === p.slug ? `<li><b>${esc(sp.title)}</b> <span class="series-here">지금 읽는 글</span></li>` : `<li><a href="/posts/${sp.slug}/">${esc(sp.title)}</a></li>`).join('')}</ol></nav></details>` : ''}
+<div class="reader-tools" role="group" aria-label="읽기 도구"><span class="tool-label">글자 크기</span><button class="tool-button" data-font-step="-1" aria-label="본문 글자 작게">가 −</button><button class="tool-button" data-font-step="1" aria-label="본문 글자 크게">가 +</button><button class="tool-button" data-font-reset aria-label="본문 글자 기본 크기로">기본</button><button class="tool-button share-button" data-share>글 공유</button></div>
+<p class="action-status" id="actionStatus" role="status" aria-live="polite"></p>
+${contents}<div class="prose">${p.html}</div>
+<div class="engagement" hidden><div class="engagement-copy"><strong>이 글이 생각에 보탬이 되었나요?</strong><small>로그인 없이 마음을 남겨 주세요.</small></div><button class="tool-button like-button" id="likeButton" aria-pressed="false">♡ 좋아요</button><span class="metrics">집계 시작 이후의 반응입니다. 중복 방지용 익명 쿠키를 사용합니다.</span></div>
 ${relatedBox}
 <div class="cite-block">
 <div class="cite-head"><span>이 글을 인용하려면</span><button class="cite-copy" data-cite="${esc(citeText)}">복사</button></div>
@@ -443,7 +431,7 @@ ${relatedBox}
 </div>
 <div class="post-foot"><span><a href="/">← 목록으로</a></span><span><a href="${SITE.licenseUrl}" rel="license">${SITE.license}</a> — 출처를 밝히면 자유롭게 공유할 수 있습니다</span></div>
 </article></main>
-<script>document.querySelectorAll('.cite-copy').forEach(function(b){b.addEventListener('click',function(){navigator.clipboard.writeText(b.dataset.cite).then(function(){b.textContent='복사됨';setTimeout(function(){b.textContent='복사';},1500);});});});</script>`;
+`;
   const dir = join(DIST, 'posts', p.slug);
   mkdirSync(dir, { recursive: true });
   const heroMatch = p.html.match(/<img [^>]*src="([^"]+)"/);

@@ -15,5 +15,10 @@
       "destination": "https://jisan.cmdspace.work/$1",
       "permanent": true
     }
-  ]
+  ],
+  "functions": {
+    "api/engagement.js": {
+      "includeFiles": "content/posts/*.md"
+    }
+  }
 }
