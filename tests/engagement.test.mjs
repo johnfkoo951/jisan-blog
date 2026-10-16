@@ -16,3 +16,19 @@ test('mutation requires explicit same origin and JSON', async () => { assert.equ
 test('reject invalid actions, malformed body, bots and methods', async () => { for (const body of ['{', { action: 'delete' }]) assert.equal((await run({ method: 'POST', headers, body })).code, 400); assert.equal((await run({ method: 'POST', headers: { ...headers, 'user-agent': 'Googlebot' }, body: { action: 'view' } })).code, 403); assert.equal((await run({ method: 'DELETE' })).code, 405); });
 test('mutations use one atomic script with distinct view and like keys', async () => { let command; const r = await run({ method: 'POST', headers, body: { action: 'like' }, fetcher: async (_, opts) => { command = JSON.parse(opts.body); return { ok: true, json: async () => ({ result: [5, 3, 1] }) }; } }); assert.equal(r.code, 200); assert.equal(command[0], 'EVAL'); assert.equal(command[2], 4); assert.equal(command[7], 'like'); assert.match(command[1], /SADD/); assert.match(command[1], /NX/); });
 test('rate rejection and storage failures return honest errors', async () => { assert.equal((await run({ fetcher: async () => ({ ok: true, json: async () => ({ result: [-1, -1, -1] }) }) })).code, 429); assert.equal((await run({ fetcher: async () => { throw new Error('offline'); } })).code, 503); assert.equal((await run({ fetcher: async () => ({ ok: true, json: async () => ({ result: ['NaN', 0, 0] }) }) })).code, 503); });
+
+test('kill switch skips Redis and cookie creation for reads and mutations', async () => {
+  for (const method of ['GET', 'POST']) {
+    let called = false;
+    const r = await run({ method, headers, body: { action: 'like' }, config: { ...env, ENGAGEMENT_ENABLED: 'false' }, fetcher: async () => { called = true; throw new Error('must not connect'); } });
+    assert.equal(r.code, 200); assert.deepEqual(r.body, { enabled: false });
+    assert.equal(called, false); assert.equal(r.headers['Set-Cookie'], undefined);
+  }
+});
+test('read rate limiter is atomic and rate response has retry hint', async () => {
+  let command;
+  const r = await run({ fetcher: async (_, opts) => { command = JSON.parse(opts.body); return { ok: true, json: async () => ({ result: [-1, -1, -1] }) }; } });
+  assert.equal(command[2], 3); assert.match(command[5], /^jisan:read-rate:/);
+  assert.match(command[1], /requests > 60/); assert.match(command[1], /EXPIRE/);
+  assert.equal(r.code, 429); assert.equal(r.headers['Retry-After'], '60');
+});

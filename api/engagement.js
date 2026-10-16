@@ -13,7 +13,11 @@ elseif ARGV[1] == 'like' then redis.call('SADD', KEYS[2], ARGV[2])
 elseif ARGV[1] == 'unlike' then redis.call('SREM', KEYS[2], ARGV[2]) end
 return {tonumber(redis.call('GET', KEYS[1]) or '0'), redis.call('SCARD', KEYS[2]), redis.call('SISMEMBER', KEYS[2], ARGV[2])}
 `;
-const READ = `return {tonumber(redis.call('GET', KEYS[1]) or '0'), redis.call('SCARD', KEYS[2]), redis.call('SISMEMBER', KEYS[2], ARGV[1])}`;
+const READ = `
+local requests = redis.call('INCR', KEYS[3])
+if requests == 1 then redis.call('EXPIRE', KEYS[3], 60) end
+if requests > 60 then return {-1, -1, -1} end
+return {tonumber(redis.call('GET', KEYS[1]) or '0'), redis.call('SCARD', KEYS[2]), redis.call('SISMEMBER', KEYS[2], ARGV[1])}`;
 const COOKIE = 'jisan_reader';
 const sign = (value, secret) => createHmac('sha256', secret).update(value).digest('hex');
 function identity(req, res, secret) {
@@ -36,6 +40,7 @@ export function createHandler({ env = process.env, fetcher = fetch, validSlug = 
     if (!['GET', 'POST'].includes(req.method)) { res.setHeader('Allow', 'GET, POST'); return send(405, { error: 'method' }); }
     const slug = req.query?.slug;
     if (typeof slug !== 'string' || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) || slug.length > 120 || !validSlug(slug)) return send(404, { error: 'post' });
+    if (env.ENGAGEMENT_ENABLED === 'false') return send(200, { enabled: false });
     const base = env.UPSTASH_REDIS_REST_URL || env.KV_REST_API_URL;
     const token = env.UPSTASH_REDIS_REST_TOKEN || env.KV_REST_API_TOKEN;
     const secret = env.ENGAGEMENT_COOKIE_SECRET;
@@ -58,7 +63,7 @@ export function createHandler({ env = process.env, fetcher = fetch, validSlug = 
     // UTC day boundary; a short-lived per-browser rate key caps ordinary repeated clicks.
     const day = new Date().toISOString().slice(0, 10);
     const command = action ? ['EVAL', MUTATE, 4, ...keys, `${prefix}:view:${day}:${reader}`, `jisan:rate:${reader}`, action, reader]
-      : ['EVAL', READ, 2, ...keys, reader];
+      : ['EVAL', READ, 3, ...keys, `jisan:read-rate:${reader}`, reader];
     try {
       const response = await fetcher(base, {
         method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
@@ -68,7 +73,7 @@ export function createHandler({ env = process.env, fetcher = fetch, validSlug = 
       const data = await response.json();
       if (data.error || !Array.isArray(data.result) || data.result.length !== 3) throw new Error('response');
       const [views, likes, liked] = data.result.map(Number);
-      if (views === -1) return send(429, { error: 'rate' });
+      if (views === -1) { res.setHeader('Retry-After', '60'); return send(429, { error: 'rate' }); }
       if (![views, likes].every(n => Number.isSafeInteger(n) && n >= 0) || ![0, 1].includes(liked)) throw new Error('counts');
       return send(200, { enabled: true, views, likes, liked: liked === 1 });
     } catch { return send(503, { enabled: false, error: 'unavailable' }); }

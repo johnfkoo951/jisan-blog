@@ -448,6 +448,7 @@ ${p.series ? `<details class="series-box"><summary class="series-label">${esc(p.
 <div class="reader-tools" role="group" aria-label="읽기 도구"><span class="tool-label">글자 크기</span><button class="tool-button" data-font-step="-1" aria-label="본문 글자 작게">가 −</button><button class="tool-button" data-font-step="1" aria-label="본문 글자 크게">가 +</button><button class="tool-button" data-font-reset aria-label="본문 글자 기본 크기로">기본</button><button class="tool-button share-button" data-share>글 공유</button></div>
 <p class="action-status" id="actionStatus" role="status" aria-live="polite"></p>
 ${contents}<div class="prose">${p.html}</div>
+<details class="reader-details"><summary>조회수·좋아요와 익명 쿠키 안내</summary><p>조회수는 2026년 10월 16일 집계 도입 이후, 화면을 연속 8초 이상 읽었을 때 브라우저·글·UTC 날짜별 한 번 기록한다. 한국 시간 오전 9시에 날짜가 바뀌며, 실제 사람 수나 과거 방문량을 뜻하지 않는다.</p><p>좋아요는 로그인 없이 브라우저당 하나를 남기거나 취소할 수 있다. 중복 방지를 위해 최대 1년간 유지되는 자사 익명 식별 쿠키를 사용한다. 집계용 Redis에는 가명 식별자와 반응을 저장하며 이메일이나 원시 IP는 저장하지 않는다. 호스팅 서비스의 접속 로그는 별도 정책을 따른다.</p><p>일일 중복 방지 기록은 24시간, 요청 제한 기록은 60초 후 만료된다. 좋아요 기록은 취소하거나 운영자가 삭제할 때까지 유지된다. 쿠키를 지우거나 기기·브라우저를 바꾸면 이전 좋아요를 취소하지 못할 수 있다. 쿠키 삭제 자체가 서버의 좋아요 기록을 지우지는 않는다.</p><p>집계가 중단되어도 글은 계속 읽을 수 있다. 별도의 방문 분석은 Vercel Web Analytics를 사용하며, 위 조회수와 기준이 다르다.</p></details>
 <div class="engagement" hidden><div class="engagement-copy"><strong>이 글이 생각에 보탬이 되었나요?</strong><small>로그인 없이 마음을 남겨 주세요.</small></div><button class="tool-button like-button" id="likeButton" aria-pressed="false">♡ 좋아요</button><span class="metrics">집계 시작 이후의 반응입니다. 중복 방지용 익명 쿠키를 사용합니다.</span></div>
 ${relatedBox}
 <div class="cite-block">

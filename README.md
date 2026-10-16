@@ -75,3 +75,14 @@ The production project uses a dedicated Upstash Free database, connected only to
 - Verified wrong-origin rejection and simulated storage-error UI recovery. These checks do not certify resistance to sustained abuse.
 - All 27 posts have a hero; two reuse existing editorial art. Local links resolve and 70 distinct public image/external URLs responded during the hygiene pass. HTTP success does not certify the content of external pages.
 - Open Graph PNG/JPEG MIME type and dimensions are read from local image bytes. Unknown external image dimensions are omitted rather than invented.
+
+## Engagement incident runbook
+- Stop only reactions: set the Production environment variable `ENGAGEMENT_ENABLED=false`, then redeploy with `bash deploy.sh`. GET and POST return `{ "enabled": false }` before any Redis request or cookie creation. Static articles and other projects remain available. Environment changes alone do not change existing deployments.
+- Restore: change the variable to `true` and redeploy after checking Redis availability, quota, and credentials. Do not delete the database or rotate the signing secret as a routine recovery step; those lose counts or identity continuity.
+- Verify: request `/api/engagement/?slug=quarter-point-short`; disabled is HTTP 200 with `enabled:false`, healthy is HTTP 200 with real counts, storage failure is HTTP 503. Read an article and check search/font controls independently.
+- Rate limits: 60 reads and 30 mutations per anonymous browser per minute, with HTTP 429 and Retry-After: 60. This is not a global request cap: cookie churn bypasses it and rejected requests still consume Redis/function resources.
+- Budget alerts are notifications, not a spending cap. Review Vercel function usage and Upstash command usage separately. Redis Lua inner commands must not be assumed to cost only one command.
+- At 50% of the free database quota review growth; at 75% investigate unusual traffic; at 90% disable reactions if continued use would exhaust the quota. These are manual operating thresholds, not installed automatic alerts or jobs.
+- Credential exposure: revoke/replace the exposed Redis token, update server-only Production variables and redeploy. Never put secrets in a ticket, source file, command history or public logs.
+- Data loss: no backup/restore guarantee is configured by this repository. Check the provider's available backup/export features before changing plans; do not reset counters or fabricate historical data. Preserve the cookie secret when restoring the same data.
+- Public counting/cookie information is available on every article even when Redis is unavailable.

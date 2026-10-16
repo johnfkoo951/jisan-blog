@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-16 — Operational safeguards
+- Added a Production environment kill switch that bypasses Redis and anonymous cookie issuance without interrupting static reading.
+- Added atomic per-browser read throttling and Retry-After responses. These are not global spending caps.
+- Added reader-facing counting, cookie, retention and analytics information to every article.
+- Documented disable/restore, quota review, credential rotation and data-loss procedures in both README languages.
+- Added kill-switch and read-rate regression tests.
+
 ## 2026-10-16 — Shared engagement activation and article hygiene
 - Connected a dedicated free Redis database to production only; signing secrets are server-only.
 - Added an eight-second network timeout to engagement requests and removed an unnecessary API redirect.
