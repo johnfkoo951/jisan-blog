@@ -216,6 +216,34 @@ article.post .p-kind a { color: inherit; }
 `;
 
 // ─────────────────────── page shell ───────────────────────
+function imageMeta(url) {
+  if (new URL(url).origin !== SITE.url) return '';
+  const pathname = new URL(url).pathname;
+  const file = join(ROOT, pathname.startsWith('/images/') ? 'content' : '', pathname);
+  if (!existsSync(file)) return '';
+  const bytes = readFileSync(file);
+  let width, height, mime;
+  if (bytes.subarray(0, 8).equals(Buffer.from([137,80,78,71,13,10,26,10]))) {
+    mime = 'image/png'; width = bytes.readUInt32BE(16); height = bytes.readUInt32BE(20);
+  } else if (bytes[0] === 255 && bytes[1] === 216) {
+    mime = 'image/jpeg';
+    for (let i = 2; i + 8 < bytes.length;) {
+      if (bytes[i] !== 255) break;
+      const marker = bytes[i + 1];
+      if (marker === 218 || marker === 217) break;
+      const length = bytes.readUInt16BE(i + 2);
+      if ([192,193,194,195,197,198,199,201,202,203,205,206,207].includes(marker)) {
+        height = bytes.readUInt16BE(i + 5); width = bytes.readUInt16BE(i + 7); break;
+      }
+      if (length < 2) break;
+      i += 2 + length;
+    }
+  }
+  return `${mime ? `<meta property="og:image:type" content="${mime}">` : ''}${width && height ? `
+<meta property="og:image:width" content="${width}">
+<meta property="og:image:height" content="${height}">` : ''}`;
+}
+
 function metaTags({ title, desc, url, ogImage, article }) {
   const robots = SITE.staging ? '<meta name="robots" content="noindex, nofollow">' : '<meta name="robots" content="index, follow">';
   return `<meta charset="UTF-8">
@@ -235,9 +263,7 @@ ${robots}
 <meta property="og:url" content="${url}">
 <meta property="og:image" content="${ogImage}">
 <meta property="og:image:secure_url" content="${ogImage}">
-<meta property="og:image:type" content="image/png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+${imageMeta(ogImage)}
 <meta property="og:image:alt" content="${esc(title)}">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:locale:alternate" content="en_US">

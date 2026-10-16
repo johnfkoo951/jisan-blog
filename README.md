@@ -68,3 +68,10 @@ node build.mjs        # local build → dist/
 ---
 
 Built by **Yohan Koo (CMDSPACE)** — https://cmdspace.work
+
+## Production verification (2026-10-16)
+The production project uses a dedicated Upstash Free database, connected only to Production. Anonymous shared views and likes are active; paid database plans and Analytics Plus are not enabled.
+- Verified against the actual Redis-backed API: 8-second visible dwell, same-browser/day deduplication, like persistence across reload, unlike, five concurrent identical likes counting once, and consistent totals in a second isolated browser.
+- Verified wrong-origin rejection and simulated storage-error UI recovery. These checks do not certify resistance to sustained abuse.
+- All 27 posts have a hero; two reuse existing editorial art. Local links resolve and 70 distinct public image/external URLs responded during the hygiene pass. HTTP success does not certify the content of external pages.
+- Open Graph PNG/JPEG MIME type and dimensions are read from local image bytes. Unknown external image dimensions are omitted rather than invented.

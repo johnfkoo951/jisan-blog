@@ -56,7 +56,7 @@
   const like = document.querySelector('#likeButton');
   const metrics = document.querySelector('#viewCount');
   const slug = article.dataset.slug;
-  const endpoint = `/api/engagement?slug=${encodeURIComponent(slug)}`;
+  const endpoint = `/api/engagement/?slug=${encodeURIComponent(slug)}`;
   let mutationQueue = Promise.resolve();
   function request(action) {
     if (!action) return sendRequest();
@@ -67,8 +67,8 @@
   async function sendRequest(action) {
     const response = await fetch(endpoint, action ? {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ action }), credentials: 'same-origin',
-    } : { credentials: 'same-origin' });
+      body: JSON.stringify({ action }), credentials: 'same-origin', signal: AbortSignal.timeout(8000),
+    } : { credentials: 'same-origin', signal: AbortSignal.timeout(8000) });
     if (!response.ok) throw new Error('Engagement unavailable');
     const result = await response.json();
     if (!result.enabled) throw new Error('Engagement not configured');

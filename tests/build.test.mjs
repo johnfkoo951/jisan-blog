@@ -24,3 +24,14 @@ test('archive has one title, all article links, current category and search feed
   for (const slug of slugs) assert.ok(html.includes(`href="/posts/${slug}/"`));
   assert.match(html, /aria-current="page"/); assert.match(html, /id="searchStatus"/);
 });
+
+test('all articles have an existing hero and truthful image metadata', () => {
+  for (const slug of slugs) {
+    const html = read(`dist/posts/${slug}/index.html`);
+    const image = html.match(/property="og:image" content="([^"]+)"/)[1];
+    assert.ok(!image.endsWith('/assets/og/og-jisan.png'), slug);
+    if (new URL(image).hostname !== 'jisan.cmdspace.work') continue;
+    assert.ok(readFileSync(new URL(`dist${new URL(image).pathname}`, root)).length > 0);
+    if (/\.jpe?g$/.test(image)) assert.match(html, /property="og:image:type" content="image\/jpeg"/);
+  }
+});

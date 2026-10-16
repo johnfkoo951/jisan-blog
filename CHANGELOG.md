@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-16 — Shared engagement activation and article hygiene
+- Connected a dedicated free Redis database to production only; signing secrets are server-only.
+- Added an eight-second network timeout to engagement requests and removed an unnecessary API redirect.
+- Filled two missing heroes with existing editorial artwork; added dated historical-context notes in the canonical manuscripts before syncing. Historical scores and subscriber counts remain unchanged.
+- Fixed Open Graph image MIME type and dimensions to reflect actual PNG/JPEG bytes rather than hard-coded PNG/1200×630 values.
+- Added a regression gate requiring an existing article hero for every post.
+- Production checks passed: real view deduplication, persisted/reversible likes, concurrent idempotent likes, second-browser shared counts, origin rejection, and simulated failure recovery. All 70 checked public image/external URLs responded; no missing local links across 27 articles.
+
 ## 2026-10-16 — Reset reading size
 - Added an accessible default-size button beside the font controls. Restores and persists the default 18px size with status feedback; blocked browser storage remains non-fatal.
 - Added the reset control to the all-article build regression checks.
