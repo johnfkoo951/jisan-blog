@@ -6,7 +6,7 @@ kind: 에세이
 summary: 메타데이터 태그 시스템은 들뢰즈적 구조(Rhizome) 위에서 작동하는 루만적 기계(System)이다. 연결하라, 그리고 선택하라, 선택한 것을 다시 연결하라. 이 리듬이 계속되는 한 당신의 지식은 살아 숨 쉰다.
 series: 지식의 지형학
 seriesOrder: 3
-updated: 2026-08-27
+updated: 2026-10-16
 ---
 ![풀밭 위의 미로 — 리좀과 시스템이 공존하는 지형](/images/topology-of-knowledge-3/hero-topology-of-knowledge-3.jpg)
 
@@ -18,9 +18,9 @@ updated: 2026-08-27
 
 답부터 말하겠다. 루만은 이미 그것을 만들었다. 9만 장의 메모 카드로.
 
-## 체텔카스텐이라는 원형
+## 제텔카스텐이라는 원형
 
-루만의 체텔카스텐(Zettelkasten)을 다시 들여다보자. 이 메모 상자가 시리즈의 결론이 되는 이유는, 그것이 들뢰즈와 루만의 이론이 만나는 정확한 교차점이기 때문이다.
+루만의 제텔카스텐(Zettelkasten)을 다시 들여다보자. 이 메모 상자가 시리즈의 결론이 되는 이유는, 그것이 들뢰즈와 루만의 이론이 만나는 정확한 교차점이기 때문이다.
 
 **구조적으로는 들뢰즈적이다.** 목차도, 위계도, 중심도 없다. 카드는 1, 1a, 1a1, 1b처럼 임의의 번호를 달고 수평적으로 뻗어나간다. 카드 1a에서 카드 57b로 점프하는 참조 링크가 있다. 어디서든 연결되고, 끊어져도 다른 곳에서 이어진다. 리좀이다.
 
@@ -108,8 +108,8 @@ updated: 2026-08-27
 
 - 📚 질 들뢰즈·펠릭스 가타리, 《천개의 고원》 (김재인 역, 새물결) — 리좀, 매끄러운/줄무늬 공간의 원전
 - 📚 니클라스 루만, 《사회의 사회》 (장춘익 역) — 자기생산, 2차 관측의 핵심 저서
-- 📚 Sönke Ahrens, 《How to Take Smart Notes》 — 체텔카스텐의 현대적 실천
+- 📚 Sönke Ahrens, 《How to Take Smart Notes》 — 제텔카스텐의 현대적 실천
 - 📚 송길영, 《시대예보: 핵개인의 시대》 — 개인 지식 시스템의 시대적 맥락
-- 🔗 [Niklas Luhmann-Archiv](https://niklas-luhmann-archiv.de/) — 루만 체텔카스텐 디지털 아카이브
+- 🔗 [Niklas Luhmann-Archiv](https://niklas-luhmann-archiv.de/) — 루만 제텔카스텐 디지털 아카이브
 - 🔗 [W3C SKOS Primer](https://www.w3.org/TR/skos-primer/) — 개념/라벨 분리 표준
 - 🔗 [Dublin Core](https://www.dublincore.org/) — 최소 상호운용 메타데이터 표준

@@ -46,3 +46,12 @@ test('Korean bold closes before particles even after punctuation', () => {
     assert.doesNotMatch(text, /\*\*/, `unrendered bold: ${slug}`);
   }
 });
+
+// 저자 용어 표기 가드 — 정본은 볼트 「지산 퍼블리싱 프로그램/11-용어집」. 금지 표기를 찾으면 실패한다.
+const BANNED_TERMS = { '체텔카스텐': '제텔카스텐' };
+test('posts use the author glossary spelling', () => {
+  for (const slug of slugs) {
+    const src = read(`content/posts/${slug}.md`);
+    for (const [bad, good] of Object.entries(BANNED_TERMS)) assert.ok(!src.includes(bad), `${slug}: ${bad} → ${good}`);
+  }
+});
