@@ -64,6 +64,8 @@ test('all articles receive two accessible rails without losing fallback navigati
     assert.match(html,/data-panel-toggle="info" aria-controls="reader-info-panel" aria-expanded="false"/);
     assert.match(html,/마크다운 원문/);
     assert.match(html,/data-copy-url/);
+    assert.match(html,new RegExp(`data-copy-markdown="/posts/${slug}/index.md"`));
+    assert.match(html,/id="markdown-copy-status" role="status" aria-live="polite"/);
   }
   assert.doesNotMatch(read('dist/index.html'),/id="reader-toc-panel"/);
 });

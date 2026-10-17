@@ -41,6 +41,9 @@ const server = createServer((req,res)=>{
       await goto(page,slug);const initial=await box(page);
       await openInfo(page);
       assert.deepEqual(await box(page),initial,slug);
+      await page.locator('[data-copy-markdown]').click();
+      await page.waitForFunction(()=>document.querySelector('#markdown-copy-status').textContent==='마크다운 원문을 복사했습니다.');
+      assert.equal(await page.evaluate(()=>navigator.clipboard.readText()),readFileSync(path.join(dist,`posts/${slug}/index.md`),'utf8'),slug+' markdown clipboard');
       const prose=await page.locator('.prose').boundingBox();const right=await page.locator('#reader-info-panel').boundingBox();
       assert(right.x>=prose.x+prose.width+12,slug);
       if(await page.locator('#reader-toc-panel').isHidden())await page.locator('[data-panel-toggle=toc]').click();
@@ -54,6 +57,26 @@ const server = createServer((req,res)=>{
     assert(await page.locator('#reader-info-panel').isVisible());
     await page.locator('[data-copy-url]').click();assert.equal(await page.evaluate(()=>navigator.clipboard.readText()),'https://jisan.cmdspace.work/posts/omnisearch-google-research/');
     const cite=page.locator('#reader-info-panel .cite-copy');const expected=await cite.getAttribute('data-cite');await cite.click();assert.equal(await page.evaluate(()=>navigator.clipboard.readText()),expected);
+  });
+  await test('Markdown HTTP failure preserves clipboard and allows a successful retry',async()=>{
+    await goto(page);await openInfo(page);await page.evaluate(()=>navigator.clipboard.writeText('keep-existing-clipboard'));
+    await page.route('**/posts/omnisearch-google-research/index.md',route=>route.fulfill({status:500,body:'unavailable'}));
+    await page.locator('[data-copy-markdown]').click();await page.waitForFunction(()=>document.querySelector('#markdown-copy-status').textContent.includes('복사하지 못했습니다'));
+    assert.equal(await page.evaluate(()=>navigator.clipboard.readText()),'keep-existing-clipboard');assert(await page.locator('[data-copy-markdown]').isEnabled());
+    await page.unroute('**/posts/omnisearch-google-research/index.md');await page.locator('[data-copy-markdown]').click();await page.waitForFunction(()=>document.querySelector('#markdown-copy-status').textContent==='마크다운 원문을 복사했습니다.');
+    assert.equal(await page.evaluate(()=>navigator.clipboard.readText()),readFileSync(path.join(dist,'posts/omnisearch-google-research/index.md'),'utf8'));
+  });
+  await test('Markdown clipboard denial is reported without a false success',async()=>{
+    const p=await newPage(390);await goto(p);await openInfo(p);
+    await p.evaluate(()=>{Object.defineProperty(navigator,'clipboard',{value:{write:()=>Promise.reject(new DOMException('Denied','NotAllowedError')),writeText:()=>Promise.reject(new DOMException('Denied','NotAllowedError'))}});});
+    await p.locator('[data-copy-markdown]').click();await p.waitForFunction(()=>document.querySelector('#markdown-copy-status').textContent.includes('복사하지 못했습니다'));
+    assert(await p.locator('#markdown-copy-status').isVisible());assert(await p.locator('[data-copy-markdown]').isEnabled());assert.deepEqual(p.errors,[]);await p.context().close();
+  });
+  await test('Markdown text-only clipboard fallback copies the same full source',async()=>{
+    const p=await newPage(390);await goto(p);await openInfo(p);
+    await p.evaluate(()=>{Object.defineProperty(window,'ClipboardItem',{value:undefined});});await p.locator('[data-copy-markdown]').click();
+    await p.waitForFunction(()=>document.querySelector('#markdown-copy-status').textContent==='마크다운 원문을 복사했습니다.');
+    assert.equal(await p.evaluate(()=>navigator.clipboard.readText()),readFileSync(path.join(dist,'posts/omnisearch-google-research/index.md'),'utf8'));assert(await p.locator('#markdown-copy-status').isVisible());await p.context().close();
   });
   await test('heading click and scroll synchronize active section and child headings',async()=>{
     await goto(page);const target=page.locator('[data-toc-section]').filter({hasText:'10분 안에'}).first();const id=await target.getAttribute('data-toc-section');
@@ -125,6 +148,8 @@ const server = createServer((req,res)=>{
     await page.emulateMedia({media:'print'});assert(await page.locator('#reader-toc-panel').isHidden());assert(await page.locator('#reader-info-panel').isHidden());assert(await page.locator('.prose').isVisible());
     await page.emulateMedia({media:'screen'});await page.setViewportSize({width:390,height:844});await page.locator('[data-panel-toggle=info]').click();
     if(process.env.TEST_OUTPUT_DIR) await page.screenshot({path:path.join(process.env.TEST_OUTPUT_DIR,'reader-sidebars-mobile.png')});
+    await page.locator('[data-copy-markdown]').click();await page.waitForFunction(()=>document.querySelector('#markdown-copy-status').textContent==='마크다운 원문을 복사했습니다.');
+    if(process.env.TEST_OUTPUT_DIR) await page.screenshot({path:path.join(process.env.TEST_OUTPUT_DIR,'reader-markdown-copy.png')});
   });
   console.log(`\n${passed.length} browser scenarios passed across ${slugs.length} posts.`);
  } finally {await browser.close();await new Promise(resolve=>server.close(resolve));}

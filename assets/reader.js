@@ -131,6 +131,38 @@
       try { await navigator.clipboard.writeText(url); announce('현재 절 링크를 복사했습니다.'); }
       catch { announce('자동 복사를 지원하지 않습니다. 목차 링크의 주소를 복사해 주세요.'); }
     });
+    let markdownPromise;
+    const markdownButton = document.querySelector('[data-copy-markdown]');
+    const markdownStatus = document.querySelector('#markdown-copy-status');
+    const loadMarkdown = () => {
+      if (!markdownPromise) markdownPromise = fetch(markdownButton.dataset.copyMarkdown, { signal:AbortSignal.timeout(8000) })
+        .then(response => {
+          if (!response.ok || /text\/html/i.test(response.headers.get('content-type') || '')) throw new Error('Markdown unavailable');
+          return response.text();
+        }).catch(error => { markdownPromise = null; throw error; });
+      return markdownPromise;
+    };
+    markdownButton?.addEventListener('click', async () => {
+      if (markdownButton.disabled) return;
+      markdownButton.disabled = true; markdownButton.textContent = '원문 불러오는 중…'; markdownStatus.textContent = '';
+      try {
+        const source = loadMarkdown();
+        if (navigator.clipboard?.write && typeof ClipboardItem !== 'undefined') {
+          // Start the clipboard operation during the click; Safari can resolve the text promise later.
+          const blob = source.then(text => new Blob([text], { type:'text/plain' }));
+          blob.catch(() => {});
+          await navigator.clipboard.write([new ClipboardItem({ 'text/plain':blob })]);
+        } else {
+          const text = await source;
+          await navigator.clipboard.writeText(text);
+        }
+        markdownStatus.textContent = '마크다운 원문을 복사했습니다.';
+      } catch {
+        markdownStatus.textContent = '원문을 복사하지 못했습니다. 위의 원문 링크를 열어 직접 복사해주세요.';
+      } finally {
+        markdownButton.disabled = false; markdownButton.textContent = '마크다운 원문 복사';
+      }
+    });
     document.querySelectorAll('[data-copy-url]').forEach(button => button.addEventListener('click', async () => {
       try { await navigator.clipboard.writeText(document.querySelector('link[rel="canonical"]').href); announce('글 주소를 복사했습니다.'); }
       catch { announce('자동 복사를 지원하지 않습니다. 아래 인용문의 주소를 복사해 주세요.'); }

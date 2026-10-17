@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-17 — Markdown source clipboard
+- Added a shared full-Markdown copy button below the raw-source link, using the public index.md including its public frontmatter.
+- Added loading state, success/error feedback, retryable failed fetches and a gesture-preserving clipboard path with text fallback.
+- Verified exact source copying for all 29 articles and failure/permission/fallback cases; browser coverage increased to 21 scenarios.
+
 ## 2026-10-17 — Shared reader sidebars
 - Deployed after approval; verified all 29 live HTML/Markdown endpoints, desktop and mobile interactions, keyword search, and zero SEO failures.
 - Added shared heading and information rails to all current/future article pages without editing article sources or canonical URLs.
