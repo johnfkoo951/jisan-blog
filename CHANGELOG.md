@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-10-17 — Shared reader sidebars
+- Deployed after approval; verified all 29 live HTML/Markdown endpoints, desktop and mobile interactions, keyword search, and zero SEO failures.
+- Added shared heading and information rails to all current/future article pages without editing article sources or canonical URLs.
+- Added active H2–H4 navigation, section-link copying, explicit author keyword/related overrides, labeled text-match keywords, source resources and citation/URL actions.
+- Preserved the desktop reading measure; added one-at-a-time modal drawers, focus handling, IME/modifier guards, blocked-storage and legacy/no-JS fallbacks, and print behavior.
+- Connected keyword links to prefilled archive search and included keywords in the search index.
+- Corrected SEO auditing of actual Markdown endpoints and added 26 unit/build/API checks plus 18 browser scenarios covering all 29 articles.
+- Documented the system in both README languages and a shared contract with desktop/mobile captures.
+
 ## 2026-10-16 — Operational safeguards
 - Added a Production environment kill switch that bypasses Redis and anonymous cookie issuance without interrupting static reading.
 - Added atomic per-browser read throttling and Retry-After responses. These are not global spending caps.

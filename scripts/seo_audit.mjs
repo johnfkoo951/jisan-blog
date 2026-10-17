@@ -11,7 +11,7 @@
 // 리포트: reports/seo-YYYY-MM-DD.md (gitignore — 로컬 운영 기록)
 
 import { readFileSync, readdirSync, existsSync, writeFileSync, mkdirSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, extname } from 'node:path';
 
 const ROOT = new URL('..', import.meta.url).pathname;
 const DIST = join(ROOT, 'dist');
@@ -81,7 +81,8 @@ function auditDist() {
     if (!html.includes('type="text/markdown"')) { issues.altmd++; add('WARN', 'GEO', 'markdown alternate link 없음', slug); }
     // 내부 링크 실존
     for (const m of html.matchAll(/href="(\/(?:posts|kind)\/[^"#]+)"/g)) {
-      const target = join(DIST, m[1], 'index.html');
+      const pathname = new URL(m[1], SITE).pathname;
+      const target = extname(pathname) ? join(DIST, pathname) : join(DIST, pathname, 'index.html');
       if (!existsSync(target)) { issues.links++; brokenLinks.push(`${slug} → ${m[1]}`); }
     }
     // AIO 신뢰 신호: 인용 블록 + 라이선스 + 바이라인

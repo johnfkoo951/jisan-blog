@@ -28,6 +28,11 @@ Features: light/dark theme (green `#134538` / pink `#E985A2`), per-post citation
 - Storage-safe light/dark preferences, keyboard focus, skip link, reduced motion, accessible status messages.
 - Shared views and reversible likes appear only when the metrics backend is configured and responds successfully. No fabricated counts or browser-local counters.
 
+## Shared article sidebars
+The common article template now provides a heading-navigation rail and a metadata rail for every post. Wide screens keep the reading column fixed; narrow screens use a single user-opened modal drawer. Keywords use author fields or explicitly labeled text matches, and link into archive search. Optional `keywords` and `relatedPosts` lists let authors refine the defaults without per-page UI work.
+
+See [the reader-sidebar contract](docs/reader-sidebars.md) for layout, metadata, keyboard/accessibility rules and screenshots. Run `npm run test:reader` with Chrome installed for the all-article browser checks. Deployed on 2026-10-17; all 29 live article pages and raw Markdown endpoints were verified against the local build/source.
+
 ## Optional engagement setup
 The Vercel function `api/engagement.js` requires server-only environment variables:
 - `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` (or `KV_REST_API_URL` / `KV_REST_API_TOKEN`). Use a Redis database dedicated to this blog.

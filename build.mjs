@@ -5,6 +5,7 @@
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, cpSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { marked } from 'marked';
+import { readerKeywords, preferredRelated, articleResources } from './lib/reader-metadata.mjs';
 
 // ───────────────────────── config ─────────────────────────
 const SITE = {
@@ -401,7 +402,41 @@ for (const p of posts) {
     if ((p.kind || '에세이') === (q.kind || '에세이')) s += 0.03;
     return { q, s };
   }).sort((x, y) => y.s - x.s).filter((x) => x.s > 0.08).slice(0, 3);
-  relatedMap.set(p.slug, scored.map((x) => x.q));
+  relatedMap.set(p.slug, preferredRelated(p, scored.map((x) => x.q), posts));
+}
+
+// ─────────────────── 공통 읽기 사이드바 ───────────────────
+const keywordMap = new Map(posts.map(p => [p.slug, readerKeywords(p)]));
+function sidebarToc(p) {
+  const groups = [];
+  for (const heading of p.toc) {
+    if (heading.level === 2 || !groups.length) groups.push({ heading, children: [] });
+    else groups.at(-1).children.push(heading);
+  }
+  const link = (h, group) => `<a href="#${h.id}" data-toc-section="${h.id}" data-toc-group="${group}" data-level="${h.level}">${h.label.replace(/<[^>]*>/g, '')}</a>`;
+  return groups.length ? `<ol class="rail-toc">${groups.map(({ heading, children }) => `<li data-toc-branch="${heading.id}">${link(heading, heading.id)}${children.length ? `<ol class="rail-toc-children" data-toc-children="${heading.id}" hidden>${children.map(h => `<li>${link(h, heading.id)}</li>`).join('')}</ol>` : ''}</li>`).join('')}</ol>` : '<p class="rail-muted">이 글에는 별도의 소제목이 없습니다.</p>';
+}
+function readerSidebars(p, related, citeText) {
+  const keywords = keywordMap.get(p.slug), resources = articleResources(p);
+  return `<div class="reader-panel-controls" hidden>
+<button type="button" class="rail-toggle rail-toggle-left" data-panel-toggle="toc" aria-controls="reader-toc-panel" aria-expanded="false" aria-label="목차 열기">목차</button>
+<button type="button" class="rail-toggle rail-toggle-right" data-panel-toggle="info" aria-controls="reader-info-panel" aria-expanded="false" aria-label="글 정보 열기">글 정보</button>
+</div>
+<div class="reader-backdrop" hidden></div>
+<aside class="reader-rail reader-rail-left" id="reader-toc-panel" aria-labelledby="reader-toc-title" tabindex="-1" hidden>
+<div class="rail-head"><h2 id="reader-toc-title">이 글의 목차</h2><button type="button" data-panel-close="toc" aria-label="목차 닫기">닫기</button></div>
+<div class="rail-scroll"><a class="rail-start" href="#article-title">글 처음으로</a><nav aria-label="헤딩 목차">${sidebarToc(p)}</nav><p class="rail-hint">현재 절의 하위 목차를 펼칩니다.</p><button type="button" class="tool-button rail-section-copy" data-copy-section>현재 절 링크 복사</button><p class="rail-feedback" data-panel-status role="status" aria-live="polite"></p></div>
+</aside>
+<aside class="reader-rail reader-rail-right" id="reader-info-panel" aria-labelledby="reader-info-title" tabindex="-1" hidden>
+<div class="rail-head"><h2 id="reader-info-title">글 정보</h2><button type="button" data-panel-close="info" aria-label="글 정보 닫기">닫기</button></div>
+<div class="rail-scroll">
+${keywords.terms.length ? `<section class="rail-section"><h3>${keywords.source === 'author' ? '주요 키워드' : '본문에서 찾은 키워드'}</h3><ul class="rail-keywords">${keywords.terms.map(term => `<li><a href="/?q=${encodeURIComponent(term)}">${esc(term)}</a></li>`).join('')}</ul></section>` : ''}
+${related.length ? `<section class="rail-section"><h3>관련 글</h3><ul class="rail-related">${related.map(other => `<li><a href="/posts/${other.slug}/">${esc(other.title)}</a><span class="rail-muted">${esc(other.kind || '에세이')}</span>${other.summary ? `<p>${esc(other.summary)}</p>` : ''}</li>`).join('')}</ul></section>` : ''}
+<section class="rail-section"><h3>발행 정보</h3><dl class="rail-facts"><dt>분류</dt><dd><a href="/kind/${kindSlug(p.kind || '에세이')}/">${esc(p.kind || '에세이')}</a></dd><dt>발행</dt><dd><time datetime="${esc(p.date)}">${fmtDate(p.date)}</time></dd>${p.updated ? `<dt>수정</dt><dd><time datetime="${esc(p.updated)}">${fmtDate(p.updated)}</time></dd>` : ''}<dt>읽기</dt><dd>약 ${p.min}분</dd></dl></section>
+<section class="rail-section"><h3>원문과 자료</h3><ul class="rail-resources"><li><a href="/posts/${p.slug}/index.md">마크다운 원문</a></li>${resources.map(resource => `<li><a href="${esc(resource.href)}">${resource.label}</a></li>`).join('')}</ul></section>
+<section class="rail-section"><h3>인용과 공유</h3><div class="rail-actions"><button type="button" class="tool-button cite-copy" data-cite="${esc(citeText)}">인용문 복사</button><button type="button" class="tool-button" data-copy-url>글 주소 복사</button></div><p class="rail-feedback" data-panel-status role="status" aria-live="polite"></p><p class="rail-citation">${esc(citeText)}</p></section>
+<p class="rail-hint">[ 목차 / ] 글 정보 / Esc 닫기</p>
+</div></aside>`;
 }
 
 // ─────────────────── 리스트 페이지 공통 (탭 + 검색) ───────────────────
@@ -450,10 +485,10 @@ for (const p of posts) {
   const relatedBox = rel.length ? `<aside class="related-box"><div class="related-label">함께 읽기</div><ul>${rel.map((r) => `<li><a href="/posts/${r.slug}/">${esc(r.title)}</a><span class="r-kind">${esc(r.kind || '에세이')} · ${fmtDate(r.date)}</span></li>`).join('')}</ul></aside>` : '';
   const toc = p.toc.filter(h => h.level === 2);
   const contents = toc.length > 1 ? `<details class="reader-toc"><summary>이 글의 목차 <span class="metrics">${toc.length}개</span></summary><nav aria-label="글 목차"><ol>${toc.map(h => `<li><a href="#${h.id}">${h.label.replace(/<[^>]*>/g, '')}</a></li>`).join('')}</ol></nav></details>` : '';
-  const body = `<div class="reading-progress" aria-hidden="true"><span></span></div><main id="main" class="wrap"><article class="post" data-slug="${esc(p.slug)}">
+  const body = `<div class="reading-progress" aria-hidden="true"><span></span></div>${readerSidebars(p, rel, citeText)}<main id="main" class="wrap reader-main"><article class="post" data-slug="${esc(p.slug)}">
 <a class="back-link" href="/">← 글 모음</a>
 <div class="p-kind"><a href="/kind/${kindSlug(p.kind || '에세이')}/">${esc(p.kind || '에세이')}</a></div>
-<h1>${esc(p.title)}</h1>
+<h1 id="article-title" tabindex="-1">${esc(p.title)}</h1>
 <div class="byline"><b>${SITE.authorKo}</b> · 紙散 &nbsp;·&nbsp; <span>발행 <b>${fmtDate(p.date)}</b></span> ${updated} ${firstPub} &nbsp;·&nbsp; ${p.min}분 읽기 <span class="metrics" id="viewCount" title="집계 도입 이후, 브라우저별 하루 한 번 집계한 조회수" hidden></span></div>
 ${p.summary ? `<p class="article-summary">${esc(p.summary)}</p>` : ''}
 ${p.series ? `<details class="series-box"><summary class="series-label">${esc(p.series)} <span class="series-here">${p.seriesOrder} / ${seriesMap[p.series].length}편 · 시리즈 보기</span></summary><nav aria-label="시리즈"><ol>${seriesMap[p.series].map((sp) => sp.slug === p.slug ? `<li><b>${esc(sp.title)}</b> <span class="series-here">지금 읽는 글</span></li>` : `<li><a href="/posts/${sp.slug}/">${esc(sp.title)}</a></li>`).join('')}</ol></nav></details>` : ''}
@@ -548,6 +583,7 @@ writeFileSync(join(DIST, 'search-index.json'), JSON.stringify(posts.map((p) => (
   date: p.date,
   summary: p.summary || '',
   headings: p.headings,
+  keywords: keywordMap.get(p.slug).terms,
   text: p.plain,
 }))));
 

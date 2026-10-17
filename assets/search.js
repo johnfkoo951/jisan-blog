@@ -39,9 +39,9 @@
       if (query !== input.value.trim()) return;
       const terms = query.toLowerCase().split(/\s+/);
       const matches = data.map(post => {
-        const fields = [post.title, post.headings.join(' '), post.summary || '', post.text].map(s => s.toLowerCase());
+        const fields = [post.title, (post.keywords || []).join(' '), post.headings.join(' '), post.summary || '', post.text].map(s => s.toLowerCase());
         const score = terms.every(term => fields.some(field => field.includes(term)))
-          ? terms.reduce((total, term) => total + fields.reduce((sum, field, i) => sum + (field.includes(term) ? [10, 5, 4, 1][i] : 0), 0), 0) : 0;
+          ? terms.reduce((total, term) => total + fields.reduce((sum, field, i) => sum + (field.includes(term) ? [10, 6, 5, 4, 1][i] : 0), 0), 0) : 0;
         return { post, score };
       }).filter(row => row.score).sort((a, b) => b.score - a.score);
       results.innerHTML = matches.slice(0, 20).map(({ post }) => {
@@ -66,5 +66,7 @@
     if (((event.metaKey || event.ctrlKey) && event.key === 'k') || (!editing && !event.metaKey && !event.ctrlKey && event.key === '/')) { event.preventDefault(); input.focus(); }
     if (event.key === 'Escape' && event.target === input) { input.value = ''; search(); input.blur(); }
   });
-  if (new URLSearchParams(location.search).has('search')) input.focus();
+  const parameters = new URLSearchParams(location.search);
+  if (parameters.has('q')) { input.value = parameters.get('q').slice(0, 200); search(); }
+  if (parameters.has('search')) input.focus();
 })();

@@ -55,3 +55,20 @@ test('posts use the author glossary spelling', () => {
     for (const [bad, good] of Object.entries(BANNED_TERMS)) assert.ok(!src.includes(bad), `${slug}: ${bad} → ${good}`);
   }
 });
+
+test('all articles receive two accessible rails without losing fallback navigation', () => {
+  for (const slug of slugs) {
+    const html=read(`dist/posts/${slug}/index.html`);
+    for(const id of ['reader-toc-panel','reader-info-panel','reader-toc-title','reader-info-title','article-title']) assert.equal((html.match(new RegExp(`id="${id}"`,'g'))||[]).length,1,`${slug}: ${id}`);
+    assert.match(html,/data-panel-toggle="toc" aria-controls="reader-toc-panel" aria-expanded="false"/);
+    assert.match(html,/data-panel-toggle="info" aria-controls="reader-info-panel" aria-expanded="false"/);
+    assert.match(html,/마크다운 원문/);
+    assert.match(html,/data-copy-url/);
+  }
+  assert.doesNotMatch(read('dist/index.html'),/id="reader-toc-panel"/);
+});
+test('keyword search index is populated only with bounded text labels', () => {
+  const index=JSON.parse(read('dist/search-index.json'));
+  for(const post of index){assert(Array.isArray(post.keywords));assert(post.keywords.length<=8);assert(post.keywords.every(k=>typeof k==='string'&&k.trim().length>0));}
+  assert(index.find(p=>p.slug==='omnisearch-google-research').keywords.includes('Omnisearch'));
+});
