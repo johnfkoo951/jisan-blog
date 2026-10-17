@@ -2,11 +2,16 @@
 title: Schema는 Harness다 — Karpathy LLM Wiki와 CMDS의 구조적 동치
 slug: schema-is-harness
 date: 2026-04-07
-updated: 2026-09-04
+updated: 2026-10-17
 kind: 프레임워크
 summary: Karpathy의 LLM Wiki, 구요한의 CMDS, 그리고 Google OKF — 서로 다른 분야에서 독립적으로 같은 구조에 도달했다. RAG는 매번 재유도하지만 Wiki는 누적된다. 그리고 Schema 레이어는 정확히 하네스다.
+citationTitleSource: "Schema는 Harness다 — Karpathy LLM Wiki와 CMDS의 구조적 동치"
+citationTitleEn: "Schema is harness: Structural equivalence between Karpathy's LLM Wiki and CMDS"
+citationTitleRomanized: "Schema-neun Harness-da — Karpathy LLM Wiki-wa CMDS-ui gujojeok dongchi"
 ---
-![세 갈래 길이 하나의 3층 구조로 수렴하는 풍경](/images/schema-is-harness/hero-schema-is-harness.jpg)
+
+![세 갈래 길이 하나의 층위 구조로 모이는 풍경으로 스키마와 하네스의 구조적 연결을 표현했다.](/images/schema-is-harness/hero-schema-is-harness.jpg "AI 생성 일러스트. 세 갈래 길이 하나의 층위 구조로 모이는 풍경으로 스키마와 하네스의 구조적 연결을 표현했다.")
+
 
 > Karpathy의 LLM Wiki와 CMDS의 구조적 동치에 관한 보고서 · 2026-04-07 작성, 2026-06-17 OKF 후속 추가
 

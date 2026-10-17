@@ -4,8 +4,14 @@ slug: omnisearch-google-research
 date: 2026-10-17T12:30
 kind: 기술
 summary: "루만의 소통과 지식 연결성을 실제로 검색하며 Google의 웹 자료와 내 옵시디언 기록을 비교한다. Omnisearch 사용자 스크립트의 전체 소스, 멀티볼트 설정, 필터와 문제 해결을 정리했다."
+citationTitleSource: "Google 검색 옆에 내 노트를 꺼내 놓기"
+citationTitleEn: "Bringing my notes alongside Google search"
+citationTitleRomanized: "Google geomsaek yeope nae noteureul kkeonae noki"
+updated: 2026-10-17
 ---
-![Google 웹 검색과 옵시디언의 Knowledge Connectivity 연구 기록이 나란히 표시된 실제 화면](/images/omnisearch-google-research/hero-omnisearch-google-research.png "같은 검색어로 만난 두 목록. 왼쪽은 Google의 웹 자료, 오른쪽은 내가 축적한 옵시디언 기록이다.")
+
+![Google 검색 결과와 옵시디언의 지식 연결성 기록이 나란히 표시된 실제 화면](/images/omnisearch-google-research/hero-omnisearch-google-research.png "실제 구동 화면 캡처. 2026-10-17 Chrome에서 같은 검색어로 만난 Google 웹 자료와 옵시디언 기록이다. 비교 영역을 잘라 사용했고 내부 경로는 가렸다.")
+
 
 검색하다가 익숙한 논문 제목을 만난다. 분명 읽었던 글이다. 메모도 남겼을 것이다. 그런데 그 메모를 찾으려면 검색을 멈추고 다른 앱으로 가야 한다. 새로 발견한 자료와 이미 읽은 기록 사이에 작은 단절이 생긴다.
 
@@ -21,7 +27,8 @@ summary: "루만의 소통과 지식 연결성을 실제로 검색하며 Google�
 
 오른쪽은 다른 목록이다. Main 볼트를 선택하자 내 볼트의 서지 검증 기록과 「Review of Seidl and Becker (2006)」가 보였다. 같은 검색어의 로컬 API 응답에서는 「Luhmann's Systems Theory」와 루만의 작업을 정리한 노트도 확인했다.
 
-![루만의 소통을 검색한 Google 논문 목록과 Main 볼트의 연구 기록](/images/omnisearch-google-research/figure-01-luhmann-search.png "그림 1. 실제 Chrome의 `Luhmann's communication` 검색. Google의 문헌 목록과 Main 볼트의 결과를 나란히 읽는다. 상위에 연구 작업 기록이 섞이는 모습도 그대로 남겼다. 브라우저 계정 영역은 잘라 내고 내부 경로는 가렸다.")
+![루만의 소통을 검색한 웹 문헌과 Main 볼트 연구 기록](/images/omnisearch-google-research/figure-01-luhmann-search.png "실제 구동 화면 캡처. 그림 1. 2026-10-17 Chrome의 Luhmann's communication 검색이다. Google 문헌 목록과 Main 볼트의 결과를 비교하며, 연구 작업 기록이 상위에 섞이는 모습도 남겼다. 계정 영역과 내부 경로는 제거하거나 가렸다.")
+
 
 두 목록의 차이는 단순히 ‘인터넷 대 로컬’이 아니다. 왼쪽은 **이 주제에 관해 어디로 갈 수 있는가**, 오른쪽은 **이 주제에서 내가 어디까지 왔는가**를 보여준다. 내가 남긴 비판, 비교, 다음에 확인할 질문은 웹 검색만으로 되찾기 어렵다.
 
@@ -31,7 +38,8 @@ summary: "루만의 소통과 지식 연결성을 실제로 검색하며 Google�
 
 오른쪽에는 `Knowledge Connectivity` Canvas, `Knowledge Connectivity 연구 아이디어`, 내가 쓴 `Knowledge Connectivity` 노트, 문헌 검토가 나타났다. 논문의 제목만이 아니라 그 논문을 읽고 연결해 둔 생각의 흔적을 다시 만나는 셈이다.
 
-![지식 연결성을 검색한 Google 결과와 개인 Canvas 및 문헌 노트](/images/omnisearch-google-research/figure-02-connectivity-search.png "그림 2. 실제 `knowledge connectivity` 검색. 왼쪽의 외부 연구와 오른쪽의 Canvas·아이디어·노트를 비교한다. Canvas가 높은 점수를 받고 Markdown 노트에는 낮은 상대 점수가 표시된다는 점도 볼 수 있다. 내부 경로가 포함된 행은 가렸다.")
+![지식 연결성의 웹 검색 결과와 개인 Canvas 및 Markdown 노트](/images/omnisearch-google-research/figure-02-connectivity-search.png "실제 구동 화면 캡처. 그림 2. 2026-10-17 knowledge connectivity 검색의 웹 연구와 개인 Canvas·아이디어·노트다. Canvas와 Markdown의 상대 점수 차이도 그대로 남겼으며, 내부 경로가 포함된 행은 가렸다.")
+
 
 내가 2022년에 남긴 Cano-Kollmann 논문 검토에는 지식 연결성을 ‘개인의 지식을 외부 지식과 융합할 수 있는 상태로 유지하는 것’으로 확장해 보려는 메모가 있다. 논문의 원래 연구 맥락은 국제경영과 혁신이다. 그것을 개인 지식관리의 문제로 가져온 것은 내 해석이다. 이 구분을 유지하면서, 새로 찾은 자료를 당시의 질문에 다시 연결할 수 있다.
 
@@ -84,7 +92,8 @@ Google에 `knowledge connectivity`를 입력한다. 오른쪽에 **내 노트에
 ## 설정 화면: 볼트마다 무엇을 넣어야 하나
 패널 오른쪽 위 **설정**을 누른다. 먼저 Vault 1부터 Vault 6까지의 슬롯이 나온다. 슬롯은 볼트 연결 정보를 한 묶음으로 저장하는 자리다.
 
-![Main과 Wiki의 Omnisearch 포트를 설정하는 실제 Vault 슬롯 화면](/images/omnisearch-google-research/figure-03-vault-settings.png "그림 3. 실제 Chrome의 볼트 설정. Main과 Wiki의 검색 포트만 연결했고, 등록 볼트명 자동 감지와 나머지 선택 항목은 빈칸으로 두었다. 캡처에 API 키와 개인 파일 경로는 없다.")
+![Main과 Wiki의 포트를 지정하는 Omnisearch 설정 화면](/images/omnisearch-google-research/figure-03-vault-settings.png "실제 설정 화면 캡처. 그림 3. Chrome에서 Main과 Wiki의 Omnisearch 포트를 연결한 화면이다. 자동 볼트명 감지와 선택 항목을 빈칸으로 두었고 API 키와 개인 경로는 포함하지 않았다.")
+
 
 | 화면의 항목 | 무엇을 넣는가 | 처음 시작할 때 |
 |---|---|---|
@@ -103,7 +112,8 @@ Google에 `knowledge connectivity`를 입력한다. 오른쪽에 **내 노트에
 ## 공통 설정: 읽기 좋은 기본값부터
 볼트 슬롯 아래로 스크롤하면 공통 설정이 나온다.
 
-![색상, 미리보기, 제외 경로와 앱 열기를 지정하는 실제 공통 설정 화면](/images/omnisearch-google-research/figure-04-general-settings.png "그림 4. 실제 공통 설정 화면. CMDS/Clean/Accent/Top 조합을 사용하고, REST 보강과 Advanced URI는 꺼 둔 기본 경로다.")
+![색상, 제외 경로, 미리보기와 열기 방식을 정하는 공통 설정 화면](/images/omnisearch-google-research/figure-04-general-settings.png "실제 설정 화면 캡처. 그림 4. CMDS/Clean/Accent/Top 조합을 사용하는 공통 설정이다. REST 보강과 Advanced URI는 꺼 둔 상태다.")
+
 
 | 설정 | 추천 시작값 | 이유 |
 |---|---|---|

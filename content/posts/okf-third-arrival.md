@@ -4,9 +4,14 @@ slug: okf-third-arrival
 date: 2026-06-17
 kind: 프레임워크
 summary: Google Cloud가 지식을 마크다운+frontmatter 디렉토리로 표현하는 OKF v0.1을 공개했다. Karpathy와 kepano에 이은 세 번째 독립 수렴 — 이번엔 하이퍼스케일러가, 명세 형태로 도착했다. 그리고 OKF의 침묵이 곧 CMDS의 해자다.
-updated: 2026-08-17
+updated: 2026-10-17
+citationTitleSource: "OKF, 같은 구조의 세 번째 도착 — Google Open Knowledge Format와 CMDS"
+citationTitleEn: "OKF, the third arrival at the same structure: Google Open Knowledge Format and CMDS"
+citationTitleRomanized: "OKF, gateun gujoui se beonjjae dochak — Google Open Knowledge Format-wa CMDS"
 ---
-![같은 아카이브로 열리는 세 개의 문 — 세 번째 도착](/images/okf-third-arrival/hero-okf-third-arrival.jpg)
+
+![서로 다른 문이 하나의 기록 공간으로 이어지는 모습으로 구조의 독립적 수렴을 표현했다.](/images/okf-third-arrival/hero-okf-third-arrival.jpg "AI 생성 일러스트. 서로 다른 문이 하나의 기록 공간으로 이어지는 모습으로 구조의 독립적 수렴을 표현했다.")
+
 
 > **작성일**: 2026년 6월 17일 · **분류**: 지식 관리 시스템 비교 분석
 > **원본 자료**: GitHub `GoogleCloudPlatform/knowledge-catalog/okf` (SPEC.md + enrichment-agent README)

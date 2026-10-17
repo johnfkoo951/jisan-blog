@@ -6,9 +6,14 @@ kind: 소개
 series: "CMDSPACE 생태계"
 seriesOrder: 4
 summary: AI 에이전트가 함께 굴리는 지식관리 시스템의 성숙도를 5필러 25기준으로 잰다. 증거 없는 점수는 없다. 그리고 만든 사람이 중위권이라는 것이 이 평가표의 가장 좋은 증거다.
+citationTitleSource: "측정할 수 없으면 복리도 없다 — AKM Index"
+citationTitleEn: "Without measurement, there is no compounding: AKM Index"
+citationTitleRomanized: "Cheukjeonghal su eopseumyeon bongnido eopda — AKM Index"
+updated: 2026-10-17
 ---
 
-![문서 더미 위에 놓인 정밀 다이얼 게이지](/images/akm-index/hero-akm-index.jpg)
+![문서 위의 다이얼 게이지로 지식 시스템을 측정하는 AKM Index의 관점을 표현했다. 실제 측정 장치 사진은 아니다.](/images/akm-index/hero-akm-index.jpg "AI 생성 일러스트. 문서 위의 다이얼 게이지로 지식 시스템을 측정하는 AKM Index의 관점을 표현했다. 실제 측정 장치 사진은 아니다.")
+
 
 "AI 에이전트가 함께 굴리는 지식관리, 몇 점입니까?" [akm.cmdspace.work](https://akm.cmdspace.work) 는 이 질문 하나로 만든 사이트다. AKM은 Agentic Knowledge Management의 약자다. 측정 대상은 노트 필기 실력이 아니다. 사람, 지식 기반, 에이전트 런타임, 운영 루프를 하나의 시스템으로 보고 그 성숙도를 잰다. **노트가 아니라 시스템을 채점하라.** 이것이 루브릭의 철학이다.
 

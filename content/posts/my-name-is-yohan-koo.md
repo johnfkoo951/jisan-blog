@@ -4,8 +4,14 @@ slug: my-name-is-yohan-koo
 date: 2026-09-01
 kind: 에세이
 summary: 具耀翰이라는 이름과 세례요한의 부르심을 따라, 옵시디언과 마크다운으로 하나님과 세상의 기록을 다음 사람에게 건네는 나의 정체성을 묵상한다.
+citationTitleSource: "내 이름은 구요한이다 — 갖추고, 빛내고, 기록하는 부르심"
+citationTitleEn: "My name is Yohan Koo: A calling to equip, illuminate, and record"
+citationTitleRomanized: "Nae ireumeun guyohanida — Gatchugo, binnaego, girokaneun bureusim"
+updated: 2026-10-17
 ---
-![깃펜에서 이어진 기록의 연결망과 앞으로 흐르는 빛의 길](/images/my-name-is-yohan-koo/hero-my-name-is-yohan-koo.png)
+
+![깃펜에서 이어지는 점과 선, 앞으로 뻗는 빛의 길](/images/my-name-is-yohan-koo/hero-my-name-is-yohan-koo.png "AI 생성 일러스트. 깃펜에서 이어지는 기록의 연결망과 빛의 길로, 이름에 담긴 기록의 의미와 부르심을 표현했다.")
+
 
 > **具耀翰. 갖출 구, 빛낼 요, 깃 한.**
 >

@@ -6,9 +6,14 @@ kind: 소개
 series: "CMDSPACE 생태계"
 seriesOrder: 6
 summary: 노트 앱은 쓰기 화면으로 열리지만, 지식노동의 실제 시간은 읽고 검토하고 배분하는 데 쓰인다. 그 순서를 인터페이스로 만들었다. macOS 네이티브, 무료 오픈소스.
+citationTitleSource: "읽기가 먼저다 — 리뷰 우선 마크다운 에디터 CmdMD"
+citationTitleEn: "Reading comes first: CmdMD, a review-first Markdown editor"
+citationTitleRomanized: "Ilgiga meonjeoda — Ribyu useon makeudaun editeo CmdMD"
+updated: 2026-10-17
 ---
 
-![문서를 비추는 돋보기와 서랍으로 갈라지는 종이 길](/images/cmdmd/hero-cmdmd.jpg)
+![돋보기와 문서·서랍의 연결로 읽기와 검토를 먼저 두는 CmdMD의 방향을 표현했다. 앱 화면 캡처는 아니다.](/images/cmdmd/hero-cmdmd.jpg "AI 생성 일러스트. 돋보기와 문서·서랍의 연결로 읽기와 검토를 먼저 두는 CmdMD의 방향을 표현했다. 앱 화면 캡처는 아니다.")
+
 
 AI가 초안을 쓰는 시대에 사람의 일이 바뀌었다. 백지에서 쓰는 시간보다, 만들어진 문서를 읽고 판단하고 제자리에 보내는 시간이 길어졌다. 코드 리뷰가 개발의 일상이 됐듯이, 노트 리뷰가 지식노동의 일상이 됐다.
 

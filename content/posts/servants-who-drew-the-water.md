@@ -4,8 +4,14 @@ slug: servants-who-drew-the-water
 date: 2026-10-17
 kind: 에세이
 summary: 같은 포도주를 연회장도 마셨고 물 떠온 하인들도 마셨다. 기적은 모두에게 일어났지만 표적은 하인들에게만 읽혔다. 요한복음의 표적을 루만의 소통 이론으로 넓혀, 생성형 AI가 구경거리에서 일하는 방식이 되는 순간을 묻는다.
+citationTitleSource: "물 떠온 하인들은 알더라 — 기적은 경계를 흔들고, 표적은 소통을 시작한다"
+citationTitleEn: "The servants who drew the water knew: Miracles unsettle boundaries, and signs begin communication"
+citationTitleRomanized: "Mul tteoon haindeureun aldeora — Gijeogeun gyeonggyereul heundeulgo, pyojeogeun sotongeul sijakanda"
+updated: 2026-10-17
 ---
-![돌항아리에서 물을 떠 올리는 하인의 두 손, 바가지 속 물만 장밋빛으로 물든 순간](/images/servants-who-drew-the-water/hero-servants-who-drew-the-water.png)
+
+![요한복음 2장의 물항아리와 물을 떠 올리는 하인의 손을 통해 기적과 표적의 차이를 표현했다.](/images/servants-who-drew-the-water/hero-servants-who-drew-the-water.png "AI 생성 일러스트. 요한복음 2장의 물항아리와 물을 떠 올리는 하인의 손을 통해 기적과 표적의 차이를 표현했다.")
+
 
 내 이름은 요한이다. 그래서인지 요한복음을 읽을 때 한 단어에 자꾸 걸린다. 요한복음에는 공관복음이 기적을 가리킬 때 즐겨 쓰는 권능(δύναμις)이라는 말이 나오지 않는다. 요한이 고른 말은 표적, 헬라어로 세메이온(σημεῖον)이다. 가리키는 것. 무엇인가를 나타내는 징표.
 

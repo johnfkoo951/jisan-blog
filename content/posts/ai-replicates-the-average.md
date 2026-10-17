@@ -5,8 +5,14 @@ date: 2026-06-08
 kind: 에세이
 firstPublished: 더배러
 summary: AI가 평균을 1초에 만드는 시대에 인간은 무엇을 가져갈 것인가. 한 글자도 바꾸지 않았는데 의미가 달라진 커맨드스페이스 9계명을 2026 해석판으로 다시 읽으며, 아홉 가지를 하나의 강물처럼 흘려보내는 9계명 시리즈의 통합편이다.
+citationTitleSource: "AI는 평균을 복제한다, 그래서 나는 아홉 번 묻는다"
+citationTitleEn: "AI replicates the average, so I ask nine times"
+citationTitleRomanized: "AI-neun pyeonggyuneul bokjehanda, geuraeseo naneun ahop beon munneunda"
+updated: 2026-10-17
 ---
-![하나의 강이 아홉 갈래로 나뉘어 빈 노트 카드들로 흘러드는 그림](/images/ai-replicates-the-average/hero-ai-replicates-the-average.png)
+
+![하나의 흐름에서 여러 갈래로 뻗는 나뭇가지와 노트 카드로, 같은 질문에 다양한 관점을 더하는 방식을 표현했다.](/images/ai-replicates-the-average/hero-ai-replicates-the-average.png "AI 생성 일러스트. 하나의 흐름에서 여러 갈래로 뻗는 나뭇가지와 노트 카드로, 같은 질문에 다양한 관점을 더하는 방식을 표현했다.")
+
 
 ## "그래서 뭐가 제일 좋아요?"
 지난주 한 임원 교육에서 익숙한 질문을 받았다.

@@ -206,7 +206,15 @@
     } catch (error) { if (error.name !== 'AbortError') announce('공유하지 못했습니다. 아래 영속 주소를 복사해 주세요.'); }
   }));
   document.querySelectorAll('.cite-copy').forEach(button => button.addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText(button.dataset.cite); announce('인용문을 복사했습니다.'); }
+    try {
+      if (navigator.clipboard?.write && typeof ClipboardItem !== 'undefined' && button.dataset.citeHtml) {
+        await navigator.clipboard.write([new ClipboardItem({
+          'text/plain':new Blob([button.dataset.cite],{type:'text/plain'}),
+          'text/html':new Blob([button.dataset.citeHtml],{type:'text/html'}),
+        })]);
+      } else await navigator.clipboard.writeText(button.dataset.cite);
+      announce(button.dataset.citeLang === 'en' ? '영문 APA 인용문을 복사했습니다.' : '국문 APA 인용문을 복사했습니다.');
+    }
     catch { announce('자동 복사가 지원되지 않습니다. 아래 인용문을 선택해 복사해 주세요.'); }
   }));
   document.addEventListener('keydown', event => {

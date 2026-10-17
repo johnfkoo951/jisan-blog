@@ -4,9 +4,14 @@ slug: retrospective-2025
 date: 2025-12-30T03:28
 kind: 에세이
 summary: 숫자는 양을 말해주지만 의미는 말해주지 않는다. 174번의 강의, 111개의 미팅, 그리고 1번의 응급실 사이에서 발견한 하나의 질문 — 지금 내가 기록하고 있는 것은, 미래의 나에게 친절한가.
-updated: 2026-09-04
+updated: 2026-10-17
+citationTitleSource: "2025년 회고 — 174번의 강단, 1번의 응급실, 그리고 하나의 질문"
+citationTitleEn: "A 2025 retrospective: 174 teaching engagements, one emergency room visit, and one question"
+citationTitleRomanized: "2025nyeon hoego — 174beonui gangdan, 1beonui eunggeupsil, geurigo hanaui jilmun"
 ---
-![빈 무대 위의 지휘자 — 악보가 노드와 연결로 변하는 순간](/images/retrospective-2025/hero-retrospective-2025.jpg)
+
+![무대 위의 인물과 주변의 기록·연결망으로 한 해의 강의와 질문을 돌아보는 장면을 표현했다. 실제 강연 사진은 아니다.](/images/retrospective-2025/hero-retrospective-2025.jpg "AI 생성 일러스트. 무대 위의 인물과 주변의 기록·연결망으로 한 해의 강의와 질문을 돌아보는 장면을 표현했다. 실제 강연 사진은 아니다.")
+
 
 ## 숫자가 말해주지 않는 것
 

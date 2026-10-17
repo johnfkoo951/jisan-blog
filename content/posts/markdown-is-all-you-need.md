@@ -5,9 +5,14 @@ date: 2026-03-16
 kind: 에세이
 firstPublished: 더배러 (시리즈 통합편)
 summary: plain text가 지식을 살려두고, 샵 하나가 사고의 뼈대를 세우고, 세 줄의 하이픈이 문서를 데이터베이스로 바꾸고, AI가 같은 언어를 쓰게 되었다. 이 모든 것이 마크다운이라는 하나의 선택에서 시작된다.
-updated: 2026-08-17
+updated: 2026-10-17
+citationTitleSource: "Markdown Is All You Need — 마크다운이라는 선택이 바꾸는 것들"
+citationTitleEn: "Markdown is all you need: What choosing Markdown changes"
+citationTitleRomanized: "Markdown is all you need — Makeudauniraneun seontaegi bakkuneun geotdeul"
 ---
-![Markdown Is All You Need](/images/markdown-is-all-you-need/hero-markdown.jpg)
+
+![CMDS 글자와 아래쪽 화살표를 결합한 타이포그래피](/images/markdown-is-all-you-need/hero-markdown.jpg "AI 생성 그래픽. 마크다운을 떠올리게 하는 아래쪽 화살표와 CMDS 글자를 결합한 제목 이미지다. 기존 Gemini 생성 이미지를 재사용했다.")
+
 
 "대표님께서 2년 전부터 강조하시던 '나만의 맥락정보'... 이제서야 비로소 깨닫게 되었습니다."
 

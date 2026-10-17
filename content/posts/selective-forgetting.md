@@ -4,9 +4,14 @@ slug: selective-forgetting
 date: 2025-11-18
 kind: 에세이
 summary: AI 시대의 역량은 더 많이 기억하는 능력이 아니라 더 잘 잊고 더 빨리 연결하는 능력이다. Core / Cache / Compost / Cold — 정보를 다루는 네 구역의 4C 프레임과 옵시디언 실전 세팅.
-updated: 2026-08-27
+updated: 2026-10-17
+citationTitleSource: "선택적 망각의 기술 — AI 시대의 기억 설계와 두뇌-도구 하모니"
+citationTitleEn: "The art of selective forgetting: Designing memory and harmonizing brain and tools in the age of AI"
+citationTitleRomanized: "Seontaekjeok manggagui gisul — AI sidaeui gieok seolgyewa dunoe-dogu hamoni"
 ---
-![머리에서 흘러나온 기억이 외부 금고로 옮겨지는 장면 — 선택적 망각](/images/selective-forgetting/hero-selective-forgetting.jpg)
+
+![머리 밖의 서랍과 보관 공간으로 기억을 옮기는 모습으로 선택적 망각과 외부 기록의 역할을 표현했다.](/images/selective-forgetting/hero-selective-forgetting.jpg "AI 생성 일러스트. 머리 밖의 서랍과 보관 공간으로 기억을 옮기는 모습으로 선택적 망각과 외부 기록의 역할을 표현했다.")
+
 
 냉장고를 열면 오래된 양파와 신선한 바질이 같은 칸에 누워 있다. 우리가 정보를 쌓아두는 방식도 이와 크게 다르지 않다. "다 나중에 쓰겠지"라는 마음으로 넣어둔 메모와 링크는 어느새 서로의 향을 뒤섞고, 필요한 순간에 꺼내 쓰기 어렵게 만든다. AI 시대의 역량은 더 많이 기억하는 능력이 아니라, 더 잘 잊고 더 빨리 연결하는 능력에 가깝다. 선택적 망각은 지식 관리의 결함이 아니라, 리듬이다.
 

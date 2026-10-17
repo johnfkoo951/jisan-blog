@@ -5,8 +5,14 @@ date: 2026-02-09
 kind: 에세이
 firstPublished: 더배러
 summary: 예비 중1부터 예비 고1까지 여섯 명과 커맨드스페이스 사무실에서 보낸 3일간의 CMDS Process 기초교육 기록. 차돌짬뽕 퀴즈로 맥락을 익히고, 무한의 팬트리에서 재료를 꺼내고, 480p 지식을 4K로 올린 뒤에야 AI를 열었다. 아이들은 이미 갖고 있었다.
+citationTitleSource: "이미 갖고 있었다 — 6명의 거인과 3일의 기록"
+citationTitleEn: "I already had it: Six giants and three days of records"
+citationTitleRomanized: "Imi gatgo isseotda — 6myeongui geoingwa 3irui girok"
+updated: 2026-10-17
 ---
-![수많은 서랍이 달린 팬트리 캐비닛에서 서랍 하나가 열려 빛이 새어 나오고, 앞 선반에 새싹 화분이 나란히 놓인 그림](/images/six-giants-three-days/hero-six-giants-three-days.png)
+
+![서랍 하나에서 새어 나오는 빛과 새싹으로 이미 축적한 기록을 다시 꺼내는 과정을 표현했다.](/images/six-giants-three-days/hero-six-giants-three-days.png "AI 생성 일러스트. 서랍 하나에서 새어 나오는 빛과 새싹으로 이미 축적한 기록을 다시 꺼내는 과정을 표현했다.")
+
 
 발표회가 끝났다. 학부모들이 자리에서 일어나기 시작했다. 그때 한 아버지가 마이크를 잡고 말씀하셨다.
 

@@ -1,0 +1,285 @@
+{
+  "version": 1,
+  "reviewed": "2026-10-17",
+  "images": {
+    "/images/9yohan-constellation/hero-9yohan-constellation.jpg": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 중심과 주변 궤도로 9요한의 역할 분담과 연결 구조를 표현했다.",
+      "alt": "중심과 주변 궤도로 9요한의 역할 분담과 연결 구조를 표현했다.",
+      "evidence": "Recorded ecosystem-series GPT image generation, 2026-08-20",
+      "sha256": "fcf9af92780b78414acd3facc6acd516791dc268c4d5e1240c96ba7c3c89c219"
+    },
+    "/images/ai-divide/hero-ai-divide.jpg": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 갈림길의 두 사람으로 AI를 사용하는 사람과 바라보는 사람의 차이를 표현했다.",
+      "alt": "갈림길의 두 사람으로 AI를 사용하는 사람과 바라보는 사람의 차이를 표현했다.",
+      "evidence": "Recorded GPT image-generation batch, 2026-08-17",
+      "sha256": "e2961e6cdf542ee1d1a5ba7ebf8e934c07fac96590d0d02a5b0f35cb22e43cf9"
+    },
+    "/images/ai-replicates-the-average/hero-ai-replicates-the-average.png": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 하나의 흐름에서 여러 갈래로 뻗는 나뭇가지와 노트 카드로, 같은 질문에 다양한 관점을 더하는 방식을 표현했다.",
+      "alt": "하나의 흐름에서 여러 갈래로 뻗는 나뭇가지와 노트 카드로, 같은 질문에 다양한 관점을 더하는 방식을 표현했다.",
+      "evidence": "Recorded four-hero GPT image generation, 2026-09-04",
+      "sha256": "3158cad15f4cdd7ddc853df03ac87c744ef21c29eb42b2475b7f01acd24b8def"
+    },
+    "/images/akm-index/hero-akm-index.jpg": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 문서 위의 다이얼 게이지로 지식 시스템을 측정하는 AKM Index의 관점을 표현했다. 실제 측정 장치 사진은 아니다.",
+      "alt": "문서 위의 다이얼 게이지로 지식 시스템을 측정하는 AKM Index의 관점을 표현했다. 실제 측정 장치 사진은 아니다.",
+      "evidence": "Recorded ecosystem-series GPT image generation, 2026-08-20",
+      "sha256": "76c87b0b4cea720e687d0868dd67bf9b11a895ee722433bf15f88a39799485e8"
+    },
+    "/images/between-raw-and-wiki/hero-between-raw-and-wiki.jpg": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 흩어진 원자료가 렌즈를 지나 구조화된 기록으로 바뀌는 모습을 통해 Raw와 Wiki의 역할을 표현했다.",
+      "alt": "흩어진 원자료가 렌즈를 지나 구조화된 기록으로 바뀌는 모습을 통해 Raw와 Wiki의 역할을 표현했다.",
+      "evidence": "Recorded GPT image-generation batch, 2026-08-17",
+      "sha256": "c16fac0f643e4dc6e98432feee4435077b54a5c6bbc245c703d2835f8832a14f"
+    },
+    "/images/cmdmd/hero-cmdmd.jpg": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 돋보기와 문서·서랍의 연결로 읽기와 검토를 먼저 두는 CmdMD의 방향을 표현했다. 앱 화면 캡처는 아니다.",
+      "alt": "돋보기와 문서·서랍의 연결로 읽기와 검토를 먼저 두는 CmdMD의 방향을 표현했다. 앱 화면 캡처는 아니다.",
+      "evidence": "Recorded ecosystem-series GPT image generation, 2026-08-20",
+      "sha256": "8492c64fd1cfc5511b1830f85d49ab3c09082e9299056695d21bfcbc4711c6e9"
+    },
+    "/images/cmds-llm-wiki/hero-cmds-llm-wiki.jpg": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 사람의 손과 기계의 손이 함께 책을 쌓는 모습으로 LLM Wiki의 협업 구조를 표현했다.",
+      "alt": "사람의 손과 기계의 손이 함께 책을 쌓는 모습으로 LLM Wiki의 협업 구조를 표현했다.",
+      "evidence": "Recorded ecosystem-series GPT image generation, 2026-08-20",
+      "sha256": "fb1373a48fd4f0b0de24ad0c940b7edc742229e0f3f430636e5ab6005274e88c"
+    },
+    "/images/cmds-system-files/hero-cmds-system-files.jpg": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 두 손 사이에서 건네는 설계도로 에이전트에게 규칙과 맥락을 전달하는 시스템 파일의 역할을 표현했다.",
+      "alt": "두 손 사이에서 건네는 설계도로 에이전트에게 규칙과 맥락을 전달하는 시스템 파일의 역할을 표현했다.",
+      "evidence": "Recorded ecosystem-series GPT image generation, 2026-08-20",
+      "sha256": "7100a2366b78d7b420a1a3b66056d91d59fb848da6476c164a7efa67d493ee2a"
+    },
+    "/images/i-ask-therefore-i-record/hero-i-ask-therefore-i-record.png": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 등불과 나선형으로 이어진 노트 카드로 질문이 다음 기록을 이끄는 과정을 표현했다.",
+      "alt": "등불과 나선형으로 이어진 노트 카드로 질문이 다음 기록을 이끄는 과정을 표현했다.",
+      "evidence": "Recorded four-hero GPT image generation, 2026-09-04",
+      "sha256": "de1f16d6a66b2509112ac35aaead9eff157c77e1c910d219be427bc919abf45d"
+    },
+    "/images/knowledge-ecosystem-map/hero-knowledge-ecosystem-map.jpg": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 여러 문과 길이 연결된 집으로 CMDSPACE 지식 생태계의 구조를 표현했다. 실제 건축물 사진은 아니다.",
+      "alt": "여러 문과 길이 연결된 집으로 CMDSPACE 지식 생태계의 구조를 표현했다. 실제 건축물 사진은 아니다.",
+      "evidence": "Recorded ecosystem-series GPT image generation, 2026-08-20; reused in path-not-granary on 2026-10-16",
+      "sha256": "31ee906ceee3ca25fbaac48854f4759e93aa0b652c298287b629c9688c120369"
+    },
+    "/images/markdown-is-all-you-need/hero-markdown.jpg": {
+      "kind": "ai-graphic",
+      "caption": "AI 생성 그래픽. 마크다운을 떠올리게 하는 아래쪽 화살표와 CMDS 글자를 결합한 제목 이미지다. 기존 Gemini 생성 이미지를 재사용했다.",
+      "alt": "CMDS 글자와 아래쪽 화살표를 결합한 타이포그래피",
+      "evidence": "Vault history before 2026-08-18 links Gemini_Generated_Image_ku9e4iku9e4iku9e.jpg; publication record confirms reused vault asset",
+      "sha256": "63e1894ef33c1654a38b6898175897b403718c25462beeb8afdbe8c67192f5a1"
+    },
+    "/images/my-name-is-yohan-koo/hero-my-name-is-yohan-koo.png": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 깃펜에서 이어지는 기록의 연결망과 빛의 길로, 이름에 담긴 기록의 의미와 부르심을 표현했다.",
+      "alt": "깃펜에서 이어지는 점과 선, 앞으로 뻗는 빛의 길",
+      "evidence": "Author explicitly confirmed AI image generation on 2026-10-17",
+      "sha256": "c07da19553cda50fd85ab5998aa8a74738f4926ac3953bf4082427d6d3862a36"
+    },
+    "/images/my-probability/hero-my-probability.png": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 개인의 기록과 연결이 고유한 확률값을 만든다는 생각을 노드로 표현한 개념 이미지다. 그림의 숫자는 실제 측정 결과로 해석하지 않는다.",
+      "alt": "어두운 바탕에서 밝은 중심 노드와 주변 노드가 연결된 개념도",
+      "evidence": "Author explicitly confirmed AI image generation on 2026-10-17",
+      "sha256": "e7567b1deba2ad8d0660edee8c27e1f97ebe427da92ad481c5800a8cace26ffa"
+    },
+    "/images/okf-third-arrival/hero-okf-third-arrival.jpg": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 서로 다른 문이 하나의 기록 공간으로 이어지는 모습으로 구조의 독립적 수렴을 표현했다.",
+      "alt": "서로 다른 문이 하나의 기록 공간으로 이어지는 모습으로 구조의 독립적 수렴을 표현했다.",
+      "evidence": "Recorded GPT image-generation batch, 2026-08-17",
+      "sha256": "2a78a0599a665de071adbb6050d82d7e7d446084452e970d42086931d86a41e0"
+    },
+    "/images/omnisearch-google-research/hero-omnisearch-google-research.png": {
+      "kind": "runtime-screenshot",
+      "caption": "실제 구동 화면 캡처. 2026-10-17 Chrome에서 같은 검색어로 만난 Google 웹 자료와 옵시디언 기록이다. 비교 영역을 잘라 사용했고 내부 경로는 가렸다.",
+      "alt": "Google 검색 결과와 옵시디언의 지식 연결성 기록이 나란히 표시된 실제 화면",
+      "evidence": "Direct Chrome capture in this implementation session, 2026-10-17",
+      "sha256": "184adb718404f518883465875f31b80a4cefc7d171ebaf2b62c476756e69a408"
+    },
+    "/images/omnisearch-google-research/figure-01-luhmann-search.png": {
+      "kind": "runtime-screenshot",
+      "caption": "실제 구동 화면 캡처. 그림 1. 2026-10-17 Chrome의 Luhmann's communication 검색이다. Google 문헌 목록과 Main 볼트의 결과를 비교하며, 연구 작업 기록이 상위에 섞이는 모습도 남겼다. 계정 영역과 내부 경로는 제거하거나 가렸다.",
+      "alt": "루만의 소통을 검색한 웹 문헌과 Main 볼트 연구 기록",
+      "evidence": "Direct Chrome capture, 2026-10-17",
+      "sha256": "d4e8562a081cd7666aa7eb3cc392c8a8fd1904813741d33009ebe886eed93469"
+    },
+    "/images/omnisearch-google-research/figure-02-connectivity-search.png": {
+      "kind": "runtime-screenshot",
+      "caption": "실제 구동 화면 캡처. 그림 2. 2026-10-17 knowledge connectivity 검색의 웹 연구와 개인 Canvas·아이디어·노트다. Canvas와 Markdown의 상대 점수 차이도 그대로 남겼으며, 내부 경로가 포함된 행은 가렸다.",
+      "alt": "지식 연결성의 웹 검색 결과와 개인 Canvas 및 Markdown 노트",
+      "evidence": "Direct Chrome capture, 2026-10-17",
+      "sha256": "d78ce9de88bf82fb55ec17b2c4e3d682b29e08302070661c3fd36f56bb7098ed"
+    },
+    "/images/omnisearch-google-research/figure-03-vault-settings.png": {
+      "kind": "settings-screenshot",
+      "caption": "실제 설정 화면 캡처. 그림 3. Chrome에서 Main과 Wiki의 Omnisearch 포트를 연결한 화면이다. 자동 볼트명 감지와 선택 항목을 빈칸으로 두었고 API 키와 개인 경로는 포함하지 않았다.",
+      "alt": "Main과 Wiki의 포트를 지정하는 Omnisearch 설정 화면",
+      "evidence": "Direct Chrome settings capture, 2026-10-17; no Save action",
+      "sha256": "aee9e3fc1da319e321c879c87f4790f6a76c9f7c1afa7d5fa70eaa4b2824abdc"
+    },
+    "/images/omnisearch-google-research/figure-04-general-settings.png": {
+      "kind": "settings-screenshot",
+      "caption": "실제 설정 화면 캡처. 그림 4. CMDS/Clean/Accent/Top 조합을 사용하는 공통 설정이다. REST 보강과 Advanced URI는 꺼 둔 상태다.",
+      "alt": "색상, 제외 경로, 미리보기와 열기 방식을 정하는 공통 설정 화면",
+      "evidence": "Direct Chrome settings capture, 2026-10-17; no Save action",
+      "sha256": "90dde2c62c02e93d966aae05198dadc78ca1d8c7109e15f8bc1ed72fefc53deb"
+    },
+    "https://i.imgur.com/Rx1tvDT.png": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. Figure 1. Midjourney로 만든 차돌짬뽕 그림이다. 지식을 서로 다른 차원으로 이해하는 글의 도입 예시에 사용했다.",
+      "alt": "차돌짬뽕 한 그릇과 젓가락을 표현한 선화",
+      "evidence": "Original manuscript explicitly credits Midjourney"
+    },
+    "https://i.imgur.com/V19ILtk.png": {
+      "kind": "reference",
+      "caption": "자료 이미지. Figure 2. 리처드 파인만의 인물 사진이다. 기존 원고에 연결된 자료이며 원본 촬영자와 촬영일은 확인되지 않았다.",
+      "alt": "흰 셔츠 차림으로 앉아 있는 리처드 파인만",
+      "evidence": "Existing manuscript identifies Richard Feynman; original photographic attribution not documented"
+    },
+    "https://i.imgur.com/QPAKJ7w.png": {
+      "kind": "reference",
+      "caption": "자료 이미지. Figure 3. The Feynman Lectures on Physics의 표지다. 글에서 파인만의 설명 방식을 논의할 때 사용한 도서 자료다.",
+      "alt": "The Feynman Lectures on Physics의 붉은색 표지",
+      "evidence": "Existing manuscript caption and cover text inspected"
+    },
+    "https://i.imgur.com/JAgsO6A.jpeg": {
+      "kind": "photo",
+      "caption": "실제 사진. Figure 4-1. CommandSpace HQ 변천사: 창가의 모니터, 건반과 작업 도구가 놓인 공간이다. 기존 원고의 작업환경 사진을 사용했다.",
+      "alt": "창가의 모니터, 건반과 작업 도구가 놓인 공간",
+      "evidence": "Original author manuscript: CommandSpace HQ evolution photographs"
+    },
+    "https://i.imgur.com/98kNhIs.jpeg": {
+      "kind": "photo",
+      "caption": "실제 사진. Figure 4-2. CommandSpace HQ 변천사: 여러 화면과 책·자료를 함께 배치한 작업 공간이다. 기존 원고의 작업환경 사진을 사용했다.",
+      "alt": "여러 화면과 책·자료를 함께 배치한 작업 공간",
+      "evidence": "Original author manuscript: CommandSpace HQ evolution photographs"
+    },
+    "https://i.imgur.com/sVgL9Rf.jpeg": {
+      "kind": "photo",
+      "caption": "실제 사진. Figure 4-3. CommandSpace HQ 변천사: 모니터와 건반을 다시 배치한 작업 공간이다. 기존 원고의 작업환경 사진을 사용했다.",
+      "alt": "모니터와 건반을 다시 배치한 작업 공간",
+      "evidence": "Original author manuscript: CommandSpace HQ evolution photographs"
+    },
+    "https://i.imgur.com/5byqXfQ.jpeg": {
+      "kind": "photo",
+      "caption": "실제 사진. Figure 5. 구요한의 대학원 시절 학습자료 정리 바인더다. 디지털과 아날로그 자료를 함께 다루는 방식을 보여준다.",
+      "alt": "과목별로 정리된 대학원 학습자료 바인더",
+      "evidence": "Original author manuscript photograph/caption"
+    },
+    "https://i.imgur.com/TyIaYNP.jpeg": {
+      "kind": "photo",
+      "caption": "실제 사진. Figure 6. 피플 애널리틱스 컨퍼런스 발표 현장이다. 강연자와 발표 화면이 함께 보이는 행사 사진이며 앱 화면을 직접 캡처한 이미지는 아니다.",
+      "alt": "피플 애널리틱스 컨퍼런스의 강연자와 대형 발표 화면",
+      "evidence": "Original author manuscript event photograph/caption"
+    },
+    "/images/organizing-dimension/fig7-jazz-wine-bar-2023.webp": {
+      "kind": "photo",
+      "caption": "실제 사진. Figure 7. 2023년 어느 와인바에서의 재즈 공연이다. 학제간 연결을 설명하는 본문에서 사용한 공연 사진이다.",
+      "alt": "와인바 무대에서 재즈를 연주하는 공연자들",
+      "evidence": "Original manuscript Figure 7 and 2026-08-17 restoration record",
+      "sha256": "210df6b4bc23b8b3cc5a0aed499e98a3282ca3c7dd743a25f2c71072be2388bb"
+    },
+    "/images/psa-fit/hero-psa-fit.png": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 사람, 노트 구조, 연결망이 맞물리는 퍼즐로 Person-System-AI Fit의 관계를 표현했다.",
+      "alt": "사람, 노트 구조, 연결망이 맞물리는 퍼즐로 Person-System-AI Fit의 관계를 표현했다.",
+      "evidence": "Recorded four-hero GPT image generation, 2026-09-04",
+      "sha256": "f37c746741128495af926776f307a146798f304d4326e269db2570f365d7d056"
+    },
+    "/images/rank-14-on-my-own-rubric/hero-rank-14-on-my-own-rubric.jpg": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 노트 위의 황동 자로 지식 시스템을 돌아보는 평가의 관점을 표현했다. 실제 평가 점수를 담은 도표는 아니다.",
+      "alt": "노트 위의 황동 자로 지식 시스템을 돌아보는 평가의 관점을 표현했다. 실제 평가 점수를 담은 도표는 아니다.",
+      "evidence": "Recorded GPT image-generation batch, 2026-08-17",
+      "sha256": "5f4c38710046f6a5b365f585f18434926f2456949aa1b9dd29685a09ac72ae51"
+    },
+    "/images/retrospective-2025/hero-retrospective-2025.jpg": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 무대 위의 인물과 주변의 기록·연결망으로 한 해의 강의와 질문을 돌아보는 장면을 표현했다. 실제 강연 사진은 아니다.",
+      "alt": "무대 위의 인물과 주변의 기록·연결망으로 한 해의 강의와 질문을 돌아보는 장면을 표현했다. 실제 강연 사진은 아니다.",
+      "evidence": "Recorded GPT image-generation batch, 2026-08-17",
+      "sha256": "02cb0db7c4927574099da827992c403ab83bb75b99a3cd561b322a1defb15b52"
+    },
+    "/images/schema-is-harness/hero-schema-is-harness.jpg": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 세 갈래 길이 하나의 층위 구조로 모이는 풍경으로 스키마와 하네스의 구조적 연결을 표현했다.",
+      "alt": "세 갈래 길이 하나의 층위 구조로 모이는 풍경으로 스키마와 하네스의 구조적 연결을 표현했다.",
+      "evidence": "Recorded GPT image-generation batch, 2026-08-17",
+      "sha256": "c67e392f455c78b76c5ee24c16bdcb4b86b702c74d05508e2eb63d8aa1a0c996"
+    },
+    "/images/selective-forgetting/hero-selective-forgetting.jpg": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 머리 밖의 서랍과 보관 공간으로 기억을 옮기는 모습으로 선택적 망각과 외부 기록의 역할을 표현했다.",
+      "alt": "머리 밖의 서랍과 보관 공간으로 기억을 옮기는 모습으로 선택적 망각과 외부 기록의 역할을 표현했다.",
+      "evidence": "Recorded GPT image-generation batch, 2026-08-17",
+      "sha256": "0c3027c196229edc7324b959762a805625cc8e326c35c070b013a9971053347b"
+    },
+    "/images/servants-who-drew-the-water/hero-servants-who-drew-the-water.png": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 요한복음 2장의 물항아리와 물을 떠 올리는 하인의 손을 통해 기적과 표적의 차이를 표현했다.",
+      "alt": "요한복음 2장의 물항아리와 물을 떠 올리는 하인의 손을 통해 기적과 표적의 차이를 표현했다.",
+      "evidence": "Recorded GPT image generation, 2026-10-17",
+      "sha256": "3bc88c2386409d7da488f4e755a728cf2dbfed45c71d921f2c60ad84387d11da"
+    },
+    "/images/six-giants-three-days/hero-six-giants-three-days.png": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 서랍 하나에서 새어 나오는 빛과 새싹으로 이미 축적한 기록을 다시 꺼내는 과정을 표현했다.",
+      "alt": "서랍 하나에서 새어 나오는 빛과 새싹으로 이미 축적한 기록을 다시 꺼내는 과정을 표현했다.",
+      "evidence": "Recorded four-hero GPT image generation, 2026-09-04",
+      "sha256": "e189e4dee9198e8599d097a4d947426c9a13ac871911086e268d626cdf66aa72"
+    },
+    "/images/topology-of-knowledge-1/hero-topology-of-knowledge-1.jpg": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 풀밭 아래로 뻗는 뿌리와 연결망으로 리좀과 태그의 수평적 연결을 표현했다.",
+      "alt": "풀밭 아래로 뻗는 뿌리와 연결망으로 리좀과 태그의 수평적 연결을 표현했다.",
+      "evidence": "Recorded GPT image-generation batch, 2026-08-17",
+      "sha256": "688d334e7dc6104dcd1fc7ad2db764246bb88796d6b790f9913653e1f13494af"
+    },
+    "/images/topology-of-knowledge-2/hero-topology-of-knowledge-2.jpg": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 동심원처럼 나뉜 미로와 카드의 배치로 루만의 시스템과 의미의 경계를 표현했다. 역사적 인물이나 실제 공간을 촬영한 장면은 아니다.",
+      "alt": "동심원처럼 나뉜 미로와 카드의 배치로 루만의 시스템과 의미의 경계를 표현했다. 역사적 인물이나 실제 공간을 촬영한 장면은 아니다.",
+      "evidence": "Recorded GPT image-generation batch, 2026-08-17",
+      "sha256": "8b29bb4145d6540adc2fef96dd11ee8666dd00ecb5f1ac4f8cd085ef4473f0c3"
+    },
+    "/images/topology-of-knowledge-3/hero-topology-of-knowledge-3.jpg": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 풀밭과 미로가 겹쳐 있는 지형으로 리좀의 연결과 시스템의 경계가 공존하는 모습을 표현했다.",
+      "alt": "풀밭과 미로가 겹쳐 있는 지형으로 리좀의 연결과 시스템의 경계가 공존하는 모습을 표현했다.",
+      "evidence": "Recorded GPT image-generation batch, 2026-08-17",
+      "sha256": "67d62269aaf38205dd74a2009dd7ebeb7ccfa8f6ebe7b637cf9e563fc7d8efe5"
+    },
+    "/images/what-77-systems-told-me/figure-01-pillar-achievement.png": {
+      "kind": "rendered-chart",
+      "caption": "HTML/CSS로 렌더링한 도표. Figure 1. 2026-08-17 분석의 필러별 평균 달성률이다. X(상호운용·거버넌스)만 유일하게 60%대다.",
+      "alt": "AKM 필러별 평균 달성률: H 77%, P 75%, C 74%, L 73%, X 63%",
+      "evidence": "Reproducible HTML source content/images/what-77-systems-told-me/_src/fig1-pillars.html",
+      "sha256": "e631ff913cf241a989cfd5b3aa5e814ad459d3885995075b5b557e4792fd8133"
+    },
+    "/images/what-77-systems-told-me/figure-02-live-board-leaderboard.png": {
+      "kind": "service-screenshot",
+      "caption": "실제 서비스 화면 캡처. Figure 2. 2026-08-17 기준 AKM Index 리더보드다. 궤적 열의 +12.8, +22.8 같은 숫자는 당시 재평가로 쌓인 상승분이며 현재 순위나 점수를 뜻하지 않는다.",
+      "alt": "2026-08-17 AKM Index 리더보드의 시스템별 점수와 궤적",
+      "evidence": "2026-08-17 publication record: live board capture",
+      "sha256": "78a545ab96fa1da8fb7864680f40be1325bab75b6206307e6bb2d378bc6d1655"
+    },
+    "/images/what-77-systems-told-me/figure-03-parkjoon-trajectory.png": {
+      "kind": "rendered-chart",
+      "caption": "HTML/CSS로 렌더링한 도표. Figure 3. 한 시스템의 6회차 점수 궤적이다. 상승의 가장 큰 구간(+7.5)은 구현이 아니라 20일의 운영 누적이 만들었다. 당시 분석 데이터를 시각화한 것으로 현재 점수는 아니다.",
+      "alt": "한 시스템의 여섯 차례 평가 점수: 65.5에서 80.5까지의 궤적",
+      "evidence": "Reproducible HTML source content/images/what-77-systems-told-me/_src/fig3-trajectory.html; 6 data points confirmed",
+      "sha256": "70ac6ef7ec2b6ec0076a1b7f1fcad6c9e362606e099eb0400a5d7067688655d9"
+    }
+  }
+}

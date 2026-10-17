@@ -80,3 +80,11 @@ html.reader-modal-open{overflow:hidden}
 .rail-section-copy{margin-top:14px;font-size:11px;min-height:36px}
 
 .rail-resources .copy-markdown{font-size:11px;min-height:38px;padding:7px 10px;margin:3px 0 8px}
+
+.prose figcaption{text-align:left;line-height:1.75;font-size:.78em;margin-top:10px}
+.citation-version+.citation-version{border-top:1px solid var(--border);margin-top:16px;padding-top:16px}
+.citation-version-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:9px}
+.citation-version-head .cite-copy{font-size:11px;padding:5px 8px;min-height:34px}
+.apa-reference{display:block;padding-left:1.2em;text-indent:-1.2em;overflow-wrap:anywhere;line-height:1.8}
+.citation-inline,.citation-note{font-size:11px;color:var(--muted);line-height:1.7;margin-top:9px}.citation-note{margin-top:18px}
+.rail-citation a{word-break:break-all}.rail-section>.citation-version{margin-bottom:14px}

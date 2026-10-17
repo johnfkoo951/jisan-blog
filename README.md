@@ -33,6 +33,11 @@ The common article template now provides a heading-navigation rail and a metadat
 
 See [the reader-sidebar contract](docs/reader-sidebars.md) for layout, metadata, keyboard/accessibility rules and screenshots. Run `npm run test:reader` with Chrome installed for the all-article browser checks. Deployed on 2026-10-17; all 29 live article pages and raw Markdown endpoints were verified against the local build/source.
 
+## Image captions and bilingual APA references
+All article images require a provenance-aware type/topic caption, including heroes. Korean and English APA 7 blog references are generated for every post, with independent copy buttons and HTML/plain clipboard formats. The English reference uses a romanized original title followed by a bracketed meaning translation; the Korean version follows the documented domestic APA application.
+
+Keep `citationTitleSource`, `citationTitleEn`, and `citationTitleRomanized` in the vault master and published derivative. Missing or stale title metadata fails the build. See [the caption/citation contract](docs/captions-and-citations.md) for evidence, authoring rules, date/punctuation details and audit limitations.
+
 ## Optional engagement setup
 The Vercel function `api/engagement.js` requires server-only environment variables:
 - `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` (or `KV_REST_API_URL` / `KV_REST_API_TOKEN`). Use a Redis database dedicated to this blog.

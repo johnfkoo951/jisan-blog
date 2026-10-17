@@ -6,6 +6,8 @@ import { readFileSync, writeFileSync, mkdirSync, readdirSync, cpSync, existsSync
 import { join } from 'node:path';
 import { marked } from 'marked';
 import { readerKeywords, preferredRelated, articleResources } from './lib/reader-metadata.mjs';
+import { apaBlogCitations } from './lib/citations.mjs';
+import { validateImageCaptions } from './lib/image-captions.mjs';
 
 // ───────────────────────── config ─────────────────────────
 const SITE = {
@@ -24,6 +26,7 @@ const SITE = {
 
 const ROOT = new URL('.', import.meta.url).pathname;
 const DIST = join(ROOT, 'dist');
+const IMAGE_CAPTIONS = JSON.parse(readFileSync(join(ROOT, 'content', 'image-captions.json'), 'utf8')).images;
 
 // 카테고리 (frontmatter kind → URL slug). 새 kind 는 여기 한 줄 추가.
 const KINDS = { '에세이': 'essay', '프레임워크': 'framework', '소개': 'intro', '보고서': 'report', '기술': 'tech' };
@@ -343,6 +346,7 @@ const posts = readdirSync(postsDir).filter((f) => f.endsWith('.md')).map((f) => 
   const { meta, body } = parseFrontmatter(raw);
   if (!meta.slug || !meta.title || !meta.date) throw new Error(`missing slug/title/date in ${f}`);
   let html = postprocess(marked.parse(body));
+  validateImageCaptions(html, IMAGE_CAPTIONS, meta.slug);
   const toc = [];
   html = html.replace(/<h([2-4])>([\s\S]*?)<\/h\1>/g, (match, level, label) => {
     const id = `section-${toc.length + 1}`;
@@ -416,7 +420,14 @@ function sidebarToc(p) {
   const link = (h, group) => `<a href="#${h.id}" data-toc-section="${h.id}" data-toc-group="${group}" data-level="${h.level}">${h.label.replace(/<[^>]*>/g, '')}</a>`;
   return groups.length ? `<ol class="rail-toc">${groups.map(({ heading, children }) => `<li data-toc-branch="${heading.id}">${link(heading, heading.id)}${children.length ? `<ol class="rail-toc-children" data-toc-children="${heading.id}" hidden>${children.map(h => `<li>${link(h, heading.id)}</li>`).join('')}</ol>` : ''}</li>`).join('')}</ol>` : '<p class="rail-muted">이 글에는 별도의 소제목이 없습니다.</p>';
 }
-function readerSidebars(p, related, citeText) {
+function citationGroups(citations, compact = false) {
+  return ['ko', 'en'].map(lang => {
+    const ref = citations[lang];
+    const label = lang === 'ko' ? '국문' : 'English';
+    return `<section class="citation-version" lang="${lang}"><div class="citation-version-head"><span>${label}</span><button type="button" class="cite-copy tool-button" data-cite-lang="${lang}" data-cite="${esc(ref.plain)}" data-cite-html="${esc(ref.html)}">${lang === 'ko' ? '국문 인용 복사' : 'Copy English citation'}</button></div><p class="${compact ? 'rail-citation' : 'cite-text'} apa-reference">${ref.fragment}</p><p class="citation-inline">${lang === 'ko' ? '본문 인용' : 'In-text'}: ${esc(ref.inText)}</p></section>`;
+  }).join('');
+}
+function readerSidebars(p, related, citations) {
   const keywords = keywordMap.get(p.slug), resources = articleResources(p);
   return `<div class="reader-panel-controls" hidden>
 <button type="button" class="rail-toggle rail-toggle-left" data-panel-toggle="toc" aria-controls="reader-toc-panel" aria-expanded="false" aria-label="목차 열기">목차</button>
@@ -434,7 +445,7 @@ ${keywords.terms.length ? `<section class="rail-section"><h3>${keywords.source =
 ${related.length ? `<section class="rail-section"><h3>관련 글</h3><ul class="rail-related">${related.map(other => `<li><a href="/posts/${other.slug}/">${esc(other.title)}</a><span class="rail-muted">${esc(other.kind || '에세이')}</span>${other.summary ? `<p>${esc(other.summary)}</p>` : ''}</li>`).join('')}</ul></section>` : ''}
 <section class="rail-section"><h3>발행 정보</h3><dl class="rail-facts"><dt>분류</dt><dd><a href="/kind/${kindSlug(p.kind || '에세이')}/">${esc(p.kind || '에세이')}</a></dd><dt>발행</dt><dd><time datetime="${esc(p.date)}">${fmtDate(p.date)}</time></dd>${p.updated ? `<dt>수정</dt><dd><time datetime="${esc(p.updated)}">${fmtDate(p.updated)}</time></dd>` : ''}<dt>읽기</dt><dd>약 ${p.min}분</dd></dl></section>
 <section class="rail-section"><h3>원문과 자료</h3><ul class="rail-resources"><li><a href="/posts/${p.slug}/index.md">마크다운 원문</a><button type="button" class="tool-button copy-markdown" data-copy-markdown="/posts/${p.slug}/index.md" aria-describedby="markdown-copy-status">마크다운 원문 복사</button><p class="rail-feedback" id="markdown-copy-status" role="status" aria-live="polite"></p></li>${resources.map(resource => `<li><a href="${esc(resource.href)}">${resource.label}</a></li>`).join('')}</ul></section>
-<section class="rail-section"><h3>인용과 공유</h3><div class="rail-actions"><button type="button" class="tool-button cite-copy" data-cite="${esc(citeText)}">인용문 복사</button><button type="button" class="tool-button" data-copy-url>글 주소 복사</button></div><p class="rail-feedback" data-panel-status role="status" aria-live="polite"></p><p class="rail-citation">${esc(citeText)}</p></section>
+<section class="rail-section"><h3>APA 7 인용과 공유</h3>${citationGroups(citations, true)}<div class="rail-actions"><button type="button" class="tool-button" data-copy-url>글 주소 복사</button></div><p class="rail-feedback" data-panel-status role="status" aria-live="polite"></p></section>
 <p class="rail-hint">[ 목차 / ] 글 정보 / Esc 닫기</p>
 </div></aside>`;
 }
@@ -478,14 +489,14 @@ if (existsSync(join(ROOT, 'content', 'images'))) {
 }
 
 for (const p of posts) {
-  const citeText = `${SITE.authorKo}. (${p.date.slice(0, 4)}). ${p.title}. 紙散(지산). ${p.url}`;
+  const citations = apaBlogCitations(p);
   const firstPub = p.firstPublished ? `<span>최초 발행 <b>${esc(p.firstPublished)}</b></span>` : '';
   const updated = p.updated && p.updated !== p.date ? `<span>수정 <b>${fmtDate(p.updated)}</b></span>` : '';
   const rel = relatedMap.get(p.slug) || [];
   const relatedBox = rel.length ? `<aside class="related-box"><div class="related-label">함께 읽기</div><ul>${rel.map((r) => `<li><a href="/posts/${r.slug}/">${esc(r.title)}</a><span class="r-kind">${esc(r.kind || '에세이')} · ${fmtDate(r.date)}</span></li>`).join('')}</ul></aside>` : '';
   const toc = p.toc.filter(h => h.level === 2);
   const contents = toc.length > 1 ? `<details class="reader-toc"><summary>이 글의 목차 <span class="metrics">${toc.length}개</span></summary><nav aria-label="글 목차"><ol>${toc.map(h => `<li><a href="#${h.id}">${h.label.replace(/<[^>]*>/g, '')}</a></li>`).join('')}</ol></nav></details>` : '';
-  const body = `<div class="reading-progress" aria-hidden="true"><span></span></div>${readerSidebars(p, rel, citeText)}<main id="main" class="wrap reader-main"><article class="post" data-slug="${esc(p.slug)}">
+  const body = `<div class="reading-progress" aria-hidden="true"><span></span></div>${readerSidebars(p, rel, citations)}<main id="main" class="wrap reader-main"><article class="post" data-slug="${esc(p.slug)}">
 <a class="back-link" href="/">← 글 모음</a>
 <div class="p-kind"><a href="/kind/${kindSlug(p.kind || '에세이')}/">${esc(p.kind || '에세이')}</a></div>
 <h1 id="article-title" tabindex="-1">${esc(p.title)}</h1>
@@ -499,8 +510,8 @@ ${contents}<div class="prose">${p.html}</div>
 <div class="engagement" hidden><div class="engagement-copy"><strong>이 글이 생각에 보탬이 되었나요?</strong><small>로그인 없이 마음을 남겨 주세요.</small></div><button class="tool-button like-button" id="likeButton" aria-pressed="false">♡ 좋아요</button><span class="metrics">집계 시작 이후의 반응입니다. 중복 방지용 익명 쿠키를 사용합니다.</span></div>
 ${relatedBox}
 <div class="cite-block">
-<div class="cite-head"><span>이 글을 인용하려면</span><button class="cite-copy" data-cite="${esc(citeText)}">복사</button></div>
-<div class="cite-body"><span class="cite-text">${esc(citeText)}</span>
+<div class="cite-head"><span>이 글을 인용하려면 — APA 7</span></div>
+<div class="cite-body">${citationGroups(citations)}<p class="citation-note">국문은 국내 APA 7 적용형입니다. 영문은 로마자로 전사한 원제 뒤에 설명용 영문 번역을 대괄호로 덧붙였습니다. 서식 지원 앱에는 블로그명 기울임과 내어쓰기를 함께 복사하며, 평문에서는 서식이 제외됩니다. 같은 저자·연도의 여러 글을 함께 인용할 때는 참고문헌 목록에 따라 a, b 등을 조정하세요.</p>
 <div class="permalink">영속 주소: <a href="${p.url}">${p.url}</a></div></div>
 </div>
 <div class="post-foot"><span><a href="/">← 목록으로</a></span><span><a href="${SITE.licenseUrl}" rel="license">${SITE.license}</a> — 출처를 밝히면 자유롭게 공유할 수 있습니다</span></div>

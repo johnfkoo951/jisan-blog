@@ -4,9 +4,14 @@ slug: quarter-point-short
 date: 2026-08-22
 kind: 에세이
 summary: 네 번째 자기 평가는 M4 문턱에서 0.25점이 모자랐다. 깎인 점수의 뿌리는 전부 한 곳 — 장치가 낸 신호를 소비하는 마지막 한 단, 즉 나였다. 대신 이번에는 처음으로 장점 목록을 읽었다. 옵시디언 볼트가 이미 잘하고 있는 것들, 그리고 남의 성적표 마흔 장이 가르쳐 준 신뢰의 화폐에 대하여.
-updated: 2026-10-16
+updated: 2026-10-17
+citationTitleSource: "0.25점이 모자란 성적표"
+citationTitleEn: "A scorecard a quarter of a point short"
+citationTitleRomanized: "0.25jeomi mojaran seongjeokpyo"
 ---
-![펼친 노트 위에 놓인 황동 자, 지식 시스템을 돌아보는 평가의 은유](/images/rank-14-on-my-own-rubric/hero-rank-14-on-my-own-rubric.jpg)
+
+![노트 위의 황동 자로 지식 시스템을 돌아보는 평가의 관점을 표현했다. 실제 평가 점수를 담은 도표는 아니다.](/images/rank-14-on-my-own-rubric/hero-rank-14-on-my-own-rubric.jpg "AI 생성 일러스트. 노트 위의 황동 자로 지식 시스템을 돌아보는 평가의 관점을 표현했다. 실제 평가 점수를 담은 도표는 아니다.")
+
 
 > **기록 시점 안내 · 2026-10-16:** 이 글은 2026년 8월 자기 평가를 돌아본 기록이다. 점수와 제출 시스템 수는 당시 기준이며, 현재 보드의 현황과 구분해 읽어야 한다.
 

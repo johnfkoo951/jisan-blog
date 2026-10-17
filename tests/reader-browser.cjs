@@ -56,7 +56,10 @@ const server = createServer((req,res)=>{
     await goto(page);await openInfo(page);await page.reload();await page.waitForFunction(()=>document.documentElement.dataset.readerPanels==='ready');
     assert(await page.locator('#reader-info-panel').isVisible());
     await page.locator('[data-copy-url]').click();assert.equal(await page.evaluate(()=>navigator.clipboard.readText()),'https://jisan.cmdspace.work/posts/omnisearch-google-research/');
-    const cite=page.locator('#reader-info-panel .cite-copy');const expected=await cite.getAttribute('data-cite');await cite.click();assert.equal(await page.evaluate(()=>navigator.clipboard.readText()),expected);
+    for(const lang of ['ko','en']){
+      const cite=page.locator(`#reader-info-panel .cite-copy[data-cite-lang="${lang}"]`);const expected=await cite.getAttribute('data-cite');await cite.click();await page.waitForFunction(async expected=>(await navigator.clipboard.readText())===expected,expected);assert.equal(await page.evaluate(()=>navigator.clipboard.readText()),expected);
+      const rich=await page.evaluate(async()=>{const items=await navigator.clipboard.read();return (await items[0].getType('text/html')).text();});assert(rich.includes('<i>'));assert(rich.includes('0.5in'));
+    }
   });
   await test('Markdown HTTP failure preserves clipboard and allows a successful retry',async()=>{
     await goto(page);await openInfo(page);await page.evaluate(()=>navigator.clipboard.writeText('keep-existing-clipboard'));
@@ -139,6 +142,16 @@ const server = createServer((req,res)=>{
   await test('without JavaScript the original inline TOC and article remain usable',async()=>{
     const p=await newPage(390,{javaScriptEnabled:false});await p.goto(`${base}/posts/omnisearch-google-research/`);
     assert(await p.locator('.reader-toc').isVisible());assert(await p.locator('.reader-panel-controls').isHidden());assert(await p.locator('.prose').isVisible());await p.context().close();
+  });
+  await test('all figure captions and bilingual APA controls are visible in the article layout',async()=>{
+    await page.setViewportSize({width:1440,height:1000});await goto(page,'servants-who-drew-the-water');
+    const caption=page.locator('.prose figure figcaption').first();await caption.scrollIntoViewIfNeeded();assert((await caption.innerText()).startsWith('AI 생성 일러스트.'));
+    if(process.env.TEST_OUTPUT_DIR)await page.screenshot({path:path.join(process.env.TEST_OUTPUT_DIR,'caption-servants.png')});
+    await page.locator('.cite-block').scrollIntoViewIfNeeded();
+    assert.equal(await page.locator('.cite-block [data-cite-lang]').count(),2);assert.equal(await page.locator('.cite-block .apa-reference i').count(),2);
+    if(process.env.TEST_OUTPUT_DIR)await page.screenshot({path:path.join(process.env.TEST_OUTPUT_DIR,'citations-apa7.png')});
+    await page.setViewportSize({width:390,height:844});await page.locator('.cite-block').scrollIntoViewIfNeeded();assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+    if(process.env.TEST_OUTPUT_DIR)await page.screenshot({path:path.join(process.env.TEST_OUTPUT_DIR,'citations-apa7-mobile.png')});
   });
   await test('light/dark/reduced-motion and print retain readable content',async()=>{
     await page.setViewportSize({width:1600,height:1000});await goto(page);await openInfo(page);

@@ -6,9 +6,14 @@ kind: 에세이
 summary: 폴더는 맥락을 하나만 허용하지만, 우리 머릿속의 사과는 과일이자 물리학이자 동화다. 들뢰즈의 리좀으로 태그 시스템을 다시 읽는다. 그러나 모든 것이 모든 것과 연결될 때, 그것은 정보인가 소음인가.
 series: 지식의 지형학
 seriesOrder: 1
-updated: 2026-09-04
+updated: 2026-10-17
+citationTitleSource: "지식의 지형학 1부 — 그리고(And)의 세계, 리좀이 그린 태그의 풀밭"
+citationTitleEn: "The topology of knowledge, part 1: The world of and and a rhizomatic grassland of tags"
+citationTitleRomanized: "Jisigui jihyeonghak 1bu — Geurigo(And)ui segye, rijomi geurin taegeuui pulbat"
 ---
-![풀밭 아래로 뻗은 리좀의 뿌리 네트워크](/images/topology-of-knowledge-1/hero-topology-of-knowledge-1.jpg)
+
+![풀밭 아래로 뻗는 뿌리와 연결망으로 리좀과 태그의 수평적 연결을 표현했다.](/images/topology-of-knowledge-1/hero-topology-of-knowledge-1.jpg "AI 생성 일러스트. 풀밭 아래로 뻗는 뿌리와 연결망으로 리좀과 태그의 수평적 연결을 표현했다.")
+
 
 ## 사과는 어디에 있는가
 

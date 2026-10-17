@@ -6,9 +6,14 @@ kind: 에세이
 summary: 메타데이터 태그 시스템은 들뢰즈적 구조(Rhizome) 위에서 작동하는 루만적 기계(System)이다. 연결하라, 그리고 선택하라, 선택한 것을 다시 연결하라. 이 리듬이 계속되는 한 당신의 지식은 살아 숨 쉰다.
 series: 지식의 지형학
 seriesOrder: 3
-updated: 2026-10-16
+updated: 2026-10-17
+citationTitleSource: "지식의 지형학 3부 — 그리고, 아니면(And, Not), 풀밭 위의 미로를 짓는 법"
+citationTitleEn: "The topology of knowledge, part 3: And, not, and building a maze on the grassland"
+citationTitleRomanized: "Jisigui jihyeonghak 3bu — Geurigo, animyeon(And, Not), pulbat wiui miroreul jinneun beop"
 ---
-![풀밭 위의 미로 — 리좀과 시스템이 공존하는 지형](/images/topology-of-knowledge-3/hero-topology-of-knowledge-3.jpg)
+
+![풀밭과 미로가 겹쳐 있는 지형으로 리좀의 연결과 시스템의 경계가 공존하는 모습을 표현했다.](/images/topology-of-knowledge-3/hero-topology-of-knowledge-3.jpg "AI 생성 일러스트. 풀밭과 미로가 겹쳐 있는 지형으로 리좀의 연결과 시스템의 경계가 공존하는 모습을 표현했다.")
+
 
 ## 두 거인이 만났을 때
 

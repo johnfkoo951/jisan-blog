@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-17 — Evidence-based captions and bilingual APA 7
+- Audited 43 image placements across 29 posts; added type/topic captions and provenance registry entries for 41 unique sources. Each image now has a separate figure, including the former grouped HQ photos.
+- Preserved original image files, article slugs/dates and non-caption prose; synchronized caption and citation fields with the vault masters.
+- Added Korean localized APA 7 and English romanized-title plus translation references in the sidebar and footer, full publication dates and italic blog names, and HTML/plain clipboard copying.
+- Added strict gates for missing captions, provenance/hash drift, stale title metadata, dates, reference punctuation and rich-text copying.
+- Recorded original-photographer uncertainty for external reference photos instead of inventing attribution.
+
 ## 2026-10-17 — Markdown source clipboard
 - Added a shared full-Markdown copy button below the raw-source link, using the public index.md including its public frontmatter.
 - Added loading state, success/error feedback, retryable failed fetches and a gesture-preserving clipboard path with text fallback.

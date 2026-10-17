@@ -5,7 +5,10 @@ date: 2025-12-21
 kind: 에세이
 firstPublished: 더배러
 summary: 차돌짬뽕이 울면과 냉면 사이에 있으면 면요리, 침착맨과 단군 사이에 있으면 철면수심이 된다. 지식을 체계화하는 다양한 축, Organizing Dimension — 공간·디지털-아날로그·시간·학제간 연결의 네 차원.
-updated: 2026-08-27
+updated: 2026-10-17
+citationTitleSource: "차돌짬뽕에서 파인만까지 — Organizing Dimension으로 재해석하는 새로운 차원의 이야기"
+citationTitleEn: "From beef brisket jjamppong to Feynman: Reinterpreting experience through organizing dimensions"
+citationTitleRomanized: "Chadoljjamppongeseo painmankkaji — Organizing Dimension-euro jaehaeseokaneun saeroun chawonui iyagi"
 ---
 ## 다차원적 지식 관리의 필요성
 
@@ -15,20 +18,20 @@ updated: 2026-08-27
 
 지식관리 세미나를 할 때면 자주 언급하는 예시이다. 차돌짬뽕을 알고있니? 차돌짬뽕이 울면과 냉면 사이에 있다면 이것은 '면요리'이다. 탕수육과 짜장면 사이에 있을 땐 '중화요리'라 할 수 있을 것이다. 그런데 이 차돌짬뽕이 침착맨과 단군 사이에 있다면? 철면수심이 된다(유튜버 철면수심의 별명이 차돌짬뽕이다. 한국 사람이라면 유튜브 [침착맨 채널](https://youtube.com/@ChimChakMan_Official)을 보아야 하지 않겠나). 어떤 것들과 함께 하는지, 어떻게 조명하는지에 따라 지식이 다르게 배치될 수 있다는 뜻이다.
 
-![차돌짬뽕](https://i.imgur.com/Rx1tvDT.png)
-*Figure 1. 차돌짬뽕(by Midjourney)*
+![차돌짬뽕 한 그릇과 젓가락을 표현한 선화](https://i.imgur.com/Rx1tvDT.png "AI 생성 일러스트. Figure 1. Midjourney로 만든 차돌짬뽕 그림이다. 지식을 서로 다른 차원으로 이해하는 글의 도입 예시에 사용했다.")
+
 
 ## Organizing Dimension의 개념
 
 Organizing Dimension이란 지식을 체계화하는 다양한 축 또는 관점을 의미한다. 이는 단순한 정보의 축적이 아닌, 여러 지식 요소들 간의 유기적 연결과 통합적 이해를 추구하는 방법론이다. 나의 이러한 접근 방식의 단초는 대학 시절 리처드 파인만 교수의 물리학 서적을 접하면서 시작되었다.
 
-![리처드 파인만](https://i.imgur.com/V19ILtk.png)
-*Figure 2. 리처드 파인만*
+![흰 셔츠 차림으로 앉아 있는 리처드 파인만](https://i.imgur.com/V19ILtk.png "자료 이미지. Figure 2. 리처드 파인만의 인물 사진이다. 기존 원고에 연결된 자료이며 원본 촬영자와 촬영일은 확인되지 않았다.")
+
 
 파인만의 독특한 설명 방식은 물리학의 복잡한 개념들을 다양한 차원에서 접근하고 연결 짓는 탁월한 예시였다. 이는 단순한 지식의 전달을 넘어, 지식 체계 전반을 재구성하는 계기가 되었다. 물리의 기초 언어는 수학이다. 수식으로 물리학을 표현하는 것인데, 이 아저씨는 수학 없이 물리 개념을 완벽하게 설명하였다. 수학을 배제하고 물리학을 서술했다기보다는 남들이 당연하다고 생각하는 기본 구조와 골격을 제외한 본질을 드러낸 것으로 이해하면 좋겠다. 파인만의 책은 굉장히 정교한 언어로 물리학과 수학을 구분하여 설명하였으며 '하이탑 물리'에 매몰되어있던 나에게 새로운 세상을 열어주었다.
 
-![Lectures on physics](https://i.imgur.com/QPAKJ7w.png)
-*Figure 3. Lectures on physics*
+![The Feynman Lectures on Physics의 붉은색 표지](https://i.imgur.com/QPAKJ7w.png "자료 이미지. Figure 3. The Feynman Lectures on Physics의 표지다. 글에서 파인만의 설명 방식을 논의할 때 사용한 도서 자료다.")
+
 
 ## Organizing Dimension의 실제 적용
 
@@ -36,17 +39,19 @@ Organizing Dimension이란 지식을 체계화하는 다양한 축 또는 관점
 
 Organizing Dimension의 첫 번째 적용은 물리적 공간의 재해석이다. 전통적인 의미의 '정돈된' 공간이 아닌, 다양한 지식 활동이 유기적으로 이루어질 수 있는 환경을 조성하는 것이 핵심이다. 나의 작업실에는 다수의 모니터, 음향 장비, 피아노 등이 있는데, 이는 단순한 배치가 아닌 지식의 다각적 접근을 위한 전략적 구성이다(이 공간은 명백하게 정리된 상태이다). 각 장비는 서로 다른 차원의 지식 활동을 지원하며, 이들의 유기적 연결은 새로운 통찰을 가능케 한다.
 
-![CommandSpace HQ 1](https://i.imgur.com/JAgsO6A.jpeg)
-![CommandSpace HQ 2](https://i.imgur.com/98kNhIs.jpeg)
-![CommandSpace HQ 3](https://i.imgur.com/sVgL9Rf.jpeg)
-*Figure 4. CommandSpace HQ 변천사*
+![창가의 모니터, 건반과 작업 도구가 놓인 공간](https://i.imgur.com/JAgsO6A.jpeg "실제 사진. Figure 4-1. CommandSpace HQ 변천사: 창가의 모니터, 건반과 작업 도구가 놓인 공간이다. 기존 원고의 작업환경 사진을 사용했다.")
+
+![여러 화면과 책·자료를 함께 배치한 작업 공간](https://i.imgur.com/98kNhIs.jpeg "실제 사진. Figure 4-2. CommandSpace HQ 변천사: 여러 화면과 책·자료를 함께 배치한 작업 공간이다. 기존 원고의 작업환경 사진을 사용했다.")
+
+![모니터와 건반을 다시 배치한 작업 공간](https://i.imgur.com/sVgL9Rf.jpeg "실제 사진. Figure 4-3. CommandSpace HQ 변천사: 모니터와 건반을 다시 배치한 작업 공간이다. 기존 원고의 작업환경 사진을 사용했다.")
+
 
 ### 2. 디지털-아날로그 융합 차원
 
 두 번째 차원은 디지털과 아날로그 방식의 조화로운 융합이다. 고성능 컴퓨터와 최신 프로그램의 활용과 더불어, 30공 바인더나 색깔 코딩 시스템과 같은 아날로그 방식을 병행하는 것은 중요하다. 이는 동양의 관계론적 사고와 서양의 분석적 사고를 결합하는 시도로 이해할 수 있으며 발산적 사고와 수렴적 사고가 유기적으로 일어나게 할 수 있다. 디지털 도구는 빠른 정보 처리와 복잡한 분석을 가능케 하고, 아날로그 방식은 직관적 이해와 창의적 연결을 촉진한다. 300페이지 짜리 책을 PDF 파일로 볼 때보다 실제 종이책을 만질 때 몰입이 커지게 되며, 아날로그 방식은 언제든 가지고 다닐 수 없지만 디지털 파일은 검색이 가능하고 어디서든 사용할 수 있다는 것이 그 이유이다.
 
-![대학원 시절 학습자료 정리 바인더](https://i.imgur.com/5byqXfQ.jpeg)
-*Figure 5. 구요한의 대학원 시절 학습자료 정리 바인더*
+![과목별로 정리된 대학원 학습자료 바인더](https://i.imgur.com/5byqXfQ.jpeg "실제 사진. Figure 5. 구요한의 대학원 시절 학습자료 정리 바인더다. 디지털과 아날로그 자료를 함께 다루는 방식을 보여준다.")
+
 
 ### 3. 시간적 차원
 
@@ -54,15 +59,15 @@ Organizing Dimension의 첫 번째 적용은 물리적 공간의 재해석이다
 
 무언가를 배우고 나누는 것을 즐겨했던 누적된 시간이 지금의 나를 만들었고 미래의 나를 설계한다.
 
-![피플 애널리틱스 컨퍼런스 발표](https://i.imgur.com/TyIaYNP.jpeg)
-*Figure 6. 피플 애널리틱스 컨퍼런스 발표*
+![피플 애널리틱스 컨퍼런스의 강연자와 대형 발표 화면](https://i.imgur.com/TyIaYNP.jpeg "실제 사진. Figure 6. 피플 애널리틱스 컨퍼런스 발표 현장이다. 강연자와 발표 화면이 함께 보이는 행사 사진이며 앱 화면을 직접 캡처한 이미지는 아니다.")
+
 
 ### 4. 학제간 연결 차원
 
 네 번째 차원은 서로 다른 학문 분야 간의 연결이다. 물리학, 음악, 데이터분석, HRD, 지식관리, 생성형 AI 등 다양한 분야의 지식을 유기적으로 연결함으로써, 새로운 통찰과 혁신적 아이디어를 얻을 수 있다. 이는 복잡한 생성형 AI 시대를 살아가기 위한, 우리에게 당면한 문제들을 해결하는 데 필수적인 접근 방식이다. 올해는 어디서 공연을 해볼까. 같이 공연을 기획하고 싶은 사람이 있다면 꼭 연락하시길.
 
-![2023년 어느 와인바에서의 재즈 공연](/images/organizing-dimension/fig7-jazz-wine-bar-2023.webp)
-*Figure 7. 2023년 어느 와인바에서의 재즈 공연*
+![와인바 무대에서 재즈를 연주하는 공연자들](/images/organizing-dimension/fig7-jazz-wine-bar-2023.webp "실제 사진. Figure 7. 2023년 어느 와인바에서의 재즈 공연이다. 학제간 연결을 설명하는 본문에서 사용한 공연 사진이다.")
+
 
 ## Organizing Dimension 접근의 함의
 

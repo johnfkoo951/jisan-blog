@@ -2,12 +2,17 @@
 title: 곳간이 아니라 길이었다
 slug: path-not-granary
 date: 2026-07-13
-updated: 2026-10-16
+updated: 2026-10-17
 kind: 에세이
 firstPublished: 더배러 239호
 summary: 더배러 3주년 회고. 지식은 나눌 때 줄어드는 것이 아니라 그때부터 커지기 시작한다는 믿음, pay it forward, 그리고 이어령 선생님의 질문 곁에서 시작할 새로운 공간에 대하여.
+citationTitleSource: "곳간이 아니라 길이었다"
+citationTitleEn: "It was a path, not a storehouse"
+citationTitleRomanized: "Gotgani anira girieotda"
 ---
-![여러 열린 문과 길로 이어지는 집의 개념 일러스트](/images/knowledge-ecosystem-map/hero-knowledge-ecosystem-map.jpg)
+
+![여러 문과 길이 연결된 집으로 CMDSPACE 지식 생태계의 구조를 표현했다. 실제 건축물 사진은 아니다.](/images/knowledge-ecosystem-map/hero-knowledge-ecosystem-map.jpg "AI 생성 일러스트. 여러 문과 길이 연결된 집으로 CMDSPACE 지식 생태계의 구조를 표현했다. 실제 건축물 사진은 아니다.")
+
 
 > **기록 시점 안내 · 2026-10-16:** 이 글은 2026년 7월 더배러 3주년을 돌아보며 쓴 회고다. 구독자 수와 평창동 공간에 대한 계획은 당시 시점의 기록이며, 이미지는 실제 건물 사진이 아닌 개념 일러스트다.
 

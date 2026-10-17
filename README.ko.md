@@ -33,6 +33,11 @@ deploy.sh              빌드 + vercel --prod
 
 선택 frontmatter `keywords`와 `relatedPosts`로 글별 연결을 조정할 수 있다. 배치·메타데이터·키보드·접근성 계약과 화면은 [공통 명세](docs/reader-sidebars.md)를 참조한다. Chrome 설치 후 `npm run test:reader`로 전체 글 브라우저 검사를 실행한다. 2026-10-17 운영 반영 완료. 라이브 29편 HTML과 원문 엔드포인트를 빌드·정본과 대조했다.
 
+## 이미지 캡션과 국문·영문 APA 인용
+히어로를 포함한 모든 본문 이미지에 확인한 제작 유형·출처와 주제를 설명하는 캡션을 둔다. 모든 글의 사이드바와 하단에서 국문·영문 APA 7 블로그 참고문헌을 각각 복사할 수 있다. 서식 지원 편집기에는 기울임과 내어쓰기를 함께 복사한다.
+
+정본과 파생본에 `citationTitleSource`, `citationTitleEn`, `citationTitleRomanized`를 유지한다. 제목 변경 뒤 번역이 낡거나 필드가 비면 빌드를 중단한다. 국문 구두점·전체 날짜·영문 전사와 번역의 구분·캡션 근거는 [캡션과 인용 계약](docs/captions-and-citations.md)을 따른다.
+
 ## 조회수와 좋아요 연결
 Vercel 서버 환경 변수에 `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`, 32자 이상의 안전한 무작위 `ENGAGEMENT_COOKIE_SECRET`을 설정한다. 기존 KV 형식 변수도 지원한다. 키를 공개 소스나 브라우저 자산에 넣지 않는다. 정확한 미리보기 도메인은 선택 변수 `ENGAGEMENT_ALLOWED_ORIGIN`으로 허용한다. 상세 계약은 [영문 README](README.md#optional-engagement-setup) 참조.
 - 서비스 생성, 요금/보관 조건 수락, 운영 비밀값 설정, 배포는 소유자 승인 후 수행한다. 로컬 빌드만으로 활성화되지 않는다.

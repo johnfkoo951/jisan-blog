@@ -74,3 +74,13 @@ test('keyword search index is populated only with bounded text labels', () => {
   for(const post of index){assert(Array.isArray(post.keywords));assert(post.keywords.length<=8);assert(post.keywords.every(k=>typeof k==='string'&&k.trim().length>0));}
   assert(index.find(p=>p.slug==='omnisearch-google-research').keywords.includes('Omnisearch'));
 });
+
+test('every article exposes both Korean and English APA reference copies', () => {
+  for(const slug of slugs){
+    const html=read(`dist/posts/${slug}/index.html`);
+    assert.equal((html.match(/data-cite-lang="ko"/g)||[]).length,2,slug);
+    assert.equal((html.match(/data-cite-lang="en"/g)||[]).length,2,slug);
+    assert.match(html,/Koo, Y\./);assert.match(html,/구요한\./);
+    assert.match(html,/<i>Jisan<\/i>/);assert.match(html,/<i>紙散\(지산\)<\/i>/);
+  }
+});

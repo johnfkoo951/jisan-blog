@@ -5,8 +5,14 @@ date: 2026-04-27
 kind: 프레임워크
 firstPublished: 더배러
 summary: 좋은 지식관리자는 많이 기록하고 잘 정리하는 사람이라는 정의는 끝났다. Person-Organization Fit을 잇는 새 적합 모델 Person-System-AI Fit(PSA Fit)을 제안하고, cmux를 사례로 사람·시스템·AI가 맞물리는 깊이가 저장의 양을 대체한다고 논한다.
+citationTitleSource: "정리에서 맞물림으로 — Person-System-AI Fit이라는 새로운 적합 모델"
+citationTitleEn: "From organizing to fitting together: A new model of person-system-AI fit"
+citationTitleRomanized: "Jeongnieseo manmullimeuro — Person-System-AI Fit-iraneun saeroun jeokap model"
+updated: 2026-10-17
 ---
-![사람 실루엣, 노트 격자, 노드 별자리 세 조각이 퍼즐처럼 한 몸으로 맞물린 그림](/images/psa-fit/hero-psa-fit.png)
+
+![사람, 노트 구조, 연결망이 맞물리는 퍼즐로 Person-System-AI Fit의 관계를 표현했다.](/images/psa-fit/hero-psa-fit.png "AI 생성 일러스트. 사람, 노트 구조, 연결망이 맞물리는 퍼즐로 Person-System-AI Fit의 관계를 표현했다.")
+
 
 한때 '좋은 지식관리자'는 많이 기록하고 잘 정리하는 사람이었다.
 

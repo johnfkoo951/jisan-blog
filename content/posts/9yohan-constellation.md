@@ -6,9 +6,14 @@ kind: 소개
 series: "CMDSPACE 생태계"
 seriesOrder: 5
 summary: 아홉 개 사업 부문을 역사 속 아홉 명의 요한에게 맡기고, 성령의 아홉 열매를 가드레일로 삼았다. 파편화된 봇 무리가 아니라 하나의 커널이 지휘하는 별자리.
+citationTitleSource: "아홉 명의 요한, 하나의 주권 커널 — 9Yohan Constellation"
+citationTitleEn: "Nine Yohans, one sovereign kernel: 9Yohan Constellation"
+citationTitleRomanized: "Ahop myeongui yohan, hanaui jugwon keoneol — 9Yohan Constellation"
+updated: 2026-10-17
 ---
 
-![하나의 중심 별을 도는 아홉 개의 별](/images/9yohan-constellation/hero-9yohan-constellation.jpg)
+![중심과 주변 궤도로 9요한의 역할 분담과 연결 구조를 표현했다.](/images/9yohan-constellation/hero-9yohan-constellation.jpg "AI 생성 일러스트. 중심과 주변 궤도로 9요한의 역할 분담과 연결 구조를 표현했다.")
+
 
 1인 지식노동자의 하루는 아홉 개의 직업을 오간다. 연구하고, 쓰고, 가르치고, 만들고, 분석하고, 연결하고, 개발하고, 모임을 열고, 자문한다. 부문마다 에이전트를 붙이면 아홉 개의 봇이 생긴다. 그런데 봇이 아홉이면 목소리도 아홉이 된다. [9yohan.cmdspace.work](https://9yohan.cmdspace.work) 는 그 문제에 대한 내 답이다. 아홉 명의 스페셜리스트와, 그들을 지휘하는 하나의 커널.
 

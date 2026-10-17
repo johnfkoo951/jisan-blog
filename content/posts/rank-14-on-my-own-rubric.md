@@ -4,9 +4,14 @@ slug: rank-14-on-my-own-rubric
 date: 2026-07-26
 kind: 에세이
 summary: 지식관리 시스템을 채점하는 평가표 AKM Index를 만들어 공개했다. 만든 사람이 1등인 평가표는 평가표가 아니라 광고다. 자기 채점의 함정은 채점자를 신뢰하는 방식이 아니라, 채점자에게 증거를 요구하는 방식으로 해결된다.
-updated: 2026-08-17
+updated: 2026-10-17
+citationTitleSource: "내가 만든 평가표에서 나는 14등이다"
+citationTitleEn: "I rank 14th on my own rubric"
+citationTitleRomanized: "Naega mandeun pyeonggapyoeseo naneun 14deungida"
 ---
-![노트 위에 놓인 황동 자 — 내가 만든 평가표](/images/rank-14-on-my-own-rubric/hero-rank-14-on-my-own-rubric.jpg)
+
+![노트 위의 황동 자로 지식 시스템을 돌아보는 평가의 관점을 표현했다. 실제 평가 점수를 담은 도표는 아니다.](/images/rank-14-on-my-own-rubric/hero-rank-14-on-my-own-rubric.jpg "AI 생성 일러스트. 노트 위의 황동 자로 지식 시스템을 돌아보는 평가의 관점을 표현했다. 실제 평가 점수를 담은 도표는 아니다.")
+
 
 지난주에 나는 지식관리 시스템을 채점하는 평가표를 하나 만들어 인터넷에 공개했다. 오늘 아침 기준으로 마흔 개의 시스템이 그 위에 올라와 있다. 최고점은 96.5점이다.
 

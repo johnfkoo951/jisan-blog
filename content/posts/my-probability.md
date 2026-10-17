@@ -4,9 +4,14 @@ slug: my-probability
 date: 2025-12-30T13:14
 kind: 에세이
 summary: 언어모델의 본질은 확률 분포다. 일반 모델은 인터넷 전체의 평균을 반영하고, 나의 모델은 나의 기록이 만든 확률을 반영한다. PKM은 메모 저장소가 아니라 나만의 확률값을 훈련시키는 데이터셋이다.
-updated: 2026-08-27
+updated: 2026-10-17
+citationTitleSource: "나만의 확률값 — AI가 절대 가질 수 없는 것"
+citationTitleEn: "My own probability: What AI can never have"
+citationTitleRomanized: "Namanui hwangnyulgap — AI-ga jeoldae gajil su eomneun geot"
 ---
-![나만의 확률값 - AI가 절대 가질 수 없는 것](/images/my-probability/hero-my-probability.png)
+
+![어두운 바탕에서 밝은 중심 노드와 주변 노드가 연결된 개념도](/images/my-probability/hero-my-probability.png "AI 생성 일러스트. 개인의 기록과 연결이 고유한 확률값을 만든다는 생각을 노드로 표현한 개념 이미지다. 그림의 숫자는 실제 측정 결과로 해석하지 않는다.")
+
 
 ## 같은 단어, 다른 세계
 

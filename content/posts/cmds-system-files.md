@@ -2,14 +2,18 @@
 title: AI에게 건네는 첫 문서 — CMDS System Files
 slug: cmds-system-files
 date: 2026-08-20T20:50
-updated: 2026-08-27
+updated: 2026-10-17
 kind: 소개
 series: "CMDSPACE 생태계"
 seriesOrder: 2
 summary: 10,000개 노트 볼트를 떠받치는 규격을 그대로 공개했다. AI 에이전트가 내 볼트에서 일하기 전에 읽는 시스템 파일 여섯 종. 왜 만들었고, 왜 나눠주는가.
+citationTitleSource: "AI에게 건네는 첫 문서 — CMDS System Files"
+citationTitleEn: "The first document to hand to AI: CMDS System Files"
+citationTitleRomanized: "AI-ege geonneneun cheot munseo — CMDS System Files"
 ---
 
-![설계 도면을 건네는 두 손](/images/cmds-system-files/hero-cmds-system-files.jpg)
+![두 손 사이에서 건네는 설계도로 에이전트에게 규칙과 맥락을 전달하는 시스템 파일의 역할을 표현했다.](/images/cmds-system-files/hero-cmds-system-files.jpg "AI 생성 일러스트. 두 손 사이에서 건네는 설계도로 에이전트에게 규칙과 맥락을 전달하는 시스템 파일의 역할을 표현했다.")
+
 
 같은 AI를 쓰는데 결과가 다르다. 그 차이는 모델이 아니라 맥락의 구조에서 난다. Claude Code든 Codex든, 에이전트가 내 볼트에 처음 들어왔을 때 무엇을 읽게 할 것인가. 그 답이 시스템 파일이다.
 

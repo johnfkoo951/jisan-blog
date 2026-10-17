@@ -6,9 +6,14 @@ kind: 에세이
 series: "CMDSPACE 생태계"
 seriesOrder: 1
 summary: 시스템 파일, LLM Wiki, AKM Index, 9요한, CmdMD, 그리고 이 블로그까지. 따로따로 발견되던 여섯 개의 사이트는 사실 한 채의 집이다. 처음으로 전체 지도를 그렸다.
+citationTitleSource: "여섯 개의 문, 한 채의 집 — CMDSPACE 지식 생태계 전체 지도"
+citationTitleEn: "Six doors, one house: A map of the CMDSPACE knowledge ecosystem"
+citationTitleRomanized: "Yeoseot gaeui mun, han chaeui jip — CMDSPACE jisik saengtaegye jeonche jido"
+updated: 2026-10-17
 ---
 
-![여섯 개의 문이 있는 한 채의 집, 각 문에서 새어 나오는 빛](/images/knowledge-ecosystem-map/hero-knowledge-ecosystem-map.jpg)
+![여러 문과 길이 연결된 집으로 CMDSPACE 지식 생태계의 구조를 표현했다. 실제 건축물 사진은 아니다.](/images/knowledge-ecosystem-map/hero-knowledge-ecosystem-map.jpg "AI 생성 일러스트. 여러 문과 길이 연결된 집으로 CMDSPACE 지식 생태계의 구조를 표현했다. 실제 건축물 사진은 아니다.")
+
 
 사람들이 나를 발견하는 문이 제각각이다. 어떤 사람은 시스템 파일을 다운받으러 왔다가 위키를 발견하고, 어떤 사람은 AKM 점수를 재러 왔다가 묻는다. "그런데 이 사이트들이 다 뭐예요?"
 

@@ -4,9 +4,14 @@ slug: ai-divide
 date: 2026-04-30
 kind: 에세이
 summary: AI 시대의 격차는 접근권이 아니라 사용 의지에서 갈린다. 쓰는 사람은 점점 더 멀리 가고, 구경만 하는 사람은 점점 더 뒤로 밀린다. 그러나 처방은 분명하다 — 배우면 되고, 만들면 되고, 물으면 된다.
-updated: 2026-08-17
+updated: 2026-10-17
+citationTitleSource: "쓰는 사람과 구경하는 사람 — AI Divide의 시간"
+citationTitleEn: "Those who use it and those who watch: The age of the AI divide"
+citationTitleRomanized: "Sseuneun saramgwa gugyeonghaneun saram — AI Divide-ui sigan"
 ---
-![갈림길 위의 두 사람 — 쓰는 사람과 구경하는 사람](/images/ai-divide/hero-ai-divide.jpg)
+
+![갈림길의 두 사람으로 AI를 사용하는 사람과 바라보는 사람의 차이를 표현했다.](/images/ai-divide/hero-ai-divide.jpg "AI 생성 일러스트. 갈림길의 두 사람으로 AI를 사용하는 사람과 바라보는 사람의 차이를 표현했다.")
+
 
 ## "대표님은 이번 연휴에 뭐하세요?"
 
