@@ -25,7 +25,7 @@ const ROOT = new URL('.', import.meta.url).pathname;
 const DIST = join(ROOT, 'dist');
 
 // 카테고리 (frontmatter kind → URL slug). 새 kind 는 여기 한 줄 추가.
-const KINDS = { '에세이': 'essay', '프레임워크': 'framework', '소개': 'intro', '보고서': 'report' };
+const KINDS = { '에세이': 'essay', '프레임워크': 'framework', '소개': 'intro', '보고서': 'report', '기술': 'tech' };
 const kindSlug = (kind) => KINDS[kind] || 'etc';
 
 // ─────────────────────── frontmatter ───────────────────────
