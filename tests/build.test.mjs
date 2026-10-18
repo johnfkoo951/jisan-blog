@@ -84,3 +84,12 @@ test('every article exposes both Korean and English APA reference copies', () =>
     assert.match(html,/<i>Jisan<\/i>/);assert.match(html,/<i>紙散\(지산\)<\/i>/);
   }
 });
+
+test('citation section headings remain reader-facing and concise', () => {
+  for (const slug of slugs) {
+    const html=read(`dist/posts/${slug}/index.html`);
+    assert.match(html,/<h3>인용하기<\/h3>/);
+    assert.match(html,/<div class="cite-head"><span>인용하기<\/span><\/div>/);
+    assert.doesNotMatch(html,/APA 7 인용과 공유|이 글을 인용하려면 — APA 7/);
+  }
+});

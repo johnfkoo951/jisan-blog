@@ -445,7 +445,7 @@ ${keywords.terms.length ? `<section class="rail-section"><h3>${keywords.source =
 ${related.length ? `<section class="rail-section"><h3>관련 글</h3><ul class="rail-related">${related.map(other => `<li><a href="/posts/${other.slug}/">${esc(other.title)}</a><span class="rail-muted">${esc(other.kind || '에세이')}</span>${other.summary ? `<p>${esc(other.summary)}</p>` : ''}</li>`).join('')}</ul></section>` : ''}
 <section class="rail-section"><h3>발행 정보</h3><dl class="rail-facts"><dt>분류</dt><dd><a href="/kind/${kindSlug(p.kind || '에세이')}/">${esc(p.kind || '에세이')}</a></dd><dt>발행</dt><dd><time datetime="${esc(p.date)}">${fmtDate(p.date)}</time></dd>${p.updated ? `<dt>수정</dt><dd><time datetime="${esc(p.updated)}">${fmtDate(p.updated)}</time></dd>` : ''}<dt>읽기</dt><dd>약 ${p.min}분</dd></dl></section>
 <section class="rail-section"><h3>원문과 자료</h3><ul class="rail-resources"><li><a href="/posts/${p.slug}/index.md">마크다운 원문</a><button type="button" class="tool-button copy-markdown" data-copy-markdown="/posts/${p.slug}/index.md" aria-describedby="markdown-copy-status">마크다운 원문 복사</button><p class="rail-feedback" id="markdown-copy-status" role="status" aria-live="polite"></p></li>${resources.map(resource => `<li><a href="${esc(resource.href)}">${resource.label}</a></li>`).join('')}</ul></section>
-<section class="rail-section"><h3>APA 7 인용과 공유</h3>${citationGroups(citations, true)}<div class="rail-actions"><button type="button" class="tool-button" data-copy-url>글 주소 복사</button></div><p class="rail-feedback" data-panel-status role="status" aria-live="polite"></p></section>
+<section class="rail-section"><h3>인용하기</h3>${citationGroups(citations, true)}<div class="rail-actions"><button type="button" class="tool-button" data-copy-url>글 주소 복사</button></div><p class="rail-feedback" data-panel-status role="status" aria-live="polite"></p></section>
 <p class="rail-hint">[ 목차 / ] 글 정보 / Esc 닫기</p>
 </div></aside>`;
 }
@@ -510,7 +510,7 @@ ${contents}<div class="prose">${p.html}</div>
 <div class="engagement" hidden><div class="engagement-copy"><strong>이 글이 생각에 보탬이 되었나요?</strong><small>로그인 없이 마음을 남겨 주세요.</small></div><button class="tool-button like-button" id="likeButton" aria-pressed="false">♡ 좋아요</button><span class="metrics">집계 시작 이후의 반응입니다. 중복 방지용 익명 쿠키를 사용합니다.</span></div>
 ${relatedBox}
 <div class="cite-block">
-<div class="cite-head"><span>이 글을 인용하려면 — APA 7</span></div>
+<div class="cite-head"><span>인용하기</span></div>
 <div class="cite-body">${citationGroups(citations)}<p class="citation-note">국문은 국내 APA 7 적용형입니다. 영문은 로마자로 전사한 원제 뒤에 설명용 영문 번역을 대괄호로 덧붙였습니다. 서식 지원 앱에는 블로그명 기울임과 내어쓰기를 함께 복사하며, 평문에서는 서식이 제외됩니다. 같은 저자·연도의 여러 글을 함께 인용할 때는 참고문헌 목록에 따라 a, b 등을 조정하세요.</p>
 <div class="permalink">영속 주소: <a href="${p.url}">${p.url}</a></div></div>
 </div>

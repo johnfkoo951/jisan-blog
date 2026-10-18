@@ -1,5 +1,8 @@
 # Changelog
 
+## 2026-10-18 — Citation heading refinement
+- Renamed both sidebar and footer citation section headings to 인용하기. Bilingual APA formatting and clipboard behavior are unchanged.
+
 ## 2026-10-17 — Evidence-based captions and bilingual APA 7
 - Audited 43 image placements across 29 posts; added type/topic captions and provenance registry entries for 41 unique sources. Each image now has a separate figure, including the former grouped HQ photos.
 - Preserved original image files, article slugs/dates and non-caption prose; synchronized caption and citation fields with the vault masters.
