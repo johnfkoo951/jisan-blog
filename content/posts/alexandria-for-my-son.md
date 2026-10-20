@@ -3,7 +3,7 @@ title: 아들에게 남길 알렉산드리아
 slug: alexandria-for-my-son
 date: 2026-10-21
 kind: 에세이
-summary: 오랜만에 마신 TWG 알렉산드리아 티에서 아들은 치약 향을 맡았고, 후각을 잃은 나는 도서관을 떠올렸다. 칼리마코스의 목록과 내 볼트의 frontmatter, 한 번에 불타지 않은 도서관과 조용히 끊긴 링크, 아들에게 따로 지어 준 도서관과 식탁에서 건너가는 태도까지, AI 시대에 무엇을 물려줄지 묻는다.
+summary: 오랜만에 마신 알렉산드리아 티에서 아들은 치약 향을 맡았고, 후각을 잃은 나는 도서관을 떠올렸다. 칼리마코스의 목록과 내 볼트의 frontmatter, 한 번에 불타지 않은 도서관과 조용히 끊긴 링크, 아들에게 따로 지어 준 도서관과 식탁에서 건너가는 태도까지, AI 시대에 무엇을 물려줄지 묻는다.
 citationTitleSource: "아들에게 남길 알렉산드리아"
 citationTitleEn: "The Alexandria I will leave to my son"
 citationTitleRomanized: "Adeurege namgil alleksandeuria"
