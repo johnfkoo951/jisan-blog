@@ -16,6 +16,13 @@ The Feynman portrait's original photographer/date and some external reference-im
 
 The manifest is `content/image-captions.json`. `lib/image-captions.mjs` validates every rendered figure; each needs one image, descriptive alt, a type/topic caption and a provenance record. `npm test` also verifies local asset hashes. Update a record when changing the source asset. Unknown provenance is an explicit `unknown` classification, not a silent default to “AI generated”.
 
+## Code-rendered diagrams
+A ```mermaid fence in a post becomes an inline SVG figure. Its caption is the italic line right after the fence and starts with `코드로 렌더링한 도식.` (kind `code-diagram`). The registry key is `diagram:{slug}:{sha8}` with `caption`, `alt`, `evidence` and `srcSha256` (the source hash, not a file hash). The validator counts diagrams separately from images and requires the caption, the record and an accessible name on each SVG view.
+
+Run `npm run diagrams` after adding or editing a fence. It prints the registry record to add. RSS and newsletters use the light PNG at `/images/{slug}/diagram-{sha8}.png`. Type choice and source rules live in the cmds-diagram skill and the cmds-pele catalog, not here. The skill workflow is jisan-blog SKILL.md workflow G.
+
+Diagrams go at the top level or inside a blockquote. A fence inside a list item makes both `npm run diagrams` and the build fail with the post and line. `npm run diagrams -- --check` writes nothing; it lists stale caches, orphans and registry gaps and exits 1 when any exist. Rendering needs a Python with Playwright and fontTools (`PELE_PYTHON`) and the sibling cmds-pele module (`CMDS_PELE_DIR`).
+
 ## APA 7 blog-post references
 These pages are blog posts, not generic standalone webpages. Use full publication dates, a plain post title and an italic blog title. Do not put a period after the URL or add a retrieval date to a fixed post.
 
@@ -61,3 +68,4 @@ Gates cover image provenance/caption presence and asset identity, both citation 
 
 ## Changelog
 - 2026-10-17: Audited all image placements, synchronized captions and bilingual citation fields with vault masters, and introduced mandatory build/test gates.
+- 2026-10-20: Added the `code-diagram` caption kind and `diagram:` registry records for code-rendered diagrams.

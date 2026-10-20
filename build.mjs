@@ -3,11 +3,12 @@
 // v4.3 standards: CMDS tokens, accent-on pattern, 17 OG tags, round-logo favicon.
 
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, cpSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, resolve, relative } from 'node:path';
 import { marked } from 'marked';
 import { readerKeywords, preferredRelated, articleResources } from './lib/reader-metadata.mjs';
 import { apaBlogCitations } from './lib/citations.mjs';
 import { validateImageCaptions } from './lib/image-captions.mjs';
+import { createDiagramContext, attachDiagramCaptions, isMermaid, feedSafeHtml } from './lib/diagrams.mjs';
 
 // ───────────────────────── config ─────────────────────────
 const SITE = {
@@ -25,8 +26,11 @@ const SITE = {
 };
 
 const ROOT = new URL('.', import.meta.url).pathname;
-const DIST = join(ROOT, 'dist');
-const IMAGE_CAPTIONS = JSON.parse(readFileSync(join(ROOT, 'content', 'image-captions.json'), 'utf8')).images;
+// 기본값은 리포의 content/, dist/. 테스트 픽스처만 JISAN_CONTENT_DIR·JISAN_DIST_DIR·JISAN_DIAGRAM_FONTS_DIR 로 바꾼다.
+const CONTENT = process.env.JISAN_CONTENT_DIR ? resolve(process.env.JISAN_CONTENT_DIR) : join(ROOT, 'content');
+const DIST = process.env.JISAN_DIST_DIR ? resolve(process.env.JISAN_DIST_DIR) : join(ROOT, 'dist');
+const IMAGE_CAPTIONS = JSON.parse(readFileSync(join(CONTENT, 'image-captions.json'), 'utf8')).images;
+const diagrams = createDiagramContext({ contentDir: CONTENT, assetsDir: join(ROOT, 'assets'), fontsDir: process.env.JISAN_DIAGRAM_FONTS_DIR ? resolve(process.env.JISAN_DIAGRAM_FONTS_DIR) : undefined, registry: IMAGE_CAPTIONS });
 
 // 카테고리 (frontmatter kind → URL slug). 새 kind 는 여기 한 줄 추가.
 const KINDS = { '에세이': 'essay', '프레임워크': 'framework', '소개': 'intro', '보고서': 'report', '기술': 'tech' };
@@ -70,6 +74,18 @@ marked.use({
       const m = /^\*\*(?=[^\s*])([^*\n]*?[^\s*])\*\*/.exec(src);
       if (!m) return false; // 그 외(이탤릭·중첩 등)는 marked 기본 규칙
       return { type: 'strong', raw: m[0], text: m[1], tokens: this.lexer.inlineTokens(m[1]) };
+    },
+  },
+});
+
+// ```mermaid → <figure class="diagram"> (content/diagrams/ 캐시의 정적 SVG, 바로 다음 *이탤릭* 문단이 캡션).
+// 캐시가 없거나 소스와 다르면 빌드가 "run npm run diagrams" 로 실패한다. lib/diagrams.mjs 참조.
+marked.use({
+  hooks: { processAllTokens: attachDiagramCaptions },
+  renderer: {
+    code(token) {
+      if (!isMermaid(token)) return false;
+      return diagrams.figure(token.text, token.diagramCaption ? this.parser.parseInline(token.diagramCaption) : '', { line: token.diagramLine, inList: token.diagramInList });
     },
   },
 });
@@ -235,7 +251,7 @@ article.post .p-kind a { color: inherit; }
 function imageMeta(url) {
   if (new URL(url).origin !== SITE.url) return '';
   const pathname = new URL(url).pathname;
-  const file = join(ROOT, pathname.startsWith('/images/') ? 'content' : '', pathname);
+  const file = pathname.startsWith('/images/') ? join(CONTENT, pathname) : join(ROOT, pathname);
   if (!existsSync(file)) return '';
   const bytes = readFileSync(file);
   let width, height, mime;
@@ -316,7 +332,7 @@ const FOOT = `<footer class="site-foot"><div class="wrap">
 <p class="rss" style="margin-top:.3rem"><a href="/feed.xml">RSS 구독</a> · <a href="https://cmdspace.work">CMDSPACE</a> · <a href="https://bio.cmdspace.work">bio</a></p>
 </div></footer>`;
 
-function shell({ title, desc, url, body, jsonld, article, ogImageOverride, extraHead }) {
+function shell({ title, desc, url, body, jsonld, article, ogImageOverride, extraHead, extraStyle }) {
   const ogImage = ogImageOverride || `${SITE.url}/assets/og/og-jisan.png`;
   const ld = jsonld ? `\n<script type="application/ld+json">${JSON.stringify(jsonld)}</script>` : '';
   return `<!DOCTYPE html>
@@ -325,7 +341,7 @@ function shell({ title, desc, url, body, jsonld, article, ogImageOverride, extra
 ${metaTags({ title, desc, url, ogImage, article })}${ld}${extraHead || ''}
 <script>try{var t=localStorage.getItem('jisan-theme');document.documentElement.dataset.theme=(t==='dark'||t==='light')?t:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch{document.documentElement.dataset.theme=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}</script>
 <style>${CSS}
-${READER_CSS}</style>
+${READER_CSS}${extraStyle || ''}</style>
 </head>
 <body>
 <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -340,12 +356,14 @@ ${FOOT}
 }
 
 // ─────────────────────── build posts ───────────────────────
-const postsDir = join(ROOT, 'content', 'posts');
+const postsDir = join(CONTENT, 'posts');
 const posts = readdirSync(postsDir).filter((f) => f.endsWith('.md')).map((f) => {
   const raw = readFileSync(join(postsDir, f), 'utf8');
   const { meta, body } = parseFrontmatter(raw);
   if (!meta.slug || !meta.title || !meta.date) throw new Error(`missing slug/title/date in ${f}`);
+  diagrams.begin(meta.slug, { name: f, offset: raw.slice(0, raw.length - body.length).split('\n').length - 1 });
   let html = postprocess(marked.parse(body));
+  const diagramFigures = diagrams.end();
   validateImageCaptions(html, IMAGE_CAPTIONS, meta.slug);
   const toc = [];
   html = html.replace(/<h([2-4])>([\s\S]*?)<\/h\1>/g, (match, level, label) => {
@@ -364,7 +382,12 @@ const posts = readdirSync(postsDir).filter((f) => f.endsWith('.md')).map((f) => 
     .replace(/[>*_`|]/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
-  return { ...meta, raw, body, html, toc, headings, plain, min: readingMin(body), url: `${SITE.url}/posts/${meta.slug}/` };
+  if (diagramFigures.length) {
+    const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]);
+    const dup = ids.find((id, i) => ids.indexOf(id) !== i);
+    if (dup) throw new Error(`${meta.slug}: duplicate id "${dup}" after inlining diagrams`);
+  }
+  return { ...meta, raw, body, html, toc, headings, plain, min: readingMin(body), url: `${SITE.url}/posts/${meta.slug}/`, diagramFigures };
 }).sort((a, b) => {
   const k = (p) => p.date.length > 10 ? p.date : p.date + 'T00:00';
   return k(a) === k(b) ? a.slug.localeCompare(b.slug) : k(a) < k(b) ? 1 : -1;
@@ -484,8 +507,12 @@ const listItem = (p) => {
 mkdirSync(DIST, { recursive: true });
 cpSync(join(ROOT, 'assets'), join(DIST, 'assets'), { recursive: true });
 // 본문 이미지: content/images/{slug}/ → dist/images/{slug}/ (본문에서 /images/{slug}/파일명 으로 참조)
-if (existsSync(join(ROOT, 'content', 'images'))) {
-  cpSync(join(ROOT, 'content', 'images'), join(DIST, 'images'), { recursive: true });
+if (existsSync(join(CONTENT, 'images'))) {
+  cpSync(join(CONTENT, 'images'), join(DIST, 'images'), { recursive: true });
+}
+// 도식 전용 글꼴이 assets/ 밖(테스트 픽스처)에 있으면 같은 공개 경로로 복사한다
+if (posts.some((p) => p.diagramFigures.length) && relative(join(ROOT, 'assets'), diagrams.fontsDir).startsWith('..')) {
+  cpSync(diagrams.fontsDir, join(DIST, 'assets', 'fonts'), { recursive: true });
 }
 
 for (const p of posts) {
@@ -537,7 +564,7 @@ ${relatedBox}
     publisher: { '@type': 'Person', name: SITE.authorKo, alternateName: `${SITE.title} (Jisan)`, url: SITE.url },
     isPartOf: { '@type': 'Blog', name: SITE.title, url: SITE.url },
   };
-  writeFileSync(join(dir, 'index.html'), shell({ title: `${p.title} — ${SITE.title}`, desc: p.summary || SITE.description, url: p.url, body, jsonld, ogImageOverride: heroMatch ? heroUrl : undefined, article: { published: p.date.slice(0, 10), modified: (p.updated || p.date).slice(0, 10) }, extraHead: `\n<link rel="alternate" type="text/markdown" href="${p.url}index.md" title="Markdown source">` }));
+  writeFileSync(join(dir, 'index.html'), shell({ title: `${p.title} — ${SITE.title}`, desc: p.summary || SITE.description, url: p.url, body, jsonld, ogImageOverride: heroMatch ? heroUrl : undefined, article: { published: p.date.slice(0, 10), modified: (p.updated || p.date).slice(0, 10) }, extraHead: `\n<link rel="alternate" type="text/markdown" href="${p.url}index.md" title="Markdown source">`, extraStyle: p.diagramFigures.length ? diagrams.styles(p.diagramFigures) : undefined }));
   // GEO/AIO: 마크다운 원문 엔드포인트 — LLM·에이전트가 정본을 그대로 인용할 수 있게
   writeFileSync(join(dir, 'index.md'), p.raw);
 }
@@ -606,7 +633,7 @@ const rssItems = posts.map((p) => `<item>
 <pubDate>${new Date(p.date.length > 10 ? p.date + ':00+09:00' : p.date + 'T09:00:00+09:00').toUTCString()}</pubDate>
 <category>${esc(p.kind || '에세이')}</category>
 <description>${esc(p.summary || '')}</description>
-<content:encoded><![CDATA[${p.html.replace(/\]\]>/g, ']]]]><![CDATA[>')}]]></content:encoded>
+<content:encoded><![CDATA[${(p.diagramFigures.length ? feedSafeHtml(p.html, { slug: p.slug, contentDir: CONTENT, siteUrl: SITE.url }) : p.html).replace(/\]\]>/g, ']]]]><![CDATA[>')}]]></content:encoded>
 </item>`).join('\n');
 
 writeFileSync(join(DIST, 'feed.xml'), `<?xml version="1.0" encoding="UTF-8"?>

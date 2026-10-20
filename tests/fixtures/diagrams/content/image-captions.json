@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "reviewed": "2026-10-20",
+  "images": {
+    "diagram:diagram-fixture:0e1500ca": {
+      "kind": "code-diagram",
+      "caption": "코드로 렌더링한 도식. 볼트 원문이 블로그 정본 URL을 거쳐 RSS, 마크다운 원문, 뉴스레터로 퍼지는 흐름이다.",
+      "alt": "볼트 원문에서 블로그 정본으로, 다시 RSS와 마크다운 원문, 뉴스레터로 이어지는 순서도.",
+      "evidence": "Test fixture. Mermaid source in content/posts/diagram-fixture.md; static render by cmds-pele 0.1.0 (Pele 1.6.0) via npm run diagrams",
+      "srcSha256": "0e1500ca14fef7e5ef5f931172ad967c6d56d8aa358b7071753cb62913538ef8"
+    },
+    "diagram:diagram-fixture:d6b4fb7d": {
+      "kind": "code-diagram",
+      "caption": "코드로 렌더링한 도식. 도식 도입을 준비와 적용 두 구간의 날짜순 단계로 정리했다.",
+      "alt": "준비 구간의 기획서와 정본 모듈, 적용 구간의 블로그 캐시와 뉴스레터 PNG를 날짜순으로 놓은 연표.",
+      "evidence": "Test fixture. Mermaid source in content/posts/diagram-fixture.md; static render by cmds-pele 0.1.0 (Pele 1.6.0) via npm run diagrams",
+      "srcSha256": "d6b4fb7d95d4e1d82fcad788d912352bb858e1bc4fcb91ad791b020b616a603f"
+    }
+  }
+}

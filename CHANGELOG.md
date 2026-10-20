@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-10-20: Code-rendered diagrams (not deployed)
+- Added ```mermaid support. `npm run diagrams` lints with cmds-pele `pele-check --surface blog`, renders locally with Pele 1.6.0 in Chrome and commits a cache: `content/diagrams/{slug}/{sha8}.json` (732px and 340px SVG), `content/images/{slug}/diagram-{sha8}.png` (light @2x) and a diagram-only Pretendard subset `assets/fonts/cmds-pele-sans-{400,700}.woff`.
+- `build.mjs` only reads the cache, so the Vercel build still needs no browser, font or network. A missing or stale entry fails with `run npm run diagrams`.
+- Diagrams render as `<figure class="diagram">` with the italic line after the fence as caption. Site tokens map to the cmds-pele `--cp-*` hooks for light, dark and print. RSS carries the PNG instead of SVG.
+- New caption kind `code-diagram` (`코드로 렌더링한 도식.`) with `diagram:{slug}:{sha8}` registry records, counted separately from images.
+- Pages without diagrams, the feed, search index and sitemap are byte-identical to the previous build. Only `assets/diagram.css` and `assets/vendor/cmds-pele/` are added to dist.
+- Tests use fixtures in `tests/fixtures/diagrams`; no article was added or changed. New `npm run test:diagram-reader` checks widths 320 to 1920, theme tokens and font metrics in Chrome.
+- Follow-up fixes after independent review: a mermaid fence inside a list item now fails `npm run diagrams` and the build with the post and line (line numbers come from token positions, so fences in quotes and lists report the right line). `npm run diagrams -- --check` also reports missing or drifted registry records with the same rules as the build. A missing or incomplete renderer Python names `PELE_PYTHON` and what it needs. Cache errors no longer carry marked's bug-report suffix. Three regression tests added (50 in total).
+
 ## 2026-10-18 — Citation heading refinement
 - Renamed both sidebar and footer citation section headings to 인용하기. Bilingual APA formatting and clipboard behavior are unchanged.
 

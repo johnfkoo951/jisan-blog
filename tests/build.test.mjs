@@ -14,7 +14,7 @@ test('every article retains exact Markdown source and reader landmarks', () => {
     assert.match(html, /조회수·좋아요와 익명 쿠키 안내/);
     assert.match(html, /한국 시간 오전 9시/);
     assert.match(html, /data-font-reset aria-label="본문 글자 기본 크기로">기본<\/button>/);
-    const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]);
+    const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map(m => m[1]); // \s: Pele SVG의 data-id 는 id 가 아니다
     assert.equal(ids.length, new Set(ids).size, `duplicate ids: ${slug}`);
     for (const [, id] of html.matchAll(/href="#(section-\d+)"/g)) assert.ok(ids.includes(id), `${slug}: ${id}`);
     assert.doesNotMatch(html, /yohankoo|Obsidian_MBP|omnicontrol|file:\/\/\//);
