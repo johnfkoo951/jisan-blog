@@ -2,7 +2,7 @@
 title: AI에게 건네는 첫 문서 — CMDS System Files
 slug: cmds-system-files
 date: 2026-08-20T20:50
-updated: 2026-10-17
+updated: 2026-10-21
 kind: 소개
 series: "CMDSPACE 생태계"
 seriesOrder: 2
@@ -25,7 +25,22 @@ citationTitleRomanized: "AI-ege geonneneun cheot munseo — CMDS System Files"
 
 **공유 규칙 9종.** 들여쓰기, frontmatter 표준, 위키링크, 파일 생성 위치 같은 실무 규칙이다. 시스템 파일이 헌법이라면 이쪽은 시행령이다. 에이전트가 노트 하나를 만들 때마다 실제로 참조하는 층이다.
 
-**슬래시 커맨드 8종.** Connect, Merge, Develop, Share의 지식 생애주기를 명령어로 만들었다. 워크플로가 문서로만 존재하면 잊히지만, 커맨드로 존재하면 실행된다.
+**슬래시 커맨드 8종.** Connect, Merge, Develop, Share의 지식 생애주기를 명령어로 만들었다. 워크플로가 문서로만 존재하면 잊히지만, 커맨드로 존재하면 실행된다. 이 글을 쓴 뒤 제목만 걸어 둔 씨앗 노트를 글감으로 묶는 /seeds와 볼트 생태계 전체에서 끊긴 연결을 거두는 /harvest가 더해져, 2026년 10월 현재 사이트에는 열 개가 올라가 있다.
+
+```mermaid
+flowchart TB
+  E["`**에이전트**
+볼트에 처음 들어온다`"] --> F["`**시스템 파일 6종**
+헌법, 충돌은 우선순위 숫자가 판정`"]
+  F -->|"@include"| R["`**공유 규칙 9종**
+시행령, 노트마다 참조`"]
+  F --> K["`**슬래시 커맨드 10종**
+생애주기를 실행`"]
+  R --> N["`**볼트의 노트**`"]
+  K --> N
+  %% @key: F
+```
+*코드로 렌더링한 도식. 에이전트는 시스템 파일을 먼저 읽고, 공유 규칙과 커맨드를 거쳐 노트에 손댄다. 커맨드 수는 2026년 10월 기준이다.*
 
 ## 문서가 아니라 구조를 설계하라
 
@@ -36,5 +51,20 @@ citationTitleRomanized: "AI-ege geonneneun cheot munseo — CMDS System Files"
 ## 그대로 쓰라고 주는 게 아니다
 
 사이트에서 파일 여섯 개를 개별로 읽거나 전체 번들 ZIP을 받아 볼트 루트에 놓으면 된다. 하지만 복사가 목적이 아니다. 파일 안의 경로와 카테고리를 자기 구조로 바꾸는 과정, 그 과정 자체가 자기 볼트의 스키마를 처음으로 명시하는 경험이 된다. 규칙을 옮겨 적다 보면 알게 된다. 내 볼트에는 어떤 규칙이 없었는지.
+
+```mermaid
+flowchart LR
+  V["`**내 볼트**
+규칙을 검증한다`"] --> O["`**공개 규격**
+system.cmdspace.work`"]
+  O --> F["`**포크**
+경로와 카테고리를 바꾼다`"]
+  F --> D["`**발견**
+내 볼트에 없던 규칙`"]
+  D -.->|"사례가 돌아온다"| O
+  %% @key: O
+  %% @interp: D
+```
+*코드로 렌더링한 도식. 규격을 옮겨 적는 과정이 자기 스키마를 처음 명시하는 경험이 되고, 그 사례가 다시 규격을 다듬는다는 해석이다.*
 
 기술 문서 전체는 [system.cmdspace.work/docs](https://system.cmdspace.work/docs/)에 있다. 시작하기 전에 개념부터 잡고 싶다면 [brain.cmdspace.work](https://brain.cmdspace.work)의 "스키마 우선" 카드부터 읽으면 된다.

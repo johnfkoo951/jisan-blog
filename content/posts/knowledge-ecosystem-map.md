@@ -9,7 +9,7 @@ summary: 시스템 파일, LLM Wiki, AKM Index, 9요한, CmdMD, 그리고 이 �
 citationTitleSource: "여섯 개의 문, 한 채의 집 — CMDSPACE 지식 생태계 전체 지도"
 citationTitleEn: "Six doors, one house: A map of the CMDSPACE knowledge ecosystem"
 citationTitleRomanized: "Yeoseot gaeui mun, han chaeui jip — CMDSPACE jisik saengtaegye jeonche jido"
-updated: 2026-10-17
+updated: 2026-10-21
 ---
 
 ![여러 문과 길이 연결된 집으로 CMDSPACE 지식 생태계의 구조를 표현했다. 실제 건축물 사진은 아니다.](/images/knowledge-ecosystem-map/hero-knowledge-ecosystem-map.jpg "AI 생성 일러스트. 여러 문과 길이 연결된 집으로 CMDSPACE 지식 생태계의 구조를 표현했다. 실제 건축물 사진은 아니다.")
@@ -28,6 +28,25 @@ updated: 2026-10-17
 ## 일곱 개의 볼트, 분산이 아니라 분업
 
 지금 나는 볼트를 일곱 개 운영한다. 흩어진 게 아니라 나눈 것이다. 회사에 부서가 있듯이 볼트마다 저자와 합의 구조가 다르다. 혼자 쓰는 마더십, AI와 함께 쓰는 위키 위성, 두 사람이 쓰는 협업 볼트, 다섯 명이 쓰는 팀 볼트, 외부에 배포하는 스타터킷. AI가 쓴 글과 사람이 쓴 글이 한 곳에 섞이면 신뢰의 출처가 흐려진다. 그래서 경계를 물리적으로 나눈다.
+
+```mermaid
+flowchart LR
+  M["`**마더십**
+혼자 쓴다`"]
+  M --> W["`**위키 위성**
+나와 AI가 쓴다`"]
+  M --> G["`**제품 볼트**
+혼자 쓴다`"]
+  M --> P["`**협업 볼트 2개**
+두 사람이 쓴다`"]
+  M --> T["`**팀 볼트**
+다섯 명이 쓴다`"]
+  M --> K["`**스타터킷**
+외부에 배포한다`"]
+  %% @key: M
+  %% @aux: K
+```
+*코드로 렌더링한 도식. 볼트 일곱 개는 주제가 아니라 누가 쓰고 누가 합의하는지로 나뉜다.*
 
 ## 여섯 개의 문
 
@@ -54,5 +73,28 @@ updated: 2026-10-17
 ## 새 문: brain.cmdspace.work
 
 그리고 오늘, 지도 자체를 문으로 만들었다. **[brain.cmdspace.work](https://brain.cmdspace.work)** 는 이 생태계의 개념 허브다. 세컨드브레인이 뭔지, LLM Wiki가 뭔지, RAG와는 뭐가 다른지, 승격 게이트가 왜 필요한지. 핵심 개념 여덟 가지를 눈높이에 맞게 풀고, 전문 자료가 필요해지면 여섯 개의 문으로 안내한다. 용어에 마우스를 올리면 뜻이 뜨고, 볼트 일곱 개의 지도와 위키의 3층 구조도 그림으로 볼 수 있다.
+
+```mermaid
+flowchart LR
+  M["`**마더십 볼트**
+노트 10,000개 이상`"]
+  M --> S["`**system**
+설계도`"]
+  M --> W["`**llm-wiki**
+서재`"]
+  M --> A["`**akm**
+계량기`"]
+  M --> Y["`**9yohan**
+조직도`"]
+  M --> C["`**cmdmd**
+현관`"]
+  M --> J["`**jisan**
+응접실`"]
+  B["`**brain**
+개념 허브`"] -.-> S & W & A & Y & C & J
+  %% @key: M
+  %% @interp: B
+```
+*코드로 렌더링한 도식. 여섯 사이트는 모두 볼트 하나에서 나온 방이고, brain은 그 방들로 안내하는 개념 허브다.*
 
 개념이 궁금하면 brain에서 시작하라. 만들고 싶으면 system과 llm-wiki로, 재보고 싶으면 akm으로 가라. 어느 문으로 들어와도, 같은 집이다.

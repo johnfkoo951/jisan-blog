@@ -9,7 +9,7 @@ summary: 아홉 개 사업 부문을 역사 속 아홉 명의 요한에게 맡�
 citationTitleSource: "아홉 명의 요한, 하나의 주권 커널 — 9Yohan Constellation"
 citationTitleEn: "Nine Yohans, one sovereign kernel: 9Yohan Constellation"
 citationTitleRomanized: "Ahop myeongui yohan, hanaui jugwon keoneol — 9Yohan Constellation"
-updated: 2026-10-17
+updated: 2026-10-21
 ---
 
 ![중심과 주변 궤도로 9요한의 역할 분담과 연결 구조를 표현했다.](/images/9yohan-constellation/hero-9yohan-constellation.jpg "AI 생성 일러스트. 중심과 주변 궤도로 9요한의 역할 분담과 연결 구조를 표현했다.")
@@ -30,6 +30,22 @@ updated: 2026-10-17
 ## 주권은 하나다
 
 아홉 에이전트 위에 커널이 있다. 9yohan.prime, 곧 나 자신이다. 커널의 책임은 다섯 가지다. 의도를 해석하고, 적임 에이전트로 라우팅하고, 컨텍스트를 큐레이션하고, 결과를 합성하고, 최종 서명한다. 바깥으로 나가는 모든 산출물은 커널의 승인을 거친다. 에이전트가 아무리 늘어도 책임의 주소는 하나여야 한다. 이 원칙은 양보하지 않는다.
+
+```mermaid
+flowchart LR
+  P1["`**커널**
+해석, 라우팅`"] --> K["`**케플러**
+근거`"]
+  K --> G["`**괴테**
+글`"]
+  G --> B["`**바흐**
+시각물`"]
+  B --> P2["`**커널**
+합성, 서명`"]
+  P2 --> O["`**발행**`"]
+  %% @key: P1, P2
+```
+*코드로 렌더링한 도식. 사이트에 공개한 뉴스레터 플레이북이다. 요한이 몇 명 거쳐도 들어가는 문과 나오는 문은 커널 하나다.*
 
 ## 제품이 아니라 설계 문서다
 
