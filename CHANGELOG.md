@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-21: Site footer centered between the reader rails
+- The site footer was left-aligned in a 940px wrap, so with the fixed reader rails open (≥1360px, rails at 50% ± 414px) its first characters sat under the left rail.
+- `.site-foot` is now centered on every page, and at ≥1360px its wrap is limited to 828px, the gap between the rails. Checked at 1440, 1200 and 390px and on the home page; 50 unit tests, 22 reader and 4 diagram browser scenarios pass.
+- First post with Pele diagrams published the same day: `alexandria-for-my-son` (four diagrams, `npm run diagrams` cache committed).
+
 ## 2026-10-20: Code-rendered diagrams (not deployed)
 - Added ```mermaid support. `npm run diagrams` lints with cmds-pele `pele-check --surface blog`, renders locally with Pele 1.6.0 in Chrome and commits a cache: `content/diagrams/{slug}/{sha8}.json` (732px and 340px SVG), `content/images/{slug}/diagram-{sha8}.png` (light @2x) and a diagram-only Pretendard subset `assets/fonts/cmds-pele-sans-{400,700}.woff`.
 - `build.mjs` only reads the cache, so the Vercel build still needs no browser, font or network. A missing or stale entry fails with `run npm run diagrams`.

@@ -208,7 +208,7 @@ article.post h1 { font-size: 2rem; font-weight: 800; letter-spacing: -.03em; lin
 .post-foot { margin: 1.4rem 0 3rem; font-size: .8rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: .4rem 1rem; }
 
 /* footer */
-.site-foot { border-top: 1px solid var(--border); padding: 1.6rem 0 2.6rem; font-size: .8rem; color: var(--muted); }
+.site-foot { border-top: 1px solid var(--border); padding: 1.6rem 0 2.6rem; font-size: .8rem; color: var(--muted); text-align: center; }
 .site-foot .rss a { font-weight: 600; }
 
 /* kind tabs (list pages) */

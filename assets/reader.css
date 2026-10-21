@@ -65,6 +65,8 @@ html{scrollbar-gutter:stable}
 html[data-reader-panels="ready"] .reader-toc{display:none}
 html.reader-modal-open{overflow:hidden}
 .reader-backdrop{position:fixed;inset:0;background:#0006;z-index:150}
+/* Wide screens: fixed rails sit at 50% ± 414px, so keep the site footer inside that gap. */
+@media(min-width:1360px){.site-foot .wrap{max-width:828px}}
 @media(max-width:1359px){
  .reader-panel-controls{position:sticky;top:0;z-index:105;display:flex;justify-content:space-between;gap:12px;max-width:780px;margin:0 auto;padding:9px 24px;background:var(--bg);border-bottom:1px solid var(--border)}
  .rail-toggle{position:static;width:auto;min-height:40px;flex:0 0 auto}
