@@ -1,7 +1,7 @@
 ---
 title: AI에게 건네는 첫 문서 — CMDS System Files
 slug: cmds-system-files
-date: 2026-08-20T20:50
+date: 2026-08-21
 updated: 2026-10-21
 kind: 소개
 series: "CMDSPACE 생태계"

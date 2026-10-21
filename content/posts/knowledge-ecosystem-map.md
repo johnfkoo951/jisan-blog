@@ -1,7 +1,7 @@
 ---
 title: 여섯 개의 문, 한 채의 집 — CMDSPACE 지식 생태계 전체 지도
 slug: knowledge-ecosystem-map
-date: 2026-08-20T21:00
+date: 2026-08-20
 kind: 에세이
 series: "CMDSPACE 생태계"
 seriesOrder: 1

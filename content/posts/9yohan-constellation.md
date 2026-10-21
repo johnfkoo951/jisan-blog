@@ -1,7 +1,7 @@
 ---
 title: 아홉 명의 요한, 하나의 주권 커널 — 9Yohan Constellation
 slug: 9yohan-constellation
-date: 2026-08-20T20:20
+date: 2026-08-24
 kind: 소개
 series: "CMDSPACE 생태계"
 seriesOrder: 5

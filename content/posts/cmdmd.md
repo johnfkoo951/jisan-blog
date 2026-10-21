@@ -1,7 +1,7 @@
 ---
 title: 읽기가 먼저다 — 리뷰 우선 마크다운 에디터 CmdMD
 slug: cmdmd
-date: 2026-08-20T20:10
+date: 2026-08-25
 kind: 소개
 series: "CMDSPACE 생태계"
 seriesOrder: 6

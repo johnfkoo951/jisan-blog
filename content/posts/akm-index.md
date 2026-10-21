@@ -1,7 +1,7 @@
 ---
 title: 측정할 수 없으면 복리도 없다 — AKM Index
 slug: akm-index
-date: 2026-08-20T20:30
+date: 2026-08-23
 kind: 소개
 series: "CMDSPACE 생태계"
 seriesOrder: 4

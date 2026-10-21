@@ -1,7 +1,7 @@
 ---
 title: 사람과 AI가 함께 컴파일하는 위키 — CMDS LLM Wiki
 slug: cmds-llm-wiki
-date: 2026-08-20T20:40
+date: 2026-08-22
 updated: 2026-10-21
 kind: 소개
 series: "CMDSPACE 생태계"
