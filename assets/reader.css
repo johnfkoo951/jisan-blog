@@ -68,6 +68,9 @@ html.reader-modal-open{overflow:hidden}
 /* Wide screens: fixed rails sit at 50% ± 414px, so keep the site footer inside that gap. */
 @media(min-width:1360px){.site-foot .wrap{max-width:828px}}
 @media(max-width:1359px){
+ /* 좁은 화면의 서랍은 스크립트가 열었다고 표시(html.reader-modal-open)했을 때만 그린다.
+    스크립트 없이 저장된 사본(Zotero 등 웹 스냅숏)에 넓은 화면에서 열려 있던 사이드바가 본문을 덮지 않게 한다. */
+ html:not(.reader-modal-open) .reader-rail{display:none!important}
  .reader-panel-controls{position:sticky;top:0;z-index:105;display:flex;justify-content:space-between;gap:12px;max-width:780px;margin:0 auto;padding:9px 24px;background:var(--bg);border-bottom:1px solid var(--border)}
  .rail-toggle{position:static;width:auto;min-height:40px;flex:0 0 auto}
  .reader-rail{top:16px;bottom:16px;width:min(360px,calc(100vw - 32px));padding:18px 14px;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;z-index:151;box-shadow:0 8px 36px #0002}

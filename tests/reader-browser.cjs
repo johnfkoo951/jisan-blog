@@ -125,6 +125,27 @@ const server = createServer((req,res)=>{
     await page.waitForSelector('#sr:not([hidden])');assert.equal(await page.locator('#q').inputValue(),'Omnisearch');
     assert(await page.locator('#sr a[href="/posts/omnisearch-google-research/"]').count());
   });
+  await test('search reflects Korean text the IME is still composing',async()=>{
+    // 마지막 글자를 조합 중(확정 전)으로 둔 채 결과가 그 글자까지 반영하는지. Chrome CDP 로 조합 상태를 만든다.
+    const p=await newPage();await p.goto(`${base}/`);await p.locator('#q').focus();
+    const cdp=await p.context().newCDPSession(p);
+    await cdp.send('Input.imeSetComposition',{text:'도서관',selectionStart:3,selectionEnd:3});
+    assert.equal(await p.locator('#q').inputValue(),'도서관');
+    await p.waitForFunction(()=>!document.querySelector('#sr').hidden&&[...document.querySelectorAll('#sr mark')].some(m=>m.textContent==='도서관'),null,{timeout:3000});
+    assert.deepEqual(p.errors,[]);await p.context().close();
+  });
+  await test('a script-free snapshot taken with both rails open never covers the article on a narrow screen',async()=>{
+    // Zotero 같은 웹 스냅숏은 스크립트가 바꾼 DOM(열린 사이드바)을 저장하고 스크립트는 지운다. 좁은 창에서 다시 연다.
+    const p=await newPage(1440);await goto(p);await openInfo(p);
+    assert(await p.locator('#reader-toc-panel').isVisible());assert(await p.locator('#reader-info-panel').isVisible());
+    const html=await p.evaluate(()=>{const d=document.documentElement.cloneNode(true);d.querySelectorAll('script').forEach(s=>s.remove());return '<!DOCTYPE html>'+d.outerHTML;});
+    await p.context().close();
+    const snap=await newPage(820,{javaScriptEnabled:false});await snap.setContent(html,{waitUntil:'domcontentloaded'});
+    assert(await snap.locator('#reader-toc-panel').isHidden());assert(await snap.locator('#reader-info-panel').isHidden());
+    assert(await snap.locator('.prose').isVisible());
+    await snap.setViewportSize({width:1440,height:1000});assert(await snap.locator('#reader-toc-panel').isVisible());
+    await snap.context().close();
+  });
   await test('breakpoint changes release modal state and restore wide preferences',async()=>{
     await goto(page);await openInfo(page);await page.setViewportSize({width:390,height:844});
     await page.waitForFunction(()=>document.querySelector('#reader-info-panel').hidden);await page.locator('[data-panel-toggle=info]').click();

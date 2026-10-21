@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-21: Korean IME search and script-free snapshots
+- Search now runs while a Korean syllable is still being composed. It used to skip `input` events with `isComposing` and wait for `compositionend`, so the last syllable only counted after a space or the next character. New browser test drives composition with Chrome's `Input.imeSetComposition`.
+- On narrow screens a rail is drawn only while `html.reader-modal-open` is set by the script. Web snapshots (Zotero and similar) save the DOM with rails opened on a wide screen but drop the scripts, so the close buttons could not work and both rails covered the article. New browser test saves a script-free snapshot and reopens it at 820px.
+- 24 reader scenarios and 50 unit tests pass. Exported to vault-blog-starter.
+
 ## 2026-10-21: MIT license, site config and vault-blog-starter export
 - Added `LICENSE` (MIT) for the code. Content stays CC BY-NC-ND 4.0, CMDSPACE logos and OG images stay outside MIT, and the diagram font subset ships with its SIL OFL 1.1 text (`assets/fonts/OFL.txt`). README (EN/KO) gained a license table; `package.json` declares `"license": "MIT"`.
 - Moved every site-specific value into `site.config.mjs`: names, URLs, author and citation format, favicon and OG paths, theme storage key, footer links, categories (`KINDS`), keyword dictionary, SEO keys (duplicate host, IndexNow), engagement cookie, key prefix and notice text, archive tagline, banned terms, private markers and test thresholds. `build.mjs`, `lib/`, `scripts/seo_audit.mjs`, `api/engagement.js` and the tests read it.

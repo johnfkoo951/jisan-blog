@@ -57,8 +57,10 @@
       status.textContent = '검색을 불러오지 못했습니다. 다시 입력하거나 아래 목록을 이용해 주세요.';
     }
   }
-  input.addEventListener('input', event => { clearTimeout(timer); if (!event.isComposing) timer = setTimeout(search, 150); });
-  input.addEventListener('compositionend', search);
+  // 한글 IME: 조합 중(isComposing)에도 input.value 에는 조합 중인 글자가 들어 있다. 걸러내지 않고 그대로 검색한다.
+  // compositionend 는 마지막 확정 상태를 한 번 더 반영한다 (브라우저마다 확정 뒤 input 이벤트 유무가 다르다).
+  input.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(search, 150); });
+  input.addEventListener('compositionend', () => { clearTimeout(timer); search(); });
   input.addEventListener('focus', () => { load().catch(() => {}); });
   document.addEventListener('keydown', event => {
     if (event.isComposing || event.altKey) return;
