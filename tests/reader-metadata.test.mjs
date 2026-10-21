@@ -1,6 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readerKeywords, preferredRelated, articleResources, stringList } from '../lib/reader-metadata.mjs';
+import { readerKeywords as derive, preferredRelated, articleResources, stringList } from '../lib/reader-metadata.mjs';
+// 알고리즘 시험용 고정 사전. 사이트 사전(site.config.mjs KEYWORD_TERMS)이 바뀌어도 이 시험은 그대로다.
+const TERMS = [['Omnisearch', ['Omnisearch']], ['옵시디언', ['옵시디언', 'Obsidian']], ['지식 연결성', ['지식 연결성', 'knowledge connectivity']],
+  ['니클라스 루만', ['루만', 'Luhmann']], ['LLM Wiki', ['LLM Wiki']], ['하네스', ['하네스', 'harness']], ['스키마', ['스키마', 'schema']],
+  ['마크다운', ['마크다운', 'Markdown']], ['PKM', ['PKM']], ['에이전트', ['에이전트', 'agent']], ['회고', ['회고']], ['질문', ['질문']], ['기록', ['기록']]];
+const readerKeywords = post => derive(post, TERMS);
 
 test('explicit keywords win, are trimmed/deduplicated and capped', () => {
   const result = readerKeywords({ keywords:[' 직접 지정 ', '직접 지정', '두 번째'], title:'Omnisearch' });

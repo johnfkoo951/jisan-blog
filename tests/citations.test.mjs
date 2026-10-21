@@ -1,16 +1,18 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { apaBlogCitations, romanizeTitle } from '../lib/citations.mjs';
-const post={slug:'sample',title:'원문 제목',date:'2026-10-17T12:30',updated:'2026-10-18',url:'https://jisan.cmdspace.work/posts/sample/',citationTitleSource:'원문 제목',citationTitleEn:'Original title',citationTitleRomanized:'Wonmun jemok'};
+import { SITE } from '../site.config.mjs';
+const { ko, en } = SITE.citation, url = `${SITE.url}/posts/sample/`;
+const post={slug:'sample',title:'원문 제목',date:'2026-10-17T12:30',updated:'2026-10-18',url,citationTitleSource:'원문 제목',citationTitleEn:'Original title',citationTitleRomanized:'Wonmun jemok'};
 test('Korean APA application preserves full-name punctuation and full original date',()=>{
  const c=apaBlogCitations(post).ko;
- assert.equal(c.plain,'구요한. (2026. 10. 17.). 원문 제목. 紙散(지산). https://jisan.cmdspace.work/posts/sample/');
- assert.equal(c.inText,'(구요한, 2026)');assert(c.fragment.includes('<i>紙散(지산)</i>'));assert(!c.plain.endsWith('.'));
+ assert.equal(c.plain,`${ko.author} (2026. 10. 17.). 원문 제목. ${ko.blog}. ${url}`);
+ assert.equal(c.inText,`(${ko.inText}, 2026)`);assert(c.fragment.includes(`<i>${ko.blog}</i>`));assert(!c.plain.endsWith('.'));
 });
 test('English APA blog reference has initials, full date, romanized title and bracketed translation',()=>{
  const c=apaBlogCitations(post).en;
- assert.equal(c.plain,'Koo, Y. (2026, October 17). Wonmun jemok [Original title]. Jisan. https://jisan.cmdspace.work/posts/sample/');
- assert.equal(c.inText,'(Koo, 2026)');assert(c.fragment.includes('<i>Jisan</i>'));assert(!c.fragment.includes('<i>Wonmun'));
+ assert.equal(c.plain,`${en.author} (2026, October 17). Wonmun jemok [Original title]. ${en.blog}. ${url}`);
+ assert.equal(c.inText,`(${en.inText}, 2026)`);assert(c.fragment.includes(`<i>${en.blog}</i>`));assert(!c.fragment.includes('<i>Wonmun'));
  assert(c.html.includes('padding-left:0.5in'));assert(c.html.includes('text-indent:-0.5in'));assert(c.html.includes('line-height:2'));
 });
 test('dates cannot shift by timezone or silently use a UI modification date',()=>{

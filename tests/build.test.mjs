@@ -1,8 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readdirSync, readFileSync } from 'node:fs';
+import { readdirSync, readFileSync, existsSync } from 'node:fs';
+import { SITE } from '../site.config.mjs';
 const root = new URL('../', import.meta.url);
 const read = path => readFileSync(new URL(path, root), 'utf8');
+const has = slug => existsSync(new URL(`content/posts/${slug}.md`, root));
+const escRe = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const slugs = readdirSync(new URL('content/posts/', root)).filter(f => f.endsWith('.md')).map(f => f.slice(0, -3));
 test('every article retains exact Markdown source and reader landmarks', () => {
   for (const slug of slugs) {
@@ -17,7 +20,7 @@ test('every article retains exact Markdown source and reader landmarks', () => {
     const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map(m => m[1]); // \s: Pele SVG의 data-id 는 id 가 아니다
     assert.equal(ids.length, new Set(ids).size, `duplicate ids: ${slug}`);
     for (const [, id] of html.matchAll(/href="#(section-\d+)"/g)) assert.ok(ids.includes(id), `${slug}: ${id}`);
-    assert.doesNotMatch(html, /yohankoo|Obsidian_MBP|omnicontrol|file:\/\/\//);
+    assert.doesNotMatch(html, new RegExp(['\\/Users\\/', 'file:\\/\\/\\/', ...(SITE.privateMarkers || [])].join('|')));
   }
 });
 test('archive has one title, all article links, current category and search feedback', () => {
@@ -31,16 +34,16 @@ test('all articles have an existing hero and truthful image metadata', () => {
   for (const slug of slugs) {
     const html = read(`dist/posts/${slug}/index.html`);
     const image = html.match(/property="og:image" content="([^"]+)"/)[1];
-    assert.ok(!image.endsWith('/assets/og/og-jisan.png'), slug);
-    if (new URL(image).hostname !== 'jisan.cmdspace.work') continue;
+    assert.ok(!image.endsWith(SITE.ogImage), slug);
+    if (new URL(image).hostname !== SITE.domain) continue;
     assert.ok(readFileSync(new URL(`dist${new URL(image).pathname}`, root)).length > 0);
     if (/\.jpe?g$/.test(image)) assert.match(html, /property="og:image:type" content="image\/jpeg"/);
   }
 });
 
 test('Korean bold closes before particles even after punctuation', () => {
-  const html = read('dist/posts/topology-of-knowledge-2/index.html');
-  assert.match(html, /<strong>환경의 압도적인 복잡성을 줄이는 것\(Complexity Reduction\)<\/strong>이다/);
+  // 지산 원고의 실제 사례. 다른 사이트에서는 이 줄만 건너뛰고 아래 전수 검사는 그대로 한다.
+  if (has('topology-of-knowledge-2')) assert.match(read('dist/posts/topology-of-knowledge-2/index.html'), /<strong>환경의 압도적인 복잡성을 줄이는 것\(Complexity Reduction\)<\/strong>이다/);
   for (const slug of slugs) {
     const text = read(`dist/posts/${slug}/index.html`).replace(/<pre[\s\S]*?<\/pre>|<code[\s\S]*?<\/code>/g, '');
     assert.doesNotMatch(text, /\*\*/, `unrendered bold: ${slug}`);
@@ -48,7 +51,7 @@ test('Korean bold closes before particles even after punctuation', () => {
 });
 
 // 저자 용어 표기 가드 — 정본은 볼트 「지산 퍼블리싱 프로그램/11-용어집」. 금지 표기를 찾으면 실패한다.
-const BANNED_TERMS = { '체텔카스텐': '제텔카스텐' };
+const BANNED_TERMS = SITE.bannedTerms || {};
 test('posts use the author glossary spelling', () => {
   for (const slug of slugs) {
     const src = read(`content/posts/${slug}.md`);
@@ -72,7 +75,7 @@ test('all articles receive two accessible rails without losing fallback navigati
 test('keyword search index is populated only with bounded text labels', () => {
   const index=JSON.parse(read('dist/search-index.json'));
   for(const post of index){assert(Array.isArray(post.keywords));assert(post.keywords.length<=8);assert(post.keywords.every(k=>typeof k==='string'&&k.trim().length>0));}
-  assert(index.find(p=>p.slug==='omnisearch-google-research').keywords.includes('Omnisearch'));
+  if (has('omnisearch-google-research')) assert(index.find(p=>p.slug==='omnisearch-google-research').keywords.includes('Omnisearch'));
 });
 
 test('every article exposes both Korean and English APA reference copies', () => {
@@ -80,8 +83,8 @@ test('every article exposes both Korean and English APA reference copies', () =>
     const html=read(`dist/posts/${slug}/index.html`);
     assert.equal((html.match(/data-cite-lang="ko"/g)||[]).length,2,slug);
     assert.equal((html.match(/data-cite-lang="en"/g)||[]).length,2,slug);
-    assert.match(html,/Koo, Y\./);assert.match(html,/구요한\./);
-    assert.match(html,/<i>Jisan<\/i>/);assert.match(html,/<i>紙散\(지산\)<\/i>/);
+    assert.match(html,new RegExp(escRe(SITE.citation.en.author)));assert.match(html,new RegExp(escRe(SITE.citation.ko.author)));
+    assert.match(html,new RegExp(`<i>${escRe(SITE.citation.en.blog)}</i>`));assert.match(html,new RegExp(`<i>${escRe(SITE.citation.ko.blog)}</i>`));
   }
 });
 

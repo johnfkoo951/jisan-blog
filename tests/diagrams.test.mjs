@@ -1,20 +1,21 @@
 // 코드로 렌더링한 도식: 픽스처(tests/fixtures/diagrams)를 임시 폴더에 빌드해 계약을 확인한다. 실제 글은 건드리지 않는다.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync, writeFileSync, mkdtempSync, cpSync, rmSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdtempSync, cpSync, rmSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { spawnSync } from 'node:child_process';
 import { countCaptionedFigures, validateImageCaptions } from '../lib/image-captions.mjs';
+import { SITE } from '../site.config.mjs';
 
 const root = new URL('../', import.meta.url).pathname;
 const fx = join(root, 'tests', 'fixtures', 'diagrams');
 const build = (content = join(fx, 'content'), fonts = join(fx, 'fonts')) => {
-  const dist = mkdtempSync(join(tmpdir(), 'jisan-diagram-test-'));
+  const dist = mkdtempSync(join(tmpdir(), 'blog-diagram-test-'));
   const r = spawnSync(process.execPath, ['build.mjs'], { cwd: root, encoding: 'utf8', env: { ...process.env, JISAN_CONTENT_DIR: content, JISAN_DIST_DIR: dist, JISAN_DIAGRAM_FONTS_DIR: fonts } });
   return { ...r, dist };
 };
-const copyContent = () => { const dir = mkdtempSync(join(tmpdir(), 'jisan-diagram-content-')); cpSync(join(fx, 'content'), dir, { recursive: true }); return dir; };
+const copyContent = () => { const dir = mkdtempSync(join(tmpdir(), 'blog-diagram-content-')); cpSync(join(fx, 'content'), dir, { recursive: true }); return dir; };
 const ok = build();
 test.after(() => rmSync(ok.dist, { recursive: true, force: true }));
 
@@ -37,7 +38,7 @@ test('diagram page has captioned figures, both variants, unique ids and the diag
   assert.match(html, /@font-face\{font-family:"CMDS Pele Sans";[^}]*font-weight:400;[^}]*url\("\/assets\/fonts\/cmds-pele-sans-400\.woff\?v=[0-9a-f]{8}"\)/);
   assert.match(html, /\.prose figure\.diagram\{margin/);
   assert.match(prose, /<code class="language-markdown">```mermaid/, 'a fence inside a longer example fence stays code');
-  assert.doesNotMatch(html, /yohankoo|Obsidian_MBP|omnicontrol|file:\/\/\//);
+  assert.doesNotMatch(html, new RegExp(['\\/Users\\/', 'file:\\/\\/\\/', ...(SITE.privateMarkers || [])].join('|')));
   assert.equal(readFileSync(join(ok.dist, 'posts/diagram-fixture/index.md'), 'utf8'), readFileSync(join(fx, 'content/posts/diagram-fixture.md'), 'utf8'));
   for (const f of readdirSync(join(fx, 'fonts'))) assert.ok(readFileSync(join(ok.dist, 'assets/fonts', f)).length > 1000, f);
 });
@@ -51,7 +52,8 @@ test('pages without diagrams get no diagram markup, styles or fonts', () => {
 test('RSS carries the PNG with its caption, never inline SVG', () => {
   const feed = readFileSync(join(ok.dist, 'feed.xml'), 'utf8');
   assert.doesNotMatch(feed, /<svg/);
-  const imgs = [...feed.matchAll(/<figure><img src="https:\/\/jisan\.cmdspace\.work\/images\/diagram-fixture\/diagram-([0-9a-f]{8})\.png" alt="[^"]+" width="\d+" height="\d+"><figcaption>코드로 렌더링한 도식\./g)];
+  const site = SITE.url.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&');
+  const imgs = [...feed.matchAll(new RegExp(`<figure><img src="${site}\\/images\\/diagram-fixture\\/diagram-([0-9a-f]{8})\\.png" alt="[^"]+" width="\\d+" height="\\d+"><figcaption>코드로 렌더링한 도식\\.`, 'g'))];
   assert.equal(imgs.length, 2);
   for (const [, sha8] of imgs) assert.ok(readFileSync(join(ok.dist, `images/diagram-fixture/diagram-${sha8}.png`)).length > 0);
 });
@@ -79,6 +81,8 @@ test('a missing or drifted registry record fails the build', () => {
 test('a diagram without the italic caption line fails the build', () =>
   fails((c) => writeFileSync(post(c), readFileSync(post(c), 'utf8').replace('*코드로 렌더링한 도식. 도식 도입을', '코드로 렌더링한 도식. 도식 도입을').replace('정리했다.*', '정리했다.')), /needs an italic caption line/));
 
+// npm run diagrams 는 렌더러 cmds-pele 가 있어야 돈다. 없으면 그 부분만 건너뛴다(빌드 검사는 그대로).
+const HAS_PELE = existsSync(join(process.env.CMDS_PELE_DIR || join(root, '..', 'cmds-pele'), 'dist', 'cmds-pele.version.json'));
 const diagramsScript = (content, args = [], env = {}) => spawnSync(process.execPath, ['scripts/diagrams.mjs', '--content', content, '--fonts', join(fx, 'fonts'), ...args], { cwd: root, encoding: 'utf8', env: { ...process.env, ...env } });
 const LIST_FENCE = '\n## 목록 안 도식\n\n- 첫 항목\n- 둘째 항목\n\n  ```mermaid\n  flowchart LR\n    LA --> LB\n  ```\n  *코드로 렌더링한 도식. 목록 안의 시험 도식이다.*\n';
 test('a mermaid fence inside a list item fails the build and npm run diagrams with the post and line', () => {
@@ -90,12 +94,14 @@ test('a mermaid fence inside a list item fails the build and npm run diagrams wi
     assert.notEqual(r.status, 0);
     assert.match(r.stderr, new RegExp(`posts/diagram-fixture\\.md:${line}: a mermaid diagram inside a list item`));
     assert.doesNotMatch(r.stderr, /Please report this/);
-    const s = diagramsScript(content, ['--check']);
-    assert.equal(s.status, 1);
-    assert.match(s.stderr, new RegExp(`diagram-fixture\\.md:${line}\\b`));
+    if (HAS_PELE) {
+      const s = diagramsScript(content, ['--check']);
+      assert.equal(s.status, 1);
+      assert.match(s.stderr, new RegExp(`diagram-fixture\\.md:${line}\\b`));
+    }
   } finally { rmSync(content, { recursive: true, force: true }); }
 });
-test('npm run diagrams --check reports registry gaps that would fail the build', () => {
+test('npm run diagrams --check reports registry gaps that would fail the build', { skip: !HAS_PELE && 'cmds-pele not installed' }, () => {
   const content = copyContent();
   try {
     writeFileSync(join(content, 'image-captions.json'), JSON.stringify({ images: {} }));
@@ -105,7 +111,7 @@ test('npm run diagrams --check reports registry gaps that would fail the build',
     assert.match(r.stdout, /2 REGISTRY item\(s\) fail the build/);
   } finally { rmSync(content, { recursive: true, force: true }); }
 });
-test('a missing renderer python names PELE_PYTHON and what it needs', () => {
+test('a missing renderer python names PELE_PYTHON and what it needs', { skip: !HAS_PELE && 'cmds-pele not installed' }, () => {
   const content = copyContent();
   try {
     writeFileSync(post(content), readFileSync(post(content), 'utf8').replace('마스터 노트', '마스터 노트 수정'));

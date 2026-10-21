@@ -77,7 +77,7 @@ const peleStamp = existsSync(join(PELE, 'dist', 'cmds-pele.version.json')) ? JSO
 if (jobs.length && !peleStamp) fail(`cmds-pele not found at ${PELE} (set CMDS_PELE_DIR)`);
 
 // 2. 린트: cmds-pele 의 pele-check --surface blog (오류가 있으면 렌더하지 않는다)
-const work = mkdtempSync(join(tmpdir(), 'jisan-diagrams-'));
+const work = mkdtempSync(join(tmpdir(), 'blog-diagrams-'));
 const unique = [...new Map(jobs.map((j) => [j.sha, j])).values()];
 for (const j of unique) writeFileSync(join(work, `jd-${j.sha8}.mmd`), j.src);
 if (unique.length) {

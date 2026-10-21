@@ -4,6 +4,11 @@
   "private": true,
   "type": "module",
   "description": "紙散 (JISAN) — 구요한의 저자 블로그. Vault-as-CMS static blog for jisan.cmdspace.work",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johnfkoo951/jisan-blog.git"
+  },
   "scripts": {
     "build": "node build.mjs",
     "dev": "node build.mjs && npx serve dist",

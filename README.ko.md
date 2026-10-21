@@ -8,11 +8,15 @@
 
 **Vault-as-CMS**: 마크다운이 마스터, 빌드는 파생. 글은 정적 Markdown으로 유지하며 관리자 패널은 없다. 조회수와 좋아요만 선택적으로 서버 측 Redis REST 저장소를 사용하고, 글 읽기는 저장소에 의존하지 않는다.
 
+## 이 엔진으로 내 블로그 만들기
+사이트 엔진은 템플릿 레포로 따로 공개했다: **[vault-blog-starter](https://github.com/johnfkoo951/vault-blog-starter)**. 옵시디언 볼트에서 글을 쓰고, 설정 파일 하나(`site.config.mjs`)만 바꾸면 같은 좌우 사이드바, 국문/영문 APA 인용, 이미지 캡션 계약, 검색, RSS, SEO 점검을 갖춘 정적 블로그가 된다. 이 레포는 그 엔진을 내보내는 원본이자 저자의 실제 블로그다(`scripts/export-starter.mjs`). 새로 시작할 때는 이 레포가 아니라 starter에서 시작한다.
+
 ## 구조
 
 ```
 content/posts/*.md     포스트 마스터 (frontmatter: title/slug/date/kind/summary[/updated/firstPublished])
 content/images/{slug}/ 글별 이미지 (빌드 시 /images/ 복사; _src/ 는 재생성용 원본)
+site.config.mjs        사이트 정보: 이름, 주소, 인용 형식, 키 (다른 블로그가 바꾸는 유일한 파일)
 build.mjs              생성기 — index + posts/{slug}/ + feed.xml + robots.txt + sitemap.xml
 assets/                브랜드 로고 + OG 이미지 (v4.3 디자인 표준)
 dist/                  빌드 산출 (gitignore)
@@ -65,9 +69,21 @@ node build.mjs        # 로컬 빌드 → dist/
 ## 규칙
 
 - **slug 불변** — 제목이 바뀌어도 URL 유지 (인용 영속성)
-- 라이선스 **CC BY-NC-ND 4.0** — 글마다 인용 블록 + 영속 주소 표기
+- 글 라이선스 **CC BY-NC-ND 4.0** — 글마다 인용 블록 + 영속 주소 표기. 코드는 MIT(아래 라이선스 절)
 - 볼트 마크다운이 마스터 — 파생물 역추출 금지
 - fidelity-first sanitize: 내부 위키링크는 링크/평문으로, 로컬 경로는 제거 — 산문 자체는 재작성하지 않는다
+
+## 라이선스
+| 대상 | 라이선스 |
+|---|---|
+| 코드: `build.mjs`, `site.config.mjs`, `lib/`, `scripts/`, `api/`, `assets/*.js`, `assets/*.css`, `assets/vendor/cmds-pele/`, `tests/` | [MIT](LICENSE) |
+| `content/`의 글과 이미지(글, 이미지, 도식 캐시, 캡션 기록) | 글에 따로 적지 않았으면 CC BY-NC-ND 4.0 |
+| `assets/logos/`, `assets/og/`의 CMDSPACE 로고와 OG 이미지 | MIT 대상이 아니다. CMDSPACE 브랜드 자산, 모든 권리 보유 |
+| `assets/fonts/`의 도식 글꼴 부분집합(Pretendard 1.201 기반) | SIL Open Font License 1.1, [assets/fonts/OFL.txt](assets/fonts/OFL.txt) |
+| `drafts/omnisearch-google-research/assets/*.user.js` | 별도 MIT 고지(Simon Cambier 유저스크립트의 포크), 같은 폴더의 `LICENSE.txt` |
+| npm 의존성(`marked`, `koroman`, `playwright`) | 각 패키지의 라이선스 |
+
+MIT는 엔진에만 적용된다. 글을 인용하거나 공유할 때는 위의 글 라이선스와 각 글의 인용 블록을 따른다.
 
 ---
 

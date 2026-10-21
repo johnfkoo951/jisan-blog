@@ -8,11 +8,15 @@ Personal author blog published under the pen name **紙散 (Jisan)** — "spread
 
 **Vault-as-CMS**: the markdown files are the master, the build is a derivative. No admin panel: articles remain static Markdown. Optional shared engagement uses a server-side Redis REST endpoint; reading does not depend on it.
 
+## Use this engine for your own blog
+The site engine is published separately as a template: **[vault-blog-starter](https://github.com/johnfkoo951/vault-blog-starter)**. Write posts in an Obsidian vault, keep one config file (`site.config.mjs`), and publish a static blog with the same reader sidebars, bilingual APA citations, caption contract, search, RSS and SEO checks. This repository is the author's live blog that the starter is exported from (`scripts/export-starter.mjs`); start from the starter, not from here.
+
 ## Architecture
 
 ```
 content/posts/*.md    post masters (frontmatter: title/slug/date/kind/summary[/updated/firstPublished])
 content/images/{slug}/ per-post images (copied to /images/ at build; _src/ keeps regenerable originals)
+site.config.mjs       site identity: names, URLs, citation format, keys (the only file another blog changes)
 build.mjs             generator — index + posts/{slug}/ + feed.xml + robots.txt + sitemap.xml
 assets/               brand logos + OG image (v4.3 design standards)
 dist/                 build output (gitignored)
@@ -71,9 +75,21 @@ node build.mjs        # local build → dist/
 ## Rules
 
 - **Slugs are immutable** — the URL survives title changes (citation permanence).
-- License **CC BY-NC-ND 4.0** — every post carries a citation block and permanent address.
+- Content license **CC BY-NC-ND 4.0** — every post carries a citation block and permanent address. Code is MIT (see License).
 - The vault markdown is the master; never reverse-extract from derivatives.
 - Fidelity-first sanitize: internal wikilinks become links or plain text, local paths are stripped — the prose itself is never rewritten.
+
+## License
+| Part | License |
+|---|---|
+| Code: `build.mjs`, `site.config.mjs`, `lib/`, `scripts/`, `api/`, `assets/*.js`, `assets/*.css`, `assets/vendor/cmds-pele/`, `tests/` | [MIT](LICENSE) |
+| Writing and images in `content/` (posts, images, diagram caches, caption registry) | CC BY-NC-ND 4.0 unless a post says otherwise |
+| CMDSPACE logos and OG images in `assets/logos/`, `assets/og/` | Not covered by MIT. Brand assets of CMDSPACE, all rights reserved |
+| Diagram font subset in `assets/fonts/` (from Pretendard 1.201) | SIL Open Font License 1.1, see [assets/fonts/OFL.txt](assets/fonts/OFL.txt) |
+| `drafts/omnisearch-google-research/assets/*.user.js` | Its own MIT notice (fork of Simon Cambier's userscript), see the bundled `LICENSE.txt` |
+| npm dependencies (`marked`, `koroman`, `playwright`) | Their own licenses |
+
+The MIT license covers the engine only. Quoting or sharing a post follows the content license above and the citation block on each page.
 
 ---
 

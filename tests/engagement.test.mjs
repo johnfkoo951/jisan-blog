@@ -1,13 +1,14 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createHandler } from '../api/engagement.js';
+import { SITE } from '../site.config.mjs';
 const env = { UPSTASH_REDIS_REST_URL: 'https://example.invalid', UPSTASH_REDIS_REST_TOKEN: 'test-only', ENGAGEMENT_COOKIE_SECRET: 'test-only-cookie-signing-secret-32-characters' };
 async function run({ method = 'GET', slug = 'test', body, headers = {}, config = env, fetcher = async () => ({ ok: true, json: async () => ({ result: [5, 2, 1] }) }) } = {}) {
   const response = { headers: {}, setHeader(k, v) { this.headers[k] = v; }, status(n) { this.code = n; return this; }, json(v) { this.body = v; return this; } };
   await createHandler({ env: config, fetcher, validSlug: slug => slug === 'test' })({ method, query: { slug }, body, headers }, response);
   return response;
 }
-const headers = { origin: 'https://jisan.cmdspace.work', 'content-type': 'application/json', 'user-agent': 'Mozilla/5.0' };
+const headers = { origin: SITE.url, 'content-type': 'application/json', 'user-agent': 'Mozilla/5.0' };
 test('missing store hides metrics, not fake zero', async () => { assert.deepEqual((await run({ config: {} })).body, { enabled: false }); });
 test('reject unknown slug and traversal', async () => { for (const slug of ['unknown', '../test', ['test']]) assert.equal((await run({ slug })).code, 404); });
 test('read issues secure signed cookie and private cache', async () => { const r = await run(); assert.equal(r.code, 200); assert.equal(r.body.views, 5); assert.match(r.headers['Set-Cookie'], /HttpOnly; Secure; SameSite=Lax/); assert.match(r.headers['Cache-Control'], /no-store/); });
@@ -28,7 +29,7 @@ test('kill switch skips Redis and cookie creation for reads and mutations', asyn
 test('read rate limiter is atomic and rate response has retry hint', async () => {
   let command;
   const r = await run({ fetcher: async (_, opts) => { command = JSON.parse(opts.body); return { ok: true, json: async () => ({ result: [-1, -1, -1] }) }; } });
-  assert.equal(command[2], 3); assert.match(command[5], /^jisan:read-rate:/);
+  assert.equal(command[2], 3); assert.ok(command[5].startsWith(`${SITE.engagement.keyPrefix}:read-rate:`));
   assert.match(command[1], /requests > 60/); assert.match(command[1], /EXPIRE/);
   assert.equal(r.code, 429); assert.equal(r.headers['Retry-After'], '60');
 });

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// 紙散 블로그 SEO / GEO / AIO 검증 루틴
+// 블로그 SEO / GEO / AIO 검증 루틴 (사이트 값은 site.config.mjs)
 //
 //   node scripts/seo_audit.mjs           # dist/ 정적 검사 (빌드 후, 배포 전)
 //   node scripts/seo_audit.mjs --live    # 라이브 사이트 검사 (배포 후)
@@ -15,10 +15,11 @@ import { join, extname } from 'node:path';
 
 const ROOT = new URL('..', import.meta.url).pathname;
 const DIST = join(ROOT, 'dist');
-const SITE = 'https://jisan.cmdspace.work';
+import { SITE as CONFIG } from '../site.config.mjs';
+const SITE = CONFIG.url;
 const LIVE = process.argv.includes('--live');
 const PING = process.argv.includes('--ping');
-const INDEXNOW_KEY = '64f0d0ae272fc4c0937b9f98a9ca9e9c';
+const INDEXNOW_KEY = CONFIG.seo.indexNowKey;
 
 const results = []; // {level: PASS|WARN|FAIL, area, item, detail}
 const add = (level, area, item, detail = '') => results.push({ level, area, item, detail });
@@ -31,7 +32,7 @@ function auditDist() {
 
   // 사이트 레벨 파일
   for (const [f, area] of [['robots.txt', 'SEO'], ['sitemap.xml', 'SEO'], ['feed.xml', 'SEO'],
-    ['llms.txt', 'GEO'], ['search-index.json', 'SEO'], [`${INDEXNOW_KEY}.txt`, 'SEO']]) {
+    ['llms.txt', 'GEO'], ['search-index.json', 'SEO'], ...(INDEXNOW_KEY ? [[`${INDEXNOW_KEY}.txt`, 'SEO']] : [])]) {
     add(existsSync(join(DIST, f)) ? 'PASS' : 'FAIL', area, `/${f} 존재`, '');
   }
   const robots = readFileSync(join(DIST, 'robots.txt'), 'utf8');
@@ -113,15 +114,17 @@ async function auditLive() {
   const checks = [
     ['/', 200], ['/robots.txt', 200], ['/sitemap.xml', 200], ['/feed.xml', 200],
     ['/llms.txt', 200], ['/search-index.json', 200], ['/kind/essay/', 200],
-    [`/${INDEXNOW_KEY}.txt`, 200],
+    ...(INDEXNOW_KEY ? [[`/${INDEXNOW_KEY}.txt`, 200]] : []),
   ];
   for (const [path, want] of checks) {
     const s = await head(SITE + path);
     add(s === want ? 'PASS' : 'FAIL', 'SEO', `LIVE ${path} → ${s}`, `기대 ${want}`);
   }
   // 정본 도메인 강제 (중복 콘텐츠 방지)
-  const dup = await head('https://jisan-blog.vercel.app/');
-  add(dup === 308 || dup === 301 ? 'PASS' : 'WARN', 'SEO', `vercel.app 중복 호스트 리다이렉트 → ${dup}`, '308 기대');
+  if (CONFIG.seo.duplicateHost) {
+    const dup = await head(CONFIG.seo.duplicateHost);
+    add(dup === 308 || dup === 301 ? 'PASS' : 'WARN', 'SEO', `vercel.app 중복 호스트 리다이렉트 → ${dup}`, '308 기대');
+  }
   // 샘플 포스트 + md 엔드포인트
   const sm = await fetch(SITE + '/sitemap.xml').then((r) => r.text()).catch(() => '');
   const first = (sm.match(/<loc>(https[^<]*\/posts\/[^<]*)<\/loc>/) || [])[1];
@@ -133,12 +136,13 @@ async function auditLive() {
 
 // ───────────────────── IndexNow 핑 ─────────────────────
 async function pingIndexNow() {
+  if (!INDEXNOW_KEY) { add('WARN', 'SEO', 'IndexNow 키 없음', 'site.config.mjs seo.indexNowKey'); return; }
   const sm = readFileSync(join(DIST, 'sitemap.xml'), 'utf8');
   const urls = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
   const r = await fetch('https://api.indexnow.org/indexnow', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json; charset=utf-8' },
-    body: JSON.stringify({ host: 'jisan.cmdspace.work', key: INDEXNOW_KEY, urlList: urls }),
+    body: JSON.stringify({ host: CONFIG.domain, key: INDEXNOW_KEY, urlList: urls }),
   }).catch(() => null);
   add(r && (r.status === 200 || r.status === 202) ? 'PASS' : 'WARN', 'SEO',
     `IndexNow 핑 ${urls.length} URL → ${r ? r.status : '실패'}`, 'Bing·Naver·Yandex 전파');
@@ -158,7 +162,7 @@ console.log(`\nPASS ${counts.PASS} · WARN ${counts.WARN} · FAIL ${counts.FAIL}
 mkdirSync(join(ROOT, 'reports'), { recursive: true });
 const today = new Date().toISOString().slice(0, 10);
 writeFileSync(join(ROOT, 'reports', `seo-${today}.md`),
-  `# 紙散 SEO/GEO/AIO 검증 — ${today}${LIVE ? ' (live)' : ' (dist)'}\n\n` +
+  `# ${CONFIG.brand.mark} SEO/GEO/AIO 검증 — ${today}${LIVE ? ' (live)' : ' (dist)'}\n\n` +
   `PASS ${counts.PASS} · WARN ${counts.WARN} · FAIL ${counts.FAIL}\n\n` +
   `| 상태 | 영역 | 항목 | 상세 |\n|------|------|------|------|\n` +
   results.map((r) => `| ${icon[r.level]} | ${r.area} | ${r.item} | ${r.detail} |`).join('\n') + '\n');

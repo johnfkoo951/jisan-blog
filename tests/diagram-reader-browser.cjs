@@ -9,7 +9,7 @@ const path = require('node:path');
 const os = require('node:os');
 const assert = require('node:assert/strict');
 const root = path.resolve(__dirname, '..'), fx = path.join(__dirname, 'fixtures', 'diagrams');
-const dist = mkdtempSync(path.join(os.tmpdir(), 'jisan-diagram-dist-'));
+const dist = mkdtempSync(path.join(os.tmpdir(), 'blog-diagram-dist-'));
 execFileSync(process.execPath, ['build.mjs'], { cwd: root, stdio: 'ignore', env: { ...process.env, JISAN_CONTENT_DIR: path.join(fx, 'content'), JISAN_DIST_DIR: dist, JISAN_DIAGRAM_FONTS_DIR: path.join(fx, 'fonts') } });
 const server = createServer((req, res) => {
   const url = new URL(req.url, 'http://localhost');
@@ -22,6 +22,7 @@ const server = createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': mime }); res.end(readFileSync(file));
 });
 (async () => {
+  const { SITE } = await import('../site.config.mjs');
   await new Promise((r) => server.listen(0, '127.0.0.1', r));
   const base = `http://127.0.0.1:${server.address().port}/posts/diagram-fixture/`;
   const browser = await chromium.launch({ headless: true, channel: 'chrome' });
@@ -31,7 +32,7 @@ const server = createServer((req, res) => {
   const open = async (width, theme = 'light', media = 'screen') => {
     const ctx = await browser.newContext({ viewport: { width, height: 900 }, colorScheme: theme });
     const page = await ctx.newPage(); page.errors = []; page.on('pageerror', (e) => page.errors.push(e.message));
-    await page.addInitScript((t) => { try { localStorage.setItem('jisan-theme', t); } catch {} }, theme);
+    await page.addInitScript(([k, t]) => { try { localStorage.setItem(k, t); } catch {} }, [SITE.themeStorageKey, theme]);
     await page.emulateMedia({ media });
     await page.goto(base); await page.evaluate(() => document.fonts.ready);
     return page;

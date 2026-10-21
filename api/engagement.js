@@ -2,6 +2,7 @@
 import { createHmac, randomUUID, timingSafeEqual } from 'node:crypto';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { SITE } from '../site.config.mjs';
 
 export const MUTATE = `
 local requests = redis.call('INCR', KEYS[4])
@@ -18,7 +19,7 @@ local requests = redis.call('INCR', KEYS[3])
 if requests == 1 then redis.call('EXPIRE', KEYS[3], 60) end
 if requests > 60 then return {-1, -1, -1} end
 return {tonumber(redis.call('GET', KEYS[1]) or '0'), redis.call('SCARD', KEYS[2]), redis.call('SISMEMBER', KEYS[2], ARGV[1])}`;
-const COOKIE = 'jisan_reader';
+const COOKIE = SITE.engagement.cookie;
 const sign = (value, secret) => createHmac('sha256', secret).update(value).digest('hex');
 function identity(req, res, secret) {
   const cookie = (req.headers.cookie || '').split(';').map(v => v.trim()).find(v => v.startsWith(`${COOKIE}=`));
@@ -48,7 +49,7 @@ export function createHandler({ env = process.env, fetcher = fetch, validSlug = 
     let action;
     if (req.method === 'POST') {
       // Fixed origins, never trust Host or arbitrary preview domains.
-      const origins = ['https://jisan.cmdspace.work', env.ENGAGEMENT_ALLOWED_ORIGIN].filter(Boolean);
+      const origins = [SITE.url, env.ENGAGEMENT_ALLOWED_ORIGIN].filter(Boolean);
       if (!origins.includes(req.headers.origin)) return send(403, { error: 'origin' });
       if (!(req.headers['content-type'] || '').startsWith('application/json')) return send(415, { error: 'content-type' });
       let body;
@@ -58,12 +59,12 @@ export function createHandler({ env = process.env, fetcher = fetch, validSlug = 
       if (/bot|crawler|spider|headless/i.test(req.headers['user-agent'] || '')) return send(403, { error: 'automated' });
     }
     const reader = identity(req, res, secret);
-    const prefix = `jisan:${slug}`;
+    const prefix = `${SITE.engagement.keyPrefix}:${slug}`;
     const keys = [`${prefix}:views`, `${prefix}:likes`];
     // UTC day boundary; a short-lived per-browser rate key caps ordinary repeated clicks.
     const day = new Date().toISOString().slice(0, 10);
-    const command = action ? ['EVAL', MUTATE, 4, ...keys, `${prefix}:view:${day}:${reader}`, `jisan:rate:${reader}`, action, reader]
-      : ['EVAL', READ, 3, ...keys, `jisan:read-rate:${reader}`, reader];
+    const command = action ? ['EVAL', MUTATE, 4, ...keys, `${prefix}:view:${day}:${reader}`, `${SITE.engagement.keyPrefix}:rate:${reader}`, action, reader]
+      : ['EVAL', READ, 3, ...keys, `${SITE.engagement.keyPrefix}:read-rate:${reader}`, reader];
     try {
       const response = await fetcher(base, {
         method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },

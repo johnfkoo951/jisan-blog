@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-21: MIT license, site config and vault-blog-starter export
+- Added `LICENSE` (MIT) for the code. Content stays CC BY-NC-ND 4.0, CMDSPACE logos and OG images stay outside MIT, and the diagram font subset ships with its SIL OFL 1.1 text (`assets/fonts/OFL.txt`). README (EN/KO) gained a license table; `package.json` declares `"license": "MIT"`.
+- Moved every site-specific value into `site.config.mjs`: names, URLs, author and citation format, favicon and OG paths, theme storage key, footer links, categories (`KINDS`), keyword dictionary, SEO keys (duplicate host, IndexNow), engagement cookie, key prefix and notice text, archive tagline, banned terms, private markers and test thresholds. `build.mjs`, `lib/`, `scripts/seo_audit.mjs`, `api/engagement.js` and the tests read it.
+- The live build is byte-identical except two intended changes: `llms.txt` now lists every author profile link (adds the GitHub profile), and `assets/fonts/OFL.txt` is published next to the fonts.
+- Tests no longer hard-code this site: citation, engagement and diagram tests read the config, keyword tests pass their own dictionary, and renderer tests are skipped when `cmds-pele` is missing (50 pass here; 48 pass and 2 skip without it).
+- New `scripts/export-starter.mjs` copies the engine to [vault-blog-starter](https://github.com/johnfkoo951/vault-blog-starter) (public template, MIT). `--check` reports drift. README links the starter.
+
 ## 2026-10-21: Site footer centered between the reader rails
 - The site footer was left-aligned in a 940px wrap, so with the fixed reader rails open (≥1360px, rails at 50% ± 414px) its first characters sat under the left rail.
 - `.site-foot` is now centered on every page, and at ≥1360px its wrap is limited to 828px, the gap between the rails. Checked at 1440, 1200 and 390px and on the home page; 50 unit tests, 22 reader and 4 diagram browser scenarios pass.

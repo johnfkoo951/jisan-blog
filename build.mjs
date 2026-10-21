@@ -1,4 +1,4 @@
-// 紙散 (JISAN) blog generator — vault-as-CMS static build
+// Vault-as-CMS static blog generator (紙散 Jisan, shared engine of vault-blog-starter)
 // content/posts/*.md (frontmatter + markdown) → dist/ (index, posts, RSS)
 // v4.3 standards: CMDS tokens, accent-on pattern, 17 OG tags, round-logo favicon.
 
@@ -9,21 +9,10 @@ import { readerKeywords, preferredRelated, articleResources } from './lib/reader
 import { apaBlogCitations } from './lib/citations.mjs';
 import { validateImageCaptions } from './lib/image-captions.mjs';
 import { createDiagramContext, attachDiagramCaptions, isMermaid, feedSafeHtml } from './lib/diagrams.mjs';
+import { SITE, KINDS } from './site.config.mjs';
 
 // ───────────────────────── config ─────────────────────────
-const SITE = {
-  domain: 'jisan.cmdspace.work',
-  url: 'https://jisan.cmdspace.work',
-  title: '紙散 · 지산',
-  tagline: '기록으로 지식을 세상에 퍼뜨리는 사람',
-  description: '구요한(Yohan Koo)의 저자 블로그. 지식관리, AI 시대의 기록, 프레임워크와 에세이의 인용 정본.',
-  author: 'Yohan Koo',
-  authorKo: '구요한',
-  license: 'CC BY-NC-ND 4.0',
-  licenseUrl: 'https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ko',
-  // STAGING: true → noindex (개장 승인 전). 개장 시 false 로 바꾸고 재배포.
-  staging: false,
-};
+// 사이트 이름, 저자, 인용 형식, 키는 site.config.mjs 한 곳에 있다.
 
 const ROOT = new URL('.', import.meta.url).pathname;
 // 기본값은 리포의 content/, dist/. 테스트 픽스처만 JISAN_CONTENT_DIR·JISAN_DIST_DIR·JISAN_DIAGRAM_FONTS_DIR 로 바꾼다.
@@ -32,8 +21,7 @@ const DIST = process.env.JISAN_DIST_DIR ? resolve(process.env.JISAN_DIST_DIR) : 
 const IMAGE_CAPTIONS = JSON.parse(readFileSync(join(CONTENT, 'image-captions.json'), 'utf8')).images;
 const diagrams = createDiagramContext({ contentDir: CONTENT, assetsDir: join(ROOT, 'assets'), fontsDir: process.env.JISAN_DIAGRAM_FONTS_DIR ? resolve(process.env.JISAN_DIAGRAM_FONTS_DIR) : undefined, registry: IMAGE_CAPTIONS });
 
-// 카테고리 (frontmatter kind → URL slug). 새 kind 는 여기 한 줄 추가.
-const KINDS = { '에세이': 'essay', '프레임워크': 'framework', '소개': 'intro', '보고서': 'report', '기술': 'tech' };
+// 카테고리 (frontmatter kind → URL slug)는 site.config.mjs 의 KINDS.
 const kindSlug = (kind) => KINDS[kind] || 'etc';
 
 // ─────────────────────── frontmatter ───────────────────────
@@ -284,8 +272,8 @@ function metaTags({ title, desc, url, ogImage, article }) {
 <meta name="description" content="${esc(desc)}">
 <meta name="author" content="${SITE.authorKo} (${SITE.author})">
 ${robots}
-<link rel="icon" type="image/png" href="/assets/logos/cmds-logo-round.png">
-<link rel="apple-touch-icon" href="/assets/logos/cmds-logo-round.png">
+<link rel="icon" type="image/png" href="${SITE.favicon}">
+<link rel="apple-touch-icon" href="${SITE.favicon}">
 <link rel="alternate" type="application/rss+xml" title="${esc(SITE.title)}" href="${SITE.url}/feed.xml">
 <link rel="canonical" href="${url}">
 <meta property="og:type" content="article">
@@ -306,7 +294,7 @@ ${imageMeta(ogImage)}
 <meta name="twitter:image:alt" content="${esc(title)}">${article ? `
 <meta property="article:published_time" content="${article.published}">
 <meta property="article:modified_time" content="${article.modified}">
-<meta property="article:author" content="https://cmdspace.work">` : ''}`;
+<meta property="article:author" content="${SITE.authorUrl}">` : ''}`;
 }
 
 const TOGGLE = `<button class="theme-toggle" id="themeToggle" aria-label="테마 전환">
@@ -314,7 +302,7 @@ const TOGGLE = `<button class="theme-toggle" id="themeToggle" aria-label="테마
 <svg id="iconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 9 0 0 0 9.8 9.8z"/></svg>
 </button>
 <script>
-(function(){var r=document.documentElement,k='jisan-theme',s=null,m=window.matchMedia('(prefers-color-scheme: dark)');
+(function(){var r=document.documentElement,k='${SITE.themeStorageKey}',s=null,m=window.matchMedia('(prefers-color-scheme: dark)');
 function ap(t){r.setAttribute('data-theme',t);var d=t==='dark';document.getElementById('themeToggle').setAttribute('aria-label',d?'밝은 테마로 전환':'어두운 테마로 전환');document.getElementById('iconSun').style.display=d?'none':'block';document.getElementById('iconMoon').style.display=d?'block':'none';}
 try{s=localStorage.getItem(k);}catch{}
 ap(s==='dark'||s==='light'?s:(m.matches?'dark':'light'));
@@ -323,23 +311,23 @@ document.getElementById('themeToggle').addEventListener('click',function(){var n
 </script>`;
 
 const HEAD_BRAND = `<header class="site-head"><div class="wrap">
-<a class="home" href="/"><span class="brand"><span class="hanja">紙散</span><span class="roman">Jisan</span></span></a>
+<a class="home" href="/"><span class="brand"><span class="hanja">${SITE.brand.mark}</span><span class="roman">${SITE.brand.roman}</span></span></a>
 <p class="tagline">${SITE.tagline} — ${SITE.authorKo}의 저자 블로그</p>
 </div></header>`;
 
 const FOOT = `<footer class="site-foot"><div class="wrap">
 <p>© ${SITE.authorKo} (${SITE.author}) · 별도 표기가 없는 글은 <a href="${SITE.licenseUrl}" rel="license">${SITE.license}</a></p>
-<p class="rss" style="margin-top:.3rem"><a href="/feed.xml">RSS 구독</a> · <a href="https://cmdspace.work">CMDSPACE</a> · <a href="https://bio.cmdspace.work">bio</a></p>
+<p class="rss" style="margin-top:.3rem">${SITE.footerLinks.map(([label, href]) => `<a href="${href}">${label}</a>`).join(' · ')}</p>
 </div></footer>`;
 
 function shell({ title, desc, url, body, jsonld, article, ogImageOverride, extraHead, extraStyle }) {
-  const ogImage = ogImageOverride || `${SITE.url}/assets/og/og-jisan.png`;
+  const ogImage = ogImageOverride || `${SITE.url}${SITE.ogImage}`;
   const ld = jsonld ? `\n<script type="application/ld+json">${JSON.stringify(jsonld)}</script>` : '';
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
 ${metaTags({ title, desc, url, ogImage, article })}${ld}${extraHead || ''}
-<script>try{var t=localStorage.getItem('jisan-theme');document.documentElement.dataset.theme=(t==='dark'||t==='light')?t:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch{document.documentElement.dataset.theme=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}</script>
+<script>try{var t=localStorage.getItem('${SITE.themeStorageKey}');document.documentElement.dataset.theme=(t==='dark'||t==='light')?t:(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch{document.documentElement.dataset.theme=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}</script>
 <style>${CSS}
 ${READER_CSS}${extraStyle || ''}</style>
 </head>
@@ -493,7 +481,7 @@ const SEARCH_UI = `<div class="search-box" role="search">
 <ul class="search-results" id="sr" hidden></ul>`;
 const SEARCH_JS = '<script defer src="/assets/search.js"></script>';
 function listPage({ active, items }) {
-  return `<main id="main" class="wrap archive-page"><div class="archive-head"><h1>${active === 'all' ? '글 모음' : esc(active)}</h1><span>기록에서 연결로</span></div>${kindNav(active)}${SEARCH_UI}<ul class="post-list" id="postList">${items}</ul></main>${SEARCH_JS}`;
+  return `<main id="main" class="wrap archive-page"><div class="archive-head"><h1>${active === 'all' ? '글 모음' : esc(active)}</h1>${SITE.archiveTagline ? `<span>${esc(SITE.archiveTagline)}</span>` : ''}</div>${kindNav(active)}${SEARCH_UI}<ul class="post-list" id="postList">${items}</ul></main>${SEARCH_JS}`;
 }
 const listItem = (p) => {
   const image = p.html.match(/<img [^>]*src="([^"]+)"/);
@@ -527,13 +515,13 @@ for (const p of posts) {
 <a class="back-link" href="/">← 글 모음</a>
 <div class="p-kind"><a href="/kind/${kindSlug(p.kind || '에세이')}/">${esc(p.kind || '에세이')}</a></div>
 <h1 id="article-title" tabindex="-1">${esc(p.title)}</h1>
-<div class="byline"><b>${SITE.authorKo}</b> · 紙散 &nbsp;·&nbsp; <span>발행 <b>${fmtDate(p.date)}</b></span> ${updated} ${firstPub} &nbsp;·&nbsp; ${p.min}분 읽기 <span class="metrics" id="viewCount" title="집계 도입 이후, 브라우저별 하루 한 번 집계한 조회수" hidden></span></div>
+<div class="byline"><b>${SITE.authorKo}</b> · ${SITE.brand.mark} &nbsp;·&nbsp; <span>발행 <b>${fmtDate(p.date)}</b></span> ${updated} ${firstPub} &nbsp;·&nbsp; ${p.min}분 읽기 <span class="metrics" id="viewCount" title="집계 도입 이후, 브라우저별 하루 한 번 집계한 조회수" hidden></span></div>
 ${p.summary ? `<p class="article-summary">${esc(p.summary)}</p>` : ''}
 ${p.series ? `<details class="series-box"><summary class="series-label">${esc(p.series)} <span class="series-here">${p.seriesOrder} / ${seriesMap[p.series].length}편 · 시리즈 보기</span></summary><nav aria-label="시리즈"><ol>${seriesMap[p.series].map((sp) => sp.slug === p.slug ? `<li><b>${esc(sp.title)}</b> <span class="series-here">지금 읽는 글</span></li>` : `<li><a href="/posts/${sp.slug}/">${esc(sp.title)}</a></li>`).join('')}</ol></nav></details>` : ''}
 <div class="reader-tools" role="group" aria-label="읽기 도구"><span class="tool-label">글자 크기</span><button class="tool-button" data-font-step="-1" aria-label="본문 글자 작게">가 −</button><button class="tool-button" data-font-step="1" aria-label="본문 글자 크게">가 +</button><button class="tool-button" data-font-reset aria-label="본문 글자 기본 크기로">기본</button><button class="tool-button share-button" data-share>글 공유</button></div>
 <p class="action-status" id="actionStatus" role="status" aria-live="polite"></p>
 ${contents}<div class="prose">${p.html}</div>
-<details class="reader-details"><summary>조회수·좋아요와 익명 쿠키 안내</summary><p>조회수는 2026년 10월 16일 집계 도입 이후, 화면을 연속 8초 이상 읽었을 때 브라우저·글·UTC 날짜별 한 번 기록한다. 한국 시간 오전 9시에 날짜가 바뀌며, 실제 사람 수나 과거 방문량을 뜻하지 않는다.</p><p>좋아요는 로그인 없이 브라우저당 하나를 남기거나 취소할 수 있다. 중복 방지를 위해 최대 1년간 유지되는 자사 익명 식별 쿠키를 사용한다. 집계용 Redis에는 가명 식별자와 반응을 저장하며 이메일이나 원시 IP는 저장하지 않는다. 호스팅 서비스의 접속 로그는 별도 정책을 따른다.</p><p>일일 중복 방지 기록은 24시간, 요청 제한 기록은 60초 후 만료된다. 좋아요 기록은 취소하거나 운영자가 삭제할 때까지 유지된다. 쿠키를 지우거나 기기·브라우저를 바꾸면 이전 좋아요를 취소하지 못할 수 있다. 쿠키 삭제 자체가 서버의 좋아요 기록을 지우지는 않는다.</p><p>집계가 중단되어도 글은 계속 읽을 수 있다. 별도의 방문 분석은 Vercel Web Analytics를 사용하며, 위 조회수와 기준이 다르다.</p></details>
+<details class="reader-details"><summary>조회수·좋아요와 익명 쿠키 안내</summary><p>조회수는 ${SITE.engagement.since ? `${SITE.engagement.since} 집계 도입 이후` : '집계를 켠 이후'}, 화면을 연속 8초 이상 읽었을 때 브라우저·글·UTC 날짜별 한 번 기록한다. 한국 시간 오전 9시에 날짜가 바뀌며, 실제 사람 수나 과거 방문량을 뜻하지 않는다.</p><p>좋아요는 로그인 없이 브라우저당 하나를 남기거나 취소할 수 있다. 중복 방지를 위해 최대 1년간 유지되는 자사 익명 식별 쿠키를 사용한다. 집계용 Redis에는 가명 식별자와 반응을 저장하며 이메일이나 원시 IP는 저장하지 않는다. 호스팅 서비스의 접속 로그는 별도 정책을 따른다.</p><p>일일 중복 방지 기록은 24시간, 요청 제한 기록은 60초 후 만료된다. 좋아요 기록은 취소하거나 운영자가 삭제할 때까지 유지된다. 쿠키를 지우거나 기기·브라우저를 바꾸면 이전 좋아요를 취소하지 못할 수 있다. 쿠키 삭제 자체가 서버의 좋아요 기록을 지우지는 않는다.</p><p>집계가 중단되어도 글은 계속 읽을 수 있다.${SITE.engagement.analyticsNote ? ` ${SITE.engagement.analyticsNote}` : ''}</p></details>
 <div class="engagement" hidden><div class="engagement-copy"><strong>이 글이 생각에 보탬이 되었나요?</strong><small>로그인 없이 마음을 남겨 주세요.</small></div><button class="tool-button like-button" id="likeButton" aria-pressed="false">♡ 좋아요</button><span class="metrics">집계 시작 이후의 반응입니다. 중복 방지용 익명 쿠키를 사용합니다.</span></div>
 ${relatedBox}
 <div class="cite-block">
@@ -547,7 +535,7 @@ ${relatedBox}
   const dir = join(DIST, 'posts', p.slug);
   mkdirSync(dir, { recursive: true });
   const heroMatch = p.html.match(/<img [^>]*src="([^"]+)"/);
-  const heroUrl = heroMatch ? (heroMatch[1].startsWith('http') ? heroMatch[1] : `${SITE.url}${heroMatch[1]}`) : `${SITE.url}/assets/og/og-jisan.png`;
+  const heroUrl = heroMatch ? (heroMatch[1].startsWith('http') ? heroMatch[1] : `${SITE.url}${heroMatch[1]}`) : `${SITE.url}${SITE.ogImage}`;
   const jsonld = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -560,8 +548,8 @@ ${relatedBox}
     inLanguage: 'ko',
     image: heroUrl,
     license: SITE.licenseUrl,
-    author: { '@type': 'Person', name: SITE.authorKo, alternateName: SITE.author, url: 'https://cmdspace.work' },
-    publisher: { '@type': 'Person', name: SITE.authorKo, alternateName: `${SITE.title} (Jisan)`, url: SITE.url },
+    author: { '@type': 'Person', name: SITE.authorKo, alternateName: SITE.author, url: SITE.authorUrl },
+    publisher: { '@type': 'Person', name: SITE.authorKo, alternateName: `${SITE.title} (${SITE.brand.roman})`, url: SITE.url },
     isPartOf: { '@type': 'Blog', name: SITE.title, url: SITE.url },
   };
   writeFileSync(join(dir, 'index.html'), shell({ title: `${p.title} — ${SITE.title}`, desc: p.summary || SITE.description, url: p.url, body, jsonld, ogImageOverride: heroMatch ? heroUrl : undefined, article: { published: p.date.slice(0, 10), modified: (p.updated || p.date).slice(0, 10) }, extraHead: `\n<link rel="alternate" type="text/markdown" href="${p.url}index.md" title="Markdown source">`, extraStyle: p.diagramFigures.length ? diagrams.styles(p.diagramFigures) : undefined }));
@@ -578,7 +566,7 @@ const blogJsonld = {
   description: SITE.description,
   url: SITE.url,
   inLanguage: 'ko',
-  author: { '@type': 'Person', name: SITE.authorKo, alternateName: SITE.author, url: 'https://cmdspace.work', sameAs: ['https://bio.cmdspace.work', 'https://github.com/johnfkoo951'] },
+  author: { '@type': 'Person', name: SITE.authorKo, alternateName: SITE.author, url: SITE.authorUrl, sameAs: SITE.authorSameAs },
   blogPost: posts.map((p) => ({ '@type': 'BlogPosting', headline: p.title, url: p.url, datePublished: p.date.slice(0, 10) })),
 };
 
@@ -675,12 +663,12 @@ const llmsPosts = Object.entries(KINDS).filter(([k]) => kindCounts[k]).map(([k, 
     .map((p) => `- [${p.title}](${p.url}): ${p.summary || ''} (발행 ${fmtDate(p.date)} · [Markdown](${p.url}index.md))`)
     .join('\n')
 ).join('\n\n');
-writeFileSync(join(DIST, 'llms.txt'), `# 紙散 (Jisan) — ${SITE.authorKo}(${SITE.author})의 저자 블로그
+writeFileSync(join(DIST, 'llms.txt'), `# ${SITE.brand.mark} (${SITE.brand.roman}) — ${SITE.authorKo}(${SITE.author})의 저자 블로그
 
 > ${SITE.description} 모든 글은 ${SITE.license} 라이선스이며, 각 글의 영속 URL이 인용 정본이다. 각 글 URL 뒤에 index.md 를 붙이면 마크다운 원문을 그대로 읽을 수 있다 (LLM·에이전트 인용 권장 경로).
 
-- 저자: ${SITE.authorKo} (${SITE.author}) — https://cmdspace.work · https://bio.cmdspace.work
-- 인용 형식: ${SITE.authorKo}. (연도). 제목. 紙散(지산). URL
+- 저자: ${SITE.authorKo} (${SITE.author}) — ${[SITE.authorUrl, ...SITE.authorSameAs].join(' · ')}
+- 인용 형식: ${SITE.citation.ko.author} (연도). 제목. ${SITE.citation.ko.blog}. URL
 - RSS (전문 포함): ${SITE.url}/feed.xml
 - 사이트맵: ${SITE.url}/sitemap.xml
 
@@ -688,6 +676,6 @@ ${llmsPosts}
 `);
 
 // IndexNow key file (Bing·Naver 즉시 색인 핑용)
-writeFileSync(join(DIST, '64f0d0ae272fc4c0937b9f98a9ca9e9c.txt'), '64f0d0ae272fc4c0937b9f98a9ca9e9c');
+if (SITE.seo.indexNowKey) writeFileSync(join(DIST, `${SITE.seo.indexNowKey}.txt`), SITE.seo.indexNowKey);
 
 console.log(`✅ built ${posts.length} post(s) → dist/ (staging=${SITE.staging})`);
