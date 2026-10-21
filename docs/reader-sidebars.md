@@ -36,6 +36,7 @@ relatedPosts:
 - `[` toggles contents, `]` toggles information. Input fields, IME composition and modifier shortcuts are protected. Existing `/` and Cmd/Ctrl+K search shortcuts remain.
 - Keyword links use `/?q=...`; the archive preloads that query and includes keyword labels in its search index.
 - With JavaScript disabled, the existing inline TOC, article metadata, footer recommendations and citation stay usable. Older cached HTML without panels retains existing reader tools.
+- Script-free saved copies (Zotero, SingleFile and other web snapshots) keep the DOM as the scripts left it. Below 1360px a rail is drawn only while `html.reader-modal-open` is set, so a rail that was open on a wide screen cannot freeze over the article in a narrow snapshot. In such a copy the narrow-screen toggle buttons stay visible but do nothing; copies saved before 2026-10-21 must be saved again.
 - Print hides the panels/controls/backdrop. Light/dark tokens and reduced motion remain shared with the reader.
 
 ## Files
@@ -66,6 +67,7 @@ Both desktop panels are opened for comparison; the initial default keeps the rig
 
 ## Changelog
 - 2026-10-17: Implemented the shared reader-panel system and documented optional author metadata, accessibility and validation contracts.
+- 2026-10-21: Narrow-screen rails require `html.reader-modal-open`, so script-free snapshots no longer show a frozen open rail. Search now reflects a Korean syllable that is still composing (see the vault guideline 한글 IME 입력 처리 지침).
 
 ### 2026-10-17 Markdown clipboard follow-up
 Added full Markdown source copying below the source link. All 29 posts were copied and compared byte-for-byte; HTTP failure/retry, permission denial and the text-only fallback were tested.
