@@ -385,6 +385,41 @@
       "alt": "마더십 볼트 아래에 system, llm-wiki, akm, 9yohan, cmdmd, jisan 여섯 사이트가 있고 brain이 점선으로 여섯 곳을 안내하는 도식",
       "evidence": "Mermaid source in content/posts/knowledge-ecosystem-map.md; static render by cmds-pele 0.2.0 (Pele 1.6.0) via npm run diagrams",
       "srcSha256": "7ea5c2a69281302489df244bf5c3cb7f9983e3db4c48d0d53e0782b79e59bfc0"
+    },
+    "/images/agent-harness-communication-1/hero-agent-harness-communication-1.png": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 보내는 쪽의 램프와 받는 쪽의 램프 사이를 건너는 쪽지가 받는 쪽의 틀을 지나서야 읽히는 장면으로, 소통이 받는 쪽의 스키마에서 완성된다는 이 글의 주장을 표현했다. 실제 책상이나 기기를 그린 것은 아니다.",
+      "alt": "새벽의 책상 램프와 저녁의 책상 램프 사이에 팽팽한 실이 걸려 있고, 매듭이 몇 개 있는 그 실을 따라 분홍 쪽지 한 장이 건너가 오른쪽의 빈 틀을 지나며 읽을 수 있는 문서가 되는 장면.",
+      "evidence": "Recorded gpt-image-2.5-sunburst generation via the cmds-visual-gen subscription proxy (concept preset, 16:9), center-cropped to 1200x630 and palette-compressed, 2026-10-25",
+      "sha256": "c3663339df81d74af6ed548d8f77702df8366754a34e7aa97b9ae88e09028245"
+    },
+    "diagram:agent-harness-communication-1:9d4168b8": {
+      "kind": "code-diagram",
+      "caption": "코드로 렌더링한 도식. 소통은 보내는 쪽이 아니라 받는 쪽에서 완성된다. 발주서와 보고서 양쪽에 세 선택이 다 있고, 하네스는 그중 이해와 연결을 설계한다.",
+      "alt": "발주자가 발주서를 쓰고 좌석이 보고서를 내면 발주자의 스키마가 그것을 정보로 읽어 다음 발주를 여는 순서도",
+      "evidence": "Mermaid source in content/posts/agent-harness-communication-1.md; static render by cmds-pele 0.4.0 (Pele 1.9.0) via npm run diagrams",
+      "srcSha256": "9d4168b8a2c1e4ba1046383e7e02896da593ffd3fa524838699c1436e79ce67c"
+    },
+    "diagram:agent-harness-communication-1:9e5c2d4b": {
+      "kind": "code-diagram",
+      "caption": "코드로 렌더링한 도식. 세 비개연성은 층 위에 겹쳐 읽을 수 있다. 이해는 선언과 런타임이, 도달은 호스트와 표면이, 수용은 결정 층이 맡는다. L3은 셋을 묶는 봉투이고 L4는 이 삼분법 밖에 있다.",
+      "alt": "이해의 비개연성은 L0 선언과 L2 런타임, 도달의 비개연성은 L1 호스트와 L6 표면, 수용의 비개연성은 L5 결정이 맡고, 결정이 다시 다음 발주를 여는 순환 도식",
+      "evidence": "Mermaid source in content/posts/agent-harness-communication-1.md; static render by cmds-pele 0.4.0 (Pele 1.9.0) via npm run diagrams",
+      "srcSha256": "9e5c2d4b5907538f9a7aad2d6acd6ad208af40418f4c7f5892ca05caf0d700b4"
+    },
+    "diagram:agent-harness-communication-1:e44191c2": {
+      "kind": "code-diagram",
+      "caption": "코드로 렌더링한 도식. 수용은 선택이다. 시간이 지나면 승인되는 대신, 원래 화면에서만 답할 수 있는 상태로 넘어간다(제안).",
+      "alt": "결정 요청이 open에서 첫 유효 응답으로 answered가 되거나, 임차 시간이 끝나면 native-only로, 기한이 지나면 expired로, 개정 번호가 오르면 superseded로 넘어가는 상태 전이 도식",
+      "evidence": "Mermaid source in content/posts/agent-harness-communication-1.md; static render by cmds-pele 0.4.0 (Pele 1.9.0) via npm run diagrams",
+      "srcSha256": "e44191c2be69ea2e2e9f84344bf01292937b415affffdc7813c2d42ba1b43754"
+    },
+    "diagram:agent-harness-communication-1:1f2ede2e": {
+      "kind": "code-diagram",
+      "caption": "코드로 렌더링한 도식. 세션은 서로의 안을 보지 못한다. 자기생산적인 것은 세션이 아니라 볼트와 실행 기록 폴더에 쌓이는 소통 연쇄이고, 세션과 사람은 그 연쇄의 환경이다.",
+      "alt": "관제 기기의 세션과 실행 기기의 좌석이 볼트와 실행 기록 폴더를 사이에 두고 이어지고, 둘 다 결정 브로커를 자극하며, 사람의 의식은 결정 브로커와만 결정과 응답을 주고받는 구조 도식",
+      "evidence": "Mermaid source in content/posts/agent-harness-communication-1.md; static render by cmds-pele 0.4.0 (Pele 1.9.0) via npm run diagrams",
+      "srcSha256": "1f2ede2edb36ced94b73f51fabfbdcbf248bdfbf9eb38a228f234fef24adb40d"
     }
   }
 }
