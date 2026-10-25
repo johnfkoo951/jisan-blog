@@ -1,0 +1,30 @@
+{
+  "/images/agent-harness-communication-2/hero-agent-harness-communication-2.png": {
+    "kind": "ai-illustration",
+    "caption": "AI 생성 일러스트. 열쇠 하나씩에 매달린 유리 선반 일곱 개로 소유에서 나오는 일곱 책임 영역을, 열쇠 없이 금 간 선반으로 결정되지 않은 전제를, 맨 아래의 펼친 장부로 선언 원장을 표현했다. 실제 구조도가 아니다.",
+    "alt": "서로 다른 폭의 유리 선반 일곱 개가 각각 놋쇠 열쇠에 매달려 사다리가 아닌 열린 배열로 떠 있고, 가운데 선반 하나는 열쇠 없이 금이 가 있으며, 가장 아래 선반에는 펼쳐진 장부가 놓인 장면.",
+    "evidence": "Recorded gpt-image-2.5-sunburst generation via the cmds-visual-gen subscription proxy (concept preset, 16:9), center-cropped to 1200x630 and palette-compressed, 2026-10-25",
+    "sha256": "eca585d4043c2267dd81cdb6f01ee5d0160f0a3a5089f3ccb83f1c247d25ba76"
+  },
+  "diagram:agent-harness-communication-2:e2a89dbc": {
+    "kind": "code-diagram",
+    "caption": "코드로 렌더링한 도식. 일곱은 세 번 가른 결과다. 첫째 가름이 두 층, 둘째 가름이 세 층을 내고, 실행 안쪽이 다시 둘로 갈려 일곱이 된다.",
+    "alt": "선언과 관측의 가름이 L0과 L4를, 실행과 보기와 결정의 가름이 L1과 L6과 L5를, 지시와 신호의 가름이 L3을 내고, L1이 L2와 L3으로 다시 갈리는 흐름도",
+    "evidence": "Mermaid source in content/posts/agent-harness-communication-2.md; static render by cmds-pele 0.4.0 (Pele 1.9.0) via npm run diagrams",
+    "srcSha256": "FILL-FROM-npm-run-diagrams"
+  },
+  "diagram:agent-harness-communication-2:e5fc6c9f": {
+    "kind": "code-diagram",
+    "caption": "코드로 렌더링한 도식. 일곱 층은 다섯 책임 묶음으로 쌓인다. 선언, 실행, 관측, 결정, 보기. 화살표는 허용된 경로이고 관찰된 사건이 아니다.",
+    "alt": "보기의 L6, 결정의 L5, 관측의 L4, 실행의 L3과 L2와 L1, 선언의 L0이 다섯 묶음으로 쌓이고, 입력과 응답과 상태와 어긋남 보고와 정책 변경이 허용된 경로로 오가는 구조도",
+    "evidence": "Mermaid source in content/posts/agent-harness-communication-2.md; static render by cmds-pele 0.4.0 (Pele 1.9.0) via npm run diagrams",
+    "srcSha256": "FILL-FROM-npm-run-diagrams"
+  },
+  "diagram:agent-harness-communication-2:b9b71d1c": {
+    "kind": "code-diagram",
+    "caption": "코드로 렌더링한 도식. 결정된 전제는 선언 원장에 적혀 있다. 사고는 적혀 있지 않은 전제, 곧 기본값에서 난다.",
+    "alt": "조건 프로그램, 목적 프로그램, 직위, 소통 경로라는 결정된 전제 넷과 기본값이라는 결정되지 않은 전제가 모두 다음 결정으로 이어지는 흐름도",
+    "evidence": "Mermaid source in content/posts/agent-harness-communication-2.md; static render by cmds-pele 0.4.0 (Pele 1.9.0) via npm run diagrams",
+    "srcSha256": "FILL-FROM-npm-run-diagrams"
+  }
+}
