@@ -1,0 +1,32 @@
+{
+  "images": {
+    "/images/agent-harness-communication-4/hero-agent-harness-communication-4.png": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 눈 굵기가 다른 체 네 개를 같은 종이 조각이 통과해 다른 더미가 되는 장면으로, 스키마마다 두께가 달라 같은 입력이 다른 정보가 된다는 이 글의 주장을 표현했다. 실제 도구를 그린 것은 아니다.",
+      "alt": "긴 작업대 위에 체 네 개가 나란히 서 있고, 왼쪽의 막힌 판부터 오른쪽의 가는 철망까지 눈이 점점 촘촘해지며, 같은 초록과 분홍 종이 조각들이 네 체를 지나 아래에 크기가 다른 네 더미로 쌓이는 장면.",
+      "evidence": "Recorded gpt-image-2.5-sunburst generation via the cmds-visual-gen subscription proxy (concept preset, 16:9), center-cropped to 1200x630 and palette-compressed, 2026-10-26",
+      "sha256": "4b178ec101a5bb1d53cbb0c295ad88fa0d9df097dd9835b0c425a815fdb07c66"
+    },
+    "diagram:agent-harness-communication-4:4d0e8c61": {
+      "kind": "code-diagram",
+      "caption": "코드로 렌더링한 도식. 하네스 레지스트리는 네 종류의 엔티티를 가른다. 선언과 관측이 다른 저장소에 있고, 둘의 차이를 적는 파생 엔티티가 따로 있다(제안).",
+      "alt": "선언, 관측, 사건, 파생 네 묶음이 있고, 선언과 관측이 정합 리포트로 모이며 관측이 사건으로 쌓이고 사건이 점선으로 선언에 돌아가는 레지스트리 구조도",
+      "evidence": "Mermaid source in content/posts/agent-harness-communication-4.md; static render by cmds-pele 0.4.0 (Pele 1.9.0) via npm run diagrams",
+      "srcSha256": "4d0e8c6165994e5738533cd13465e935e0d4c42371cde3df98cd5a09c82dacd0"
+    },
+    "diagram:agent-harness-communication-4:9fff4eb0": {
+      "kind": "code-diagram",
+      "caption": "코드로 렌더링한 도식. 두께는 생산자를 따라간다. 사람이 쓰는 스키마는 두껍고 기계가 쓰는 스키마는 얇다. 레지스트리는 한 체계 안에서 종류별로 두께가 다르다. 좌표는 판단이고 측정이 아니다.",
+      "alt": "가로축은 사람이 쓰는가 기계가 쓰는가, 세로축은 얇은가 두꺼운가로 놓고 카드 상자, CMDS 볼트, LLM 위키, 레지스트리의 선언과 관측과 사건 여섯 점을 찍은 사분면",
+      "evidence": "Mermaid source in content/posts/agent-harness-communication-4.md; static render by cmds-pele 0.4.0 (Pele 1.9.0) via npm run diagrams",
+      "srcSha256": "9fff4eb0753336f053b1551a4005a4fd18b0f802cc6afe5524c87ad1275ccf27"
+    },
+    "diagram:agent-harness-communication-4:7ff50fdd": {
+      "kind": "code-diagram",
+      "caption": "코드로 렌더링한 도식. 세 스키마가 한 작업 환경에 함께 산다. 카드 상자는 셋 모두에 규칙을 물려준 선례다. 점선은 해석.",
+      "alt": "카드 상자가 CMDS 볼트와 LLM 위키에 점선으로 규칙을 물려주고, 볼트와 위키가 양방향으로 이어지며, 볼트와 하네스 레지스트리가 선언 원본과 승격 제안을 주고받는 관계도",
+      "evidence": "Mermaid source in content/posts/agent-harness-communication-4.md; static render by cmds-pele 0.4.0 (Pele 1.9.0) via npm run diagrams",
+      "srcSha256": "7ff50fdddc9c7a0d4cf00d59cad28897f05ef9577b27f8755819a1c588c57a3e"
+    }
+  }
+}

@@ -2,6 +2,17 @@
 
 빌드는 `content/posts/`만 읽는다. 여기 있는 글은 라이브에 나가지 않는다.
 
+## 대기 중 (2026-10-26 준비, 하루 한 편)
+
+| slug | 발행일 | 도식 | 비고 |
+|---|---|---|---|
+| `agent-harness-communication-3` | 2026-10-27 | 3 | 시리즈 3편. 캡션 기록 `agent-harness-communication-3.captions.json` 완성(srcSha256 채움) |
+| `agent-harness-communication-4` | 2026-10-28 | 3 | 시리즈 4편. 본문에 `/posts/schema-is-harness/` 내부 링크 1개 |
+| `agent-harness-communication-5` | 2026-10-29 | 2 | 시리즈 5편 |
+| `agent-harness-communication-6` | 2026-10-30 | 2 | 시리즈 6편. 본문의 "0편" 언급은 0편 미발행이라 평문 |
+
+네 편 모두 2026-10-26에 임시로 `content/posts/`에 넣어 `npm run diagrams`, 빌드(36편), 유출 스캔, 단위·브라우저·도식 테스트를 통과시킨 뒤 되돌렸다. 발행일에는 §사용법 2~4만 하면 된다. 캡션 기록은 이미 완성돼 있으니 `content/image-captions.json` "images"에 그대로 합친다.
+
 ## 사용법
 
 1. `content/drafts/{slug}.md`와 `content/drafts/{slug}/hero-{slug}.png`, 캡션 기록 `content/drafts/{slug}.captions.json`을 둔다.
