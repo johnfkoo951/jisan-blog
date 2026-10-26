@@ -20,4 +20,6 @@
 3. `npm run build && npm test && npm run test:reader && npm run test:diagram-reader` 뒤 유출 스캔, 배포, 라이브 확인, 커밋.
 4. 볼트 기록(정본 frontmatter `published` 필드, 발행 기록, 개장 큐레이션, blog-mapping.json)을 같은 턴에 갱신한다.
 
+함정(2026-10-26 실측): `node build.mjs`는 `dist/`를 비우지 않는다. 대기 글을 임시로 `content/posts/`에 넣어 검증한 뒤 되돌리면 `dist/posts/`에 그 글의 폴더가 남아 테스트가 실패하고, 그대로 배포하면 라이브에도 나간다. 임시 검증 뒤에는 `dist/`를 치우고(보호 경로라 `mv`로 격리) 다시 빌드한다. 임시 렌더는 `content/diagrams/_font.json`과 `assets/fonts/`도 바꾸니 `npm run diagrams`로 현재 글 기준으로 되돌린다.
+
 이력: agent-harness-communication-2(시리즈 「소통으로 읽는 에이전트 하네스」 2편)를 2026-10-25 여기 두었다가 2026-10-26 발행했다.
