@@ -1,7 +1,7 @@
 ---
 title: 니클라스 루만의 하네스 세팅 — 카드 9만 장을 소통 파트너로 만든 네 가지 규칙
 slug: agent-harness-communication-3
-date: 2026-10-27
+date: 2026-10-27T01:00
 kind: 에세이
 series: "소통으로 읽는 에이전트 하네스"
 seriesOrder: 3
@@ -12,6 +12,8 @@ citationTitleRomanized: "Nikeullaseu rumanui haneseu seting — Kadeu 9man jange
 ---
 
 ![초록색 카드 서랍장의 서랍 하나가 열려 카드 한 장이 세워져 있고, 그 카드에서 분홍 실 세 가닥이 벽에 핀으로 꽂힌 카드 세 장으로 이어지며, 서랍장 위에는 모래시계와 책과 화분이 놓인 장면.](/images/agent-harness-communication-3/hero-agent-harness-communication-3.png "AI 생성 일러스트. 열린 서랍의 카드 한 장이 벽의 카드 세 장과 실로 이어진 서랍장으로, 자리를 바꾸지 않는 주소와 참조로 하는 교정이라는 루만의 세팅을 표현했다. 모래시계는 몇 년의 기다림이다. 실제 루만의 상자를 그린 것은 아니다.")
+
+*시리즈 「소통으로 읽는 에이전트 하네스」 3편. 용어는 [시리즈 지도](/posts/agent-harness-communication-0/)에 모아 두었다.*
 
 > **한 줄 주장**
 >

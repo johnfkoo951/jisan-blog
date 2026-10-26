@@ -2,6 +2,7 @@
 title: 층은 의존의 순서가 아니라 책임의 배열이다 — 소유로 가르는 하네스 일곱 층과 결정 전제
 slug: agent-harness-communication-2
 date: 2026-10-26
+updated: 2026-10-27
 kind: 에세이
 series: "소통으로 읽는 에이전트 하네스"
 seriesOrder: 2
@@ -12,6 +13,8 @@ citationTitleRomanized: "Cheungeun uijonui sunseoga anira chaegimui baeyeorida �
 ---
 
 ![서로 다른 폭의 유리 선반 일곱 개가 각각 놋쇠 열쇠에 매달려 사다리가 아닌 열린 배열로 떠 있고, 가운데 선반 하나는 열쇠 없이 금이 가 있으며, 가장 아래 선반에는 펼쳐진 장부가 놓인 장면.](/images/agent-harness-communication-2/hero-agent-harness-communication-2.png "AI 생성 일러스트. 열쇠 하나씩에 매달린 유리 선반 일곱 개로 소유에서 나오는 일곱 책임 영역을, 열쇠 없이 금 간 선반으로 결정되지 않은 전제를, 맨 아래의 펼친 장부로 선언 원장을 표현했다. 실제 구조도가 아니다.")
+
+*시리즈 「소통으로 읽는 에이전트 하네스」 2편. 용어는 [시리즈 지도](/posts/agent-harness-communication-0/)에 모아 두었다.*
 
 > **한 줄 주장**
 >
