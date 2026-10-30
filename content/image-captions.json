@@ -539,6 +539,27 @@
       "alt": "생성자의 1차 관찰, 검증자의 2차 관찰, 사람과 독자의 또 한 번의 2차 관찰이 차례로 이어지고, 각 관찰자가 자기 구별은 보지 못한다는 점선 자기 화살표가 달린 그림",
       "evidence": "Mermaid source in content/posts/agent-harness-communication-5.md; static render by cmds-pele 0.6.0 (Pele 1.12.0) via npm run diagrams",
       "srcSha256": "93fb23fed58a0bea1e6168fedd83a1b8677f07b6acb387c0f1c9690539070bf3"
+    },
+    "/images/agent-harness-communication-6/hero-agent-harness-communication-6.png": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 깔끔한 일곱 층 청사진과 그 위를 가로질러 도면 밖으로 새어 나가는 실로, 층은 선언이고 연결망은 실측이라는 이 글의 주장을 표현했다. 선반의 계수기는 새는 길을 세는 법이다. 실제 도면을 그린 것은 아니다.",
+      "alt": "벽에 핀으로 고정한 일곱 층 건물 단면 청사진 위로 분홍 실이 대각선으로 가로지르며 층마다 분홍 핀이 하나씩 꽂혀 있고, 실은 청사진 밖 벽의 검은 핀들로 이어지며, 아래 선반에는 계수기와 책과 화분이 놓인 장면.",
+      "evidence": "Recorded gpt-image-2.5-sunburst generation via the cmds-visual-gen subscription proxy (concept preset, 16:9), center-cropped to 1200x630 and palette-compressed, 2026-10-26",
+      "sha256": "9dabd9915c9cfca2fec8153cb6c8f8889d189ebe5392f462cd5cd7e8d11f269d"
+    },
+    "diagram:agent-harness-communication-6:14181ea5": {
+      "kind": "code-diagram",
+      "caption": "코드로 렌더링한 도식. 발주서에서 보고서까지는 칼롱의 네 국면으로 읽힌다. 루만이 수용의 주소라고 부른 L5는 라투르 쪽 말로 필수 통과점이다. 화살표는 해석이고 관찰된 사건이 아니다.",
+      "alt": "문제화, 관심 끌기, 등록, 동원의 네 국면이 발주서에서 보고서까지 이어지고 L5 결정이 필수 통과점으로 서서 다음 문제화로 돌아가는 순환도",
+      "evidence": "Mermaid source in content/posts/agent-harness-communication-6.md; static render by cmds-pele 0.6.0 (Pele 1.12.0) via npm run diagrams",
+      "srcSha256": "14181ea5e6a6545430b7bd4fb03770d8c3ae580c8a0a1c58afe6e275a732ac24"
+    },
+    "diagram:agent-harness-communication-6:6533d4ea": {
+      "kind": "code-diagram",
+      "caption": "코드로 렌더링한 도식. 층은 선언이고 연결망은 실측이다. 하네스가 라투르에게 배운 것은 새는 길을 없애는 법이 아니라 새는 길을 세는 법이다.",
+      "alt": "선언된 길에서는 발주서가 좌석의 등록 절차를 거치고, 실측된 길에서는 측면 메시지가 사람이 보지 않는 세션을 절차 없이 깨우며, 그 사실을 L4 관측이 적고 L5 결정으로 보류한다는 제안을 점선으로 그린 비교도",
+      "evidence": "Mermaid source in content/posts/agent-harness-communication-6.md; static render by cmds-pele 0.6.0 (Pele 1.12.0) via npm run diagrams",
+      "srcSha256": "6533d4ea9c57c83f473fc6256cc0c2f3d19aaa9e786c4a6ab89666343826403c"
     }
   }
 }
