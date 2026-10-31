@@ -560,6 +560,48 @@
       "alt": "선언된 길에서는 발주서가 좌석의 등록 절차를 거치고, 실측된 길에서는 측면 메시지가 사람이 보지 않는 세션을 절차 없이 깨우며, 그 사실을 L4 관측이 적고 L5 결정으로 보류한다는 제안을 점선으로 그린 비교도",
       "evidence": "Mermaid source in content/posts/agent-harness-communication-6.md; static render by cmds-pele 0.6.0 (Pele 1.12.0) via npm run diagrams",
       "srcSha256": "6533d4ea9c57c83f473fc6256cc0c2f3d19aaa9e786c4a6ab89666343826403c"
+    },
+    "diagram:zotero-self-hosting:21569f90": {
+      "kind": "code-diagram",
+      "caption": "코드로 렌더링한 도식. 항목키는 예시다. 첨부 하나가 zip과 prop 한 쌍이 되고, 시놀로지가 만든 폴더가 그 옆에 함께 놓인다.",
+      "alt": "zotero 공유폴더 아래에 항목키마다 zip 파일과 prop 파일이 한 쌍씩 있고, 같은 층에 시놀로지의 #recycle 휴지통 폴더와 @eaDir 색인 폴더가 있다.",
+      "evidence": "Mermaid source in content/posts/zotero-self-hosting.md; static render by cmds-pele 0.6.0 (Pele 1.12.0) via npm run diagrams",
+      "srcSha256": "21569f90bdcd427c0874b4ebdc4d6d73125efc60c2437c3864a6501dc0a91f8f"
+    },
+    "diagram:zotero-self-hosting:bdb930c5": {
+      "kind": "code-diagram",
+      "caption": "코드로 렌더링한 도식. 서버 확인은 시험 파일을 쓰고 읽고 지운다. 시놀로지는 WebDAV로 지운 파일도 휴지통에 남긴다.",
+      "alt": "Zotero가 WebDAV 서버에 OPTIONS, PROPFIND, 없는 파일 GET(404 응답), 시험 파일 PUT·GET·DELETE를 차례로 보내고, 서버는 지운 시험 파일을 NAS 휴지통에 보관한다.",
+      "evidence": "Mermaid source in content/posts/zotero-self-hosting.md; static render by cmds-pele 0.6.0 (Pele 1.12.0) via npm run diagrams",
+      "srcSha256": "bdb930c5d8d67206e027121d2a91e71a3ba152cedf6cb12789f22d03f50801f6"
+    },
+    "diagram:zotero-self-hosting:6a2a37cb": {
+      "kind": "code-diagram",
+      "caption": "코드로 렌더링한 도식. 공유기로는 WebDAV HTTPS 하나만 들이고, NAS 관리와 파일 공유는 사설망으로 들어온다.",
+      "alt": "밖의 기기는 공유기를 거쳐 5006 포트의 WebDAV HTTPS에만 닿고, DSM·SSH·SMB 같은 관리 서비스에는 Tailscale 같은 사설망을 거쳐 들어간다.",
+      "evidence": "Mermaid source in content/posts/zotero-self-hosting.md; static render by cmds-pele 0.6.0 (Pele 1.12.0) via npm run diagrams",
+      "srcSha256": "6a2a37cb617453b414434b44c7865ee774d9298025c02a812e955d1579d0f111"
+    },
+    "diagram:zotero-self-hosting:4ddaecf5": {
+      "kind": "code-diagram",
+      "caption": "코드로 렌더링한 도식. 내 서버로 옮길 수 있는 것은 내 라이브러리의 첨부파일 한 갈래뿐이고, 데이터와 그룹 첨부는 zotero.org에 남는다.",
+      "alt": "Zotero 데스크톱에서 데이터는 항목·노트·주석으로 zotero.org에 가고, 첨부파일은 라이브러리에 따라 갈려 내 라이브러리 첨부는 강조된 내 NAS의 WebDAV 서버로, 그룹 첨부는 zotero.org의 Zotero Storage로 간다.",
+      "evidence": "Mermaid source in content/posts/zotero-self-hosting.md; static render by cmds-pele 0.6.0 (Pele 1.12.0) via npm run diagrams",
+      "srcSha256": "4ddaecf536672b0adaf1f7190ae964ebcf8e648832b83bf1390665d495c80a1e"
+    },
+    "/images/zotero-self-hosting/hero-zotero-self-hosting.png": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 단면으로 자른 집으로 이 글의 구분을 표현했다. 위층 서재에서 내려간 분홍 실은 지하 보관함과 꼬리표 붙은 상자들로 이어지고, 지붕으로 나간 초록 실은 구름 위 도서관으로 색인 카드만 실어 간다. 첨부파일은 집에 두고 데이터는 zotero.org로 보낸다는 뜻이고, 하나만 열린 옆문은 하나만 여는 공개 포트다. 실제 장비를 그린 것은 아니다.",
+      "alt": "단면으로 자른 2층 집. 위층 서재에서 한 사람이 노트북 앞에서 논문을 읽고, 노트북에서 내려온 분홍 실이 지하의 작은 저장 장치로 이어지며 그 옆 선반에는 꼬리표가 달린 상자들이 줄지어 있다. 지붕에서 나간 초록 실은 구름 위 기둥 건물로 이어지고 실에는 카드 몇 장이 걸려 있다. 집의 문 가운데 옆문 하나만 열려 불이 켜져 있다.",
+      "evidence": "Recorded gpt-image-2.5-sunburst generation via the cmds-visual-gen subscription proxy (concept preset, 16:9), chosen by the author over a Midjourney V8.2 candidate, center-cropped to 1200x630 and palette-compressed, 2026-10-31",
+      "sha256": "f47b79d76b304d37ea8f1817558ea8c5a978c22175cd1031971b9b0657793941"
+    },
+    "/images/zotero-self-hosting/figure-01-zotero-file-syncing.png": {
+      "kind": "settings-screenshot",
+      "caption": "실제 설정 화면 캡처. 그림 1. 2026-10-29 macOS의 Zotero 10.0.6 설정 중 File Syncing 부분이다. 내 라이브러리 첨부파일은 WebDAV로, 그룹 라이브러리 첨부파일은 Zotero Storage로 동기화한다. 서버 주소와 사용자 이름 칸은 예시 값으로 바꿔 넣었고 화면 일부를 잘라 썼다.",
+      "alt": "Zotero 설정 창의 File Syncing 부분. 내 라이브러리 첨부파일은 WebDAV 서버 주소와 사용자 이름, 비밀번호 칸으로, 그룹 라이브러리 첨부파일은 Zotero Storage로 동기화하도록 설정되어 있다.",
+      "evidence": "Author-supplied capture of Zotero 10.0.6 settings on macOS, 2026-10-29; server address and username fields replaced with example values, cropped to 1200x630",
+      "sha256": "49f67c5423693417902cbaccc942fe766e97510cbe6ecd32a356109815973ada"
     }
   }
 }
