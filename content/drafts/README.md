@@ -4,7 +4,10 @@
 
 ## 대기 중
 
-없음. 시리즈 「소통으로 읽는 에이전트 하네스」 0~6편이 모두 발행됐다(2026-10-30).
+- `space-and-records-2` 「고르고 잇는 사람」, 시리즈 「넓어진 공간, 넘치는 기록」 2편. 발행일 2026-11-04(`date:`에 이미 적음). 1편 `space-and-records-1`은 2026-11-03에 나갔다.
+	- 파일: `space-and-records-2.md`, `space-and-records-2/hero-space-and-records-2.png`(공간 원고용으로 만든 `drafts/commanding-space/assets/hero-commanding-space.png`와 같은 파일), `space-and-records-2.captions.json`(히어로와 도식 `413e47aa` 기록).
+	- 발행일에 어휘 사전 `content/knowledge/entities.json`에 넣을 것: 주제 「글쓰기와 기록」·「생성형 AI」의 `posts`에 slug 추가, 인물 「칼리마코스」·「아르키메데스」의 `posts`에 slug 추가, 새 개념 「메멘토 모리」(note "죽음을 기억하라. 끝나는 존재라서 고르고 기록한다")와 「조연당」(aliases `造連堂`, note "기록을 바탕으로 새것을 짓고 서로를 잇는 집. 구요한의 평창동 집 이름"). 태그 `메멘토 모리`·`조연당`이 이 둘을 요구한다.
+	- 2026-11-03 격리 사본 검증: 빌드 40편, 단위 테스트 실패 0, 독자 24·도식 4 시나리오 통과, 유출 0, 취소선 0. 도식은 cmds-pele 0.7.0(Pele 1.13.0)으로 그렸다. 발행일 버전이 다르면 캡션 기록의 근거 문구를 고친다.
 
 시리즈물을 다시 대기시킬 때: 시리즈 지도 글이 먼저 나갔다면 각 편 발행일에 지도 글의 편별 요약 표에서 그 편의 제목 평문을 `[제목](/posts/{slug}/)` 링크로 바꾼다. 링크만 켜는 것이라 `updated:`는 붙이지 않는다. 미리 만든 캡션 기록의 도식 근거 문구(cmds-pele·Pele 버전)는 발행일의 `npm run diagrams` 출력에 맞춰 고친다.
 

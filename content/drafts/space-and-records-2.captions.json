@@ -1,0 +1,16 @@
+{
+  "/images/space-and-records-2/hero-space-and-records-2.png": {
+    "kind": "ai-illustration",
+    "caption": "AI 생성 일러스트. 땅의 집, 엘리베이터가 달린 고층 건물, 지하철, 자율주행차를 선으로 이어 가운데 광장으로 모이게 한 장면으로, 공간을 둘러싸지 않고 잇는 지휘를 표현했다. 실제 도시를 그린 것은 아니다.",
+    "alt": "단층집과 고층 건물, 유리 엘리베이터, 지하철, 자율주행차가 가는 초록 선으로 이어져 가운데 광장의 나무로 모이는 도시 단면 그림. 사람은 없다.",
+    "evidence": "Recorded gpt-image-2.5-sunburst generation via the cmds-visual-gen subscription proxy (cover preset, 16:9), made 2026-11-03 for an earlier draft of this essay and reused; cropped to 1200x630 and palette-compressed",
+    "sha256": "d3963dc854f5d8229ce26154d3ac7d25b7d45bf4718b33212f6f3541a74de60d"
+  },
+  "diagram:space-and-records-2:413e47aa": {
+    "kind": "code-diagram",
+    "caption": "코드로 렌더링한 도식. 넘치는 시대의 기록은 다 남기는 일이 아니라 흐르는 층에서 골라 올리는 일이다. 사람의 일은 가운데 층에서 일어난다.",
+    "alt": "기록의 세 층. 흐르는 층은 가장 크고 대부분 사라진다. 사람이 그중 일부를 골라 출처를 붙이고 다른 기록과 잇는 층으로 올리고, 그 가운데 아주 적은 것만 오래가는 매체에 새긴다",
+    "evidence": "Mermaid source in content/posts/space-and-records-2.md; static render by cmds-pele 0.7.0 (Pele 1.13.0) via npm run diagrams",
+    "srcSha256": "413e47aabc957e3678dc42a38e5dfd53306ed0385fe8d61206d9ad5669a13416"
+  }
+}
