@@ -1,0 +1,6 @@
+Generated 2026-11-03 with cmds-visual-gen gen_illustration.py
+model: gpt-image-2.5-sunburst via subscription proxy (backend proxy), --element cover --aspect 16:9
+post-processing: resize 1672x941 to 1200 wide, crop y=22..652 (1200x630), PIL SMOOTH filter, 160-color median-cut palette (415 KB)
+
+Subject prompt (brand style auto-injected by the skill):
+A calm editorial cross-section of a dense small city seen from a gentle elevated three-quarter view, the same quiet ink style as a companion image. Many tall and mid-rise buildings stand close together but nothing connects them: no streets between them, no bridges, no subway, no lines. From many windows long pale paper scrolls unroll outward into the sky, streaming and overlapping like an endless feed, growing fainter and dissolving into mist as they drift away, a few soft-pink sheets among the pale ones. In the empty foreground ground plane stands a single small upright blank stone tablet, uncarved, with a faint deep-green shadow. Generous empty sky for breathing room. No people, no text, no letters on the scrolls, no logos.

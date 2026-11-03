@@ -602,6 +602,27 @@
       "alt": "Zotero 설정 창의 File Syncing 부분. 내 라이브러리 첨부파일은 WebDAV 서버 주소와 사용자 이름, 비밀번호 칸으로, 그룹 라이브러리 첨부파일은 Zotero Storage로 동기화하도록 설정되어 있다.",
       "evidence": "Author-supplied capture of Zotero 10.0.6 settings on macOS, 2026-10-29; server address and username fields replaced with example values, cropped to 1200x630",
       "sha256": "49f67c5423693417902cbaccc942fe766e97510cbe6ecd32a356109815973ada"
+    },
+    "/images/space-and-records-1/hero-space-and-records-1.png": {
+      "kind": "ai-illustration",
+      "caption": "AI 생성 일러스트. 서로 이어지지 않은 건물로 넓어도 만나지 못하는 공간을, 창에서 흘러나와 흐려지는 두루마리로 적혀도 남지 않는 기록을, 앞쪽의 빈 돌판으로 이 시리즈가 묻는 무엇을 남길 것인가를 표현했다. 실제 도시를 그린 것은 아니다.",
+      "alt": "빽빽하게 모인 건물들 사이에 길도 다리도 없고, 창마다 흘러나온 종이 두루마리가 하늘로 풀려 나가다 안개 속으로 흐려지며, 앞쪽 빈 땅에는 아무것도 새기지 않은 작은 돌판 하나가 서 있는 장면. 사람은 없다.",
+      "evidence": "Recorded gpt-image-2.5-sunburst generation via the cmds-visual-gen subscription proxy (cover preset, 16:9), resized to 1200 wide, cropped to 1200x630, smoothed and palette-compressed, 2026-11-03",
+      "sha256": "58c1a68fd2006bffcc2e6f3ecfab912ed41ce46194b9e34f355b297716b8bb68"
+    },
+    "diagram:space-and-records-1:8b12044d": {
+      "kind": "code-diagram",
+      "caption": "코드로 렌더링한 도식. 기록의 역사는 만드는 속도를 매체가 따라가지 못한 역사다. 달라진 것은 간격이 있다는 사실이 아니라 간격이 생기는 자리다.",
+      "alt": "기원전 3500년 점토판부터 2024년 헤르쿨라네움 두루마리 판독까지, 기록 매체가 귀하던 시대와 지우고 다시 쓰던 시대와 싸고 빠른 매체의 시대를 연대순으로 놓았다",
+      "evidence": "Mermaid source in content/posts/space-and-records-1.md; static render by cmds-pele 0.7.0 (Pele 1.13.0) via npm run diagrams",
+      "srcSha256": "8b12044d657e1b4857bf96f09cc3feaff6ebfcd9f2ef5b6ffd7e6ea6e359b160"
+    },
+    "diagram:space-and-records-1:3fb34f2a": {
+      "kind": "code-diagram",
+      "caption": "코드로 렌더링한 도식. AI가 만든 두 넘침은 증상이 다르지만 같은 빈자리를 가리킨다. 그 자리를 채우는 일은 2편에서 다룬다.",
+      "alt": "AI가 공간에서는 연결의 종류를, 시간에서는 만드는 속도를 늘리고, 넓은데 만나지 못하는 증상과 적었는데 남지 않는 증상이 같은 빈자리로 모인다",
+      "evidence": "Mermaid source in content/posts/space-and-records-1.md; static render by cmds-pele 0.7.0 (Pele 1.13.0) via npm run diagrams",
+      "srcSha256": "3fb34f2ac28a29d38dbf255c952ae992e95dbafb8aa11fd3015b4629c9ae696b"
     }
   }
 }

@@ -24,7 +24,8 @@
         "i-ask-therefore-i-record",
         "markdown-is-all-you-need",
         "my-name-is-yohan-koo",
-        "path-not-granary"
+        "path-not-granary",
+        "space-and-records-1"
       ]
     },
     "생성형 AI": {
@@ -41,7 +42,8 @@
         "retrospective-2025",
         "selective-forgetting",
         "servants-who-drew-the-water",
-        "six-giants-three-days"
+        "six-giants-three-days",
+        "space-and-records-1"
       ]
     },
     "신앙과 성경": {
@@ -3034,6 +3036,62 @@
       "posts": [
         "agent-harness-communication-0",
         "agent-harness-communication-4"
+      ]
+    },
+    "초연결": {
+      "type": "concept",
+      "aliases": [
+        "hyper-connected"
+      ],
+      "note": "연결의 수보다 연결의 종류가 늘어나는 상태",
+      "posts": [
+        "space-and-records-1"
+      ]
+    },
+    "디지털 암흑기": {
+      "type": "concept",
+      "note": "포맷과 장치가 바뀌어 한 시대의 기록이 통째로 읽히지 않을 위험",
+      "posts": [
+        "space-and-records-1"
+      ]
+    },
+    "팰림프세스트": {
+      "type": "concept",
+      "aliases": [
+        "palimpsest"
+      ],
+      "note": "긁어내고 그 위에 다시 쓴 양피지 사본",
+      "posts": [
+        "space-and-records-1"
+      ],
+      "global": true
+    },
+    "유현준": {
+      "type": "person",
+      "note": "건축가. 사람이 쓸모없던 공간을 쓸 수 있게 만들며 자라 왔다고 본다",
+      "posts": [
+        "space-and-records-1"
+      ]
+    },
+    "티코 브라헤": {
+      "type": "person",
+      "note": "벤 섬에 천문대와 인쇄소, 제지소를 지은 16세기 천문학자",
+      "posts": [
+        "space-and-records-1"
+      ]
+    },
+    "빈트 서프": {
+      "type": "person",
+      "note": "2015년에 디지털 암흑기를 경고한 인터넷 설계자",
+      "posts": [
+        "space-and-records-1"
+      ]
+    },
+    "아르키메데스": {
+      "type": "person",
+      "note": "1229년 기도서 아래에 긁혀 묻혔다가 1906년에 다시 읽힌 저작의 저자",
+      "posts": [
+        "space-and-records-1"
       ]
     }
   }
