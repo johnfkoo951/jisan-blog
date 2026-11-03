@@ -68,7 +68,34 @@
     if (((event.metaKey || event.ctrlKey) && event.key === 'k') || (!editing && !event.metaKey && !event.ctrlKey && event.key === '/')) { event.preventDefault(); input.focus(); }
     if (event.key === 'Escape' && event.target === input) { input.value = ''; search(); input.blur(); }
   });
+  // 태그·시리즈 필터: /?tag=정식표기 는 그 대상을 다룬 글(태그로 단 글 먼저), /?series=이름 은 시리즈를 읽는 순서로.
+  const filterBox = document.querySelector('#listFilter');
+  async function applyFilter(tag, series) {
+    if (!filterBox) return;
+    try {
+      const data = await load();
+      const rows = series
+        ? data.filter(post => post.series === series).sort((a, b) => a.seriesOrder - b.seriesOrder)
+        : data.filter(post => (post.tags || []).includes(tag) || (post.entities || []).includes(tag))
+            .sort((a, b) => Number((b.tags || []).includes(tag)) - Number((a.tags || []).includes(tag)));
+      const items = new Map([...list.querySelectorAll(':scope > li[data-slug]')].map(li => [li.dataset.slug, li]));
+      for (const li of items.values()) li.hidden = true;
+      let shown = 0;
+      for (const post of rows) { const li = items.get(post.slug); if (li) { li.hidden = false; list.appendChild(li); shown++; } }
+      const label = series ? `<strong>${esc(series)}</strong>` : `<strong>#${esc(tag.replace(/\s+/g, ''))}</strong>`;
+      const node = series ? `series:${series}` : tag;
+      filterBox.innerHTML = shown
+        ? `<span>${label} · ${series ? '시리즈' : '다룬 글'} <b>${shown}</b>편</span><span class="lf-note">${series ? '읽는 순서대로' : '태그로 단 글 먼저'}</span><span class="lf-actions"><a href="/network/#n=${encodeURIComponent(node)}">연결망에서 보기</a><a href="${location.pathname}">필터 해제</a></span>`
+        : `<span>${label} · 이 목록에는 해당하는 글이 없습니다.</span><span class="lf-actions"><a href="/">전체 글</a></span>`;
+      filterBox.hidden = false;
+      document.title = `${series || '#' + tag} — ${document.title}`;
+    } catch {
+      filterBox.textContent = '필터를 불러오지 못했습니다. 아래 전체 목록을 이용해 주세요.';
+      filterBox.hidden = false;
+    }
+  }
   const parameters = new URLSearchParams(location.search);
+  if (parameters.has('tag') || parameters.has('series')) applyFilter((parameters.get('tag') || '').slice(0, 80), (parameters.get('series') || '').slice(0, 80));
   if (parameters.has('q')) { input.value = parameters.get('q').slice(0, 200); search(); }
   if (parameters.has('search')) input.focus();
 })();

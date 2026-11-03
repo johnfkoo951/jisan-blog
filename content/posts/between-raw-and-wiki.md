@@ -3,6 +3,11 @@ title: Raw와 Wiki 사이에서 — Karpathy와 Kepano가 던진 질문에 대�
 slug: between-raw-and-wiki
 date: 2026-04-03
 kind: 에세이
+tags:
+  - "에이전트 하네스"
+  - "안드레이 카파시"
+  - "kepano"
+  - "시스템 파일"
 summary: Karpathy는 "LLM이 raw를 위키로 컴파일한다"고 했고, Kepano는 "에이전트용 볼트를 분리하라"고 경고했다. 두 주장은 같은 문제의 양면이다. 나의 답 — 분리가 답이 아니라, 설계가 답이다.
 updated: 2026-10-17
 citationTitleSource: "Raw와 Wiki 사이에서 — Karpathy와 Kepano가 던진 질문에 대한 답"

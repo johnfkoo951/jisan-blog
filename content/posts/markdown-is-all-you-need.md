@@ -4,6 +4,11 @@ slug: markdown-is-all-you-need
 date: 2026-03-16
 kind: 에세이
 firstPublished: 더배러 (시리즈 통합편)
+tags:
+  - "글쓰기와 기록"
+  - "마크다운"
+  - "EFLM"
+  - "나만의 확률값"
 summary: plain text가 지식을 살려두고, 샵 하나가 사고의 뼈대를 세우고, 세 줄의 하이픈이 문서를 데이터베이스로 바꾸고, AI가 같은 언어를 쓰게 되었다. 이 모든 것이 마크다운이라는 하나의 선택에서 시작된다.
 updated: 2026-10-17
 citationTitleSource: "Markdown Is All You Need — 마크다운이라는 선택이 바꾸는 것들"

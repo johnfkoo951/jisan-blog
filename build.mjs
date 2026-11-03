@@ -9,6 +9,7 @@ import { readerKeywords, preferredRelated, articleResources } from './lib/reader
 import { apaBlogCitations } from './lib/citations.mjs';
 import { validateImageCaptions } from './lib/image-captions.mjs';
 import { createDiagramContext, attachDiagramCaptions, isMermaid, feedSafeHtml } from './lib/diagrams.mjs';
+import { loadEntities, compileMatcher, postMentions, validateTags, buildGraph, NODE_TYPES, MENTION_WEIGHTS } from './lib/knowledge.mjs';
 import { SITE, KINDS } from './site.config.mjs';
 
 // ───────────────────────── config ─────────────────────────
@@ -145,6 +146,26 @@ a:hover { text-decoration: underline; }
 .post-list h2 a { color: inherit; }
 .post-list h2 a:hover { color: var(--accent); text-decoration: none; }
 .post-list .p-summary { margin-top: .4rem; color: var(--muted); font-size: .95rem; }
+
+/* series + tags (list cards, article head) */
+.p-series { display: inline-flex; align-items: center; max-width: 100%; padding: .05rem .55rem; border-radius: 999px;
+  background: var(--tint); border: 1px solid var(--border); color: var(--accent); font-weight: 600; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis; }
+.p-series:hover { border-color: var(--accent); text-decoration: none; }
+.p-tags { display: inline-flex; flex-wrap: wrap; gap: .1rem .55rem; }
+.p-tags a { color: var(--muted); }
+.p-tags a:hover { color: var(--accent); text-decoration: none; }
+.post-list .p-meta { align-items: center; }
+.post-taxonomy { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem .7rem; margin-top: .9rem; font-size: .82rem; }
+.post-taxonomy .net-link { margin-left: auto; font-size: .78rem; color: var(--muted); }
+.post-taxonomy .net-link:hover { color: var(--accent); }
+.kind-nav a.kind-network { margin-left: auto; border-style: dashed; }
+.kind-nav a.kind-network.active { border-style: solid; }
+.list-filter { display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem .9rem; margin-top: 1rem; padding: .7rem 1rem;
+  border: 1px solid var(--border); border-radius: 10px; background: var(--tint); font-size: .86rem; }
+.list-filter strong { color: var(--accent); }
+.list-filter .lf-note { color: var(--muted); font-size: .8rem; }
+.list-filter .lf-actions { margin-left: auto; display: flex; gap: .8rem; font-size: .8rem; }
 
 /* article */
 article.post { padding: 2.4rem 0 1rem; }
@@ -388,6 +409,30 @@ for (const p of posts) {
 }
 for (const k of Object.keys(seriesMap)) seriesMap[k].sort((a, b) => Number(a.seriesOrder) - Number(b.seriesOrder));
 
+// ─────────────────── 지식 지도 (태그·연결망) ───────────────────
+// content/knowledge/entities.json 의 별칭을 공개 본문에서 세어 글↔대상 연결을 만든다. lib/knowledge.mjs 참조.
+const knowledge = loadEntities(join(CONTENT, 'knowledge', 'entities.json'));
+const entityById = new Map(knowledge.entities.map((e) => [e.id, e]));
+const matcher = compileMatcher(knowledge.entities, knowledge.mask);
+const mentionsBySlug = new Map();
+for (const p of posts) {
+  const mentions = postMentions(p, matcher);
+  mentionsBySlug.set(p.slug, mentions);
+  p.tags = validateTags(p, mentions, entityById);
+}
+const graph = buildGraph({ posts, entities: knowledge.entities, mentionsBySlug, seriesMap, minWeight: SITE.knowledge?.minWeight ?? 2 });
+// 글별로 그래프에 남은 대상 (목록 필터·검색 색인용)
+const connectedBySlug = new Map(posts.map((p) => [p.slug, graph.links.filter((l) => l.s === `post:${p.slug}` && !l.series).map((l) => l.t)]));
+const tagHref = (label) => `/?tag=${encodeURIComponent(label)}`;
+const seriesHref = (name) => `/?series=${encodeURIComponent(name)}`;
+const tagText = (label) => `#${label.replace(/\s+/g, '')}`;
+function taxonomy(p, { article = false } = {}) {
+  const series = p.series ? `<a class="p-series" href="${seriesHref(p.series)}" title="시리즈 ${esc(p.series)}의 글 모아 보기">${esc(p.series)}</a>` : '';
+  const tags = p.tags.length ? `<span class="p-tags" role="list" aria-label="태그">${p.tags.map((t) => `<a role="listitem" href="${tagHref(t)}" title="${esc(t)} — 이 대상을 다룬 글 보기">${esc(tagText(t))}</a>`).join('')}</span>` : '';
+  if (!article) return series + tags;
+  return series || tags ? `<div class="post-taxonomy">${series}${tags}<a class="net-link" href="/network/#n=${encodeURIComponent(`post:${p.slug}`)}">연결망에서 보기</a></div>` : '';
+}
+
 // ─────────────────── 관련 글 (빌드 타임 유사도) ───────────────────
 // 음절 바이그램 코사인 유사도 — 한국어에서 형태소 분석 없이 견고한 근사.
 function bigramVec(s) {
@@ -452,7 +497,7 @@ function readerSidebars(p, related, citations) {
 <aside class="reader-rail reader-rail-right" id="reader-info-panel" aria-labelledby="reader-info-title" tabindex="-1" hidden>
 <div class="rail-head"><h2 id="reader-info-title">글 정보</h2><button type="button" data-panel-close="info" aria-label="글 정보 닫기">닫기</button></div>
 <div class="rail-scroll">
-${keywords.terms.length ? `<section class="rail-section"><h3>${keywords.source === 'author' ? '주요 키워드' : '본문에서 찾은 키워드'}</h3><ul class="rail-keywords">${keywords.terms.map(term => `<li><a href="/?q=${encodeURIComponent(term)}">${esc(term)}</a></li>`).join('')}</ul></section>` : ''}
+${keywords.terms.length ? `<section class="rail-section"><h3>${keywords.source === 'author' ? '태그' : '본문에서 찾은 키워드'}</h3><ul class="rail-keywords">${keywords.terms.map(term => `<li><a href="${entityById.has(term) ? tagHref(term) : `/?q=${encodeURIComponent(term)}`}">${esc(term)}</a></li>`).join('')}</ul><p class="rail-hint"><a href="/network/#n=${encodeURIComponent(`post:${p.slug}`)}">연결망에서 이 글 보기</a></p></section>` : ''}
 ${related.length ? `<section class="rail-section"><h3>관련 글</h3><ul class="rail-related">${related.map(other => `<li><a href="/posts/${other.slug}/">${esc(other.title)}</a><span class="rail-muted">${esc(other.kind || '에세이')}</span>${other.summary ? `<p>${esc(other.summary)}</p>` : ''}</li>`).join('')}</ul></section>` : ''}
 <section class="rail-section"><h3>발행 정보</h3><dl class="rail-facts"><dt>분류</dt><dd><a href="/kind/${kindSlug(p.kind || '에세이')}/">${esc(p.kind || '에세이')}</a></dd><dt>발행</dt><dd><time datetime="${esc(p.date)}">${fmtDate(p.date)}</time></dd>${p.updated ? `<dt>수정</dt><dd><time datetime="${esc(p.updated)}">${fmtDate(p.updated)}</time></dd>` : ''}<dt>읽기</dt><dd>약 ${p.min}분</dd></dl></section>
 <section class="rail-section"><h3>원문과 자료</h3><ul class="rail-resources"><li><a href="/posts/${p.slug}/index.md">마크다운 원문</a><button type="button" class="tool-button copy-markdown" data-copy-markdown="/posts/${p.slug}/index.md" aria-describedby="markdown-copy-status">마크다운 원문 복사</button><p class="rail-feedback" id="markdown-copy-status" role="status" aria-live="polite"></p></li>${resources.map(resource => `<li><a href="${esc(resource.href)}">${resource.label}</a></li>`).join('')}</ul></section>
@@ -470,6 +515,7 @@ function kindNav(active) {
     if (!kindCounts[k]) continue;
     tabs.push(`<a href="/kind/${KINDS[k]}/"${active === k ? ' class="active" aria-current="page"' : ''}>${esc(k)} <span class="count">${kindCounts[k]}</span></a>`);
   }
+  tabs.push(`<a class="kind-network${active === 'network' ? ' active' : ''}" href="/network/"${active === 'network' ? ' aria-current="page"' : ''}>연결망 <span class="count">${knowledge.entities.length}</span></a>`);
   return `<nav class="kind-nav" aria-label="글 유형">${tabs.join('')}</nav>`;
 }
 const SEARCH_UI = `<div class="search-box" role="search">
@@ -481,13 +527,13 @@ const SEARCH_UI = `<div class="search-box" role="search">
 <ul class="search-results" id="sr" hidden></ul>`;
 const SEARCH_JS = '<script defer src="/assets/search.js"></script>';
 function listPage({ active, items }) {
-  return `<main id="main" class="wrap archive-page"><div class="archive-head"><h1>${active === 'all' ? '글 모음' : esc(active)}</h1>${SITE.archiveTagline ? `<span>${esc(SITE.archiveTagline)}</span>` : ''}</div>${kindNav(active)}${SEARCH_UI}<ul class="post-list" id="postList">${items}</ul></main>${SEARCH_JS}`;
+  return `<main id="main" class="wrap archive-page"><div class="archive-head"><h1>${active === 'all' ? '글 모음' : esc(active)}</h1>${SITE.archiveTagline ? `<span>${esc(SITE.archiveTagline)}</span>` : ''}</div>${kindNav(active)}${SEARCH_UI}<div class="list-filter" id="listFilter" role="status" aria-live="polite" hidden></div><ul class="post-list" id="postList">${items}</ul></main>${SEARCH_JS}`;
 }
 const listItem = (p) => {
   const image = p.html.match(/<img [^>]*src="([^"]+)"/);
   const thumb = image ? `<a class="post-thumb" href="/posts/${p.slug}/" tabindex="-1" aria-hidden="true"><img src="${esc(image[1])}" alt="" loading="lazy" decoding="async" width="180" height="135"></a>` : '';
-  return `<li${image ? '' : ' class="no-thumb"'}><div>
-<div class="p-meta"><span class="p-kind">${esc(p.kind || '에세이')}</span><time datetime="${fmtDate(p.date)}">${fmtDate(p.date)}</time><span>${p.min}분 읽기</span></div>
+  return `<li data-slug="${esc(p.slug)}"${image ? '' : ' class="no-thumb"'}><div>
+<div class="p-meta"><span class="p-kind">${esc(p.kind || '에세이')}</span><time datetime="${fmtDate(p.date)}">${fmtDate(p.date)}</time><span>${p.min}분 읽기</span>${taxonomy(p)}</div>
 <h2><a href="/posts/${p.slug}/">${esc(p.title)}</a></h2>
 <p class="p-summary">${esc(p.summary || '')}</p></div>${thumb}</li>`;
 };
@@ -517,6 +563,7 @@ for (const p of posts) {
 <h1 id="article-title" tabindex="-1">${esc(p.title)}</h1>
 <div class="byline"><b>${SITE.authorKo}</b> · ${SITE.brand.mark} &nbsp;·&nbsp; <span>발행 <b>${fmtDate(p.date)}</b></span> ${updated} ${firstPub} &nbsp;·&nbsp; ${p.min}분 읽기 <span class="metrics" id="viewCount" title="집계 도입 이후, 브라우저별 하루 한 번 집계한 조회수" hidden></span></div>
 ${p.summary ? `<p class="article-summary">${esc(p.summary)}</p>` : ''}
+${taxonomy(p, { article: true })}
 ${p.series ? `<details class="series-box"><summary class="series-label">${esc(p.series)} <span class="series-here">${p.seriesOrder} / ${seriesMap[p.series].length}편 · 시리즈 보기</span></summary><nav aria-label="시리즈"><ol>${seriesMap[p.series].map((sp) => sp.slug === p.slug ? `<li><b>${esc(sp.title)}</b> <span class="series-here">지금 읽는 글</span></li>` : `<li><a href="/posts/${sp.slug}/">${esc(sp.title)}</a></li>`).join('')}</ol></nav></details>` : ''}
 <div class="reader-tools" role="group" aria-label="읽기 도구"><span class="tool-label">글자 크기</span><button class="tool-button" data-font-step="-1" aria-label="본문 글자 작게">가 −</button><button class="tool-button" data-font-step="1" aria-label="본문 글자 크게">가 +</button><button class="tool-button" data-font-reset aria-label="본문 글자 기본 크기로">기본</button><button class="tool-button share-button" data-share>글 공유</button></div>
 <p class="action-status" id="actionStatus" role="status" aria-live="polite"></p>
@@ -601,6 +648,71 @@ for (const [kind, slug] of Object.entries(KINDS)) {
   }));
 }
 
+// ─────────────────────── 연결망 페이지 ───────────────────────
+// 그래프 좌표는 빌드가 계산해 페이지에 싣는다 (assets/network.js 는 그리기와 탐색만). 아래 '찾아보기'는 스크립트 없이도 읽히는 색인이다.
+{
+  const NETWORK_CSS = readFileSync(join(ROOT, 'assets', 'network.css'), 'utf8');
+  const nodeOut = graph.nodes.map((n) => {
+    const base = { id: n.id, type: n.type, label: n.label, x: n.x, y: n.y, r: n.r, d: n.degree, ...(n.leaf ? { leaf: 1 } : {}) };
+    if (n.type === 'post') return { ...base, short: n.short, slug: n.slug, kind: n.kind, date: n.date, series: n.series, summary: n.summary, tags: n.tags };
+    if (n.type === 'series') return { ...base, posts: n.posts };
+    return { ...base, note: n.note, aliases: n.aliases };
+  });
+  const data = JSON.stringify({ nodes: nodeOut, links: graph.links, types: NODE_TYPES }).replace(/</g, '\\u003c');
+  const typeCount = Object.fromEntries(Object.keys(NODE_TYPES).map((t) => [t, graph.nodes.filter((n) => n.type === t).length]));
+  const postsOf = (id) => graph.links.filter((l) => l.t === id).sort((a, b) => b.w - a.w).map((l) => posts.find((p) => `post:${p.slug}` === l.s));
+  const entry = (n, list) => `<details class="net-entry" data-node="${esc(n.id)}"><summary><span class="net-dot" data-type="${n.type}" aria-hidden="true"></span><span class="ne-label">${esc(n.label)}</span><span class="ne-count">${list.length}편</span></summary>${n.note ? `<p class="ne-note">${esc(n.note)}</p>` : ''}<ul>${list.map((p) => `<li><a href="/posts/${p.slug}/">${esc(p.title)}</a></li>`).join('')}</ul></details>`;
+  const byDegree = (a, b) => b.degree - a.degree || a.label.localeCompare(b.label, 'ko');
+  const indexSections = ['series', 'topic', 'concept', 'person', 'tool'].map((type) => {
+    const list = graph.nodes.filter((n) => n.type === type).sort(byDegree);
+    if (!list.length) return '';
+    const entries = list.map((n) => entry(n, type === 'series' ? seriesMap[n.label] : postsOf(n.id))).join('');
+    return `<section class="net-index-group"><h3><span class="net-dot" data-type="${type}" aria-hidden="true"></span>${NODE_TYPES[type]} <span class="count">${list.length}</span></h3><div class="net-index-list">${entries}</div></section>`;
+  }).join('');
+  const chips = Object.entries(NODE_TYPES).filter(([t]) => typeCount[t]).map(([t, label], i) =>
+    `<button type="button" class="net-chip" data-type="${t}" aria-pressed="true" title="${label} 보이기/숨기기 (${i + 1})"><span class="net-dot" data-type="${t}" aria-hidden="true"></span>${label} <span class="count">${typeCount[t]}</span><kbd>${i + 1}</kbd></button>`).join('');
+  const entityTotal = graph.nodes.length - posts.length - Object.keys(seriesMap).length;
+  const leafCount = graph.nodes.filter((n) => n.leaf).length;
+  const leafKey = Object.values(typeCount).filter(Boolean).length + 1;
+  const body = `<main id="main" class="wrap network-page">
+<div class="archive-head"><h1>연결망</h1><span>글 ${posts.length}편이 다룬 주제·개념·인물·도구 ${entityTotal}개</span></div>
+${kindNav('network')}
+<div class="net-toolbar">
+<div class="search-box net-search" role="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+<input id="netq" type="search" placeholder="찾기 — 인물·개념·주제·글 제목" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="netSuggest" aria-label="연결망에서 노드 찾기"><span class="search-key" aria-hidden="true">/</span>
+<ul class="net-suggest" id="netSuggest" role="listbox" aria-label="찾은 노드" hidden></ul></div>
+<div class="net-filters" role="group" aria-label="노드 유형 보이기">${chips}${leafCount ? `<button type="button" class="net-chip net-chip-leaf" data-type="leaf" aria-pressed="false" title="한 편에만 나온 대상 보이기/숨기기 (${leafKey})">한 편에만 나온 것 <span class="count">${leafCount}</span><kbd>${leafKey}</kbd></button>` : ''}</div>
+</div>
+<div class="net-stage">
+<div class="net-canvas" id="netCanvas" tabindex="0" aria-describedby="netHint">
+<svg id="netSvg" role="img" aria-label="블로그 글과 그 글이 다룬 대상의 연결망"><g class="net-viewport"><g class="net-links"></g><g class="net-nodes"></g></g></svg>
+<div class="net-zoom" role="group" aria-label="확대"><button type="button" data-zoom="in" aria-label="확대 (+)">+</button><button type="button" data-zoom="out" aria-label="축소 (−)">−</button><button type="button" data-zoom="fit" aria-label="전체 보기 (0)">맞춤</button></div>
+<p class="net-hint" id="netHint">끌어서 이동 · ⌘/Ctrl+스크롤이나 두 손가락으로 확대 · 노드를 누르면 연결이 보입니다 · <button type="button" data-help>단축키 ?</button></p>
+<noscript><p class="net-noscript">연결망 그림은 자바스크립트가 필요합니다. 아래 찾아보기에서 같은 연결을 목록으로 볼 수 있습니다.</p></noscript>
+</div>
+<aside class="net-panel" id="netPanel" aria-live="polite" aria-label="선택한 노드"></aside>
+</div>
+<div class="net-help" id="netHelp" role="dialog" aria-label="단축키" hidden><h2>단축키</h2><dl>
+<dt>/</dt><dd>찾기</dd><dt>1 – ${leafKey}</dt><dd>유형·한 편짜리 대상 보이기·숨기기</dd><dt>+ − 0</dt><dd>확대·축소·전체 보기</dd>
+<dt>↑ ↓ Enter</dt><dd>찾기 결과 고르기</dd><dt>Enter</dt><dd>선택한 글 열기 (그림에 초점이 있을 때)</dd><dt>Esc</dt><dd>선택 해제·닫기</dd><dt>?</dt><dd>이 도움말</dd></dl>
+<button type="button" class="tool-button" data-help-close>닫기</button></div>
+<section class="net-index" aria-labelledby="netIndexTitle"><h2 id="netIndexTitle">찾아보기</h2><p class="net-index-lead">그림과 같은 연결을 목록으로 모았습니다. 이름을 누르면 그 대상을 다룬 글이 펼쳐집니다. 연결은 글에서 ${SITE.knowledge?.minWeight ?? 2}점 이상 다룬 것만 잇습니다(제목 ${MENTION_WEIGHTS.title}, 요약 ${MENTION_WEIGHTS.summary}, 소제목 ${MENTION_WEIGHTS.headings}점, 본문 언급은 한 번에 ${MENTION_WEIGHTS.body}점씩 ${MENTION_WEIGHTS.bodyCap}점까지). 글에 태그로 단 대상은 점수와 상관없이 잇습니다.</p>${indexSections}</section>
+</main>
+<script type="application/json" id="netData">${data}</script>
+<script defer src="/assets/network.js"></script>`;
+  const dir = join(DIST, 'network');
+  mkdirSync(dir, { recursive: true });
+  const url = `${SITE.url}/network/`;
+  writeFileSync(join(dir, 'index.html'), shell({
+    title: `연결망 — ${SITE.title}`,
+    desc: `${SITE.title}의 글 ${posts.length}편이 다룬 주제·개념·인물·도구 ${entityTotal}개를 노드와 연결선으로 탐색하는 지도.`,
+    url, body, extraStyle: NETWORK_CSS,
+    jsonld: { '@context': 'https://schema.org', '@type': 'CollectionPage', name: `연결망 — ${SITE.title}`, url, inLanguage: 'ko',
+      isPartOf: { '@type': 'Blog', name: SITE.title, url: SITE.url },
+      about: graph.nodes.filter((n) => n.type === 'person').sort(byDegree).slice(0, 20).map((n) => ({ '@type': 'Person', name: n.label })) },
+  }));
+}
+
 // ─────────────────────── 검색 인덱스 ───────────────────────
 writeFileSync(join(DIST, 'search-index.json'), JSON.stringify(posts.map((p) => ({
   slug: p.slug,
@@ -610,6 +722,10 @@ writeFileSync(join(DIST, 'search-index.json'), JSON.stringify(posts.map((p) => (
   summary: p.summary || '',
   headings: p.headings,
   keywords: keywordMap.get(p.slug).terms,
+  tags: p.tags,
+  series: p.series || '',
+  seriesOrder: p.series ? Number(p.seriesOrder) : null,
+  entities: connectedBySlug.get(p.slug),
   text: p.plain,
 }))));
 
@@ -648,6 +764,7 @@ if (!SITE.staging) {
       const kl = posts.filter((p) => (p.kind || '에세이') === k).map((p) => p.updated || p.date).sort().pop();
       return { loc: `${SITE.url}/kind/${slug}/`, lastmod: kl.slice(0, 10) };
     }),
+    { loc: `${SITE.url}/network/`, lastmod: latest.slice(0, 10) },
     ...posts.map((p) => ({ loc: p.url, lastmod: (p.updated || p.date).slice(0, 10) })),
   ];
   writeFileSync(join(DIST, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
@@ -671,6 +788,7 @@ writeFileSync(join(DIST, 'llms.txt'), `# ${SITE.brand.mark} (${SITE.brand.roman}
 - 인용 형식: ${SITE.citation.ko.author} (연도). 제목. ${SITE.citation.ko.blog}. URL
 - RSS (전문 포함): ${SITE.url}/feed.xml
 - 사이트맵: ${SITE.url}/sitemap.xml
+- 연결망 (글이 다룬 주제·개념·인물·도구의 지도와 색인): ${SITE.url}/network/
 
 ${llmsPosts}
 `);

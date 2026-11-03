@@ -3,6 +3,11 @@ title: 쓰는 사람과 구경하는 사람 — AI Divide의 시간
 slug: ai-divide
 date: 2026-04-30
 kind: 에세이
+tags:
+  - "생성형 AI"
+  - "AI Divide"
+  - "디지털 디바이드"
+  - "바이브코딩"
 summary: AI 시대의 격차는 접근권이 아니라 사용 의지에서 갈린다. 쓰는 사람은 점점 더 멀리 가고, 구경만 하는 사람은 점점 더 뒤로 밀린다. 그러나 처방은 분명하다 — 배우면 되고, 만들면 되고, 물으면 된다.
 updated: 2026-10-17
 citationTitleSource: "쓰는 사람과 구경하는 사람 — AI Divide의 시간"

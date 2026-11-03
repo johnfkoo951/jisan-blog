@@ -6,6 +6,11 @@ updated: 2026-10-27
 kind: 에세이
 series: "소통으로 읽는 에이전트 하네스"
 seriesOrder: 2
+tags:
+  - "에이전트 하네스"
+  - "하네스 일곱 층"
+  - "소유"
+  - "결정 전제"
 summary: 왜 일곱 층인가. 답은 수가 아니라 소유에 있다. 선언과 관측, 실행과 보기와 결정, 지시와 신호를 세 번 가르면 일곱 책임 영역이 남고, 열세 원칙은 네 묶음이 된다. 루만의 결정 전제로 읽으면 선언 원장은 조직의 기억이고, 하네스의 사고는 결정된 전제가 아니라 아무도 정하지 않은 기본값에서 난다.
 citationTitleSource: "층은 의존의 순서가 아니라 책임의 배열이다 — 소유로 가르는 하네스 일곱 층과 결정 전제"
 citationTitleEn: "Layers are an arrangement of responsibility, not an order of dependence: The seven harness layers cut by ownership, and decision premises"

@@ -5,6 +5,11 @@ date: 2026-08-20
 kind: 에세이
 series: "CMDSPACE 생태계"
 seriesOrder: 1
+tags:
+  - "지식관리"
+  - "지식 생태계"
+  - "마더십"
+  - "일곱 개의 볼트"
 summary: 시스템 파일, LLM Wiki, AKM Index, 9요한, CmdMD, 그리고 이 블로그까지. 따로따로 발견되던 여섯 개의 사이트는 사실 한 채의 집이다. 처음으로 전체 지도를 그렸다.
 citationTitleSource: "여섯 개의 문, 한 채의 집 — CMDSPACE 지식 생태계 전체 지도"
 citationTitleEn: "Six doors, one house: A map of the CMDSPACE knowledge ecosystem"

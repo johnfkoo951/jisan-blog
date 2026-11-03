@@ -4,6 +4,11 @@ slug: i-ask-therefore-i-record
 date: 2025-12-21T18:19
 kind: 에세이
 firstPublished: 더배러
+tags:
+  - "글쓰기와 기록"
+  - "질문하기"
+  - "메타데이터"
+  - "니클라스 루만"
 summary: 우리가 정말로 기록하는 것은 답이 아니라 질문이다. 원숭이·바나나·팬더 분류, 메타데이터, 루만의 메모 상자, 김치찌개 레시피를 지나 AI 시대에 사람만 할 수 있는 일인 질문하기와 질문하는 일상을 만드는 네 가지 방법을 이야기한다.
 citationTitleSource: "나는 질문한다. 고로 기록한다."
 citationTitleEn: "I ask, therefore I record"

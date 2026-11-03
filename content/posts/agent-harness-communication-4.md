@@ -5,6 +5,11 @@ date: 2026-10-28
 kind: 에세이
 series: "소통으로 읽는 에이전트 하네스"
 seriesOrder: 4
+tags:
+  - "에이전트 하네스"
+  - "스키마"
+  - "제텔카스텐"
+  - "LLM Wiki"
 summary: 스키마는 들어오는 것을 정보로 만드는 비교 장치다. 카드 상자, LLM 위키, CMDS 볼트, 하네스 레지스트리는 모두 스키마를 갖지만 무엇을 선언하고 무엇을 관측하고 누가 쓰는지가 다르다. 두께는 생산자를 따라가고, 선언과 관측의 분리는 생산 속도가 읽는 속도를 넘을 때 생긴다. 넷이 공유하는 것은 하나, 스키마의 항상성이다.
 citationTitleSource: "스키마는 하나가 아니다 — 카드 상자, LLM 위키, CMDS, 하네스 레지스트리의 네 스키마 비교"
 citationTitleEn: "There is more than one schema: Comparing the four schemas of the card index, the LLM wiki, CMDS, and the harness registry"

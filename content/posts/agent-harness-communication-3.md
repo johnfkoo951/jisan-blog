@@ -5,6 +5,11 @@ date: 2026-10-27T01:00
 kind: 에세이
 series: "소통으로 읽는 에이전트 하네스"
 seriesOrder: 3
+tags:
+  - "에이전트 하네스"
+  - "니클라스 루만"
+  - "제텔카스텐"
+  - "고정 자리 질서"
 summary: 루만은 하네스라는 말을 쓴 적이 없지만 하나를 지었다. 자리를 바꾸지 않는 주소, 옮기지 않고 참조로 하는 교정, 소수의 진입점, 자기 문장으로 다시 쓰기. 이 네 규칙과 몇 년의 기다림이 그의 세팅이었다. 1981년 설계 문서를 지금의 하네스에 대 보면 거의 그대로 있는 것은 둘이고, 넷은 유비다.
 citationTitleSource: "니클라스 루만의 하네스 세팅 — 카드 9만 장을 소통 파트너로 만든 네 가지 규칙"
 citationTitleEn: "Niklas Luhmann's harness settings: Four rules that made ninety thousand cards a communication partner"

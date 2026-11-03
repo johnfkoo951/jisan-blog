@@ -5,6 +5,11 @@ date: 2026-10-30
 kind: 에세이
 series: "소통으로 읽는 에이전트 하네스"
 seriesOrder: 6
+tags:
+  - "에이전트 하네스"
+  - "행위자 연결망 이론"
+  - "브뤼노 라투르"
+  - "필수 통과점"
 summary: 루만의 하네스는 깔끔해서 의심스럽다. 라투르는 층 그림을 믿지 않고 흔적을 따라간다. 번역의 네 국면, 블랙박스, 위임된 스크립트, 불변의 이동물, 파노라마. 이 다섯 도구로 기획서가 적은 누수 일곱 곳을 읽으면 누수는 어긋남이 아니라 연결망이 실제로 지나가는 자리다. 하네스가 라투르에게 배운 것은 새는 길을 없애는 법이 아니라 세는 법이다.
 citationTitleSource: "층은 선언이고 연결망은 실측이다 — 라투르의 행위자 연결망으로 읽는 하네스의 일곱 누수"
 citationTitleEn: "Layers are declarations, networks are measurements: Reading the harness's seven leaks through actor-network theory"

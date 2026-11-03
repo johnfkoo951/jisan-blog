@@ -5,6 +5,11 @@ date: 2026-10-29
 kind: 에세이
 series: "소통으로 읽는 에이전트 하네스"
 seriesOrder: 5
+tags:
+  - "에이전트 하네스"
+  - "9요한"
+  - "인격"
+  - "실패 양식"
 summary: 9요한은 아홉 개의 기능 체계가 아니라 한 조직 안의 아홉 관할이다. 각 요한은 루만의 뜻에서 인격, 곧 기대를 묶어 두는 주소다. 열매는 장식이 아니라 그 부문의 실패 양식을 막는 방어선이고, prime은 왕이 아니라 라우팅과 결재만 하는 직위다. 생성자와 검증자를 가르는 것은 품질 관리 이전에 2차 관찰이다.
 citationTitleSource: "아홉 개의 인격, 아홉 개의 관할 — 9요한의 설계 원리, 덕목은 실패 양식의 방어선이다"
 citationTitleEn: "Nine persons, nine jurisdictions: The design principles of 9Yohan, where virtues are lines of defense against failure modes"

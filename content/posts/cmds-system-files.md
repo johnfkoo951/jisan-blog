@@ -6,6 +6,11 @@ updated: 2026-10-21
 kind: 소개
 series: "CMDSPACE 생태계"
 seriesOrder: 2
+tags:
+  - "에이전트 하네스"
+  - "시스템 파일"
+  - "공유 규칙"
+  - "스키마"
 summary: 10,000개 노트 볼트를 떠받치는 규격을 그대로 공개했다. AI 에이전트가 내 볼트에서 일하기 전에 읽는 시스템 파일 여섯 종. 왜 만들었고, 왜 나눠주는가.
 citationTitleSource: "AI에게 건네는 첫 문서 — CMDS System Files"
 citationTitleEn: "The first document to hand to AI: CMDS System Files"

@@ -6,6 +6,11 @@ updated: 2026-11-03
 kind: 에세이
 series: "소통으로 읽는 에이전트 하네스"
 seriesOrder: 0
+tags:
+  - "에이전트 하네스"
+  - "니클라스 루만"
+  - "브뤼노 라투르"
+  - "소통"
 summary: 여섯 편을 읽기 전에 펼치는 지도다. 시리즈의 한 줄 주장, 여섯 편이 하나의 질문에서 갈라지는 논리 구조, 읽는 순서 셋, 편별 요약, 하네스와 이론 쪽 용어 사전, 표기 약속, 그리고 루만은 에이전트 하네스의 왕이었을까라는 처음 질문의 결론을 모았다.
 citationTitleSource: "소통으로 읽는 에이전트 하네스 — 시리즈 지도와 용어"
 citationTitleEn: "Reading the agent harness as communication: Series map and glossary"

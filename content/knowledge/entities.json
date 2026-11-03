@@ -1,0 +1,3040 @@
+{
+  "$comment": "지식 지도 어휘 사전. 대상마다 type(topic·concept·person·tool), aliases(공개 본문에 글자 그대로 나오는 표기), note(60자 이내), posts(그 대상을 다룬다고 확인한 글), global(개념을 목록 밖의 글에서도 찾을지). 어느 글과 이어지는지는 빌드가 본문에서 센다. lib/knowledge.mjs 참조.",
+  "mask": [
+    "구요한"
+  ],
+  "entities": {
+    "교육과 학습": {
+      "type": "topic",
+      "note": "가르치고 배우는 일",
+      "posts": [
+        "ai-divide",
+        "alexandria-for-my-son",
+        "path-not-granary",
+        "retrospective-2025",
+        "six-giants-three-days"
+      ]
+    },
+    "글쓰기와 기록": {
+      "type": "topic",
+      "note": "기록하고 쓰는 일",
+      "posts": [
+        "ai-replicates-the-average",
+        "alexandria-for-my-son",
+        "i-ask-therefore-i-record",
+        "markdown-is-all-you-need",
+        "my-name-is-yohan-koo",
+        "path-not-granary"
+      ]
+    },
+    "생성형 AI": {
+      "type": "topic",
+      "note": "글과 그림을 만들어 내는 AI와 그 쓰임",
+      "posts": [
+        "ai-divide",
+        "ai-replicates-the-average",
+        "alexandria-for-my-son",
+        "i-ask-therefore-i-record",
+        "markdown-is-all-you-need",
+        "my-probability",
+        "psa-fit",
+        "retrospective-2025",
+        "selective-forgetting",
+        "servants-who-drew-the-water",
+        "six-giants-three-days"
+      ]
+    },
+    "신앙과 성경": {
+      "type": "topic",
+      "note": "성경 읽기와 신앙",
+      "posts": [
+        "9yohan-constellation",
+        "my-name-is-yohan-koo",
+        "servants-who-drew-the-water"
+      ]
+    },
+    "에이전트 하네스": {
+      "type": "topic",
+      "note": "AI 에이전트를 묶고 부리는 구조와 규칙",
+      "posts": [
+        "9yohan-constellation",
+        "agent-harness-communication-0",
+        "agent-harness-communication-1",
+        "agent-harness-communication-2",
+        "agent-harness-communication-3",
+        "agent-harness-communication-4",
+        "agent-harness-communication-5",
+        "agent-harness-communication-6",
+        "akm-index",
+        "between-raw-and-wiki",
+        "cmds-system-files",
+        "okf-third-arrival",
+        "quarter-point-short",
+        "rank-14-on-my-own-rubric",
+        "schema-is-harness",
+        "what-77-systems-told-me"
+      ]
+    },
+    "연구 방법": {
+      "type": "topic",
+      "note": "연구를 설계하고 자료를 다루는 법",
+      "posts": [
+        "cmds-llm-wiki",
+        "omnisearch-google-research",
+        "zotero-self-hosting"
+      ]
+    },
+    "옵시디언 활용": {
+      "type": "topic",
+      "note": "옵시디언으로 지식을 다루는 방법",
+      "posts": [
+        "cmdmd",
+        "knowledge-ecosystem-map",
+        "omnisearch-google-research",
+        "quarter-point-short",
+        "selective-forgetting"
+      ]
+    },
+    "요한복음": {
+      "type": "topic",
+      "note": "요한이 기록한 복음서. 표적의 복음서",
+      "posts": [
+        "servants-who-drew-the-water"
+      ]
+    },
+    "지식관리": {
+      "type": "topic",
+      "note": "지식을 모으고 잇고 다시 쓰는 일",
+      "posts": [
+        "akm-index",
+        "between-raw-and-wiki",
+        "cmdmd",
+        "cmds-llm-wiki",
+        "i-ask-therefore-i-record",
+        "knowledge-ecosystem-map",
+        "markdown-is-all-you-need",
+        "my-probability",
+        "okf-third-arrival",
+        "omnisearch-google-research",
+        "organizing-dimension",
+        "psa-fit",
+        "quarter-point-short",
+        "rank-14-on-my-own-rubric",
+        "retrospective-2025",
+        "schema-is-harness",
+        "selective-forgetting",
+        "six-giants-three-days",
+        "topology-of-knowledge-1",
+        "topology-of-knowledge-2",
+        "topology-of-knowledge-3",
+        "what-77-systems-told-me"
+      ]
+    },
+    "체계이론": {
+      "type": "topic",
+      "note": "루만의 사회 체계 이론",
+      "posts": [
+        "agent-harness-communication-0",
+        "agent-harness-communication-1",
+        "agent-harness-communication-2",
+        "agent-harness-communication-3",
+        "agent-harness-communication-5",
+        "agent-harness-communication-6",
+        "servants-who-drew-the-water",
+        "topology-of-knowledge-2",
+        "topology-of-knowledge-3"
+      ]
+    },
+    "회고와 성찰": {
+      "type": "topic",
+      "note": "지난 일을 돌아보는 글",
+      "posts": [
+        "my-name-is-yohan-koo",
+        "path-not-granary",
+        "quarter-point-short",
+        "retrospective-2025"
+      ]
+    },
+    "Cano-Kollmann": {
+      "type": "person",
+      "note": "지식 연결성 연구 의제 논문의 제1저자",
+      "posts": [
+        "omnisearch-google-research"
+      ]
+    },
+    "Simon Cambier": {
+      "type": "person",
+      "note": "Omnisearch와 원작 userscripts의 제작자",
+      "posts": [
+        "omnisearch-google-research"
+      ]
+    },
+    "Sönke Ahrens": {
+      "type": "person",
+      "note": "제텔카스텐과 지식 축적 원리의 참고 저자",
+      "posts": [
+        "my-probability"
+      ]
+    },
+    "Tiago Forte": {
+      "type": "person",
+      "note": "세컨드 브레인과 CODE 방법론의 저자",
+      "posts": [
+        "rank-14-on-my-own-rubric"
+      ]
+    },
+    "kepano": {
+      "type": "person",
+      "aliases": [
+        "Kepano"
+      ],
+      "note": "옵시디언 CEO. File over app",
+      "posts": [
+        "between-raw-and-wiki",
+        "okf-third-arrival",
+        "schema-is-harness"
+      ]
+    },
+    "가브리엘": {
+      "type": "person",
+      "note": "사가랴에게 아이의 이름을 알린 천사",
+      "posts": [
+        "my-name-is-yohan-koo"
+      ]
+    },
+    "게오르크 폰 크로그": {
+      "type": "person",
+      "aliases": [
+        "폰 크로그",
+        "von Krogh"
+      ],
+      "note": "모르너와 함께 오픈소스를 루만으로 분석",
+      "posts": [
+        "agent-harness-communication-0"
+      ]
+    },
+    "괴테": {
+      "type": "person",
+      "note": "글쓰기·출판 부문의 요한, 열매는 사랑",
+      "posts": [
+        "9yohan-constellation",
+        "agent-harness-communication-5"
+      ]
+    },
+    "군터 토이브너": {
+      "type": "person",
+      "aliases": [
+        "토이브너",
+        "Teubner"
+      ],
+      "note": "비인간 인격화로 두 이론을 잇는 다리",
+      "posts": [
+        "agent-harness-communication-6"
+      ]
+    },
+    "노나카 이쿠지로": {
+      "type": "person",
+      "aliases": [
+        "Nonaka",
+        "노나카"
+      ],
+      "note": "지식창조와 SECI 모델의 경영학자",
+      "posts": [
+        "alexandria-for-my-son",
+        "my-probability"
+      ]
+    },
+    "니클라스 루만": {
+      "type": "person",
+      "aliases": [
+        "루만",
+        "Luhmann"
+      ],
+      "note": "독일 사회학자. 체계이론과 소통 이론, 제텔카스텐",
+      "posts": [
+        "agent-harness-communication-0",
+        "agent-harness-communication-1",
+        "agent-harness-communication-2",
+        "agent-harness-communication-3",
+        "agent-harness-communication-4",
+        "agent-harness-communication-5",
+        "agent-harness-communication-6",
+        "ai-replicates-the-average",
+        "i-ask-therefore-i-record",
+        "my-probability",
+        "omnisearch-google-research",
+        "servants-who-drew-the-water",
+        "topology-of-knowledge-1",
+        "topology-of-knowledge-2",
+        "topology-of-knowledge-3"
+      ]
+    },
+    "디르크 바에커": {
+      "type": "person",
+      "aliases": [
+        "바에커",
+        "Baecker"
+      ],
+      "note": "새 확산 매체가 소통 잉여를 만든다고 본 학자",
+      "posts": [
+        "agent-harness-communication-0"
+      ]
+    },
+    "로버트·미셸 루트번스타인": {
+      "type": "person",
+      "aliases": [
+        "루트번스타인"
+      ],
+      "note": "창의적 사고와 연결의 힘을 다룬 참고 저자",
+      "posts": [
+        "my-probability"
+      ]
+    },
+    "로저 배그널": {
+      "type": "person",
+      "aliases": [
+        "배그널",
+        "Bagnall"
+      ],
+      "note": "방치와 부식에 의한 점진적 쇠퇴론",
+      "posts": [
+        "alexandria-for-my-son"
+      ]
+    },
+    "루트비히 비트겐슈타인": {
+      "type": "person",
+      "aliases": [
+        "비트겐슈타인",
+        "Wittgenstein"
+      ],
+      "note": "언어게임, 공동체 해석 모델의 재료",
+      "posts": [
+        "servants-who-drew-the-water"
+      ]
+    },
+    "리처드 파인만": {
+      "type": "person",
+      "aliases": [
+        "파인만",
+        "Feynman"
+      ],
+      "note": "수학 없이 물리의 본질을 설명한 방식이 단초",
+      "posts": [
+        "my-probability",
+        "organizing-dimension"
+      ]
+    },
+    "마들렌 아크리시": {
+      "type": "person",
+      "aliases": [
+        "아크리시",
+        "Akrich"
+      ],
+      "note": "기술 사물에 써 넣은 스크립트 개념",
+      "posts": [
+        "agent-harness-communication-6"
+      ]
+    },
+    "미셸 칼롱": {
+      "type": "person",
+      "aliases": [
+        "칼롱",
+        "Callon"
+      ],
+      "note": "번역의 네 국면과 필수 통과점",
+      "posts": [
+        "agent-harness-communication-6"
+      ]
+    },
+    "미하엘 모르너": {
+      "type": "person",
+      "aliases": [
+        "모르너",
+        "Morner"
+      ],
+      "note": "오픈소스 안정화 조건 셋을 루만으로 꼽음",
+      "posts": [
+        "agent-harness-communication-0"
+      ]
+    },
+    "바흐": {
+      "type": "person",
+      "note": "창작 부문의 요한, 열매는 희락",
+      "posts": [
+        "9yohan-constellation",
+        "agent-harness-communication-5"
+      ]
+    },
+    "베드로": {
+      "type": "person",
+      "note": "권능·기사·표적 세 단어로 사역을 묶음",
+      "posts": [
+        "servants-who-drew-the-water"
+      ]
+    },
+    "브뤼노 라투르": {
+      "type": "person",
+      "aliases": [
+        "라투르",
+        "Latour"
+      ],
+      "note": "프랑스 사회학자. 행위자 연결망 이론",
+      "posts": [
+        "agent-harness-communication-0",
+        "agent-harness-communication-1",
+        "agent-harness-communication-6"
+      ]
+    },
+    "빌 에반스": {
+      "type": "person",
+      "note": "즉흥연주로 내 취향 블록이 된 재즈 피아니스트",
+      "posts": [
+        "my-probability"
+      ]
+    },
+    "사가랴": {
+      "type": "person",
+      "note": "서판에 아들의 이름을 요한이라 쓴 아버지",
+      "posts": [
+        "my-name-is-yohan-koo"
+      ]
+    },
+    "세례요한": {
+      "type": "person",
+      "aliases": [
+        "세례 요한"
+      ],
+      "note": "파트너십 부문의 요한, 열매는 오래 참음",
+      "posts": [
+        "9yohan-constellation",
+        "agent-harness-communication-5",
+        "my-name-is-yohan-koo"
+      ]
+    },
+    "송길영": {
+      "type": "person",
+      "note": "AI가 인간의 평균을 복제한다는 명제의 저자",
+      "posts": [
+        "ai-divide",
+        "ai-replicates-the-average"
+      ]
+    },
+    "수전 리 스타": {
+      "type": "person",
+      "aliases": [
+        "Susan Leigh Star"
+      ],
+      "note": "그리즈머와 경계 객체를 이름 붙임",
+      "posts": [
+        "servants-who-drew-the-water"
+      ]
+    },
+    "스트라본": {
+      "type": "person",
+      "aliases": [
+        "Strabo"
+      ],
+      "note": "무세이온의 산책로와 공동 식당을 기록한 지리학자",
+      "posts": [
+        "alexandria-for-my-son"
+      ]
+    },
+    "아우렐리아누스": {
+      "type": "person",
+      "note": "270년대 전쟁으로 왕궁 지구가 무너짐",
+      "posts": [
+        "alexandria-for-my-son"
+      ]
+    },
+    "안드레이 카파시": {
+      "type": "person",
+      "aliases": [
+        "Karpathy",
+        "Andrej Karpathy"
+      ],
+      "note": "LLM Wiki 패턴을 제안한 AI 연구자",
+      "posts": [
+        "agent-harness-communication-4",
+        "ai-divide",
+        "between-raw-and-wiki",
+        "cmds-llm-wiki",
+        "cmds-system-files",
+        "okf-third-arrival",
+        "rank-14-on-my-own-rubric",
+        "schema-is-harness"
+      ]
+    },
+    "알렉산드로스 대왕": {
+      "type": "person",
+      "aliases": [
+        "알렉산드로스"
+      ],
+      "note": "기원전 331년 알렉산드리아를 세움",
+      "posts": [
+        "alexandria-for-my-son"
+      ]
+    },
+    "에티엔 웽거": {
+      "type": "person",
+      "aliases": [
+        "웽거",
+        "Wenger"
+      ],
+      "note": "실천공동체 개념의 학자",
+      "posts": [
+        "servants-who-drew-the-water"
+      ]
+    },
+    "엘레나 에스포지토": {
+      "type": "person",
+      "aliases": [
+        "에스포지토",
+        "Esposito"
+      ],
+      "note": "똑똑한 기계를 인공 소통으로 보자고 한 학자",
+      "posts": [
+        "agent-harness-communication-0",
+        "agent-harness-communication-1"
+      ]
+    },
+    "엘리사벳": {
+      "type": "person",
+      "note": "가문 관습 대신 하나님이 부른 이름을 택함",
+      "posts": [
+        "my-name-is-yohan-koo"
+      ]
+    },
+    "예수": {
+      "type": "person",
+      "note": "가나 혼인잔치에서 물을 포도주로 바꾼 표적",
+      "posts": [
+        "servants-who-drew-the-water"
+      ]
+    },
+    "요하네스 슈미트": {
+      "type": "person",
+      "aliases": [
+        "Schmidt"
+      ],
+      "note": "빌레펠트 아카이브에서 상자 운영을 복원",
+      "posts": [
+        "agent-harness-communication-3",
+        "agent-harness-communication-4"
+      ]
+    },
+    "요하네스 케플러": {
+      "type": "person",
+      "aliases": [
+        "케플러"
+      ],
+      "note": "지식관리·연구 부문의 요한, 열매는 온유",
+      "posts": [
+        "9yohan-constellation",
+        "agent-harness-communication-5"
+      ]
+    },
+    "움베르토 마투라나": {
+      "type": "person",
+      "aliases": [
+        "마투라나",
+        "Maturana"
+      ],
+      "note": "자기생산 개념의 출처",
+      "posts": [
+        "agent-harness-communication-1"
+      ]
+    },
+    "위르겐 하버마스": {
+      "type": "person",
+      "aliases": [
+        "하버마스",
+        "Habermas"
+      ],
+      "note": "합의 지향 소통, 측면 채널의 자리",
+      "posts": [
+        "agent-harness-communication-5"
+      ]
+    },
+    "윌리엄 로스 애슈비": {
+      "type": "person",
+      "aliases": [
+        "애슈비",
+        "Ashby"
+      ],
+      "note": "필수 다양성 법칙, 아홉의 근거는 아님",
+      "posts": [
+        "agent-harness-communication-5"
+      ]
+    },
+    "율리우스 카이사르": {
+      "type": "person",
+      "aliases": [
+        "카이사르"
+      ],
+      "note": "알렉산드리아 전쟁의 화재, 범위는 기록이 엇갈림",
+      "posts": [
+        "alexandria-for-my-son"
+      ]
+    },
+    "이어령": {
+      "type": "person",
+      "note": "디지로그를 말한 문화비평가",
+      "posts": [
+        "my-name-is-yohan-koo",
+        "path-not-granary"
+      ]
+    },
+    "제임스 그리즈머": {
+      "type": "person",
+      "aliases": [
+        "그리즈머",
+        "Griesemer"
+      ],
+      "note": "스타와 경계 객체를 이름 붙임",
+      "posts": [
+        "servants-who-drew-the-water"
+      ]
+    },
+    "제임스 마치": {
+      "type": "person",
+      "aliases": [
+        "마치와 사이먼",
+        "March, J. G."
+      ],
+      "note": "사이먼과 함께 불확실성 흡수 개념을 냄",
+      "posts": [
+        "agent-harness-communication-2"
+      ]
+    },
+    "조지 스펜서브라운": {
+      "type": "person",
+      "aliases": [
+        "스펜서브라운",
+        "Spencer-Brown"
+      ],
+      "note": "구별을 그어라, 관찰 정의의 출처",
+      "posts": [
+        "agent-harness-communication-5"
+      ]
+    },
+    "존 그루버": {
+      "type": "person",
+      "aliases": [
+        "그루버"
+      ],
+      "note": "2004년 마크다운을 만든 블로거",
+      "posts": [
+        "markdown-is-all-you-need"
+      ]
+    },
+    "존 듀이": {
+      "type": "person",
+      "aliases": [
+        "듀이"
+      ],
+      "note": "교육 부문의 요한, 열매는 자비",
+      "posts": [
+        "9yohan-constellation",
+        "agent-harness-communication-5"
+      ]
+    },
+    "존 로": {
+      "type": "person",
+      "aliases": [
+        "Law, 1992",
+        "Law, J."
+      ],
+      "note": "블랙박스를 점화로 부른 ANT 학자",
+      "posts": [
+        "agent-harness-communication-6"
+      ]
+    },
+    "존 매카시": {
+      "type": "person",
+      "aliases": [
+        "매카시"
+      ],
+      "note": "개발 부문의 요한, 열매는 양선",
+      "posts": [
+        "9yohan-constellation",
+        "agent-harness-communication-5"
+      ]
+    },
+    "질 들뢰즈": {
+      "type": "person",
+      "aliases": [
+        "들뢰즈"
+      ],
+      "note": "프랑스 철학자. 리좀과 차이의 철학",
+      "posts": [
+        "topology-of-knowledge-1",
+        "topology-of-knowledge-2",
+        "topology-of-knowledge-3"
+      ]
+    },
+    "칼리마코스": {
+      "type": "person",
+      "note": "피나케스 120권을 엮은 시인이자 학자",
+      "posts": [
+        "alexandria-for-my-son"
+      ]
+    },
+    "칼뱅": {
+      "type": "person",
+      "note": "자문 부문의 요한, 열매는 충성",
+      "posts": [
+        "9yohan-constellation",
+        "agent-harness-communication-5"
+      ]
+    },
+    "크리스토퍼 놀란": {
+      "type": "person",
+      "aliases": [
+        "놀란"
+      ],
+      "note": "인셉션의 토템, 테넷의 암구호",
+      "posts": [
+        "servants-who-drew-the-water"
+      ]
+    },
+    "토머스 쿤": {
+      "type": "person",
+      "aliases": [
+        "Kuhn"
+      ],
+      "note": "패러다임, 공동체 해석 모델의 재료",
+      "posts": [
+        "servants-who-drew-the-water"
+      ]
+    },
+    "펠릭스 가타리": {
+      "type": "person",
+      "aliases": [
+        "가타리"
+      ],
+      "note": "들뢰즈와 《천개의 고원》을 함께 씀",
+      "posts": [
+        "topology-of-knowledge-1"
+      ]
+    },
+    "폰 노이만": {
+      "type": "person",
+      "aliases": [
+        "노이만"
+      ],
+      "note": "분석 부문의 요한, 절제로 과적합을 막는다",
+      "posts": [
+        "9yohan-constellation",
+        "agent-harness-communication-5"
+      ]
+    },
+    "프란시스코 바렐라": {
+      "type": "person",
+      "aliases": [
+        "바렐라",
+        "Varela"
+      ],
+      "note": "마투라나와 함께 자기생산 개념을 냄",
+      "posts": [
+        "agent-harness-communication-1"
+      ]
+    },
+    "피터 드러커": {
+      "type": "person",
+      "aliases": [
+        "드러커"
+      ],
+      "note": "일반 AI가 꺼내는 지식경영 이론가",
+      "posts": [
+        "my-probability"
+      ]
+    },
+    "하박국": {
+      "type": "person",
+      "note": "달려가며 읽도록 기록하라는 말씀을 받은 선지자",
+      "posts": [
+        "my-name-is-yohan-koo"
+      ]
+    },
+    "하위징아": {
+      "type": "person",
+      "note": "커뮤니티 부문의 요한, 열매는 화평",
+      "posts": [
+        "9yohan-constellation",
+        "agent-harness-communication-5"
+      ]
+    },
+    "하인츠 폰 푀르스터": {
+      "type": "person",
+      "aliases": [
+        "폰 푀르스터",
+        "von Foerster"
+      ],
+      "note": "비자명 기계로 세션 불투명성을 설명",
+      "posts": [
+        "agent-harness-communication-1"
+      ]
+    },
+    "허버트 사이먼": {
+      "type": "person",
+      "aliases": [
+        "사이먼",
+        "Simon, H. A."
+      ],
+      "note": "마치와 함께 불확실성 흡수 개념을 냄",
+      "posts": [
+        "agent-harness-communication-2"
+      ]
+    },
+    "헤르만 에빙하우스": {
+      "type": "person",
+      "aliases": [
+        "에빙하우스"
+      ],
+      "note": "망각곡선을 남긴 심리학자",
+      "posts": [
+        "selective-forgetting"
+      ]
+    },
+    "2차 관측": {
+      "type": "concept",
+      "aliases": [
+        "Second-order Observation",
+        "2차 관찰"
+      ],
+      "note": "태그가 아니라 태깅 행위를 관측",
+      "posts": [
+        "agent-harness-communication-0",
+        "agent-harness-communication-5",
+        "topology-of-knowledge-2",
+        "topology-of-knowledge-3"
+      ],
+      "global": true
+    },
+    "4C 프레임": {
+      "type": "concept",
+      "aliases": [
+        "Core / Cache / Compost / Cold"
+      ],
+      "note": "정보를 네 구역으로 나눠 다루는 틀",
+      "posts": [
+        "selective-forgetting"
+      ],
+      "global": true
+    },
+    "9계명": {
+      "type": "concept",
+      "note": "커맨드스페이스 원칙을 AI 시대 사고 원칙으로 재해석",
+      "posts": [
+        "ai-replicates-the-average"
+      ]
+    },
+    "AI Divide": {
+      "type": "concept",
+      "note": "접근권이 아니라 사용 의지에서 갈려 가속하는 격차",
+      "posts": [
+        "ai-divide"
+      ],
+      "global": true
+    },
+    "AI 전환": {
+      "type": "concept",
+      "aliases": [
+        "AX"
+      ],
+      "note": "조직의 AI 전환을 4단계로 설계한 프로젝트",
+      "posts": [
+        "retrospective-2025"
+      ]
+    },
+    "CMDS Process": {
+      "type": "concept",
+      "aliases": [
+        "Connect, Merge, Develop, Share",
+        "지식 생애주기",
+        "Connect→Merge→Develop→Share",
+        "CMDS 프로세스"
+      ],
+      "note": "커맨드로 만든 포착·통합·발전·공유",
+      "posts": [
+        "alexandria-for-my-son",
+        "between-raw-and-wiki",
+        "cmds-system-files",
+        "knowledge-ecosystem-map",
+        "okf-third-arrival",
+        "schema-is-harness",
+        "servants-who-drew-the-water",
+        "six-giants-three-days"
+      ],
+      "global": true
+    },
+    "EFLM": {
+      "type": "concept",
+      "aliases": [
+        "Extended Format Layer Model"
+      ],
+      "note": "포맷 6층 모델, 마크다운은 L2와 L4를 함께 차지",
+      "posts": [
+        "markdown-is-all-you-need"
+      ]
+    },
+    "FDE": {
+      "type": "concept",
+      "aliases": [
+        "Forward Deployed Engineer"
+      ],
+      "note": "남의 표적을 시스템 요구사항으로 번역하는 사람",
+      "posts": [
+        "servants-who-drew-the-water"
+      ]
+    },
+    "Ingest-Query-Lint 순환": {
+      "type": "concept",
+      "aliases": [
+        "/ingest",
+        "/query",
+        "/lint"
+      ],
+      "note": "흡수·질의·점검 세 커맨드로 위키가 자란다",
+      "posts": [
+        "cmds-llm-wiki"
+      ],
+      "global": true
+    },
+    "Intelligence Displacement Spiral": {
+      "type": "concept",
+      "note": "거시 차원의 결정론, 처방이 있는 AI Divide와 대비",
+      "posts": [
+        "ai-divide"
+      ]
+    },
+    "M0–M4 밴드": {
+      "type": "concept",
+      "aliases": [
+        "M0(수동)",
+        "M4(복리형)",
+        "M3 밴드",
+        "M4"
+      ],
+      "note": "총점 구간, 수동에서 복리형까지",
+      "posts": [
+        "akm-index",
+        "quarter-point-short",
+        "what-77-systems-told-me"
+      ]
+    },
+    "MSCS": {
+      "type": "concept",
+      "note": "기적·표적·소통·구조로 이어지는 저자의 틀",
+      "posts": [
+        "servants-who-drew-the-water"
+      ]
+    },
+    "Organizing Dimension": {
+      "type": "concept",
+      "aliases": [
+        "다차원적 지식 관리",
+        "ORGANIZE DIMENSIONS"
+      ],
+      "note": "지식을 체계화하는 여러 축과 관점",
+      "posts": [
+        "ai-replicates-the-average",
+        "organizing-dimension"
+      ],
+      "global": true
+    },
+    "PSA Fit": {
+      "type": "concept",
+      "aliases": [
+        "Person-System-AI Fit"
+      ],
+      "note": "사람·시스템·AI가 맞물리는 깊이의 적합 모델",
+      "posts": [
+        "psa-fit"
+      ],
+      "global": true
+    },
+    "Person-Organization Fit": {
+      "type": "concept",
+      "note": "PSA Fit이 잇는 조직심리학의 적합 모델",
+      "posts": [
+        "psa-fit"
+      ]
+    },
+    "RAG": {
+      "type": "concept",
+      "aliases": [
+        "Retrieval-Augmented Generation"
+      ],
+      "note": "매번 새로 찾고 버리는 검색, 위키와 대비",
+      "posts": [
+        "between-raw-and-wiki",
+        "cmds-llm-wiki",
+        "markdown-is-all-you-need",
+        "schema-is-harness"
+      ],
+      "global": true
+    },
+    "Raw / Wiki / Schema": {
+      "type": "concept",
+      "aliases": [
+        "Raw Sources",
+        "원본 층",
+        "위키 층",
+        "규칙 층"
+      ],
+      "note": "원본·위키·규칙의 세 층 구조",
+      "posts": [
+        "cmds-llm-wiki"
+      ]
+    },
+    "SECI 모델": {
+      "type": "concept",
+      "aliases": [
+        "공동화",
+        "Socialization"
+      ],
+      "note": "식탁에서 태도가 건너가는 방식",
+      "posts": [
+        "alexandria-for-my-son",
+        "my-probability"
+      ],
+      "global": true
+    },
+    "files-over-app": {
+      "type": "concept",
+      "aliases": [
+        "files-as-truth"
+      ],
+      "note": "도구에 묶이지 않는 파일이 진실이라는 테제",
+      "posts": [
+        "okf-third-arrival"
+      ],
+      "global": true
+    },
+    "pay it forward": {
+      "type": "concept",
+      "note": "받은 것을 다음 사람에게 건네는 일",
+      "posts": [
+        "path-not-granary"
+      ]
+    },
+    "precedence": {
+      "type": "concept",
+      "aliases": [
+        "우선순위 숫자"
+      ],
+      "note": "시스템 파일끼리 충돌하면 판정하는 번호",
+      "posts": [
+        "between-raw-and-wiki",
+        "cmds-system-files",
+        "schema-is-harness"
+      ]
+    },
+    "가드레일": {
+      "type": "concept",
+      "note": "열매는 교리가 아니라 하지 말아야 할 일의 정의",
+      "posts": [
+        "9yohan-constellation"
+      ]
+    },
+    "가르치면서 배운다": {
+      "type": "concept",
+      "note": "174번의 강의가 174번의 자기 검증이 됨",
+      "posts": [
+        "retrospective-2025"
+      ]
+    },
+    "개인 검색": {
+      "type": "concept",
+      "note": "무엇을 남겼는지가 검색 품질에 반영된다",
+      "posts": [
+        "omnisearch-google-research"
+      ]
+    },
+    "개인화": {
+      "type": "concept",
+      "note": "일반 LLM과 나의 LLM 사이의 확률 차이",
+      "posts": [
+        "my-probability"
+      ]
+    },
+    "검증 상태": {
+      "type": "concept",
+      "aliases": [
+        "검증 안 됨",
+        "검증됨"
+      ],
+      "note": "AI 페이지는 미검증으로 태어나 사람만 바꾼다",
+      "posts": [
+        "cmds-llm-wiki"
+      ]
+    },
+    "결정 등급": {
+      "type": "concept",
+      "note": "수용을 사람 결정으로 돌리는 국소 관문",
+      "posts": [
+        "agent-harness-communication-1",
+        "agent-harness-communication-2"
+      ]
+    },
+    "결정 전제": {
+      "type": "concept",
+      "note": "조직 결정이 서는 전제, 2편의 핵심",
+      "posts": [
+        "agent-harness-communication-0",
+        "agent-harness-communication-2"
+      ]
+    },
+    "결정되지 않은 전제": {
+      "type": "concept",
+      "aliases": [
+        "결정할 수 없는 전제"
+      ],
+      "note": "아무도 정하지 않은 기본값, 사고의 자리",
+      "posts": [
+        "agent-harness-communication-2"
+      ]
+    },
+    "경계 객체": {
+      "type": "concept",
+      "aliases": [
+        "Boundary Object"
+      ],
+      "note": "여러 공동체가 함께 쓰는 요구사항·스키마·평가표",
+      "posts": [
+        "servants-who-drew-the-water"
+      ],
+      "global": true
+    },
+    "경계 연결자": {
+      "type": "concept",
+      "aliases": [
+        "Boundary Spanner"
+      ],
+      "note": "공동체 사이 지식을 잇는 FDE의 역할",
+      "posts": [
+        "servants-who-drew-the-water"
+      ]
+    },
+    "고정 자리 질서": {
+      "type": "concept",
+      "aliases": [
+        "고정된 자리 질서",
+        "고정 자리 번호",
+        "feste Stellordnung"
+      ],
+      "note": "번호를 바꾸지 않는 첫째 규칙, ID에 대응",
+      "posts": [
+        "agent-harness-communication-3"
+      ]
+    },
+    "공간적 차원": {
+      "type": "concept",
+      "note": "지식 활동이 연결되는 작업 공간의 구성",
+      "posts": [
+        "organizing-dimension"
+      ]
+    },
+    "공개 포트": {
+      "type": "concept",
+      "aliases": [
+        "포트포워딩"
+      ],
+      "note": "공유기에서 WebDAV HTTPS 하나만 연다",
+      "posts": [
+        "zotero-self-hosting"
+      ]
+    },
+    "공유 규칙": {
+      "type": "concept",
+      "note": "시스템 파일이 헌법이면 이쪽은 시행령",
+      "posts": [
+        "cmds-system-files"
+      ]
+    },
+    "관용적 소비": {
+      "type": "concept",
+      "aliases": [
+        "Permissive Consumption"
+      ],
+      "note": "결함 있는 번들도 거부하지 않는 소비자 태도",
+      "posts": [
+        "okf-third-arrival"
+      ]
+    },
+    "관할": {
+      "type": "concept",
+      "note": "9요한은 기능 체계가 아니라 조직의 관할",
+      "posts": [
+        "agent-harness-communication-5"
+      ]
+    },
+    "구조적 결합": {
+      "type": "concept",
+      "aliases": [
+        "Structural Coupling"
+      ],
+      "note": "보험 실무와 AI 엔지니어링이 평가표로 결합",
+      "posts": [
+        "servants-who-drew-the-water"
+      ],
+      "global": true
+    },
+    "그럴싸한 쓰레기": {
+      "type": "concept",
+      "note": "직접 쓰지도 읽지도 않고 쌓인 산출물",
+      "posts": [
+        "six-giants-three-days"
+      ]
+    },
+    "그룹 라이브러리": {
+      "type": "concept",
+      "note": "WebDAV를 쓸 수 없고 Zotero Storage로만 간다",
+      "posts": [
+        "zotero-self-hosting"
+      ]
+    },
+    "그리고(And)": {
+      "type": "concept",
+      "aliases": [
+        "'And'",
+        "(And)"
+      ],
+      "note": "태그가 맥락을 끝없이 늘리는 연결의 논리",
+      "posts": [
+        "topology-of-knowledge-1",
+        "topology-of-knowledge-2",
+        "topology-of-knowledge-3"
+      ]
+    },
+    "근대의 정화": {
+      "type": "concept",
+      "aliases": [
+        "purification"
+      ],
+      "note": "층 구분 자체도 정화 작업임을 인정",
+      "posts": [
+        "agent-harness-communication-6"
+      ]
+    },
+    "기능 체계": {
+      "type": "concept",
+      "note": "처음 그림의 층위 오류로 기각",
+      "posts": [
+        "agent-harness-communication-5"
+      ]
+    },
+    "기적": {
+      "type": "concept",
+      "note": "무엇이 일어났는가, 경계가 보이는 순간",
+      "posts": [
+        "servants-who-drew-the-water"
+      ]
+    },
+    "나만의 맥락정보": {
+      "type": "concept",
+      "note": "몸으로 알게 되기까지 시간이 걸리는 개인 맥락",
+      "posts": [
+        "markdown-is-all-you-need",
+        "path-not-granary"
+      ]
+    },
+    "나만의 확률값": {
+      "type": "concept",
+      "note": "내 기록이 만든 언어모델 확률 분포",
+      "posts": [
+        "markdown-is-all-you-need",
+        "my-probability"
+      ],
+      "global": true
+    },
+    "내 생각이 먼저, AI는 그다음": {
+      "type": "concept",
+      "note": "교육과 글쓰기의 순서 원칙",
+      "posts": [
+        "six-giants-three-days"
+      ]
+    },
+    "누수": {
+      "type": "concept",
+      "note": "선언한 층 경계 밖으로 실제 흐른 경로 일곱",
+      "posts": [
+        "agent-harness-communication-0",
+        "agent-harness-communication-6"
+      ]
+    },
+    "단어 브레인스토밍": {
+      "type": "concept",
+      "note": "단어 100개와 나의 정의로 해상도를 올림",
+      "posts": [
+        "six-giants-three-days"
+      ]
+    },
+    "데이터 동기화": {
+      "type": "concept",
+      "note": "항목·노트·주석을 맞추며 zotero.org를 거친다",
+      "posts": [
+        "zotero-self-hosting"
+      ]
+    },
+    "독립 수렴": {
+      "type": "concept",
+      "aliases": [
+        "같은 구조에 도착"
+      ],
+      "note": "다른 자리에서 같은 구조에 닿은 것이 증거",
+      "posts": [
+        "cmds-system-files",
+        "okf-third-arrival",
+        "schema-is-harness"
+      ]
+    },
+    "디지로그": {
+      "type": "concept",
+      "note": "아날로그와 디지털을 다시 만나게 한 이어령의 말",
+      "posts": [
+        "my-name-is-yohan-koo",
+        "path-not-granary"
+      ],
+      "global": true
+    },
+    "디지털 디바이드": {
+      "type": "concept",
+      "note": "인프라 격차였던 이전 디바이드와 대비",
+      "posts": [
+        "ai-divide"
+      ],
+      "global": true
+    },
+    "디지털 먼지": {
+      "type": "concept",
+      "note": "질문 없이 쌓여 사고를 방해하는 정보",
+      "posts": [
+        "i-ask-therefore-i-record"
+      ]
+    },
+    "디지털 보존": {
+      "type": "concept",
+      "note": "지식의 수명은 내용이 아니라 그릇이 결정",
+      "posts": [
+        "markdown-is-all-you-need"
+      ]
+    },
+    "디지털-아날로그 융합": {
+      "type": "concept",
+      "aliases": [
+        "디지털과 아날로그"
+      ],
+      "note": "검색의 디지털과 몰입의 아날로그를 함께 쓴다",
+      "posts": [
+        "organizing-dimension"
+      ]
+    },
+    "라우팅 규칙": {
+      "type": "concept",
+      "aliases": [
+        "자동 분류"
+      ],
+      "note": "태그·파일명·속성 조건으로 노트를 자동 배분",
+      "posts": [
+        "cmdmd"
+      ]
+    },
+    "리뷰 우선": {
+      "type": "concept",
+      "aliases": [
+        "노트 리뷰"
+      ],
+      "note": "쓰기보다 읽고 검토하는 일을 기본값으로",
+      "posts": [
+        "cmdmd"
+      ]
+    },
+    "리좀": {
+      "type": "concept",
+      "aliases": [
+        "Rhizome"
+      ],
+      "note": "중심 없이 수평으로 퍼지는 태그의 풀밭",
+      "posts": [
+        "topology-of-knowledge-1",
+        "topology-of-knowledge-2",
+        "topology-of-knowledge-3"
+      ],
+      "global": true
+    },
+    "마더십": {
+      "type": "concept",
+      "note": "위키 위성이 갈라져 나온 주 볼트",
+      "posts": [
+        "cmds-llm-wiki",
+        "knowledge-ecosystem-map",
+        "quarter-point-short"
+      ],
+      "global": true
+    },
+    "망각": {
+      "type": "concept",
+      "note": "기억의 주 기능, 삭제가 아닌 선택",
+      "posts": [
+        "agent-harness-communication-3",
+        "agent-harness-communication-4"
+      ]
+    },
+    "망각곡선": {
+      "type": "concept",
+      "note": "망각을 노이즈를 줄이는 필터로 다시 읽음",
+      "posts": [
+        "selective-forgetting"
+      ],
+      "global": true
+    },
+    "맞물림": {
+      "type": "concept",
+      "note": "저장의 양을 대신하는 새 변별력",
+      "posts": [
+        "psa-fit"
+      ]
+    },
+    "매끄러운/줄무늬 공간": {
+      "type": "concept",
+      "aliases": [
+        "매끄러운 공간",
+        "줄무늬 공간",
+        "Smooth Space",
+        "Striated Space",
+        "매끄러운 층",
+        "줄무늬 층"
+      ],
+      "note": "폴더는 줄무늬, 태그는 매끄러운 공간",
+      "posts": [
+        "topology-of-knowledge-1",
+        "topology-of-knowledge-3"
+      ]
+    },
+    "멀티 에이전트": {
+      "type": "concept",
+      "note": "봇을 늘리는 일이 아니라 권한과 정체성의 설계",
+      "posts": [
+        "9yohan-constellation"
+      ]
+    },
+    "멀티볼트": {
+      "type": "concept",
+      "note": "볼트마다 포트를 달리해 함께 검색한다",
+      "posts": [
+        "omnisearch-google-research"
+      ]
+    },
+    "메타데이터": {
+      "type": "concept",
+      "note": "분리 대신 출처를 추적하는 설계",
+      "posts": [
+        "between-raw-and-wiki",
+        "i-ask-therefore-i-record",
+        "retrospective-2025"
+      ],
+      "global": true
+    },
+    "무한의 팬트리": {
+      "type": "concept",
+      "note": "누구 안에나 있는 경험과 취향의 재료 창고",
+      "posts": [
+        "six-giants-three-days"
+      ]
+    },
+    "미래의 나에게 보내는 편지": {
+      "type": "concept",
+      "aliases": [
+        "미래의 내가 볼 편지"
+      ],
+      "note": "기록을 시간 속에서 숙성시키는 여섯째 계명",
+      "posts": [
+        "ai-replicates-the-average",
+        "i-ask-therefore-i-record",
+        "retrospective-2025"
+      ],
+      "global": true
+    },
+    "바이브코딩": {
+      "type": "concept",
+      "aliases": [
+        "vibe coding"
+      ],
+      "note": "빠른 시도가 학습 동기를 만든 경험",
+      "posts": [
+        "ai-divide"
+      ],
+      "global": true
+    },
+    "백업과 복구": {
+      "type": "concept",
+      "aliases": [
+        "백업",
+        "스냅샷",
+        "복구",
+        "리허설"
+      ],
+      "note": "동기화는 지운 것도 맞추므로 스냅샷이 따로 필요",
+      "posts": [
+        "quarter-point-short",
+        "what-77-systems-told-me",
+        "zotero-self-hosting"
+      ]
+    },
+    "번역의 네 국면": {
+      "type": "concept",
+      "aliases": [
+        "sociology of translation"
+      ],
+      "note": "문제화·관심 끌기·등록·동원으로 발주 읽기",
+      "posts": [
+        "agent-harness-communication-6"
+      ],
+      "global": true
+    },
+    "변이·선택·안정화": {
+      "type": "concept",
+      "aliases": [
+        "변이(Variation)",
+        "선택(Selection)",
+        "안정화(Stabilization)"
+      ],
+      "note": "통합 모델의 세 가지 리듬",
+      "posts": [
+        "topology-of-knowledge-3"
+      ]
+    },
+    "복리": {
+      "type": "concept",
+      "aliases": [
+        "복리형",
+        "compounding"
+      ],
+      "note": "측정할 수 없으면 쌓이지 않는 시스템의 효과",
+      "posts": [
+        "akm-index",
+        "quarter-point-short",
+        "schema-is-harness"
+      ]
+    },
+    "복잡성 감축": {
+      "type": "concept",
+      "aliases": [
+        "Complexity Reduction",
+        "복잡성의 감축",
+        "복잡성을 축소",
+        "감축"
+      ],
+      "note": "시스템의 지상 과제, 카테고리 벽과 필수 프로퍼티",
+      "posts": [
+        "agent-harness-communication-3",
+        "topology-of-knowledge-2",
+        "topology-of-knowledge-3"
+      ],
+      "global": true
+    },
+    "볼트 오염": {
+      "type": "concept",
+      "aliases": [
+        "오염",
+        "Contamination"
+      ],
+      "note": "에이전트 산출물이 내 지식의 범위를 흐림",
+      "posts": [
+        "between-raw-and-wiki"
+      ]
+    },
+    "부르심": {
+      "type": "concept",
+      "note": "이름이 평생 대답해야 할 질문이 되는 것",
+      "posts": [
+        "my-name-is-yohan-koo"
+      ]
+    },
+    "북키핑": {
+      "type": "concept",
+      "aliases": [
+        "유지 노동"
+      ],
+      "note": "사람이 위키를 포기하는 진짜 이유, AI가 맡는다",
+      "posts": [
+        "cmds-llm-wiki"
+      ]
+    },
+    "불변의 이동물": {
+      "type": "concept",
+      "aliases": [
+        "immutable mobile"
+      ],
+      "note": "모양이 안 바뀌는 보고서와 영수증",
+      "posts": [
+        "agent-harness-communication-6"
+      ],
+      "global": true
+    },
+    "불확실성 흡수": {
+      "type": "concept",
+      "note": "막을 것이 아니라 어디서 흡수할지 정할 것",
+      "posts": [
+        "agent-harness-communication-2"
+      ],
+      "global": true
+    },
+    "블랙박스": {
+      "type": "concept",
+      "note": "돌아가는 좌석, 실패할 때 열린다",
+      "posts": [
+        "agent-harness-communication-6"
+      ],
+      "global": true
+    },
+    "비교 스키마": {
+      "type": "concept",
+      "aliases": [
+        "스키마의 항상성",
+        "Vergleichsschema"
+      ],
+      "note": "정보가 생기는 조건, 용어 사전 항목",
+      "posts": [
+        "agent-harness-communication-0",
+        "agent-harness-communication-1",
+        "agent-harness-communication-4"
+      ]
+    },
+    "사고 보조자": {
+      "type": "concept",
+      "aliases": [
+        "Cognitive Co-pilot"
+      ],
+      "note": "대체재가 아니라 협연자로서의 AI",
+      "posts": [
+        "retrospective-2025"
+      ]
+    },
+    "사람 결정 한 줄": {
+      "type": "concept",
+      "note": "주간 회고가 기다린, 4주간 비어 있던 빈칸",
+      "posts": [
+        "quarter-point-short"
+      ]
+    },
+    "사설망": {
+      "type": "concept",
+      "note": "DSM·SSH 같은 관리는 사설망으로 들어온다",
+      "posts": [
+        "zotero-self-hosting"
+      ]
+    },
+    "사용자 스크립트": {
+      "type": "concept",
+      "aliases": [
+        "userscript"
+      ],
+      "note": "지정한 웹사이트에서 도는 작은 JavaScript",
+      "posts": [
+        "omnisearch-google-research"
+      ]
+    },
+    "사피어-워프 가설": {
+      "type": "concept",
+      "aliases": [
+        "Sapir-Whorf Hypothesis"
+      ],
+      "note": "기록하는 텍스트가 AI의 사고를 규정한다",
+      "posts": [
+        "markdown-is-all-you-need",
+        "my-probability"
+      ],
+      "global": true
+    },
+    "상징적으로 일반화된 매체": {
+      "type": "concept",
+      "note": "결정 등급을 매체로 보면 범주 오류",
+      "posts": [
+        "agent-harness-communication-1"
+      ],
+      "global": true
+    },
+    "상호운용과 거버넌스": {
+      "type": "concept",
+      "aliases": [
+        "상호운용·거버넌스"
+      ],
+      "note": "0점이면 총점 상한이 85가 되는 X 필러",
+      "posts": [
+        "akm-index",
+        "what-77-systems-told-me"
+      ]
+    },
+    "색인": {
+      "type": "concept",
+      "aliases": [
+        "목록"
+      ],
+      "note": "창고와 도서관을 가르는 찾기의 장치",
+      "posts": [
+        "alexandria-for-my-son"
+      ]
+    },
+    "생성자와 검증자": {
+      "type": "concept",
+      "aliases": [
+        "생성자는 검증자가 아니다"
+      ],
+      "note": "같은 요한이 자기 산출을 검증하지 않는다",
+      "posts": [
+        "agent-harness-communication-5"
+      ]
+    },
+    "선언 원장": {
+      "type": "concept",
+      "note": "L0, 조직의 기억이자 결정 전제 저장소",
+      "posts": [
+        "agent-harness-communication-2"
+      ]
+    },
+    "선언과 관측": {
+      "type": "concept",
+      "note": "첫째 가름, L0과 L4를 나눈다",
+      "posts": [
+        "agent-harness-communication-2",
+        "agent-harness-communication-4"
+      ]
+    },
+    "선택적 망각": {
+      "type": "concept",
+      "note": "잘 잊고 빨리 연결하는 능력, 결함이 아닌 리듬",
+      "posts": [
+        "selective-forgetting"
+      ],
+      "global": true
+    },
+    "성령의 열매": {
+      "type": "concept",
+      "aliases": [
+        "성령의 아홉 열매"
+      ],
+      "note": "아홉 덕목을 에이전트의 실무 규칙으로 번역",
+      "posts": [
+        "9yohan-constellation",
+        "agent-harness-communication-5"
+      ]
+    },
+    "성문화": {
+      "type": "concept",
+      "note": "기록하지 않은 지식은 AI에게 없는 것과 같다",
+      "posts": [
+        "markdown-is-all-you-need",
+        "my-probability",
+        "rank-14-on-my-own-rubric"
+      ]
+    },
+    "성숙도 레벨": {
+      "type": "concept",
+      "note": "증거 없으면 1, 자가개선 기록 있어야 4",
+      "posts": [
+        "akm-index"
+      ]
+    },
+    "세 비개연성": {
+      "type": "concept",
+      "aliases": [
+        "비개연성",
+        "Unwahrscheinlichkeit"
+      ],
+      "note": "이해·도달·수용이 있을 법하지 않다는 명제",
+      "posts": [
+        "agent-harness-communication-0",
+        "agent-harness-communication-1"
+      ]
+    },
+    "세컨드 브레인": {
+      "type": "concept",
+      "aliases": [
+        "세컨드브레인"
+      ],
+      "note": "도구가 아니라 태도이자 환경설정",
+      "posts": [
+        "ai-replicates-the-average",
+        "organizing-dimension",
+        "rank-14-on-my-own-rubric"
+      ],
+      "global": true
+    },
+    "셀프호스팅": {
+      "type": "concept",
+      "note": "되는 것은 첨부파일 한 갈래뿐",
+      "posts": [
+        "zotero-self-hosting"
+      ]
+    },
+    "소유": {
+      "type": "concept",
+      "aliases": [
+        "실행 소유자",
+        "쓰기 소유자"
+      ],
+      "note": "층을 가르는 단일 기준, 소유자는 하나",
+      "posts": [
+        "agent-harness-communication-2"
+      ]
+    },
+    "소통": {
+      "type": "concept",
+      "aliases": [
+        "루만의 소통",
+        "소통 이론"
+      ],
+      "note": "웹 문헌과 내 연구 기록을 함께 꺼낸 주제",
+      "posts": [
+        "agent-harness-communication-0",
+        "agent-harness-communication-1",
+        "omnisearch-google-research"
+      ]
+    },
+    "소통 파트너": {
+      "type": "concept",
+      "aliases": [
+        "Kommunikationspartner",
+        "communication partner"
+      ],
+      "note": "루만이 상자를 부른 이름, 놀라움이 조건",
+      "posts": [
+        "agent-harness-communication-3"
+      ]
+    },
+    "순환량": {
+      "type": "concept",
+      "note": "성숙도는 축적량이 아니라 순환량",
+      "posts": [
+        "what-77-systems-told-me"
+      ]
+    },
+    "스키마": {
+      "type": "concept",
+      "aliases": [
+        "해석의 질서",
+        "Schema"
+      ],
+      "note": "자동 정리 문서보다 먼저 필요한 해석의 질서",
+      "posts": [
+        "agent-harness-communication-4",
+        "between-raw-and-wiki",
+        "cmds-system-files",
+        "schema-is-harness"
+      ],
+      "global": true
+    },
+    "슬래시 커맨드": {
+      "type": "concept",
+      "note": "문서가 아니라 실행으로 존재하는 워크플로",
+      "posts": [
+        "cmds-system-files"
+      ]
+    },
+    "시간적 차원": {
+      "type": "concept",
+      "note": "배우고 가르친 누적 시간이 지식을 재구성한다",
+      "posts": [
+        "organizing-dimension"
+      ]
+    },
+    "시스템 / 환경": {
+      "type": "concept",
+      "aliases": [
+        "Umwelt",
+        "시스템과 환경의 구별",
+        "질서의 섬",
+        "시스템과 환경"
+      ],
+      "note": "환경의 사건은 시스템에 의미를 밀어 넣지 못한다",
+      "posts": [
+        "servants-who-drew-the-water",
+        "topology-of-knowledge-2"
+      ]
+    },
+    "시크릿 관리": {
+      "type": "concept",
+      "aliases": [
+        "시크릿"
+      ],
+      "note": "오케스트레이션 위에서 평문으로 굴러다닌다",
+      "posts": [
+        "what-77-systems-told-me"
+      ]
+    },
+    "실천공동체": {
+      "type": "concept",
+      "aliases": [
+        "Community of Practice"
+      ],
+      "note": "다섯 층 공동체 모델의 맨 위",
+      "posts": [
+        "servants-who-drew-the-water"
+      ],
+      "global": true
+    },
+    "실패 양식": {
+      "type": "concept",
+      "note": "덕목은 실패 양식을 막는 방어선",
+      "posts": [
+        "agent-harness-communication-5"
+      ]
+    },
+    "씨앗 노트": {
+      "type": "concept",
+      "aliases": [
+        "씨앗"
+      ],
+      "note": "아직 짓지 않은 방으로 일부러 열어 둔 문",
+      "posts": [
+        "alexandria-for-my-son"
+      ]
+    },
+    "아니면(Not)": {
+      "type": "concept",
+      "aliases": [
+        "'Not'",
+        "(Not)"
+      ],
+      "note": "배제로 의미를 세우는 루만의 논리",
+      "posts": [
+        "topology-of-knowledge-2",
+        "topology-of-knowledge-3"
+      ]
+    },
+    "암묵지와 형식지": {
+      "type": "concept",
+      "aliases": [
+        "암묵지",
+        "형식지"
+      ],
+      "note": "목록으로 건너가지 않고 함께 있어야 건너가는 앎",
+      "posts": [
+        "alexandria-for-my-son",
+        "my-probability"
+      ],
+      "global": true
+    },
+    "얇은/두꺼운 하네스": {
+      "type": "concept",
+      "aliases": [
+        "얇은 하네스",
+        "두꺼운 하네스",
+        "하네스 두께",
+        "얇은 스키마",
+        "두꺼운 스키마"
+      ],
+      "note": "결함이 아니라 생산자와 목적에 따른 설계 좌표",
+      "posts": [
+        "agent-harness-communication-4",
+        "okf-third-arrival",
+        "schema-is-harness"
+      ]
+    },
+    "어셈블리지": {
+      "type": "concept",
+      "aliases": [
+        "Assemblage"
+      ],
+      "note": "자료가 모였다 흩어지며 재배치되는 조합",
+      "posts": [
+        "topology-of-knowledge-1"
+      ],
+      "global": true
+    },
+    "언어모델": {
+      "type": "concept",
+      "note": "본질이 확률 분포인 모델",
+      "posts": [
+        "my-probability"
+      ]
+    },
+    "에이전틱 워크플로우": {
+      "type": "concept",
+      "note": "설계 단위는 호출이 아니라 연결",
+      "posts": [
+        "agent-harness-communication-1"
+      ]
+    },
+    "연결 가능성": {
+      "type": "concept",
+      "aliases": [
+        "Anschlussfähigkeit",
+        "anschlußfähig"
+      ],
+      "note": "워크플로우의 단위는 다음 발주라는 근거",
+      "posts": [
+        "agent-harness-communication-1"
+      ]
+    },
+    "원숭이·바나나·팬더 퀴즈": {
+      "type": "concept",
+      "aliases": [
+        "원숭이·바나나·팬더",
+        "원숭이, 바나나, 그리고 팬더",
+        "원숭이-바나나-팬더"
+      ],
+      "note": "질문에 따라 분류가 달라짐을 보이는 예시",
+      "posts": [
+        "i-ask-therefore-i-record",
+        "six-giants-three-days"
+      ]
+    },
+    "위성 볼트": {
+      "type": "concept",
+      "aliases": [
+        "위키 위성",
+        "위성 위키"
+      ],
+      "note": "마더십에서 분기한 학습·연구용 볼트",
+      "posts": [
+        "cmds-llm-wiki",
+        "knowledge-ecosystem-map",
+        "quarter-point-short",
+        "rank-14-on-my-own-rubric"
+      ],
+      "global": true
+    },
+    "위임된 스크립트": {
+      "type": "concept",
+      "aliases": [
+        "스크립트와 위임"
+      ],
+      "note": "차단 훅, 설정값 하나가 행위했다",
+      "posts": [
+        "agent-harness-communication-6"
+      ]
+    },
+    "의미 차원": {
+      "type": "concept",
+      "aliases": [
+        "사실 차원",
+        "시간 차원",
+        "사회 차원"
+      ],
+      "note": "메타데이터 일곱 필드를 세 차원에 배치",
+      "posts": [
+        "agent-harness-communication-1"
+      ]
+    },
+    "이중 우연성": {
+      "type": "concept",
+      "note": "위계가 푸는 교착, 누가 먼저 정하나",
+      "posts": [
+        "agent-harness-communication-5"
+      ],
+      "global": true
+    },
+    "인격": {
+      "type": "concept",
+      "note": "기대를 묶고 행위를 귀속시키는 주소, 5편",
+      "posts": [
+        "agent-harness-communication-0",
+        "agent-harness-communication-5",
+        "agent-harness-communication-6"
+      ]
+    },
+    "인공 소통": {
+      "type": "concept",
+      "aliases": [
+        "Artificial communication"
+      ],
+      "note": "에스포지토의 틀, 하네스 설계의 질문",
+      "posts": [
+        "agent-harness-communication-0"
+      ],
+      "global": true
+    },
+    "인출": {
+      "type": "concept",
+      "note": "더 많이 배우기보다 더 잘 꺼내 쓰기",
+      "posts": [
+        "retrospective-2025"
+      ]
+    },
+    "일곱 개의 볼트": {
+      "type": "concept",
+      "aliases": [
+        "볼트 일곱 개"
+      ],
+      "note": "주제가 아니라 저자와 합의 구조로 나눈 분업",
+      "posts": [
+        "knowledge-ecosystem-map"
+      ]
+    },
+    "임계 질량": {
+      "type": "concept",
+      "note": "수가 아니라 내부 참조의 밀도",
+      "posts": [
+        "agent-harness-communication-3"
+      ]
+    },
+    "임베딩": {
+      "type": "concept",
+      "note": "유사도로 근사치를 데려오는 AI의 기억",
+      "posts": [
+        "selective-forgetting"
+      ],
+      "global": true
+    },
+    "자기 채점": {
+      "type": "concept",
+      "note": "채점자 신뢰가 아니라 증거 요구로 푸는 함정",
+      "posts": [
+        "rank-14-on-my-own-rubric"
+      ]
+    },
+    "자기생산": {
+      "type": "concept",
+      "aliases": [
+        "Autopoiesis"
+      ],
+      "note": "소통이 소통을 낳으며 스스로를 유지",
+      "posts": [
+        "agent-harness-communication-0",
+        "agent-harness-communication-1",
+        "topology-of-knowledge-2",
+        "topology-of-knowledge-3"
+      ],
+      "global": true
+    },
+    "자동 승계": {
+      "type": "concept",
+      "aliases": [
+        "신원 필드"
+      ],
+      "note": "에이전트가 신원 필드를 확인 없이 복사한 사고",
+      "posts": [
+        "what-77-systems-told-me"
+      ]
+    },
+    "자동화": {
+      "type": "concept",
+      "note": "게으름이 아니라 집중을 위한 환경 설계",
+      "posts": [
+        "retrospective-2025"
+      ]
+    },
+    "자립성": {
+      "type": "concept",
+      "aliases": [
+        "Selbständigkeit"
+      ],
+      "note": "파트너를 키우는 조건, 좌석 분리와 구분",
+      "posts": [
+        "agent-harness-communication-3"
+      ]
+    },
+    "자진 감점": {
+      "type": "concept",
+      "aliases": [
+        "자진 보고",
+        "자진 신고"
+      ],
+      "note": "하락 여섯 건이 전부 자진 보고, 보드의 신뢰 자산",
+      "posts": [
+        "akm-index",
+        "quarter-point-short",
+        "what-77-systems-told-me"
+      ]
+    },
+    "작동적 폐쇄": {
+      "type": "concept",
+      "aliases": [
+        "Operational Closure"
+      ],
+      "note": "경계를 유지한 채 바깥 사건을 의미화",
+      "posts": [
+        "servants-who-drew-the-water"
+      ],
+      "global": true
+    },
+    "저장 효율": {
+      "type": "concept",
+      "note": "AI 시대에 흔들리는 옛 평가축",
+      "posts": [
+        "psa-fit"
+      ]
+    },
+    "점수 궤적": {
+      "type": "concept",
+      "aliases": [
+        "궤적 그래프"
+      ],
+      "note": "재평가가 이어 그리는 점수 이력, 하락도 남는다",
+      "posts": [
+        "akm-index",
+        "what-77-systems-told-me"
+      ]
+    },
+    "정보·발화·이해": {
+      "type": "concept",
+      "aliases": [
+        "소통의 3중 선택",
+        "정보, 발화, 이해",
+        "발화(Utterance)",
+        "소통 3요소",
+        "세 선택",
+        "정보, 통지, 이해"
+      ],
+      "note": "소통을 이루는 세 선택, 표적에서 구조까지의 길",
+      "posts": [
+        "agent-harness-communication-0",
+        "agent-harness-communication-1",
+        "servants-who-drew-the-water",
+        "topology-of-knowledge-2",
+        "topology-of-knowledge-3"
+      ],
+      "global": true
+    },
+    "제자리": {
+      "type": "concept",
+      "note": "읽고 판단한 노트를 볼트의 맞는 자리로 보낸다",
+      "posts": [
+        "cmdmd"
+      ]
+    },
+    "제텔카스텐": {
+      "type": "concept",
+      "aliases": [
+        "Zettelkasten",
+        "메모 상자",
+        "카드 상자",
+        "Zettelkästen",
+        "card index"
+      ],
+      "note": "루만이 대화 파트너라 부른 카드 상자",
+      "posts": [
+        "agent-harness-communication-0",
+        "agent-harness-communication-3",
+        "agent-harness-communication-4",
+        "ai-replicates-the-average",
+        "i-ask-therefore-i-record",
+        "my-probability",
+        "topology-of-knowledge-2",
+        "topology-of-knowledge-3"
+      ],
+      "global": true
+    },
+    "조건 프로그램": {
+      "type": "concept",
+      "note": "훅과 차단 장치, 목적 프로그램과 구분",
+      "posts": [
+        "agent-harness-communication-2"
+      ],
+      "global": true
+    },
+    "즉흥 연주": {
+      "type": "concept",
+      "aliases": [
+        "즉흥"
+      ],
+      "note": "테마·변주·반응·회수로 본 재즈와 지식관리",
+      "posts": [
+        "retrospective-2025"
+      ]
+    },
+    "증언": {
+      "type": "concept",
+      "note": "기록은 하나님을 붙잡는 그물이 아니라 증언",
+      "posts": [
+        "my-name-is-yohan-koo"
+      ]
+    },
+    "지식 생태계": {
+      "type": "concept",
+      "note": "여섯 사이트가 볼트 하나에서 나온 한 채의 집",
+      "posts": [
+        "knowledge-ecosystem-map"
+      ]
+    },
+    "지식 연결성": {
+      "type": "concept",
+      "aliases": [
+        "knowledge connectivity",
+        "Knowledge Connectivity"
+      ],
+      "note": "개인 지식을 외부 지식과 융합 가능하게 유지",
+      "posts": [
+        "omnisearch-google-research"
+      ],
+      "global": true
+    },
+    "지식 운영체제": {
+      "type": "concept",
+      "aliases": [
+        "Knowledge Operating System"
+      ],
+      "note": "노트 정리법이 아닌 CMDS의 새 정의",
+      "posts": [
+        "ai-replicates-the-average",
+        "psa-fit"
+      ]
+    },
+    "지식경영": {
+      "type": "concept",
+      "note": "일반 AI가 내놓는 90년대 평균적 답",
+      "posts": [
+        "my-probability"
+      ]
+    },
+    "지식의 해상도": {
+      "type": "concept",
+      "aliases": [
+        "480p",
+        "4K"
+      ],
+      "note": "480p 지식을 4K로 올리는 구체화",
+      "posts": [
+        "six-giants-three-days"
+      ]
+    },
+    "질문하기": {
+      "type": "concept",
+      "note": "AI가 못 하고 사람만 하는 일, 평균을 넘는 길",
+      "posts": [
+        "ai-replicates-the-average",
+        "i-ask-therefore-i-record"
+      ]
+    },
+    "차돌짬뽕": {
+      "type": "concept",
+      "note": "곁에 무엇이 놓이느냐가 의미를 바꾼다는 예시",
+      "posts": [
+        "ai-replicates-the-average",
+        "my-probability",
+        "organizing-dimension",
+        "six-giants-three-days",
+        "topology-of-knowledge-1"
+      ],
+      "global": true
+    },
+    "차이": {
+      "type": "concept",
+      "aliases": [
+        "Distinction"
+      ],
+      "note": "의미는 연결이 아니라 무엇을 제외했느냐에서",
+      "posts": [
+        "topology-of-knowledge-2"
+      ]
+    },
+    "참조로 하는 교정": {
+      "type": "concept",
+      "aliases": [
+        "옮기지 말고 참조로",
+        "Verweisung"
+      ],
+      "note": "둘째 규칙, 새 파일과 패치 제안에 대응",
+      "posts": [
+        "agent-harness-communication-3"
+      ]
+    },
+    "처분율": {
+      "type": "concept",
+      "note": "검출된 결함이 실제로 닫히는 속도",
+      "posts": [
+        "what-77-systems-told-me"
+      ]
+    },
+    "측면 메시지": {
+      "type": "concept",
+      "note": "도달이 승인으로 바뀐 경계 누수 사례",
+      "posts": [
+        "agent-harness-communication-1",
+        "agent-harness-communication-2",
+        "agent-harness-communication-6"
+      ]
+    },
+    "측정": {
+      "type": "concept",
+      "note": "느낌이 아니라 증거로 숫자를 단단하게 하는 일",
+      "posts": [
+        "rank-14-on-my-own-rubric"
+      ]
+    },
+    "측정→집행 갭": {
+      "type": "concept",
+      "note": "상위권의 병목은 측정이 아니라 집행",
+      "posts": [
+        "what-77-systems-told-me"
+      ]
+    },
+    "커널": {
+      "type": "concept",
+      "aliases": [
+        "주권 커널",
+        "9yohan.prime",
+        "prime"
+      ],
+      "note": "의도 해석부터 최종 서명까지 맡는 나 자신",
+      "posts": [
+        "9yohan-constellation",
+        "agent-harness-communication-5"
+      ]
+    },
+    "컨텍스트": {
+      "type": "concept",
+      "aliases": [
+        "Context"
+      ],
+      "note": "가중치 25%로 가장 큰 필러, 격차의 진원",
+      "posts": [
+        "akm-index",
+        "my-probability",
+        "rank-14-on-my-own-rubric"
+      ]
+    },
+    "컨텍스트 엔지니어링": {
+      "type": "concept",
+      "note": "Schema = Harness 등치를 가르칠 강의 주제",
+      "posts": [
+        "schema-is-harness",
+        "six-giants-three-days"
+      ],
+      "global": true
+    },
+    "컨텍스트 윈도우": {
+      "type": "concept",
+      "note": "AI의 기억이 전지전능하지 않은 이유",
+      "posts": [
+        "selective-forgetting"
+      ],
+      "global": true
+    },
+    "컴파일": {
+      "type": "concept",
+      "aliases": [
+        "Compiled Wiki",
+        "Compiled-Wiki",
+        "compiled-wiki",
+        "compile"
+      ],
+      "note": "자료를 위키 페이지로 쌓아 매번 갱신한다",
+      "posts": [
+        "agent-harness-communication-4",
+        "between-raw-and-wiki",
+        "cmds-llm-wiki",
+        "okf-third-arrival",
+        "schema-is-harness"
+      ],
+      "global": true
+    },
+    "탈영토화·재영토화": {
+      "type": "concept",
+      "aliases": [
+        "탈영토화",
+        "재영토화"
+      ],
+      "note": "분류를 해체하고 새 맥락에서 다시 의미 부여",
+      "posts": [
+        "topology-of-knowledge-1",
+        "topology-of-knowledge-3"
+      ],
+      "global": true
+    },
+    "탈주선": {
+      "type": "concept",
+      "aliases": [
+        "Line of Flight"
+      ],
+      "note": "경계를 넘어 정보를 유목하는 태그",
+      "posts": [
+        "topology-of-knowledge-1"
+      ],
+      "global": true
+    },
+    "태그": {
+      "type": "concept",
+      "note": "붙이는 순간이 아니라 찾는 순간을 위해 있다",
+      "posts": [
+        "topology-of-knowledge-1",
+        "topology-of-knowledge-2",
+        "topology-of-knowledge-3"
+      ]
+    },
+    "통합 레이어 모델": {
+      "type": "concept",
+      "aliases": [
+        "레이어 모델",
+        "Unified Knowledge Layer Model"
+      ],
+      "note": "L0–L8로 OKF와 CMDS의 범위를 비교한 틀",
+      "posts": [
+        "okf-third-arrival"
+      ]
+    },
+    "파노라마": {
+      "type": "concept",
+      "note": "층 그림도 상태판도 이 시리즈도 파노라마",
+      "posts": [
+        "agent-harness-communication-6"
+      ]
+    },
+    "파일 동기화": {
+      "type": "concept",
+      "note": "PDF 같은 첨부파일만 옮기는 갈래",
+      "posts": [
+        "zotero-self-hosting"
+      ]
+    },
+    "편향 점검": {
+      "type": "concept",
+      "note": "페이지마다 반대 논거를 강제로 적게 한다",
+      "posts": [
+        "cmds-llm-wiki"
+      ]
+    },
+    "평균의 복제": {
+      "type": "concept",
+      "aliases": [
+        "평균을 복제",
+        "TRANSCEND AVERAGE"
+      ],
+      "note": "AI가 인간의 평균을 복제한다는 명제를 참고로 듦",
+      "posts": [
+        "ai-divide",
+        "ai-replicates-the-average"
+      ]
+    },
+    "표적": {
+      "type": "concept",
+      "aliases": [
+        "세메이온",
+        "σημεῖον"
+      ],
+      "note": "무엇을 가리키는가, 내 일 안에서 소통을 시작",
+      "posts": [
+        "servants-who-drew-the-water"
+      ]
+    },
+    "프롬프트": {
+      "type": "concept",
+      "note": "좋은 프롬프트의 핵심은 좋은 질문",
+      "posts": [
+        "i-ask-therefore-i-record"
+      ]
+    },
+    "필러": {
+      "type": "concept",
+      "aliases": [
+        "5필러",
+        "기둥"
+      ],
+      "note": "프롬프트·컨텍스트·하네스·루프·상호운용의 다섯 축",
+      "posts": [
+        "akm-index",
+        "rank-14-on-my-own-rubric",
+        "what-77-systems-told-me"
+      ]
+    },
+    "필수 다양성 법칙": {
+      "type": "concept",
+      "note": "아홉을 끌어내려다 수비학으로 기각",
+      "posts": [
+        "agent-harness-communication-5"
+      ],
+      "global": true
+    },
+    "필수 통과점": {
+      "type": "concept",
+      "aliases": [
+        "obligatory passage point"
+      ],
+      "note": "L5 결정, 루만의 수용 주소와 같은 자리",
+      "posts": [
+        "agent-harness-communication-6"
+      ],
+      "global": true
+    },
+    "하네스 엔지니어링": {
+      "type": "concept",
+      "aliases": [
+        "Harness Engineering"
+      ],
+      "note": "모델을 둘러싼 구조가 품질을 정한다는 생각",
+      "posts": [
+        "schema-is-harness"
+      ],
+      "global": true
+    },
+    "하네스 일곱 층": {
+      "type": "concept",
+      "aliases": [
+        "일곱 층",
+        "일곱 책임 영역"
+      ],
+      "note": "세 번 가른 결과, 의존 아닌 책임 배열",
+      "posts": [
+        "agent-harness-communication-2"
+      ]
+    },
+    "하이브리드 검색": {
+      "type": "concept",
+      "note": "노트 전체를 에이전트에게 여는 검색",
+      "posts": [
+        "quarter-point-short"
+      ],
+      "global": true
+    },
+    "학제간 연결": {
+      "type": "concept",
+      "note": "물리·음악·데이터·HRD·AI를 잇는 차원",
+      "posts": [
+        "organizing-dimension"
+      ]
+    },
+    "해자": {
+      "type": "concept",
+      "aliases": [
+        "moat"
+      ],
+      "note": "OKF가 비워 둔 L4–L8에 CMDS의 가치가 있다",
+      "posts": [
+        "okf-third-arrival"
+      ]
+    },
+    "행위소": {
+      "type": "concept",
+      "aliases": [
+        "actant"
+      ],
+      "note": "좌석은 행위소이되 필수 통과점은 아님",
+      "posts": [
+        "agent-harness-communication-6"
+      ]
+    },
+    "행위자 연결망 이론": {
+      "type": "concept",
+      "aliases": [
+        "행위자 연결망",
+        "Actor-Network",
+        "actor-network",
+        "ANT"
+      ],
+      "note": "6편에서 층 그림을 의심하는 도구",
+      "posts": [
+        "agent-harness-communication-0",
+        "agent-harness-communication-6"
+      ],
+      "global": true
+    },
+    "확률 분포": {
+      "type": "concept",
+      "note": "다음 단어 확률의 가중치가 모델 성격을 정함",
+      "posts": [
+        "my-probability"
+      ]
+    },
+    "확신과 신뢰": {
+      "type": "concept",
+      "aliases": [
+        "확신(confidence)",
+        "신뢰(trust)"
+      ],
+      "note": "전역 권한 해제는 신뢰가 아니라 확신",
+      "posts": [
+        "agent-harness-communication-1"
+      ]
+    },
+    "회수율": {
+      "type": "concept",
+      "note": "실측으로 증명한 검색 성공률",
+      "posts": [
+        "what-77-systems-told-me"
+      ]
+    },
+    "희박한 색인": {
+      "type": "concept",
+      "aliases": [
+        "키워드 색인"
+      ],
+      "note": "셋째 규칙, 키워드마다 한두 장의 진입점",
+      "posts": [
+        "agent-harness-communication-3"
+      ]
+    },
+    "9요한": {
+      "type": "tool",
+      "aliases": [
+        "9Yohan Constellation",
+        "9Yohan",
+        "아홉 명의 요한",
+        "아홉 요한"
+      ],
+      "note": "아홉 부문을 역사 속 요한에게 맡긴 멀티 에이전트 설계",
+      "posts": [
+        "9yohan-constellation",
+        "agent-harness-communication-0",
+        "agent-harness-communication-2",
+        "agent-harness-communication-5",
+        "ai-divide",
+        "alexandria-for-my-son",
+        "knowledge-ecosystem-map",
+        "okf-third-arrival"
+      ]
+    },
+    "AKM Index": {
+      "type": "tool",
+      "aliases": [
+        "Agentic Knowledge Management",
+        "AKM",
+        "성적표",
+        "akm.cmdspace.work",
+        "Agentic Knowledge Management Index"
+      ],
+      "note": "에이전트 지식관리 시스템을 5필러 25기준으로 잰다",
+      "posts": [
+        "akm-index",
+        "knowledge-ecosystem-map",
+        "quarter-point-short",
+        "rank-14-on-my-own-rubric",
+        "what-77-systems-told-me"
+      ]
+    },
+    "Autoresearch": {
+      "type": "tool",
+      "note": "Karpathy의 자율 연구 프로젝트, CMDS와 구조 동치",
+      "posts": [
+        "schema-is-harness"
+      ]
+    },
+    "CMDS": {
+      "type": "tool",
+      "aliases": [
+        "커맨드스페이스"
+      ],
+      "note": "OKF가 침묵한 L4–L8까지 운영하는 체계",
+      "posts": [
+        "agent-harness-communication-0",
+        "agent-harness-communication-4",
+        "between-raw-and-wiki",
+        "okf-third-arrival",
+        "psa-fit",
+        "schema-is-harness",
+        "selective-forgetting",
+        "topology-of-knowledge-3"
+      ]
+    },
+    "CMDS Zotero": {
+      "type": "tool",
+      "note": "옵시디언에서 PDF를 읽는 저자의 플러그인",
+      "posts": [
+        "zotero-self-hosting"
+      ]
+    },
+    "ChatGPT": {
+      "type": "tool",
+      "aliases": [
+        "챗GPT"
+      ],
+      "note": "경계를 흔든 기적, 시스템마다 다른 표적",
+      "posts": [
+        "ai-divide",
+        "i-ask-therefore-i-record",
+        "my-probability",
+        "servants-who-drew-the-water"
+      ]
+    },
+    "Claude": {
+      "type": "tool",
+      "note": "강의 스크립트를 다듬은 사고 보조자",
+      "posts": [
+        "retrospective-2025"
+      ]
+    },
+    "Claude Code": {
+      "type": "tool",
+      "note": "위키를 컴파일하고 유지하는 에이전트",
+      "posts": [
+        "cmds-llm-wiki",
+        "cmds-system-files",
+        "markdown-is-all-you-need",
+        "my-probability",
+        "six-giants-three-days"
+      ]
+    },
+    "CmdMD": {
+      "type": "tool",
+      "note": "렌더된 프리뷰로 열리는 macOS 마크다운 에디터",
+      "posts": [
+        "cmdmd",
+        "knowledge-ecosystem-map"
+      ]
+    },
+    "Codex": {
+      "type": "tool",
+      "note": "다른 코딩 에이전트용 규칙을 읽는 에이전트",
+      "posts": [
+        "cmds-system-files"
+      ]
+    },
+    "Dataview": {
+      "type": "tool",
+      "note": "만료된 Cache를 띄우는 큐",
+      "posts": [
+        "selective-forgetting"
+      ]
+    },
+    "Google 검색": {
+      "type": "tool",
+      "note": "바깥 자료를 찾는 쪽, 대체하지 않는다",
+      "posts": [
+        "omnisearch-google-research"
+      ]
+    },
+    "LLM Wiki": {
+      "type": "tool",
+      "aliases": [
+        "CMDS LLM Wiki",
+        "LLM Knowledge Bases",
+        "LLM 위키"
+      ],
+      "note": "사람과 AI가 함께 컴파일하는 위성 볼트",
+      "posts": [
+        "agent-harness-communication-0",
+        "agent-harness-communication-4",
+        "between-raw-and-wiki",
+        "cmds-llm-wiki",
+        "cmds-system-files",
+        "knowledge-ecosystem-map",
+        "okf-third-arrival",
+        "rank-14-on-my-own-rubric",
+        "schema-is-harness"
+      ]
+    },
+    "Local REST API": {
+      "type": "tool",
+      "note": "본문과 태그를 보강하는 선택 플러그인",
+      "posts": [
+        "omnisearch-google-research"
+      ]
+    },
+    "OKF": {
+      "type": "tool",
+      "aliases": [
+        "Google Open Knowledge Format",
+        "Open Knowledge Format"
+      ],
+      "note": "같은 구조에 도착한 구글 클라우드의 포맷",
+      "posts": [
+        "cmds-system-files",
+        "okf-third-arrival",
+        "schema-is-harness"
+      ]
+    },
+    "Obsidian Omnisearch in Google": {
+      "type": "tool",
+      "note": "Google 검색 옆에 내 노트를 붙이는 CMDS 스크립트",
+      "posts": [
+        "omnisearch-google-research"
+      ]
+    },
+    "Omnisearch": {
+      "type": "tool",
+      "note": "볼트 검색을 로컬 HTTP로 열어 주는 옵시디언 플러그인",
+      "posts": [
+        "omnisearch-google-research"
+      ]
+    },
+    "Tailscale": {
+      "type": "tool",
+      "note": "NAS 관리를 공유기 밖에 열지 않는 사설망",
+      "posts": [
+        "zotero-self-hosting"
+      ]
+    },
+    "Tampermonkey": {
+      "type": "tool",
+      "note": "사용자 스크립트를 실행하는 브라우저 확장",
+      "posts": [
+        "omnisearch-google-research"
+      ]
+    },
+    "Templater": {
+      "type": "tool",
+      "note": "zone과 ttl 속성 프리셋",
+      "posts": [
+        "selective-forgetting"
+      ]
+    },
+    "WebDAV": {
+      "type": "tool",
+      "note": "내 라이브러리 첨부를 NAS로 보내는 통로",
+      "posts": [
+        "zotero-self-hosting"
+      ]
+    },
+    "Zotero": {
+      "type": "tool",
+      "aliases": [
+        "조테로"
+      ],
+      "note": "첨부파일만 내 서버로 옮길 수 있는 서지 관리기",
+      "posts": [
+        "zotero-self-hosting"
+      ]
+    },
+    "Zotero Storage": {
+      "type": "tool",
+      "note": "그룹 첨부가 갈 수 있는 유일한 저장소",
+      "posts": [
+        "zotero-self-hosting"
+      ]
+    },
+    "akm-eval": {
+      "type": "tool",
+      "note": "에이전트가 볼트에서 증거를 모아 채점하는 스킬",
+      "posts": [
+        "akm-index"
+      ]
+    },
+    "cmux": {
+      "type": "tool",
+      "note": "여러 에이전트와 일하는 사람의 작업 관제실",
+      "posts": [
+        "psa-fit"
+      ]
+    },
+    "frontmatter": {
+      "type": "tool",
+      "aliases": [
+        "YAML"
+      ],
+      "note": "OKF는 type 하나만 필수로 두는 메타데이터",
+      "posts": [
+        "alexandria-for-my-son",
+        "markdown-is-all-you-need",
+        "okf-third-arrival"
+      ]
+    },
+    "plain text": {
+      "type": "tool",
+      "note": "소프트웨어에 의존하지 않는 최고 등급 보존 포맷",
+      "posts": [
+        "markdown-is-all-you-need"
+      ]
+    },
+    "더배러": {
+      "type": "tool",
+      "note": "생태계 소식을 싣는 주간 뉴스레터, 집의 문패",
+      "posts": [
+        "knowledge-ecosystem-map",
+        "markdown-is-all-you-need",
+        "path-not-granary"
+      ]
+    },
+    "마크다운": {
+      "type": "tool",
+      "aliases": [
+        "Markdown",
+        "THINK IN MARKDOWN"
+      ],
+      "note": "CmdMD가 열고 렌더해 볼트로 보내는 파일",
+      "posts": [
+        "ai-replicates-the-average",
+        "between-raw-and-wiki",
+        "cmdmd",
+        "i-ask-therefore-i-record",
+        "markdown-is-all-you-need",
+        "my-name-is-yohan-koo",
+        "my-probability",
+        "okf-third-arrival",
+        "path-not-granary",
+        "schema-is-harness"
+      ]
+    },
+    "시놀로지 NAS": {
+      "type": "tool",
+      "aliases": [
+        "시놀로지",
+        "NAS"
+      ],
+      "note": "1년 넘게 PDF를 받아 온 WebDAV 서버",
+      "posts": [
+        "zotero-self-hosting"
+      ]
+    },
+    "시스템 파일": {
+      "type": "tool",
+      "aliases": [
+        "CMDS System Files",
+        "System Files",
+        "CLAUDE.md",
+        "AGENTS.md",
+        "규칙 파일"
+      ],
+      "note": "에이전트가 볼트에서 먼저 읽는 규칙 문서 6종",
+      "posts": [
+        "agent-harness-communication-1",
+        "agent-harness-communication-3",
+        "agent-harness-communication-4",
+        "alexandria-for-my-son",
+        "between-raw-and-wiki",
+        "cmds-system-files",
+        "knowledge-ecosystem-map",
+        "schema-is-harness",
+        "servants-who-drew-the-water"
+      ]
+    },
+    "옵시디언": {
+      "type": "tool",
+      "aliases": [
+        "Obsidian"
+      ],
+      "note": "문법을 그대로 지원하고 노트를 보내는 볼트",
+      "posts": [
+        "ai-divide",
+        "between-raw-and-wiki",
+        "cmdmd",
+        "cmds-llm-wiki",
+        "i-ask-therefore-i-record",
+        "knowledge-ecosystem-map",
+        "markdown-is-all-you-need",
+        "my-name-is-yohan-koo",
+        "my-probability",
+        "okf-third-arrival",
+        "omnisearch-google-research",
+        "organizing-dimension",
+        "path-not-granary",
+        "psa-fit",
+        "quarter-point-short",
+        "retrospective-2025",
+        "schema-is-harness",
+        "selective-forgetting",
+        "six-giants-three-days",
+        "topology-of-knowledge-1",
+        "topology-of-knowledge-2",
+        "topology-of-knowledge-3"
+      ]
+    },
+    "위키링크": {
+      "type": "tool",
+      "note": "볼트를 나누면 잃는 연결의 힘",
+      "posts": [
+        "between-raw-and-wiki"
+      ]
+    },
+    "패들렛": {
+      "type": "tool",
+      "note": "대본 카드와 AI 요약 카드를 나란히 둔 보드",
+      "posts": [
+        "six-giants-three-days"
+      ]
+    },
+    "하네스 레지스트리": {
+      "type": "tool",
+      "aliases": [
+        "레지스트리"
+      ],
+      "note": "4편에서 비교하는 운영 상태 스키마",
+      "posts": [
+        "agent-harness-communication-0",
+        "agent-harness-communication-4"
+      ]
+    }
+  }
+}

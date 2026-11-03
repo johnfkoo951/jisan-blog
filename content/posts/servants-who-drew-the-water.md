@@ -3,6 +3,11 @@ title: 물 떠온 하인들은 알더라 — 기적은 경계를 흔들고, 표�
 slug: servants-who-drew-the-water
 date: 2026-10-17
 kind: 에세이
+tags:
+  - "신앙과 성경"
+  - "표적"
+  - "니클라스 루만"
+  - "생성형 AI"
 summary: 같은 포도주를 연회장도 마셨고 물 떠온 하인들도 마셨다. 기적은 모두에게 일어났지만 표적은 하인들에게만 읽혔다. 요한복음의 표적을 루만의 소통 이론으로 넓혀, 생성형 AI가 구경거리에서 일하는 방식이 되는 순간을 묻는다.
 citationTitleSource: "물 떠온 하인들은 알더라 — 기적은 경계를 흔들고, 표적은 소통을 시작한다"
 citationTitleEn: "The servants who drew the water knew: Miracles unsettle boundaries, and signs begin communication"

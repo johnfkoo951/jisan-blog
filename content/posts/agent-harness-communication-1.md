@@ -6,6 +6,11 @@ updated: 2026-10-27
 kind: 에세이
 series: "소통으로 읽는 에이전트 하네스"
 seriesOrder: 1
+tags:
+  - "에이전트 하네스"
+  - "니클라스 루만"
+  - "에이전틱 워크플로우"
+  - "정보·발화·이해"
 summary: 발주서를 보내고 보고서를 받는 일을 오랫동안 명령과 복종으로 생각했다. 보고서가 읽히지 않는 날과 다음 일이 이어지지 않는 날을 그 모형은 설명하지 못한다. 루만의 소통 개념으로 다시 읽으면 워크플로우의 설계 단위는 호출이 아니라 연결이고, 간선마다 받는 쪽의 비교 스키마와 다시 붙을 주소와 사람의 수용이 있어야 한다. 침묵은 승인이 아니다.
 citationTitleSource: "명령은 없다, 연결만 있다 — 루만의 세 선택으로 읽는 에이전틱 워크플로우"
 citationTitleEn: "There are no commands, only connections: Reading agentic workflows through Luhmann's three selections"

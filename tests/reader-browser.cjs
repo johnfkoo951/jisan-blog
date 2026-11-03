@@ -120,10 +120,11 @@ const server = createServer((req,res)=>{
     const link=p.locator('[data-toc-section]').first(),id=await link.getAttribute('data-toc-section');await link.click();
     assert(await p.locator('#reader-toc-panel').isHidden());assert.equal(await p.evaluate(()=>document.activeElement.id),id);assert.equal(await p.locator('#main').evaluate(el=>el.inert),false);await p.context().close();
   });
-  await test('keyword links prefill archive search and find the source article',async()=>{
+  await test('tag links filter the archive to articles about that entity, source article included',async()=>{
     await goto(page);await openInfo(page);const keyword=page.locator('.rail-keywords a').filter({hasText:'Omnisearch'}).first();await keyword.click();
-    await page.waitForSelector('#sr:not([hidden])');assert.equal(await page.locator('#q').inputValue(),'Omnisearch');
-    assert(await page.locator('#sr a[href="/posts/omnisearch-google-research/"]').count());
+    await page.waitForSelector('#listFilter:not([hidden])');assert.match(await page.locator('#listFilter').innerText(),/#Omnisearch/);
+    assert(await page.locator('#postList > li[data-slug="omnisearch-google-research"]').isVisible());
+    const hiddenCount=await page.locator('#postList > li[hidden]').count();assert(hiddenCount>0,'other posts are filtered out');
   });
   await test('search reflects Korean text the IME is still composing',async()=>{
     // 마지막 글자를 조합 중(확정 전)으로 둔 채 결과가 그 글자까지 반영하는지. Chrome CDP 로 조합 상태를 만든다.

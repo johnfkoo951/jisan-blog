@@ -5,6 +5,11 @@ date: 2026-08-24
 kind: 소개
 series: "CMDSPACE 생태계"
 seriesOrder: 5
+tags:
+  - "에이전트 하네스"
+  - "9요한"
+  - "커널"
+  - "성령의 열매"
 summary: 아홉 개 사업 부문을 역사 속 아홉 명의 요한에게 맡기고, 성령의 아홉 열매를 가드레일로 삼았다. 파편화된 봇 무리가 아니라 하나의 커널이 지휘하는 별자리.
 citationTitleSource: "아홉 명의 요한, 하나의 주권 커널 — 9Yohan Constellation"
 citationTitleEn: "Nine Yohans, one sovereign kernel: 9Yohan Constellation"

@@ -3,6 +3,11 @@ title: "조테로 첨부파일을 내 NAS에 두기 — 셀프호스팅으로 �
 slug: zotero-self-hosting
 date: 2026-10-31
 kind: 기술
+tags:
+  - "연구 방법"
+  - "Zotero"
+  - "셀프호스팅"
+  - "WebDAV"
 summary: "Zotero에서 내 서버로 옮길 수 있는 것은 내 라이브러리의 첨부파일뿐이다. 시놀로지 WebDAV로 1년 넘게 써 온 구성을 점검하며 파일이 가는 길, Verify Server가 하는 일, 동기화와 백업의 차이, 공개 포트를 하나로 줄이는 법을 도식으로 정리했다."
 citationTitleSource: "조테로 첨부파일을 내 NAS에 두기 — 셀프호스팅으로 되는 것과 안 되는 것"
 citationTitleEn: "Keeping Zotero attachments on my own NAS: What self-hosting can and cannot do"

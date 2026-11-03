@@ -4,6 +4,11 @@ slug: schema-is-harness
 date: 2026-04-07
 updated: 2026-10-17
 kind: 프레임워크
+tags:
+  - "에이전트 하네스"
+  - "LLM Wiki"
+  - "안드레이 카파시"
+  - "스키마"
 summary: Karpathy의 LLM Wiki, 구요한의 CMDS, 그리고 Google OKF — 서로 다른 분야에서 독립적으로 같은 구조에 도달했다. RAG는 매번 재유도하지만 Wiki는 누적된다. 그리고 Schema 레이어는 정확히 하네스다.
 citationTitleSource: "Schema는 Harness다 — Karpathy LLM Wiki와 CMDS의 구조적 동치"
 citationTitleEn: "Schema is harness: Structural equivalence between Karpathy's LLM Wiki and CMDS"

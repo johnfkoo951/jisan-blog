@@ -3,6 +3,11 @@ title: 지식의 지형학 3부 — 그리고, 아니면(And, Not), 풀밭 위�
 slug: topology-of-knowledge-3
 date: 2026-01-29
 kind: 에세이
+tags:
+  - "지식관리"
+  - "제텔카스텐"
+  - "리좀"
+  - "니클라스 루만"
 summary: 메타데이터 태그 시스템은 들뢰즈적 구조(Rhizome) 위에서 작동하는 루만적 기계(System)이다. 연결하라, 그리고 선택하라, 선택한 것을 다시 연결하라. 이 리듬이 계속되는 한 당신의 지식은 살아 숨 쉰다.
 series: 지식의 지형학
 seriesOrder: 3

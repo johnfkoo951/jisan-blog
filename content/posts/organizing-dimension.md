@@ -4,6 +4,11 @@ slug: organizing-dimension
 date: 2025-12-21
 kind: 에세이
 firstPublished: 더배러
+tags:
+  - "지식관리"
+  - "차돌짬뽕"
+  - "리처드 파인만"
+  - "학제간 연결"
 summary: 차돌짬뽕이 울면과 냉면 사이에 있으면 면요리, 침착맨과 단군 사이에 있으면 철면수심이 된다. 지식을 체계화하는 다양한 축, Organizing Dimension — 공간·디지털-아날로그·시간·학제간 연결의 네 차원.
 updated: 2026-10-17
 citationTitleSource: "차돌짬뽕에서 파인만까지 — Organizing Dimension으로 재해석하는 새로운 차원의 이야기"

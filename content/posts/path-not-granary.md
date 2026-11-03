@@ -5,6 +5,11 @@ date: 2026-07-13
 updated: 2026-10-17
 kind: 에세이
 firstPublished: 더배러 239호
+tags:
+  - "회고와 성찰"
+  - "더배러"
+  - "pay it forward"
+  - "이어령"
 summary: 더배러 3주년 회고. 지식은 나눌 때 줄어드는 것이 아니라 그때부터 커지기 시작한다는 믿음, pay it forward, 그리고 이어령 선생님의 질문 곁에서 시작할 새로운 공간에 대하여.
 citationTitleSource: "곳간이 아니라 길이었다"
 citationTitleEn: "It was a path, not a storehouse"

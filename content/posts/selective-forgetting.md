@@ -3,6 +3,11 @@ title: 선택적 망각의 기술 — AI 시대의 기억 설계와 두뇌-도�
 slug: selective-forgetting
 date: 2025-11-18
 kind: 에세이
+tags:
+  - "지식관리"
+  - "선택적 망각"
+  - "4C 프레임"
+  - "망각곡선"
 summary: AI 시대의 역량은 더 많이 기억하는 능력이 아니라 더 잘 잊고 더 빨리 연결하는 능력이다. Core / Cache / Compost / Cold — 정보를 다루는 네 구역의 4C 프레임과 옵시디언 실전 세팅.
 updated: 2026-10-17
 citationTitleSource: "선택적 망각의 기술 — AI 시대의 기억 설계와 두뇌-도구 하모니"

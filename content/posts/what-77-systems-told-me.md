@@ -4,6 +4,11 @@ slug: what-77-systems-told-me
 date: 2026-08-17
 updated: 2026-10-17
 kind: 에세이
+tags:
+  - "지식관리"
+  - "AKM Index"
+  - "상호운용과 거버넌스"
+  - "처분율"
 summary: 지식관리 시스템 평가표 AKM Index를 공개하고 30일. 77개 시스템의 제출 데이터를 전수 분석했다. 다들 에이전트를 부리는 법은 알았고, 시스템이 살아남는 법은 몰랐다. 볼트 크기는 성숙도가 아니었고, 상위권의 병목은 측정이 아니라 집행이었다. 그리고 점수가 내려갔다고 자진 신고하는 사람들이 나타났다.
 citationTitleSource: "77개의 시스템이 말해준 것 — 평가표를 한 달 돌려 배운 여섯 가지"
 citationTitleEn: "What 77 systems told me: Six lessons from a month of using a rubric"

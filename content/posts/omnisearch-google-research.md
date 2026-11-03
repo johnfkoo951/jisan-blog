@@ -3,6 +3,11 @@ title: "Google 검색 옆에 내 노트를 꺼내 놓기"
 slug: omnisearch-google-research
 date: 2026-10-17T12:30
 kind: 기술
+tags:
+  - "옵시디언 활용"
+  - "Omnisearch"
+  - "지식 연결성"
+  - "니클라스 루만"
 summary: "루만의 소통과 지식 연결성을 실제로 검색하며 Google의 웹 자료와 내 옵시디언 기록을 비교한다. Omnisearch 사용자 스크립트의 전체 소스, 멀티볼트 설정, 필터와 문제 해결을 정리했다."
 citationTitleSource: "Google 검색 옆에 내 노트를 꺼내 놓기"
 citationTitleEn: "Bringing my notes alongside Google search"
