@@ -9,7 +9,7 @@ tags:
   - "독립 수렴"
   - "얇은/두꺼운 하네스"
 summary: Google Cloud가 지식을 마크다운+frontmatter 디렉토리로 표현하는 OKF v0.1을 공개했다. Karpathy와 kepano에 이은 세 번째 독립 수렴 — 이번엔 하이퍼스케일러가, 명세 형태로 도착했다. 그리고 OKF의 침묵이 곧 CMDS의 해자다.
-updated: 2026-10-17
+updated: 2026-11-11
 citationTitleSource: "OKF, 같은 구조의 세 번째 도착 — Google Open Knowledge Format와 CMDS"
 citationTitleEn: "OKF, the third arrival at the same structure: Google Open Knowledge Format and CMDS"
 citationTitleRomanized: "OKF, gateun gujoui se beonjjae dochak — Google Open Knowledge Format-wa CMDS"
@@ -20,6 +20,10 @@ citationTitleRomanized: "OKF, gateun gujoui se beonjjae dochak — Google Open K
 
 > **작성일**: 2026년 6월 17일 · **분류**: 지식 관리 시스템 비교 분석
 > **원본 자료**: GitHub `GoogleCloudPlatform/knowledge-catalog/okf` (SPEC.md + enrichment-agent README)
+
+> **Update (2026-11-05) — 이 보고서는 v0.1 시점(2026-06-17)의 기록이다**
+>
+> 2026-11-04~05 재실측으로 세 가지가 바뀌었다. ① OKF 는 2026-07-24 **v0.2** 로 provenance·trust·lifecycle 필드(`sources`·`generated`·`verified`·`status`·`stale_after`, 전부 선택 사양)를 더했다 — 아래 "검증 레이어가 없다" 류의 판정은 **"검증 데이터는 있고 검증 운영은 없다"** 로 좁혀 읽어야 한다. ② 정본은 전용 리포 `GoogleCloudPlatform/open-knowledge-format` 로 옮겨갔고 `knowledge-catalog/okf/` 는 frozen snapshot 이다. ③ 서드파티 번들·도구와 AWS 샘플 구현이 확인되어 "채택 0" 류의 표현은 폐기한다. 본문은 역사 기록으로 그대로 두고, 무엇이 남고 무엇이 바뀌었는지는 말미 [후기](#section-23) 에 적었다. 상세 근거: LLM Wiki: 2026-11-04-Q-OKF-v0.2-CMDS-Comparison-Refresh.
 
 ## Executive Summary
 
@@ -174,10 +178,33 @@ OKF 는 CMDS 가 틀렸다고 말하지 않는다. 정반대로 — *구글이 C
 > 같은 구조에 셋이 독립적으로 도착했다는 것은, 그 구조가 시대의 필연임을 다시 증명한다.
 > CMDS 의 다음 과제는 그 표준과 *호환* 되면서, 표준이 비워둔 다섯 레이어로 *차별화* 하는 것이다."**
 
+## 후기 (2026-11-05) — OKF v0.2 이후, 무엇이 남고 무엇이 바뀌었나
+
+이 보고서를 쓴 지 다섯 달이 지났다. 위성 볼트에서 Google 의 공식 발표문을 인제스트하며 라이브 리포를 다시 뒤졌고, 6월의 결론 넷을 하나씩 다시 세워 본다.
+
+| 6월의 결론 | 2026-11-05 재판정 |
+|---|---|
+| ① 세 번째 독립 도착 | **유지, 강화.** 공식 발표문(2026-06-12, McVeety·Hormati)이 Karpathy 의 LLM-wiki gist 를 이름으로 인용하며 "그 패턴을 포맷으로 공식화했다(formalizes)" 고 스스로 말한다. 수렴 서사는 이제 추정이 아니라 발표문의 문장이다. (단, 보존된 SPEC 본문에는 Karpathy 이름이 없다 — 인용은 발표문에 있다.) |
+| ② L1–L3 만 명세, 침묵이 해자 | **좁힘.** v0.2 는 여전히 L4–L8(질의·검색·런타임·페르소나·거버넌스)에 침묵한다. 그러나 L3 안에 **검증의 어휘**가 들어왔다 — 누가 생성했고(`generated`), 누가 확인했는지(`verified`, `human:`/`process:` actor), 언제 낡는지(`stale_after`), 폐기됐는지(`status: deprecated`). 해자는 "검증 데이터의 유무" 가 아니라 **검증의 기준·절차·충돌 처리**(ingest 목적 게이트, `/verify` 3기준, `disputed` 보존, Generator≠Verifier) 에 있다. |
+| ③ 같은 축의 양 극단 | **유지.** 필수 키는 여전히 `type` 하나, 추가분은 전부 OPTIONAL 이다. 다만 권장 표면은 두꺼워졌다 — 얇은 바닥 위에 선택적 신뢰 층을 얹는 설계로, CMDS 가 v5·v6 에서 밟은 길(검증 상태·provenance 의무화)을 OKF 가 *선택 사양*으로 따라왔다. |
+| ④ 차용할 것 | **일부 이행, 일부 추가.** `okf_version` 스탬프는 2026-08-21 위성 `index.md` 에 찍었고 2026-11-05 `"0.2"` 로 올렸다. permissive-intake 는 Inbox Intent Rule 로 명문화됐다(2026-08-17). `resource:` 와 `/export-okf` 는 미착수. 새 차용 후보: `sources[]` 의 credibility signal(`author`·`last_modified`·`usage_count`) 과 per-document `stale_after`. |
+
+두 가지는 솔직하게 고쳐 적는다.
+
+- **"채택 사실상 0" 은 더 쓰지 않는다.** 전용 리포 `GoogleCloudPlatform/open-knowledge-format`(⭐1,306, Apache-2.0) 이 정본이 됐고, `okf_version` 을 선언한 외부 리포가 GitHub 코드 검색에 수만 건(근사치) 잡히며, Claude Code 플러그인 okf-skills(⭐436)·openknowledge CLI 같은 서드파티 도구가 나왔다. 무엇보다 `aws-samples/sample-okf-llm-wiki` — AWS Glue·Redshift 카탈로그를 OKF 번들로 저술해 MCP 로 에이전트에 서빙하는 "Data Wiki" 샘플(2026-07 생성, 2026-11 현재 유지) 이 있다. *구글이 명세하고 AWS 계열이 구현으로 도착했다.* 다만 샘플이지 제품 채택은 아니고, 조직 단위 채택 규모는 여전히 미확인이다.
+- **"스타터킷은 이미 OKF 번들" 도 절반만 맞다.** 위성 볼트의 콘텐츠 층(10/20/30/40, 2,489 파일) 은 conformance 규칙 ①②(파싱 가능한 frontmatter·non-empty `type`) 를 전부 충족한다. 그러나 규칙 ③ — 예약 파일 `index.md`·`log.md` 의 형식 — 은 CMDS 규약(index 의 전체 frontmatter, `## [날짜] 작업 | 제목` 로그 헤딩)을 우선하므로 **미충족**이다. "OKF-호환" 은 export 어댑터가 두 파일을 변환할 때 성립하는 말이다.
+
+> **"구글은 기질을 표준화했고, 이제 신뢰의 어휘까지 명세에 올렸다. 그래도 그 어휘로 무엇을 할지 — 언제 의심하고, 누가 확인하고, 충돌을 어떻게 남길지 — 는 여전히 운영의 몫이다. CMDS 의 해자는 포맷이 침묵하는 레이어가 아니라, 포맷이 실어 나르기만 하는 판단을 실제로 내리는 자리에 있다."**
+
+근거(위성 LLM Wiki): LLM Wiki: 2026-11-04-Q-OKF-v0.2-CMDS-Comparison-Refresh · LLM Wiki: OKF Provenance and Trust Families · LLM Wiki: Inferred Credibility vs Stored Confidence · LLM Wiki: Open Knowledge Format (OKF) · LLM Wiki: 2026-11-05-OKF-aws-sample-okf-llm-wiki-inspection.
+
 ---
 
 ### 참고 자료
 
-- Open Knowledge Format (OKF) v0.1 — https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md
-- Enrichment Agent (PoC) — https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf
+- Open Knowledge Format (OKF) v0.1 (2026-06 시점, 역사 기록) — https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md — 2026-08 이후 frozen snapshot
+- **OKF 정본 (v0.2, 2026-07-24~; 2026-11-05 추가)** — https://github.com/GoogleCloudPlatform/open-knowledge-format
+- 공식 발표문 (2026-06-12; 2026-11-05 추가) — https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing/
+- AWS 샘플 구현 (2026-11-05 추가) — https://github.com/aws-samples/sample-okf-llm-wiki
+- Enrichment Agent (PoC, v0.1 시점) — https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf
 - 선행 보고서: [Schema는 Harness다](/posts/schema-is-harness/) · CMDS 시스템 파일 공개본: [system.cmdspace.work](https://system.cmdspace.work)

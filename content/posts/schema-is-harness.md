@@ -2,7 +2,7 @@
 title: Schema는 Harness다 — Karpathy LLM Wiki와 CMDS의 구조적 동치
 slug: schema-is-harness
 date: 2026-04-07
-updated: 2026-10-17
+updated: 2026-11-11
 kind: 프레임워크
 tags:
   - "에이전트 하네스"
@@ -228,6 +228,8 @@ CMDS는 한 단계 더 나아가 **3-스택 모델**을 제시한다.
 
 단, OKF는 **L1–L3(Raw/Wiki/Schema)만 명세하고 멈춘다.** "Schema = Harness" 축에서 OKF는 *얇은 하네스*(필수 필드 `type` 단 하나, "깨진 링크도 관용")를, CMDS는 *두꺼운 하네스*(7 프로퍼티 + lint)를 택한 양 극단이다. 둘 다 옳다 — *생산자*(에이전트 대량생성 vs 인간 큐레이션)와 *목적*(조직 간 교환 vs 교육 자산)이 다를 뿐.
 
+> **Follow-up (2026-11-05)** — OKF 는 2026-07-24 **v0.2** 로 `generated`·`verified`·`status`·`stale_after` 같은 provenance·trust 필드를 (전부 선택 사양으로) 더했고, 정본은 전용 리포 `GoogleCloudPlatform/open-knowledge-format` 로 옮겨갔으며, AWS 샘플 구현(`aws-samples/sample-okf-llm-wiki`, Glue/Redshift 카탈로그→OKF 번들→MCP) 을 포함한 서드파티 채택이 확인됐다. 위 "L1–L3 만 명세하고 멈춘다" 는 유지되지만 그 L3 안에 **검증의 어휘**가 들어왔다 — 해자는 "검증 데이터의 유무" 가 아니라 "검증의 기준·절차·충돌 보존" 에 있다. 스타터킷 "OKF-conformant" 선언은 절반만 성립한다: 콘텐츠 층은 규칙 ①② 충족, 예약 파일(index/log) 형식은 CMDS 규약 우선이라 export 어댑터 전제. 상세: [OKF 보고서 후기](/posts/okf-third-arrival/#section-23).
+
 ## 7. 시사점 및 제언
 
 ### 7.1 시스템 변경 권고: 변경 없음
@@ -289,5 +291,6 @@ CMDS는 한 단계 더 나아가 **3-스택 모델**을 제시한다.
 - Andrej Karpathy, "Autoresearch" (GitHub, 2026)
 - OpenAI, "Building Agents" — *"the agent isn't the hard part — the harness is"*
 - Google Cloud, "Open Knowledge Format v0.1" (knowledge-catalog, 2026)
+- Google Cloud, "Open Knowledge Format v0.2" (open-knowledge-format, 2026) — 2026-11-05 Follow-up 근거
 - Tiago Forte, *Building a Second Brain* (2022)
 - CMDS 시스템 파일 공개본: [system.cmdspace.work](https://system.cmdspace.work) · LLM Wiki 구조 공개본: [llm-wiki.cmdspace.work](https://llm-wiki.cmdspace.work)
