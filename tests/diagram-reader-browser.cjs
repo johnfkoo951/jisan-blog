@@ -100,7 +100,7 @@ const server = createServer((req, res) => {
     await test('captions are visible below each diagram', async () => {
       const page = await open(390);
       const caps = await page.$$eval('figure.diagram figcaption', (c) => c.map((x) => x.innerText));
-      assert.equal(caps.length, 2); assert(caps.every((c) => c.startsWith('코드로 렌더링한 도식.')));
+      assert.equal(caps.length, 2); assert(caps.every((c) => c.trim().length > 5 && !c.startsWith('코드로 렌더링한 도식')));
       await page.context().close();
     });
     if (out) await test('screenshots 1280/390 light/dark', async () => {

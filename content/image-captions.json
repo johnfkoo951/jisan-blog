@@ -290,98 +290,98 @@
     },
     "diagram:alexandria-for-my-son:c7afdbe3": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 몸으로 맡는가와 이름을 아는가라는 두 기준에 나, AI, 아들의 자리를 놓은 해석이다. 점의 위치는 측정값이 아니다.",
+      "caption": "몸으로 맡는가와 이름을 아는가라는 두 기준에 나, AI, 아들의 자리를 놓은 해석이다. 점의 위치는 측정값이 아니다.",
       "alt": "몸으로 맡는가와 이름을 아는가를 두 축으로 한 사분면에 2021년 이전의 나, 오늘의 나, AI, 오늘의 아들을 놓은 도식",
       "evidence": "Mermaid source in content/posts/alexandria-for-my-son.md; static render by cmds-pele 0.2.0 (Pele 1.6.0) via npm run diagrams",
       "srcSha256": "c7afdbe3ced7ad32e0c6d90f9854ff53887384ab9e1870277e739023f35d3e0a"
     },
     "diagram:alexandria-for-my-son:f857c088": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 알렉산드리아 도서관이 세워지고, 여러 사건을 거쳐 조금씩 사라지고, 2002년에 새로 지어지기까지를 연대순으로 놓았다.",
+      "caption": "알렉산드리아 도서관이 세워지고, 여러 사건을 거쳐 조금씩 사라지고, 2002년에 새로 지어지기까지를 연대순으로 놓았다.",
       "alt": "기원전 331년 도시 건설부터 391년 세라페이온 파괴, 2002년 신알렉산드리아 도서관 개관까지 알렉산드리아 도서관의 연표",
       "evidence": "Mermaid source in content/posts/alexandria-for-my-son.md; static render by cmds-pele 0.2.0 (Pele 1.6.0) via npm run diagrams",
       "srcSha256": "f857c0885e192c8e49a2d768e615197ad96945ca407161d0bbbc53ef97881426"
     },
     "diagram:alexandria-for-my-son:fba5c48f": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 아빠의 도서관과 아들의 도서관을 따로 둔 실제 구성이다. 아들 곁의 AI는 규칙 파일에 묶여 대신 써 주지 않고 질문으로 돕는다. 점선은 앞으로 생길 길에 대한 해석이다.",
+      "caption": "아빠의 도서관과 아들의 도서관을 따로 둔 실제 구성이다. 아들 곁의 AI는 규칙 파일에 묶여 대신 써 주지 않고 질문으로 돕는다. 점선은 앞으로 생길 길에 대한 해석이다.",
       "alt": "아빠의 도서관과 아들의 도서관을 따로 두고, 규칙 파일에 묶인 AI가 질문으로만 아들을 돕는 구성",
       "evidence": "Mermaid source in content/posts/alexandria-for-my-son.md; static render by cmds-pele 0.2.0 (Pele 1.6.0) via npm run diagrams",
       "srcSha256": "fba5c48f8c4a5760702937afc27cc81184d858ab95b049dcf3999aa9319c6220"
     },
     "diagram:alexandria-for-my-son:e78840a3": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 아이에게 앎이 건너가는 세 갈래와 그 겹침을 정리한 해석이다. 세 갈래가 날마다 한자리에서 겹치는 곳을 가정으로 보았다.",
+      "caption": "아이에게 앎이 건너가는 세 갈래와 그 겹침을 정리한 해석이다. 세 갈래가 날마다 한자리에서 겹치는 곳을 가정으로 보았다.",
       "alt": "AI의 답, 도서관의 기록, 식탁의 태도 세 원이 겹치고 가운데가 가정인 벤 도식",
       "evidence": "Mermaid source in content/posts/alexandria-for-my-son.md; static render by cmds-pele 0.2.0 (Pele 1.6.0) via npm run diagrams",
       "srcSha256": "e78840a33946563251e56cb8f113c2b643e36b6a16cd3a706bb4bd2025e8bd3a"
     },
     "diagram:9yohan-constellation:2b767e21": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 사이트에 공개한 뉴스레터 플레이북이다. 요한이 몇 명 거쳐도 들어가는 문과 나오는 문은 커널 하나다.",
+      "caption": "사이트에 공개한 뉴스레터 플레이북이다. 요한이 몇 명 거쳐도 들어가는 문과 나오는 문은 커널 하나다.",
       "alt": "커널이 요청을 해석해 케플러, 괴테, 바흐에게 차례로 넘기고, 다시 커널이 합성과 서명을 거쳐 발행하는 흐름",
       "evidence": "Mermaid source in content/posts/9yohan-constellation.md; static render by cmds-pele 0.2.0 (Pele 1.6.0) via npm run diagrams",
       "srcSha256": "2b767e2180bebda7280c86551e9f6f2dd43673e9a87286cdf19f66cf88895f78"
     },
     "diagram:akm-index:f94056cb": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. AKM Index 루브릭의 기본 가중치다. 컨텍스트가 가장 크다.",
+      "caption": "AKM Index 루브릭의 기본 가중치다. 컨텍스트가 가장 크다.",
       "alt": "컨텍스트 25, 프롬프트 20, 하네스 20, 루프 20, 상호운용과 거버넌스 15로 나뉜 다섯 필러 가중치 파이 도표",
       "evidence": "Mermaid source in content/posts/akm-index.md; static render by cmds-pele 0.2.0 (Pele 1.6.0) via npm run diagrams",
       "srcSha256": "f94056cb9bdc4b224f135e59e49a58b77c6364bc4a8520c553ed638160721c92"
     },
     "diagram:akm-index:c14149b8": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 증거 없는 기준은 1에서 멈추고, 시스템이 시스템을 고친 기록이 없으면 4는 주지 않는다.",
+      "caption": "증거 없는 기준은 1에서 멈추고, 시스템이 시스템을 고친 기록이 없으면 4는 주지 않는다.",
       "alt": "0 부재에서 4 자가개선까지 다섯 레벨을 쌓고, 각 단계를 오르는 데 필요한 증거를 화살표에 적은 사다리",
       "evidence": "Mermaid source in content/posts/akm-index.md; static render by cmds-pele 0.2.0 (Pele 1.6.0) via npm run diagrams",
       "srcSha256": "c14149b80776359dbc8fcb9f5c55f9c2921cba9d85a8b87fd536db2d60165d0e"
     },
     "diagram:cmdmd:3c767a2e": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 읽기가 기본값이고, 고치기는 필요할 때만 들르는 곁길이다.",
+      "caption": "읽기가 기본값이고, 고치기는 필요할 때만 들르는 곁길이다.",
       "alt": "바깥의 마크다운이 렌더 프리뷰로 열리고, 고칠 곳이 있으면 소스나 분할로 갔다 돌아오며, 없으면 볼트의 제자리로 보내지는 흐름",
       "evidence": "Mermaid source in content/posts/cmdmd.md; static render by cmds-pele 0.2.0 (Pele 1.6.0) via npm run diagrams",
       "srcSha256": "3c767a2e9ef3a775fdba104d121a3278e4f1d785c27fdb1164395f5c412f8d80"
     },
     "diagram:cmds-llm-wiki:0335503f": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 원본은 그대로 두고, 위키는 자료를 넣을 때도 질문할 때도 자란다.",
+      "caption": "원본은 그대로 두고, 위키는 자료를 넣을 때도 질문할 때도 자란다.",
       "alt": "외부 자료가 Raw Sources에 보존되고 /ingest로 Wiki가 되며, Schema가 /lint로 점검하고, /query로 나온 좋은 답이 다시 Wiki로 돌아가는 도식",
       "evidence": "Mermaid source in content/posts/cmds-llm-wiki.md; static render by cmds-pele 0.2.0 (Pele 1.6.0) via npm run diagrams",
       "srcSha256": "0335503f56a95f3799608fb87ff8c77ed5051f14fdbd5638e88c9b984aa50346"
     },
     "diagram:cmds-llm-wiki:b069b9d8": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 모든 페이지는 검증 안 됨으로 태어나고, 사람의 확인만이 검증됨으로 넘긴다.",
+      "caption": "모든 페이지는 검증 안 됨으로 태어나고, 사람의 확인만이 검증됨으로 넘긴다.",
       "alt": "AI가 만든 페이지가 검증 안 됨 상태에서 사람의 확인으로 검증됨이 되거나, 충돌 상태를 거쳐 사람의 판정으로 검증됨이 되는 상태도",
       "evidence": "Mermaid source in content/posts/cmds-llm-wiki.md; static render by cmds-pele 0.2.0 (Pele 1.6.0) via npm run diagrams",
       "srcSha256": "b069b9d8defd296aabad6bf8b350a603a97be1444e471bb05759dda91738d467"
     },
     "diagram:cmds-system-files:4d355704": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 에이전트는 시스템 파일을 먼저 읽고, 공유 규칙과 커맨드를 거쳐 노트에 손댄다. 커맨드 수는 2026년 10월 기준이다.",
+      "caption": "에이전트는 시스템 파일을 먼저 읽고, 공유 규칙과 커맨드를 거쳐 노트에 손댄다. 커맨드 수는 2026년 10월 기준이다.",
       "alt": "에이전트가 시스템 파일 6종을 먼저 읽고, 공유 규칙 9종과 슬래시 커맨드 10종을 거쳐 볼트의 노트에 닿는 순서도",
       "evidence": "Mermaid source in content/posts/cmds-system-files.md; static render by cmds-pele 0.2.0 (Pele 1.6.0) via npm run diagrams",
       "srcSha256": "4d35570466504a19f0dc23f5d0fb56d998439f25cba7123c4a7e4823600084b5"
     },
     "diagram:cmds-system-files:6cb67f35": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 규격을 옮겨 적는 과정이 자기 스키마를 처음 명시하는 경험이 되고, 그 사례가 다시 규격을 다듬는다는 해석이다.",
+      "caption": "규격을 옮겨 적는 과정이 자기 스키마를 처음 명시하는 경험이 되고, 그 사례가 다시 규격을 다듬는다는 해석이다.",
       "alt": "내 볼트에서 검증한 규칙이 공개 규격이 되고, 포크와 발견을 거쳐 사례가 다시 규격으로 돌아오는 고리",
       "evidence": "Mermaid source in content/posts/cmds-system-files.md; static render by cmds-pele 0.2.0 (Pele 1.6.0) via npm run diagrams",
       "srcSha256": "6cb67f3544832330073208a4b9c914f9b28da0bc04d0723e80f2315c0502b137"
     },
     "diagram:knowledge-ecosystem-map:4dd16d8c": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 볼트 일곱 개는 주제가 아니라 누가 쓰고 누가 합의하는지로 나뉜다.",
+      "caption": "볼트 일곱 개는 주제가 아니라 누가 쓰고 누가 합의하는지로 나뉜다.",
       "alt": "마더십에서 위키 위성, 제품 볼트, 협업 볼트 2개, 팀 볼트, 스타터킷이 갈라져 나오며 각각 누가 쓰는지를 적은 도식",
       "evidence": "Mermaid source in content/posts/knowledge-ecosystem-map.md; static render by cmds-pele 0.2.0 (Pele 1.6.0) via npm run diagrams",
       "srcSha256": "4dd16d8cf1e2f3a1939eb2c330883438bbba1d2b775b67c2123cd2eadbeb53d5"
     },
     "diagram:knowledge-ecosystem-map:7ea5c2a6": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 여섯 사이트는 모두 볼트 하나에서 나온 방이고, brain은 그 방들로 안내하는 개념 허브다.",
+      "caption": "여섯 사이트는 모두 볼트 하나에서 나온 방이고, brain은 그 방들로 안내하는 개념 허브다.",
       "alt": "마더십 볼트 아래에 system, llm-wiki, akm, 9yohan, cmdmd, jisan 여섯 사이트가 있고 brain이 점선으로 여섯 곳을 안내하는 도식",
       "evidence": "Mermaid source in content/posts/knowledge-ecosystem-map.md; static render by cmds-pele 0.2.0 (Pele 1.6.0) via npm run diagrams",
       "srcSha256": "7ea5c2a69281302489df244bf5c3cb7f9983e3db4c48d0d53e0782b79e59bfc0"
@@ -395,28 +395,28 @@
     },
     "diagram:agent-harness-communication-1:9d4168b8": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 소통은 보내는 쪽이 아니라 받는 쪽에서 완성된다. 발주서와 보고서 양쪽에 세 선택이 다 있고, 하네스는 그중 이해와 연결을 설계한다.",
+      "caption": "소통은 보내는 쪽이 아니라 받는 쪽에서 완성된다. 발주서와 보고서 양쪽에 세 선택이 다 있고, 하네스는 그중 이해와 연결을 설계한다.",
       "alt": "발주자가 발주서를 쓰고 좌석이 보고서를 내면 발주자의 스키마가 그것을 정보로 읽어 다음 발주를 여는 순서도",
       "evidence": "Mermaid source in content/posts/agent-harness-communication-1.md; static render by cmds-pele 0.4.0 (Pele 1.9.0) via npm run diagrams",
       "srcSha256": "9d4168b8a2c1e4ba1046383e7e02896da593ffd3fa524838699c1436e79ce67c"
     },
     "diagram:agent-harness-communication-1:9e5c2d4b": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 세 비개연성은 층 위에 겹쳐 읽을 수 있다. 이해는 선언과 런타임이, 도달은 호스트와 표면이, 수용은 결정 층이 맡는다. L3은 셋을 묶는 봉투이고 L4는 이 삼분법 밖에 있다.",
+      "caption": "세 비개연성은 층 위에 겹쳐 읽을 수 있다. 이해는 선언과 런타임이, 도달은 호스트와 표면이, 수용은 결정 층이 맡는다. L3은 셋을 묶는 봉투이고 L4는 이 삼분법 밖에 있다.",
       "alt": "이해의 비개연성은 L0 선언과 L2 런타임, 도달의 비개연성은 L1 호스트와 L6 표면, 수용의 비개연성은 L5 결정이 맡고, 결정이 다시 다음 발주를 여는 순환 도식",
       "evidence": "Mermaid source in content/posts/agent-harness-communication-1.md; static render by cmds-pele 0.4.0 (Pele 1.9.0) via npm run diagrams",
       "srcSha256": "9e5c2d4b5907538f9a7aad2d6acd6ad208af40418f4c7f5892ca05caf0d700b4"
     },
     "diagram:agent-harness-communication-1:e44191c2": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 수용은 선택이다. 시간이 지나면 승인되는 대신, 원래 화면에서만 답할 수 있는 상태로 넘어간다(제안).",
+      "caption": "수용은 선택이다. 시간이 지나면 승인되는 대신, 원래 화면에서만 답할 수 있는 상태로 넘어간다(제안).",
       "alt": "결정 요청이 open에서 첫 유효 응답으로 answered가 되거나, 임차 시간이 끝나면 native-only로, 기한이 지나면 expired로, 개정 번호가 오르면 superseded로 넘어가는 상태 전이 도식",
       "evidence": "Mermaid source in content/posts/agent-harness-communication-1.md; static render by cmds-pele 0.4.0 (Pele 1.9.0) via npm run diagrams",
       "srcSha256": "e44191c2be69ea2e2e9f84344bf01292937b415affffdc7813c2d42ba1b43754"
     },
     "diagram:agent-harness-communication-1:1f2ede2e": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 세션은 서로의 안을 보지 못한다. 자기생산적인 것은 세션이 아니라 볼트와 실행 기록 폴더에 쌓이는 소통 연쇄이고, 세션과 사람은 그 연쇄의 환경이다.",
+      "caption": "세션은 서로의 안을 보지 못한다. 자기생산적인 것은 세션이 아니라 볼트와 실행 기록 폴더에 쌓이는 소통 연쇄이고, 세션과 사람은 그 연쇄의 환경이다.",
       "alt": "관제 기기의 세션과 실행 기기의 좌석이 볼트와 실행 기록 폴더를 사이에 두고 이어지고, 둘 다 결정 브로커를 자극하며, 사람의 의식은 결정 브로커와만 결정과 응답을 주고받는 구조 도식",
       "evidence": "Mermaid source in content/posts/agent-harness-communication-1.md; static render by cmds-pele 0.4.0 (Pele 1.9.0) via npm run diagrams",
       "srcSha256": "1f2ede2edb36ced94b73f51fabfbdcbf248bdfbf9eb38a228f234fef24adb40d"
@@ -430,21 +430,21 @@
     },
     "diagram:agent-harness-communication-2:e2a89dbc": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 일곱은 세 번 가른 결과다. 첫째 가름이 두 층, 둘째 가름이 세 층을 내고, 실행 안쪽이 다시 둘로 갈려 일곱이 된다.",
+      "caption": "일곱은 세 번 가른 결과다. 첫째 가름이 두 층, 둘째 가름이 세 층을 내고, 실행 안쪽이 다시 둘로 갈려 일곱이 된다.",
       "alt": "선언과 관측의 가름이 L0과 L4를, 실행과 보기와 결정의 가름이 L1과 L6과 L5를, 지시와 신호의 가름이 L3을 내고, L1이 L2와 L3으로 다시 갈리는 흐름도",
       "evidence": "Mermaid source in content/posts/agent-harness-communication-2.md; static render by cmds-pele 0.4.0 (Pele 1.9.0) via npm run diagrams",
       "srcSha256": "e2a89dbc55957ca64ee62ac73ff49fb98990b31074cf96115639e3d96f9e2e08"
     },
     "diagram:agent-harness-communication-2:e5fc6c9f": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 일곱 층은 다섯 책임 묶음으로 쌓인다. 선언, 실행, 관측, 결정, 보기. 화살표는 허용된 경로이고 관찰된 사건이 아니다.",
+      "caption": "일곱 층은 다섯 책임 묶음으로 쌓인다. 선언, 실행, 관측, 결정, 보기. 화살표는 허용된 경로이고 관찰된 사건이 아니다.",
       "alt": "보기의 L6, 결정의 L5, 관측의 L4, 실행의 L3과 L2와 L1, 선언의 L0이 다섯 묶음으로 쌓이고, 입력과 응답과 상태와 어긋남 보고와 정책 변경이 허용된 경로로 오가는 구조도",
       "evidence": "Mermaid source in content/posts/agent-harness-communication-2.md; static render by cmds-pele 0.4.0 (Pele 1.9.0) via npm run diagrams",
       "srcSha256": "e5fc6c9f7daf75d9ee6fcc21596ccf0598da064417c15ebee78a37a95b1b4930"
     },
     "diagram:agent-harness-communication-2:b9b71d1c": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 결정된 전제는 선언 원장에 적혀 있다. 사고는 적혀 있지 않은 전제, 곧 기본값에서 난다.",
+      "caption": "결정된 전제는 선언 원장에 적혀 있다. 사고는 적혀 있지 않은 전제, 곧 기본값에서 난다.",
       "alt": "조건 프로그램, 목적 프로그램, 직위, 소통 경로라는 결정된 전제 넷과 기본값이라는 결정되지 않은 전제가 모두 다음 결정으로 이어지는 흐름도",
       "evidence": "Mermaid source in content/posts/agent-harness-communication-2.md; static render by cmds-pele 0.4.0 (Pele 1.9.0) via npm run diagrams",
       "srcSha256": "b9b71d1cbd2fb647a38fe7b2f944baa9437945afcf56559775950fe747aad21b"
@@ -458,21 +458,21 @@
     },
     "diagram:agent-harness-communication-3:57690982": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 명령 없이 30년을 간 하네스. 설계 문서는 상자를 연 지 30년 뒤에 나왔고, 완료 표식은 그로부터 16년 뒤에 나왔다.",
+      "caption": "명령 없이 30년을 간 하네스. 설계 문서는 상자를 연 지 30년 뒤에 나왔고, 완료 표식은 그로부터 16년 뒤에 나왔다.",
       "alt": "1951년 첫 카드 상자부터 1997년 『사회의 사회』까지 루만의 카드 상자가 돈 기간을 일곱 지점으로 늘어놓은 연표",
       "evidence": "Mermaid source in content/posts/agent-harness-communication-3.md; static render by cmds-pele 0.4.0 (Pele 1.9.0) via npm run diagrams",
       "srcSha256": "576909822ced2f7179449a920fbf0edaa7676595e2d9ffa7fd914e83a18a32a1"
     },
     "diagram:agent-harness-communication-3:3606d5d9": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 잘못 놓인 카드는 옮기지 않고 참조로 고친다. 좌석은 기존 노트를 고치지 않고 새 파일을 더하며, 정본 수정은 관제 기기의 결정을 거친다(문서상 규칙).",
+      "caption": "잘못 놓인 카드는 옮기지 않고 참조로 고친다. 좌석은 기존 노트를 고치지 않고 새 파일을 더하며, 정본 수정은 관제 기기의 결정을 거친다(문서상 규칙).",
       "alt": "실행 기기의 좌석이 새 파일만 더하고, 패치 제안이 관제 기기의 결정을 거쳐 기존 정본 노트에 반영되며, 좌석에서 정본으로 가는 직접 수정은 점선으로 막힌 흐름도",
       "evidence": "Mermaid source in content/posts/agent-harness-communication-3.md; static render by cmds-pele 0.4.0 (Pele 1.9.0) via npm run diagrams",
       "srcSha256": "3606d5d994651bb89e1cf9615ae53be5b3226e24ceb1e301923ca267bf1e0474"
     },
     "diagram:agent-harness-communication-3:d8a2d005": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 여섯 메커니즘 가운데 둘은 하네스에 거의 그대로 있고, 넷은 유비다. 실선은 묘사, 점선은 해석.",
+      "caption": "여섯 메커니즘 가운데 둘은 하네스에 거의 그대로 있고, 넷은 유비다. 실선은 묘사, 점선은 해석.",
       "alt": "카드 상자의 여섯 메커니즘과 하네스의 여섯 요소를 짝지은 그림으로, 고정 자리 번호와 참조 연결 둘은 실선, 나머지 넷은 점선으로 이은 대응도",
       "evidence": "Mermaid source in content/posts/agent-harness-communication-3.md; static render by cmds-pele 0.4.0 (Pele 1.9.0) via npm run diagrams",
       "srcSha256": "d8a2d00560e99e6af4d00e0483f1766ed3ca7783b0b0e71862989aefa7883a60"
@@ -486,7 +486,7 @@
     },
     "diagram:agent-harness-communication-0:d817bbfb": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 여섯 편은 하나의 질문에서 갈라져 마지막에 그 질문으로 돌아온다. 1편에서 5편까지가 루만의 하네스고, 6편이 그것을 의심한다.",
+      "caption": "여섯 편은 하나의 질문에서 갈라져 마지막에 그 질문으로 돌아온다. 1편에서 5편까지가 루만의 하네스고, 6편이 그것을 의심한다.",
       "alt": "하네스는 무엇을 설계하는가라는 질문 하나에서 1편부터 6편까지가 차례로 갈라지고, 6편이 점선으로 그 질문에 되돌아가는 흐름도",
       "evidence": "Mermaid source in content/posts/agent-harness-communication-0.md; static render by cmds-pele 0.4.0 (Pele 1.9.0) via npm run diagrams",
       "srcSha256": "d817bbfb82f68806b7cab4c474ea5662f517494c9714da148f69529ed49b8556"
@@ -500,21 +500,21 @@
     },
     "diagram:agent-harness-communication-4:4d0e8c61": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 하네스 레지스트리는 네 종류의 엔티티를 가른다. 선언과 관측이 다른 저장소에 있고, 둘의 차이를 적는 파생 엔티티가 따로 있다(제안).",
+      "caption": "하네스 레지스트리는 네 종류의 엔티티를 가른다. 선언과 관측이 다른 저장소에 있고, 둘의 차이를 적는 파생 엔티티가 따로 있다(제안).",
       "alt": "선언, 관측, 사건, 파생 네 묶음이 있고, 선언과 관측이 정합 리포트로 모이며 관측이 사건으로 쌓이고 사건이 점선으로 선언에 돌아가는 레지스트리 구조도",
       "evidence": "Mermaid source in content/posts/agent-harness-communication-4.md; static render by cmds-pele 0.6.0 (Pele 1.12.0) via npm run diagrams",
       "srcSha256": "4d0e8c6165994e5738533cd13465e935e0d4c42371cde3df98cd5a09c82dacd0"
     },
     "diagram:agent-harness-communication-4:9fff4eb0": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 두께는 생산자를 따라간다. 사람이 쓰는 스키마는 두껍고 기계가 쓰는 스키마는 얇다. 레지스트리는 한 체계 안에서 종류별로 두께가 다르다. 좌표는 판단이고 측정이 아니다.",
+      "caption": "두께는 생산자를 따라간다. 사람이 쓰는 스키마는 두껍고 기계가 쓰는 스키마는 얇다. 레지스트리는 한 체계 안에서 종류별로 두께가 다르다. 좌표는 판단이고 측정이 아니다.",
       "alt": "가로축은 사람이 쓰는가 기계가 쓰는가, 세로축은 얇은가 두꺼운가로 놓고 카드 상자, CMDS 볼트, LLM 위키, 레지스트리의 선언과 관측과 사건 여섯 점을 찍은 사분면",
       "evidence": "Mermaid source in content/posts/agent-harness-communication-4.md; static render by cmds-pele 0.6.0 (Pele 1.12.0) via npm run diagrams",
       "srcSha256": "9fff4eb0753336f053b1551a4005a4fd18b0f802cc6afe5524c87ad1275ccf27"
     },
     "diagram:agent-harness-communication-4:7ff50fdd": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 세 스키마가 한 작업 환경에 함께 산다. 카드 상자는 셋 모두에 규칙을 물려준 선례다. 점선은 해석.",
+      "caption": "세 스키마가 한 작업 환경에 함께 산다. 카드 상자는 셋 모두에 규칙을 물려준 선례다. 점선은 해석.",
       "alt": "카드 상자가 CMDS 볼트와 LLM 위키에 점선으로 규칙을 물려주고, 볼트와 위키가 양방향으로 이어지며, 볼트와 하네스 레지스트리가 선언 원본과 승격 제안을 주고받는 관계도",
       "evidence": "Mermaid source in content/posts/agent-harness-communication-4.md; static render by cmds-pele 0.6.0 (Pele 1.12.0) via npm run diagrams",
       "srcSha256": "7ff50fdddc9c7a0d4cf00d59cad28897f05ef9577b27f8755819a1c588c57a3e"
@@ -528,14 +528,14 @@
     },
     "diagram:agent-harness-communication-5:bc36104f": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. prime은 양 끝에 선다. 들어오는 요청을 가르고 나가는 결과를 합친다. 실행은 전문가가, 검증은 다른 요한이, 외부 행동의 결정은 사람이 한다.",
+      "caption": "prime은 양 끝에 선다. 들어오는 요청을 가르고 나가는 결과를 합친다. 실행은 전문가가, 검증은 다른 요한이, 외부 행동의 결정은 사람이 한다.",
       "alt": "요청이 prime의 라우팅을 거쳐 전문가 둘에게 가고, 검증자를 지나 prime이 합성한 승인 패킷이 사람의 결정에 이르러 외부 행동이 되며, 결재는 원장 한 줄로 남는 흐름도",
       "evidence": "Mermaid source in content/posts/agent-harness-communication-5.md; static render by cmds-pele 0.6.0 (Pele 1.12.0) via npm run diagrams",
       "srcSha256": "bc36104ff0eb8ded2e8f8a10b8ea4fba0a43e5f01d405f2e0b1a04397b158545"
     },
     "diagram:agent-harness-communication-5:93fb23fe": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 관찰자는 자기가 쓰는 구별을 보지 못한다. 검증자가 결과만 보면 1차 관찰이 둘일 뿐이고, 생성자의 구별을 볼 때 2차 관찰이 된다.",
+      "caption": "관찰자는 자기가 쓰는 구별을 보지 못한다. 검증자가 결과만 보면 1차 관찰이 둘일 뿐이고, 생성자의 구별을 볼 때 2차 관찰이 된다.",
       "alt": "생성자의 1차 관찰, 검증자의 2차 관찰, 사람과 독자의 또 한 번의 2차 관찰이 차례로 이어지고, 각 관찰자가 자기 구별은 보지 못한다는 점선 자기 화살표가 달린 그림",
       "evidence": "Mermaid source in content/posts/agent-harness-communication-5.md; static render by cmds-pele 0.6.0 (Pele 1.12.0) via npm run diagrams",
       "srcSha256": "93fb23fed58a0bea1e6168fedd83a1b8677f07b6acb387c0f1c9690539070bf3"
@@ -549,42 +549,42 @@
     },
     "diagram:agent-harness-communication-6:14181ea5": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 발주서에서 보고서까지는 칼롱의 네 국면으로 읽힌다. 루만이 수용의 주소라고 부른 L5는 라투르 쪽 말로 필수 통과점이다. 화살표는 해석이고 관찰된 사건이 아니다.",
+      "caption": "발주서에서 보고서까지는 칼롱의 네 국면으로 읽힌다. 루만이 수용의 주소라고 부른 L5는 라투르 쪽 말로 필수 통과점이다. 화살표는 해석이고 관찰된 사건이 아니다.",
       "alt": "문제화, 관심 끌기, 등록, 동원의 네 국면이 발주서에서 보고서까지 이어지고 L5 결정이 필수 통과점으로 서서 다음 문제화로 돌아가는 순환도",
       "evidence": "Mermaid source in content/posts/agent-harness-communication-6.md; static render by cmds-pele 0.6.0 (Pele 1.12.0) via npm run diagrams",
       "srcSha256": "14181ea5e6a6545430b7bd4fb03770d8c3ae580c8a0a1c58afe6e275a732ac24"
     },
     "diagram:agent-harness-communication-6:6533d4ea": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 층은 선언이고 연결망은 실측이다. 하네스가 라투르에게 배운 것은 새는 길을 없애는 법이 아니라 새는 길을 세는 법이다.",
+      "caption": "층은 선언이고 연결망은 실측이다. 하네스가 라투르에게 배운 것은 새는 길을 없애는 법이 아니라 새는 길을 세는 법이다.",
       "alt": "선언된 길에서는 발주서가 좌석의 등록 절차를 거치고, 실측된 길에서는 측면 메시지가 사람이 보지 않는 세션을 절차 없이 깨우며, 그 사실을 L4 관측이 적고 L5 결정으로 보류한다는 제안을 점선으로 그린 비교도",
       "evidence": "Mermaid source in content/posts/agent-harness-communication-6.md; static render by cmds-pele 0.6.0 (Pele 1.12.0) via npm run diagrams",
       "srcSha256": "6533d4ea9c57c83f473fc6256cc0c2f3d19aaa9e786c4a6ab89666343826403c"
     },
     "diagram:zotero-self-hosting:21569f90": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 항목키는 예시다. 첨부 하나가 zip과 prop 한 쌍이 되고, 시놀로지가 만든 폴더가 그 옆에 함께 놓인다.",
+      "caption": "항목키는 예시다. 첨부 하나가 zip과 prop 한 쌍이 되고, 시놀로지가 만든 폴더가 그 옆에 함께 놓인다.",
       "alt": "zotero 공유폴더 아래에 항목키마다 zip 파일과 prop 파일이 한 쌍씩 있고, 같은 층에 시놀로지의 #recycle 휴지통 폴더와 @eaDir 색인 폴더가 있다.",
       "evidence": "Mermaid source in content/posts/zotero-self-hosting.md; static render by cmds-pele 0.6.0 (Pele 1.12.0) via npm run diagrams",
       "srcSha256": "21569f90bdcd427c0874b4ebdc4d6d73125efc60c2437c3864a6501dc0a91f8f"
     },
     "diagram:zotero-self-hosting:bdb930c5": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 서버 확인은 시험 파일을 쓰고 읽고 지운다. 시놀로지는 WebDAV로 지운 파일도 휴지통에 남긴다.",
+      "caption": "서버 확인은 시험 파일을 쓰고 읽고 지운다. 시놀로지는 WebDAV로 지운 파일도 휴지통에 남긴다.",
       "alt": "Zotero가 WebDAV 서버에 OPTIONS, PROPFIND, 없는 파일 GET(404 응답), 시험 파일 PUT·GET·DELETE를 차례로 보내고, 서버는 지운 시험 파일을 NAS 휴지통에 보관한다.",
       "evidence": "Mermaid source in content/posts/zotero-self-hosting.md; static render by cmds-pele 0.6.0 (Pele 1.12.0) via npm run diagrams",
       "srcSha256": "bdb930c5d8d67206e027121d2a91e71a3ba152cedf6cb12789f22d03f50801f6"
     },
     "diagram:zotero-self-hosting:6a2a37cb": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 공유기로는 WebDAV HTTPS 하나만 들이고, NAS 관리와 파일 공유는 사설망으로 들어온다.",
+      "caption": "공유기로는 WebDAV HTTPS 하나만 들이고, NAS 관리와 파일 공유는 사설망으로 들어온다.",
       "alt": "밖의 기기는 공유기를 거쳐 5006 포트의 WebDAV HTTPS에만 닿고, DSM·SSH·SMB 같은 관리 서비스에는 Tailscale 같은 사설망을 거쳐 들어간다.",
       "evidence": "Mermaid source in content/posts/zotero-self-hosting.md; static render by cmds-pele 0.6.0 (Pele 1.12.0) via npm run diagrams",
       "srcSha256": "6a2a37cb617453b414434b44c7865ee774d9298025c02a812e955d1579d0f111"
     },
     "diagram:zotero-self-hosting:4ddaecf5": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 내 서버로 옮길 수 있는 것은 내 라이브러리의 첨부파일 한 갈래뿐이고, 데이터와 그룹 첨부는 zotero.org에 남는다.",
+      "caption": "내 서버로 옮길 수 있는 것은 내 라이브러리의 첨부파일 한 갈래뿐이고, 데이터와 그룹 첨부는 zotero.org에 남는다.",
       "alt": "Zotero 데스크톱에서 데이터는 항목·노트·주석으로 zotero.org에 가고, 첨부파일은 라이브러리에 따라 갈려 내 라이브러리 첨부는 강조된 내 NAS의 WebDAV 서버로, 그룹 첨부는 zotero.org의 Zotero Storage로 간다.",
       "evidence": "Mermaid source in content/posts/zotero-self-hosting.md; static render by cmds-pele 0.6.0 (Pele 1.12.0) via npm run diagrams",
       "srcSha256": "4ddaecf536672b0adaf1f7190ae964ebcf8e648832b83bf1390665d495c80a1e"
@@ -612,14 +612,14 @@
     },
     "diagram:space-and-records-1:8b12044d": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. 기록의 역사는 만드는 속도를 매체가 따라가지 못한 역사다. 달라진 것은 간격이 있다는 사실이 아니라 간격이 생기는 자리다.",
+      "caption": "기록의 역사는 만드는 속도를 매체가 따라가지 못한 역사다. 달라진 것은 간격이 있다는 사실이 아니라 간격이 생기는 자리다.",
       "alt": "기원전 3500년 점토판부터 2024년 헤르쿨라네움 두루마리 판독까지, 기록 매체가 귀하던 시대와 지우고 다시 쓰던 시대와 싸고 빠른 매체의 시대를 연대순으로 놓았다",
       "evidence": "Mermaid source in content/posts/space-and-records-1.md; static render by cmds-pele 0.7.0 (Pele 1.13.0) via npm run diagrams",
       "srcSha256": "8b12044d657e1b4857bf96f09cc3feaff6ebfcd9f2ef5b6ffd7e6ea6e359b160"
     },
     "diagram:space-and-records-1:3fb34f2a": {
       "kind": "code-diagram",
-      "caption": "코드로 렌더링한 도식. AI가 만든 두 넘침은 증상이 다르지만 같은 빈자리를 가리킨다. 그 자리를 채우는 일은 2편에서 다룬다.",
+      "caption": "AI가 만든 두 넘침은 증상이 다르지만 같은 빈자리를 가리킨다. 그 자리를 채우는 일은 2편에서 다룬다.",
       "alt": "AI가 공간에서는 연결의 종류를, 시간에서는 만드는 속도를 늘리고, 넓은데 만나지 못하는 증상과 적었는데 남지 않는 증상이 같은 빈자리로 모인다",
       "evidence": "Mermaid source in content/posts/space-and-records-1.md; static render by cmds-pele 0.7.0 (Pele 1.13.0) via npm run diagrams",
       "srcSha256": "3fb34f2ac28a29d38dbf255c952ae992e95dbafb8aa11fd3015b4629c9ae696b"

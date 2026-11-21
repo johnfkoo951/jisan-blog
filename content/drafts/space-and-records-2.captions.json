@@ -8,7 +8,7 @@
   },
   "diagram:space-and-records-2:413e47aa": {
     "kind": "code-diagram",
-    "caption": "코드로 렌더링한 도식. 넘치는 시대의 기록은 다 남기는 일이 아니라 흐르는 층에서 골라 올리는 일이다. 사람의 일은 가운데 층에서 일어난다.",
+    "caption": "넘치는 시대의 기록은 다 남기는 일이 아니라 흐르는 층에서 골라 올리는 일이다. 사람의 일은 가운데 층에서 일어난다.",
     "alt": "기록의 세 층. 흐르는 층은 가장 크고 대부분 사라진다. 사람이 그중 일부를 골라 출처를 붙이고 다른 기록과 잇는 층으로 올리고, 그 가운데 아주 적은 것만 오래가는 매체에 새긴다",
     "evidence": "Mermaid source in content/posts/space-and-records-2.md; static render by cmds-pele 0.7.0 (Pele 1.13.0) via npm run diagrams",
     "srcSha256": "413e47aabc957e3678dc42a38e5dfd53306ed0385fe8d61206d9ad5669a13416"

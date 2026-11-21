@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-21: Diagram captions describe the content only
+- Dropped the `코드로 렌더링한 도식.` prefix from diagram captions (author decision). A caption now says only what the diagram shows; the production method stays in the registry record (`kind: code-diagram`, `evidence`).
+- The validator rejects diagram captions that start with the old prefix and only asks for a non-trivial caption. Image captions keep their type prefixes.
+- Removed the prefix from 16 published posts, the queued draft `space-and-records-2` and their registry records (78 lines). The vault masters were changed the same way. `drafts/commanding-space/` (untracked, checksum-locked) is left as is.
+- Updated the unit test, the diagram browser test, fixtures, the `npm run diagrams` record template, `docs/captions-and-citations.md`, and the `diagram.css` header comment that was inlined into pages. 58 unit tests (one new), 24 reader and 4 diagram browser scenarios pass.
+
 ## 2026-10-21: Korean IME search and script-free snapshots
 - Search now runs while a Korean syllable is still being composed. It used to skip `input` events with `isComposing` and wait for `compositionend`, so the last syllable only counted after a space or the next character. New browser test drives composition with Chrome's `Input.imeSetComposition`.
 - On narrow screens a rail is drawn only while `html.reader-modal-open` is set by the script. Web snapshots (Zotero and similar) save the DOM with rails opened on a wide screen but drop the scripts, so the close buttons could not work and both rails covered the article. New browser test saves a script-free snapshot and reopens it at 820px.

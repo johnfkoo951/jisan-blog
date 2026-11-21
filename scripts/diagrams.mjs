@@ -191,7 +191,7 @@ for (const j of jobs) {
   if (why) missing.push({ ...j, why });
 }
 for (const j of missing) {
-  const caption = j.caption ?? '코드로 렌더링한 도식. (펜스 다음 줄에 이탤릭 캡션을 쓴다)';
+  const caption = j.caption ?? '(펜스 다음 줄에 이탤릭 캡션으로 도식이 보여 주는 내용을 쓴다)';
   const alt = (j.src.match(/^\s*%%\s*@alt\s*:\s*(.+?)\s*$/m)?.[1]) || (j.src.match(/^\s*accDescr\s*:\s*(.+?)\s*$/m)?.[1]) || 'TODO 도식이 보여 주는 구조를 한 문장으로';
   console.log(`\nREGISTRY ${rel(j.file)}:${j.line} ${j.sha8} ${j.why}. 빌드가 실패한다. content/image-captions.json "images"의 기록을 이렇게 맞춘다:\n` + JSON.stringify({ [`diagram:${j.slug}:${j.sha8}`]: {
     kind: 'code-diagram', caption, alt, evidence: `Mermaid source in content/posts/${j.slug}.md; static render by cmds-pele ${peleStamp?.version} (Pele ${peleStamp?.pele}) via npm run diagrams`, srcSha256: j.sha } }, null, 2).slice(2, -2));

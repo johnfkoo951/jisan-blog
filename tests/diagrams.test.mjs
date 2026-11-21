@@ -1,11 +1,11 @@
-// 코드로 렌더링한 도식: 픽스처(tests/fixtures/diagrams)를 임시 폴더에 빌드해 계약을 확인한다. 실제 글은 건드리지 않는다.
+// Pele 도식: 픽스처(tests/fixtures/diagrams)를 임시 폴더에 빌드해 계약을 확인한다. 실제 글은 건드리지 않는다.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, writeFileSync, mkdtempSync, cpSync, rmSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { spawnSync } from 'node:child_process';
-import { countCaptionedFigures, validateImageCaptions } from '../lib/image-captions.mjs';
+import { countCaptionedFigures, validateImageCaptions, diagramRecordProblem } from '../lib/image-captions.mjs';
 import { SITE } from '../site.config.mjs';
 
 const root = new URL('../', import.meta.url).pathname;
@@ -27,7 +27,7 @@ test('diagram page has captioned figures, both variants, unique ids and the diag
   const figures = [...prose.matchAll(/<figure class="diagram[^"]*"[^>]*>[\s\S]*?<\/figure>/g)].map((m) => m[0]);
   assert.equal(figures.length, 2);
   for (const f of figures) {
-    assert.match(f, /<figcaption>코드로 렌더링한 도식\. [^<]{6,}<\/figcaption>/);
+    assert.match(f, /<figcaption>(?!코드로 렌더링한 도식)[^<]{6,}<\/figcaption>/);
     assert.equal((f.match(/<svg /g) || []).length, 2, 'L and S variants');
     assert.equal((f.match(/role="img" aria-label="[^"]+"/g) || []).length, 2);
   }
@@ -53,7 +53,7 @@ test('RSS carries the PNG with its caption, never inline SVG', () => {
   const feed = readFileSync(join(ok.dist, 'feed.xml'), 'utf8');
   assert.doesNotMatch(feed, /<svg/);
   const site = SITE.url.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&');
-  const imgs = [...feed.matchAll(new RegExp(`<figure><img src="${site}\\/images\\/diagram-fixture\\/diagram-([0-9a-f]{8})\\.png" alt="[^"]+" width="\\d+" height="\\d+"><figcaption>코드로 렌더링한 도식\\.`, 'g'))];
+  const imgs = [...feed.matchAll(new RegExp(`<figure><img src="${site}\\/images\\/diagram-fixture\\/diagram-([0-9a-f]{8})\\.png" alt="[^"]+" width="\\d+" height="\\d+"><figcaption>[^<]{6,}<\\/figcaption>`, 'g'))];
   assert.equal(imgs.length, 2);
   for (const [, sha8] of imgs) assert.ok(readFileSync(join(ok.dist, `images/diagram-fixture/diagram-${sha8}.png`)).length > 0);
 });
@@ -79,12 +79,12 @@ test('a missing or drifted registry record fails the build', () => {
   fails(edit((r) => { r['diagram:diagram-fixture:0e1500ca'].kind = 'rendered-chart'; }), /missing diagram provenance/);
 });
 test('a diagram without the italic caption line fails the build', () =>
-  fails((c) => writeFileSync(post(c), readFileSync(post(c), 'utf8').replace('*코드로 렌더링한 도식. 도식 도입을', '코드로 렌더링한 도식. 도식 도입을').replace('정리했다.*', '정리했다.')), /needs an italic caption line/));
+  fails((c) => writeFileSync(post(c), readFileSync(post(c), 'utf8').replace('*도식 도입을', '도식 도입을').replace('정리했다.*', '정리했다.')), /needs an italic caption line/));
 
 // npm run diagrams 는 렌더러 cmds-pele 가 있어야 돈다. 없으면 그 부분만 건너뛴다(빌드 검사는 그대로).
 const HAS_PELE = existsSync(join(process.env.CMDS_PELE_DIR || join(root, '..', 'cmds-pele'), 'dist', 'cmds-pele.version.json'));
 const diagramsScript = (content, args = [], env = {}) => spawnSync(process.execPath, ['scripts/diagrams.mjs', '--content', content, '--fonts', join(fx, 'fonts'), ...args], { cwd: root, encoding: 'utf8', env: { ...process.env, ...env } });
-const LIST_FENCE = '\n## 목록 안 도식\n\n- 첫 항목\n- 둘째 항목\n\n  ```mermaid\n  flowchart LR\n    LA --> LB\n  ```\n  *코드로 렌더링한 도식. 목록 안의 시험 도식이다.*\n';
+const LIST_FENCE = '\n## 목록 안 도식\n\n- 첫 항목\n- 둘째 항목\n\n  ```mermaid\n  flowchart LR\n    LA --> LB\n  ```\n  *목록 안의 시험 도식이다.*\n';
 test('a mermaid fence inside a list item fails the build and npm run diagrams with the post and line', () => {
   const content = copyContent();
   try {
@@ -121,12 +121,19 @@ test('a missing renderer python names PELE_PYTHON and what it needs', { skip: !H
   } finally { rmSync(content, { recursive: true, force: true }); }
 });
 
+test('diagram captions describe the content, not how the diagram was made', () => {
+  const rec = { kind: 'code-diagram', caption: '', alt: '설명', evidence: 'test', srcSha256: 'abcdef12' + '0'.repeat(56) };
+  const old = '코드로 렌더링한 도식. 주제 설명입니다.';
+  assert.equal(diagramRecordProblem({ ...rec, caption: old }, 'abcdef12', old), 'caption should describe the diagram, not how it was made');
+  assert.equal(diagramRecordProblem({ ...rec, caption: '주제 설명입니다.' }, 'abcdef12', '주제 설명입니다.'), '');
+});
+
 test('the validator counts diagrams separately and keeps the image contract', () => {
-  const reg = { 'diagram:p:abcdef12': { kind: 'code-diagram', caption: '코드로 렌더링한 도식. 주제 설명입니다.', alt: '설명', evidence: 'test', srcSha256: 'abcdef12' + '0'.repeat(56) } };
+  const reg = { 'diagram:p:abcdef12': { kind: 'code-diagram', caption: '주제 설명입니다.', alt: '설명', evidence: 'test', srcSha256: 'abcdef12' + '0'.repeat(56) } };
   const view = '<div class="diagram-view" role="img" aria-label="설명" style="--dw:10px"><svg class="pele"></svg></div>';
-  assert.deepEqual(countCaptionedFigures(`<figure class="diagram cmds-pele" data-diagram="abcdef12">${view}<figcaption>코드로 렌더링한 도식. 주제 설명입니다.</figcaption></figure>`, reg, 'p'), { images: 0, diagrams: 1 });
-  assert.equal(validateImageCaptions(`<figure class="diagram cmds-pele" data-diagram="abcdef12">${view}<figcaption>코드로 렌더링한 도식. 주제 설명입니다.</figcaption></figure>`, reg, 'p'), 0);
+  assert.deepEqual(countCaptionedFigures(`<figure class="diagram cmds-pele" data-diagram="abcdef12">${view}<figcaption>주제 설명입니다.</figcaption></figure>`, reg, 'p'), { images: 0, diagrams: 1 });
+  assert.equal(validateImageCaptions(`<figure class="diagram cmds-pele" data-diagram="abcdef12">${view}<figcaption>주제 설명입니다.</figcaption></figure>`, reg, 'p'), 0);
   assert.throws(() => countCaptionedFigures(`<figure class="diagram" data-diagram="abcdef12">${view}</figure>`, reg, 'p'), /italic caption line/);
-  assert.throws(() => countCaptionedFigures(`<figure class="diagram" data-diagram="abcdef12">${view.replace(' role="img" aria-label="설명"', '')}<figcaption>코드로 렌더링한 도식. 주제 설명입니다.</figcaption></figure>`, reg, 'p'), /alt text/);
-  assert.throws(() => countCaptionedFigures(`<figure class="diagram" data-diagram="abcdef12">${view}<img src="/x.png" alt="x"><figcaption>코드로 렌더링한 도식. 주제 설명입니다.</figcaption></figure>`, reg, 'p'), /must not contain an <img>/);
+  assert.throws(() => countCaptionedFigures(`<figure class="diagram" data-diagram="abcdef12">${view.replace(' role="img" aria-label="설명"', '')}<figcaption>주제 설명입니다.</figcaption></figure>`, reg, 'p'), /alt text/);
+  assert.throws(() => countCaptionedFigures(`<figure class="diagram" data-diagram="abcdef12">${view}<img src="/x.png" alt="x"><figcaption>주제 설명입니다.</figcaption></figure>`, reg, 'p'), /must not contain an <img>/);
 });
