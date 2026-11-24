@@ -1,0 +1,20 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><style>
+body{margin:0;width:1200px;height:630px;background:#f6f7f4;font-family:"Pretendard","SF Pro Display",-apple-system,sans-serif;color:#1e2824;display:flex;align-items:center;justify-content:center}
+.wrap{display:flex;gap:64px;align-items:center}
+.left{width:420px}
+.eyebrow{color:#E985A2;font-weight:700;letter-spacing:.12em;font-size:20px;margin-bottom:18px}
+h1{font-size:52px;line-height:1.18;margin:0 0 22px;color:#134538;font-weight:800;letter-spacing:-.02em}
+.sub{font-size:24px;color:#5c6962;line-height:1.5}
+.phone{width:560px;border:3px solid #134538;border-radius:44px;padding:34px 30px;background:#fff;box-shadow:0 18px 40px #134538 14}
+.row{display:flex;flex-direction:column;gap:8px;padding:18px 4px;border-bottom:1.5px solid #e3e8e3}
+.row:last-child{border-bottom:0}
+.tag{font-size:19px;font-weight:700;color:#134538}
+.tag b{display:inline-block;width:10px;height:10px;border-radius:50%;background:#E985A2;margin-right:10px;vertical-align:middle}
+code{font-family:"SF Mono","JetBrains Mono",Menlo,monospace;font-size:19px;color:#1e2824;background:#eef3ef;border-radius:8px;padding:6px 10px;white-space:nowrap}
+</style></head><body><div class="wrap">
+<div class="left"><div class="eyebrow">DIRECTIONS LINKS</div><h1>지도 앱으로<br>보내는<br>길찾기 링크</h1><div class="sub">네이버 지도, 카카오맵, 티맵의<br>지점과 경로 URL 형식</div></div>
+<div class="phone">
+<div class="row"><span class="tag"><b></b>네이버 지도</span><code>nmap://route/car?dlat=위도&amp;dlng=경도</code></div>
+<div class="row"><span class="tag"><b></b>카카오맵</span><code>kakaomap://route?ep=위도,경도&amp;by=car</code></div>
+<div class="row"><span class="tag"><b></b>티맵</span><code>tmap://route?goalx=경도&amp;goaly=위도</code></div>
+</div></div></body></html>

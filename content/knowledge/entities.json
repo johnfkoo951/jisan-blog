@@ -3093,6 +3093,37 @@
       "posts": [
         "space-and-records-1"
       ]
+    },
+    "지도와 이동": {
+      "type": "topic",
+      "note": "지도 앱과 이동 서비스를 만들고 운영하는 일",
+      "posts": [
+        "korean-map-directions-links"
+      ]
+    },
+    "네이버 지도": {
+      "type": "tool",
+      "note": "nmap 앱 스킴과 관찰한 웹 길찾기 주소",
+      "posts": [
+        "korean-map-directions-links"
+      ]
+    },
+    "카카오맵": {
+      "type": "tool",
+      "note": "웹 링크와 앱 스킴 모두 공식 문서가 있는 지도",
+      "posts": [
+        "korean-map-directions-links"
+      ]
+    },
+    "티맵": {
+      "type": "tool",
+      "aliases": [
+        "TMAP"
+      ],
+      "note": "공개 앱 스킴 문서를 찾지 못한 내비게이션",
+      "posts": [
+        "korean-map-directions-links"
+      ]
     }
   }
 }
