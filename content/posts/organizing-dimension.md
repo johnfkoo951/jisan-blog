@@ -13,7 +13,6 @@ summary: 차돌짬뽕이 울면과 냉면 사이에 있으면 면요리, 침착�
 updated: 2026-10-17
 citationTitleSource: "차돌짬뽕에서 파인만까지 — Organizing Dimension으로 재해석하는 새로운 차원의 이야기"
 citationTitleEn: "From beef brisket jjamppong to Feynman: Reinterpreting experience through organizing dimensions"
-citationTitleRomanized: "Chadoljjamppongeseo painmankkaji — Organizing Dimension-euro jaehaeseokaneun saeroun chawonui iyagi"
 ---
 ## 다차원적 지식 관리의 필요성
 

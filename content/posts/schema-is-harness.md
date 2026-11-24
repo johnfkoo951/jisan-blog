@@ -12,7 +12,6 @@ tags:
 summary: Karpathy의 LLM Wiki, 구요한의 CMDS, 그리고 Google OKF — 서로 다른 분야에서 독립적으로 같은 구조에 도달했다. RAG는 매번 재유도하지만 Wiki는 누적된다. 그리고 Schema 레이어는 정확히 하네스다.
 citationTitleSource: "Schema는 Harness다 — Karpathy LLM Wiki와 CMDS의 구조적 동치"
 citationTitleEn: "Schema is harness: Structural equivalence between Karpathy's LLM Wiki and CMDS"
-citationTitleRomanized: "Schema-neun Harness-da — Karpathy LLM Wiki-wa CMDS-ui gujojeok dongchi"
 ---
 
 ![세 갈래 길이 하나의 층위 구조로 모이는 풍경으로 스키마와 하네스의 구조적 연결을 표현했다.](/images/schema-is-harness/hero-schema-is-harness.jpg "AI 생성 일러스트. 세 갈래 길이 하나의 층위 구조로 모이는 풍경으로 스키마와 하네스의 구조적 연결을 표현했다.")

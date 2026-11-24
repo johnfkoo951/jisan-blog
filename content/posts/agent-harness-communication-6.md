@@ -13,7 +13,6 @@ tags:
 summary: 루만의 하네스는 깔끔해서 의심스럽다. 라투르는 층 그림을 믿지 않고 흔적을 따라간다. 번역의 네 국면, 블랙박스, 위임된 스크립트, 불변의 이동물, 파노라마. 이 다섯 도구로 기획서가 적은 누수 일곱 곳을 읽으면 누수는 어긋남이 아니라 연결망이 실제로 지나가는 자리다. 하네스가 라투르에게 배운 것은 새는 길을 없애는 법이 아니라 세는 법이다.
 citationTitleSource: "층은 선언이고 연결망은 실측이다 — 라투르의 행위자 연결망으로 읽는 하네스의 일곱 누수"
 citationTitleEn: "Layers are declarations, networks are measurements: Reading the harness's seven leaks through actor-network theory"
-citationTitleRomanized: "Cheungeun seoneonigo yeongyeolmangeun silcheugida — Ratureuui haengwija yeongyeolmangeuro ingneun haneseuui ilgop nusu"
 ---
 
 ![벽에 핀으로 고정한 일곱 층 건물 단면 청사진 위로 분홍 실이 대각선으로 가로지르며 층마다 분홍 핀이 하나씩 꽂혀 있고, 실은 청사진 밖 벽의 검은 핀들로 이어지며, 아래 선반에는 계수기와 책과 화분이 놓인 장면.](/images/agent-harness-communication-6/hero-agent-harness-communication-6.png "AI 생성 일러스트. 깔끔한 일곱 층 청사진과 그 위를 가로질러 도면 밖으로 새어 나가는 실로, 층은 선언이고 연결망은 실측이라는 이 글의 주장을 표현했다. 선반의 계수기는 새는 길을 세는 법이다. 실제 도면을 그린 것은 아니다.")

@@ -12,7 +12,6 @@ summary: Karpathy는 "LLM이 raw를 위키로 컴파일한다"고 했고, Kepano
 updated: 2026-10-17
 citationTitleSource: "Raw와 Wiki 사이에서 — Karpathy와 Kepano가 던진 질문에 대한 답"
 citationTitleEn: "Between raw and wiki: An answer to the questions posed by Karpathy and Kepano"
-citationTitleRomanized: "Raw-wa Wiki saieseo — Karpathy-wa Kepano-ga deonjin jilmune daehan dap"
 ---
 
 ![흩어진 원자료가 렌즈를 지나 구조화된 기록으로 바뀌는 모습을 통해 Raw와 Wiki의 역할을 표현했다.](/images/between-raw-and-wiki/hero-between-raw-and-wiki.jpg "AI 생성 일러스트. 흩어진 원자료가 렌즈를 지나 구조화된 기록으로 바뀌는 모습을 통해 Raw와 Wiki의 역할을 표현했다.")

@@ -13,7 +13,6 @@ tags:
 summary: 넘치는 연결과 넘치는 기록 앞에서 사람에게 남은 일은 고르는 일과 잇는 일이다. 끝나는 존재라서 고르고, 고른 것에 영수증을 붙이고, 원본을 지키고, 대조할 짝과 잇는다. 공간을 지배하지 않고 지휘한다는 커맨드스페이스의 뜻을 따라 나의 세 공간을 점검하고, 기록의 세 층을 제안한다.
 citationTitleSource: "고르고 잇는 사람"
 citationTitleEn: "The one who selects and connects"
-citationTitleRomanized: "Goreugo inneun saram"
 ---
 
 ![단층집과 고층 건물, 유리 엘리베이터, 지하철, 자율주행차가 가는 초록 선으로 이어져 가운데 광장의 나무로 모이는 도시 단면 그림. 사람은 없다.](/images/space-and-records-2/hero-space-and-records-2.png "AI 생성 일러스트. 땅의 집, 엘리베이터가 달린 고층 건물, 지하철, 자율주행차를 선으로 이어 가운데 광장으로 모이게 한 장면으로, 공간을 둘러싸지 않고 잇는 지휘를 표현했다. 실제 도시를 그린 것은 아니다.")

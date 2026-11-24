@@ -13,7 +13,6 @@ tags:
 summary: 노트 앱은 쓰기 화면으로 열리지만, 지식노동의 실제 시간은 읽고 검토하고 배분하는 데 쓰인다. 그 순서를 인터페이스로 만들었다. macOS 네이티브, 무료 오픈소스.
 citationTitleSource: "읽기가 먼저다 — 리뷰 우선 마크다운 에디터 CmdMD"
 citationTitleEn: "Reading comes first: CmdMD, a review-first Markdown editor"
-citationTitleRomanized: "Ilgiga meonjeoda — Ribyu useon makeudaun editeo CmdMD"
 updated: 2026-10-21
 ---
 

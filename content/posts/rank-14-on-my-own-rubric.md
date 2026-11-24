@@ -12,7 +12,6 @@ summary: 지식관리 시스템을 채점하는 평가표 AKM Index를 만들어
 updated: 2026-10-17
 citationTitleSource: "내가 만든 평가표에서 나는 14등이다"
 citationTitleEn: "I rank 14th on my own rubric"
-citationTitleRomanized: "Naega mandeun pyeonggapyoeseo naneun 14deungida"
 ---
 
 ![노트 위의 황동 자로 지식 시스템을 돌아보는 평가의 관점을 표현했다. 실제 평가 점수를 담은 도표는 아니다.](/images/rank-14-on-my-own-rubric/hero-rank-14-on-my-own-rubric.jpg "AI 생성 일러스트. 노트 위의 황동 자로 지식 시스템을 돌아보는 평가의 관점을 표현했다. 실제 평가 점수를 담은 도표는 아니다.")

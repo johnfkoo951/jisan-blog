@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-24: English citations use the translated title
+- The English APA reference now cites the English title translation alone, e.g. `Koo, Y. (2026, November 24). Directions links to Naver Map, Kakao Map, and TMAP: A guide to place and route URL formats. Jisan. URL`. The romanized transcription and the square brackets are gone (author decision: transcribed Korean is unreadable to English readers). This departs from APA 7's original-title-plus-translation rule; `docs/captions-and-citations.md` records the change.
+- Removed `citationTitleRomanized` from 40 posts, the queued draft `space-and-records-2` and two test fixtures. The build no longer reads or requires it. Vault masters that still carry it are ignored. `drafts/commanding-space/` (untracked) is left as is.
+- Dropped `romanizeTitle` and the `koroman` dependency. `scripts/prepare-citation.mjs` prints `citationTitleSource` and `citationTitleEn` only.
+- 57 unit tests (romanization test removed, Korean-in-English-title check added), 24 reader and 4 diagram browser scenarios pass.
+
 ## 2026-11-21: Diagram captions describe the content only
 - Dropped the `코드로 렌더링한 도식.` prefix from diagram captions (author decision). A caption now says only what the diagram shows; the production method stays in the registry record (`kind: code-diagram`, `evidence`).
 - The validator rejects diagram captions that start with the old prefix and only asks for a non-trivial caption. Image captions keep their type prefixes.

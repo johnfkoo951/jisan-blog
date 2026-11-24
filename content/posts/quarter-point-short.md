@@ -12,7 +12,6 @@ summary: 네 번째 자기 평가는 M4 문턱에서 0.25점이 모자랐다. �
 updated: 2026-10-17
 citationTitleSource: "0.25점이 모자란 성적표"
 citationTitleEn: "A scorecard a quarter of a point short"
-citationTitleRomanized: "0.25jeomi mojaran seongjeokpyo"
 ---
 
 ![노트 위의 황동 자로 지식 시스템을 돌아보는 평가의 관점을 표현했다. 실제 평가 점수를 담은 도표는 아니다.](/images/rank-14-on-my-own-rubric/hero-rank-14-on-my-own-rubric.jpg "AI 생성 일러스트. 노트 위의 황동 자로 지식 시스템을 돌아보는 평가의 관점을 표현했다. 실제 평가 점수를 담은 도표는 아니다.")

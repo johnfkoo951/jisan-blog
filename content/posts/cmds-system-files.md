@@ -14,7 +14,6 @@ tags:
 summary: 10,000개 노트 볼트를 떠받치는 규격을 그대로 공개했다. AI 에이전트가 내 볼트에서 일하기 전에 읽는 시스템 파일 여섯 종. 왜 만들었고, 왜 나눠주는가.
 citationTitleSource: "AI에게 건네는 첫 문서 — CMDS System Files"
 citationTitleEn: "The first document to hand to AI: CMDS System Files"
-citationTitleRomanized: "AI-ege geonneneun cheot munseo — CMDS System Files"
 ---
 
 ![두 손 사이에서 건네는 설계도로 에이전트에게 규칙과 맥락을 전달하는 시스템 파일의 역할을 표현했다.](/images/cmds-system-files/hero-cmds-system-files.jpg "AI 생성 일러스트. 두 손 사이에서 건네는 설계도로 에이전트에게 규칙과 맥락을 전달하는 시스템 파일의 역할을 표현했다.")

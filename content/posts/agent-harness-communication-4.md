@@ -13,7 +13,6 @@ tags:
 summary: 스키마는 들어오는 것을 정보로 만드는 비교 장치다. 카드 상자, LLM 위키, CMDS 볼트, 하네스 레지스트리는 모두 스키마를 갖지만 무엇을 선언하고 무엇을 관측하고 누가 쓰는지가 다르다. 두께는 생산자를 따라가고, 선언과 관측의 분리는 생산 속도가 읽는 속도를 넘을 때 생긴다. 넷이 공유하는 것은 하나, 스키마의 항상성이다.
 citationTitleSource: "스키마는 하나가 아니다 — 카드 상자, LLM 위키, CMDS, 하네스 레지스트리의 네 스키마 비교"
 citationTitleEn: "There is more than one schema: Comparing the four schemas of the card index, the LLM wiki, CMDS, and the harness registry"
-citationTitleRomanized: "Seukimaneun hanaga anida — Kadeu sangja, LLM wiki, CMDS, haneseu rejiseuteuriui ne seukima bigyo"
 ---
 
 ![긴 작업대 위에 체 네 개가 나란히 서 있고, 왼쪽의 막힌 판부터 오른쪽의 가는 철망까지 눈이 점점 촘촘해지며, 같은 초록과 분홍 종이 조각들이 네 체를 지나 아래에 크기가 다른 네 더미로 쌓이는 장면.](/images/agent-harness-communication-4/hero-agent-harness-communication-4.png "AI 생성 일러스트. 눈 굵기가 다른 체 네 개를 같은 종이 조각이 통과해 다른 더미가 되는 장면으로, 스키마마다 두께가 달라 같은 입력이 다른 정보가 된다는 이 글의 주장을 표현했다. 실제 도구를 그린 것은 아니다.")

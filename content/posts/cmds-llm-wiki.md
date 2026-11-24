@@ -14,7 +14,6 @@ tags:
 summary: 원본은 불변으로 보존하고, AI가 정제한 지식이 상호 참조로 쌓인다. Karpathy의 LLM Wiki 패턴을 실운영 규모로 굴린 기록과, 오늘 시작할 수 있는 스타터킷.
 citationTitleSource: "사람과 AI가 함께 컴파일하는 위키 — CMDS LLM Wiki"
 citationTitleEn: "A wiki compiled by humans and AI together: CMDS LLM Wiki"
-citationTitleRomanized: "Saramgwa AI-ga hamkke keompailhaneun wiki — CMDS LLM Wiki"
 ---
 
 ![사람의 손과 기계의 손이 함께 책을 쌓는 모습으로 LLM Wiki의 협업 구조를 표현했다.](/images/cmds-llm-wiki/hero-cmds-llm-wiki.jpg "AI 생성 일러스트. 사람의 손과 기계의 손이 함께 책을 쌓는 모습으로 LLM Wiki의 협업 구조를 표현했다.")

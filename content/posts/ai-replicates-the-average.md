@@ -12,7 +12,6 @@ tags:
 summary: AI가 평균을 1초에 만드는 시대에 인간은 무엇을 가져갈 것인가. 한 글자도 바꾸지 않았는데 의미가 달라진 커맨드스페이스 9계명을 2026 해석판으로 다시 읽으며, 아홉 가지를 하나의 강물처럼 흘려보내는 9계명 시리즈의 통합편이다.
 citationTitleSource: "AI는 평균을 복제한다, 그래서 나는 아홉 번 묻는다"
 citationTitleEn: "AI replicates the average, so I ask nine times"
-citationTitleRomanized: "AI-neun pyeonggyuneul bokjehanda, geuraeseo naneun ahop beon munneunda"
 updated: 2026-10-17
 ---
 

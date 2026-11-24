@@ -13,7 +13,6 @@ tags:
 summary: 루만은 하네스라는 말을 쓴 적이 없지만 하나를 지었다. 자리를 바꾸지 않는 주소, 옮기지 않고 참조로 하는 교정, 소수의 진입점, 자기 문장으로 다시 쓰기. 이 네 규칙과 몇 년의 기다림이 그의 세팅이었다. 1981년 설계 문서를 지금의 하네스에 대 보면 거의 그대로 있는 것은 둘이고, 넷은 유비다.
 citationTitleSource: "니클라스 루만의 하네스 세팅 — 카드 9만 장을 소통 파트너로 만든 네 가지 규칙"
 citationTitleEn: "Niklas Luhmann's harness settings: Four rules that made ninety thousand cards a communication partner"
-citationTitleRomanized: "Nikeullaseu rumanui haneseu seting — Kadeu 9man jangeul sotong pateuneoro mandeun ne gaji gyuchik"
 ---
 
 ![초록색 카드 서랍장의 서랍 하나가 열려 카드 한 장이 세워져 있고, 그 카드에서 분홍 실 세 가닥이 벽에 핀으로 꽂힌 카드 세 장으로 이어지며, 서랍장 위에는 모래시계와 책과 화분이 놓인 장면.](/images/agent-harness-communication-3/hero-agent-harness-communication-3.png "AI 생성 일러스트. 열린 서랍의 카드 한 장이 벽의 카드 세 장과 실로 이어진 서랍장으로, 자리를 바꾸지 않는 주소와 참조로 하는 교정이라는 루만의 세팅을 표현했다. 모래시계는 몇 년의 기다림이다. 실제 루만의 상자를 그린 것은 아니다.")

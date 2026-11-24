@@ -12,7 +12,6 @@ tags:
 summary: 예비 중1부터 예비 고1까지 여섯 명과 커맨드스페이스 사무실에서 보낸 3일간의 CMDS Process 기초교육 기록. 차돌짬뽕 퀴즈로 맥락을 익히고, 무한의 팬트리에서 재료를 꺼내고, 480p 지식을 4K로 올린 뒤에야 AI를 열었다. 아이들은 이미 갖고 있었다.
 citationTitleSource: "이미 갖고 있었다 — 6명의 거인과 3일의 기록"
 citationTitleEn: "I already had it: Six giants and three days of records"
-citationTitleRomanized: "Imi gatgo isseotda — 6myeongui geoingwa 3irui girok"
 updated: 2026-10-17
 ---
 

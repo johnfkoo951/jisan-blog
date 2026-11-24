@@ -14,7 +14,6 @@ tags:
 summary: 발주서를 보내고 보고서를 받는 일을 오랫동안 명령과 복종으로 생각했다. 보고서가 읽히지 않는 날과 다음 일이 이어지지 않는 날을 그 모형은 설명하지 못한다. 루만의 소통 개념으로 다시 읽으면 워크플로우의 설계 단위는 호출이 아니라 연결이고, 간선마다 받는 쪽의 비교 스키마와 다시 붙을 주소와 사람의 수용이 있어야 한다. 침묵은 승인이 아니다.
 citationTitleSource: "명령은 없다, 연결만 있다 — 루만의 세 선택으로 읽는 에이전틱 워크플로우"
 citationTitleEn: "There are no commands, only connections: Reading agentic workflows through Luhmann's three selections"
-citationTitleRomanized: "Myeongnyeongeun eopda, yeongyeolman itda — Rumanui se seontaegeuro ingneun eijeontik wokeupeullou"
 ---
 
 ![새벽의 책상 램프와 저녁의 책상 램프 사이에 팽팽한 실이 걸려 있고, 매듭이 몇 개 있는 그 실을 따라 분홍 쪽지 한 장이 건너가 오른쪽의 빈 틀을 지나며 읽을 수 있는 문서가 되는 장면.](/images/agent-harness-communication-1/hero-agent-harness-communication-1.png "AI 생성 일러스트. 보내는 쪽의 램프와 받는 쪽의 램프 사이를 건너는 쪽지가 받는 쪽의 틀을 지나서야 읽히는 장면으로, 소통이 받는 쪽의 스키마에서 완성된다는 이 글의 주장을 표현했다. 실제 책상이나 기기를 그린 것은 아니다.")

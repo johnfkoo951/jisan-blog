@@ -40,7 +40,7 @@ deploy.sh              빌드 + vercel --prod
 ## 이미지 캡션과 국문·영문 APA 인용
 히어로를 포함한 모든 본문 이미지에 확인한 제작 유형·출처와 주제를 설명하는 캡션을 둔다. 모든 글의 사이드바와 하단에서 국문·영문 APA 7 블로그 참고문헌을 각각 복사할 수 있다. 서식 지원 편집기에는 기울임과 내어쓰기를 함께 복사한다.
 
-정본과 파생본에 `citationTitleSource`, `citationTitleEn`, `citationTitleRomanized`를 유지한다. 제목 변경 뒤 번역이 낡거나 필드가 비면 빌드를 중단한다. 국문 구두점·전체 날짜·영문 전사와 번역의 구분·캡션 근거는 [캡션과 인용 계약](docs/captions-and-citations.md)을 따른다.
+정본과 파생본에 `citationTitleSource`, `citationTitleEn`을 유지한다. 영문 참고문헌은 로마자 전사 없이 영어 번역 제목을 쓴다. 제목 변경 뒤 번역이 낡거나 필드가 비면 빌드를 중단한다. 국문 구두점·전체 날짜·영문 제목 표기·캡션 근거는 [캡션과 인용 계약](docs/captions-and-citations.md)을 따른다.
 
 ## 조회수와 좋아요 연결
 Vercel 서버 환경 변수에 `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`, 32자 이상의 안전한 무작위 `ENGAGEMENT_COOKIE_SECRET`을 설정한다. 기존 KV 형식 변수도 지원한다. 키를 공개 소스나 브라우저 자산에 넣지 않는다. 정확한 미리보기 도메인은 선택 변수 `ENGAGEMENT_ALLOWED_ORIGIN`으로 허용한다. 상세 계약은 [영문 README](README.md#optional-engagement-setup) 참조.
@@ -81,7 +81,7 @@ node build.mjs        # 로컬 빌드 → dist/
 | `assets/logos/`, `assets/og/`의 CMDSPACE 로고와 OG 이미지 | MIT 대상이 아니다. CMDSPACE 브랜드 자산, 모든 권리 보유 |
 | `assets/fonts/`의 도식 글꼴 부분집합(Pretendard 1.201 기반) | SIL Open Font License 1.1, [assets/fonts/OFL.txt](assets/fonts/OFL.txt) |
 | `drafts/omnisearch-google-research/assets/*.user.js` | 별도 MIT 고지(Simon Cambier 유저스크립트의 포크), 같은 폴더의 `LICENSE.txt` |
-| npm 의존성(`marked`, `koroman`, `playwright`) | 각 패키지의 라이선스 |
+| npm 의존성(`marked`, `playwright`) | 각 패키지의 라이선스 |
 
 MIT는 엔진에만 적용된다. 글을 인용하거나 공유할 때는 위의 글 라이선스와 각 글의 인용 블록을 따른다.
 

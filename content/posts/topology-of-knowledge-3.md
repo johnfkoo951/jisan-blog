@@ -14,7 +14,6 @@ seriesOrder: 3
 updated: 2026-10-17
 citationTitleSource: "지식의 지형학 3부 — 그리고, 아니면(And, Not), 풀밭 위의 미로를 짓는 법"
 citationTitleEn: "The topology of knowledge, part 3: And, not, and building a maze on the grassland"
-citationTitleRomanized: "Jisigui jihyeonghak 3bu — Geurigo, animyeon(And, Not), pulbat wiui miroreul jinneun beop"
 ---
 
 ![풀밭과 미로가 겹쳐 있는 지형으로 리좀의 연결과 시스템의 경계가 공존하는 모습을 표현했다.](/images/topology-of-knowledge-3/hero-topology-of-knowledge-3.jpg "AI 생성 일러스트. 풀밭과 미로가 겹쳐 있는 지형으로 리좀의 연결과 시스템의 경계가 공존하는 모습을 표현했다.")

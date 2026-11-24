@@ -13,7 +13,6 @@ tags:
 summary: AI는 공간에서는 연결을, 시간에서는 생산을 넘치게 만든다. 그러나 넓다고 만나지 않고, 적었다고 남지 않는다. 한양과 맨해튼과 반도체로 공간이 힘이 되는 조건을 보고, 점토판과 팰림프세스트와 IDC의 2%로 기록된 채 사라지는 시대를 진단한다. 두 넘침에 같은 자리가 비어 있다.
 citationTitleSource: "넓다고 만나지 않고, 적었다고 남지 않는다"
 citationTitleEn: "Wide space does not bring us together, and writing it down does not make it last"
-citationTitleRomanized: "Neoldago mannaji anko, jeogeotdago namji anneunda"
 ---
 
 ![빽빽하게 모인 건물들 사이에 길도 다리도 없고, 창마다 흘러나온 종이 두루마리가 하늘로 풀려 나가다 안개 속으로 흐려지며, 앞쪽 빈 땅에는 아무것도 새기지 않은 작은 돌판 하나가 서 있는 장면. 사람은 없다.](/images/space-and-records-1/hero-space-and-records-1.png "AI 생성 일러스트. 서로 이어지지 않은 건물로 넓어도 만나지 못하는 공간을, 창에서 흘러나와 흐려지는 두루마리로 적혀도 남지 않는 기록을, 앞쪽의 빈 돌판으로 이 시리즈가 묻는 무엇을 남길 것인가를 표현했다. 실제 도시를 그린 것은 아니다.")

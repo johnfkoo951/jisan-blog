@@ -38,9 +38,9 @@ The common article template now provides a heading-navigation rail and a metadat
 See [the reader-sidebar contract](docs/reader-sidebars.md) for layout, metadata, keyboard/accessibility rules and screenshots. Run `npm run test:reader` with Chrome installed for the all-article browser checks. Deployed on 2026-10-17; all 29 live article pages and raw Markdown endpoints were verified against the local build/source.
 
 ## Image captions and bilingual APA references
-All article images require a provenance-aware type/topic caption, including heroes. Korean and English APA 7 blog references are generated for every post, with independent copy buttons and HTML/plain clipboard formats. The English reference uses a romanized original title followed by a bracketed meaning translation; the Korean version follows the documented domestic APA application.
+All article images require a provenance-aware type/topic caption, including heroes. Korean and English APA 7 blog references are generated for every post, with independent copy buttons and HTML/plain clipboard formats. The English reference cites the English translation of the title, with no romanized transcription; the Korean version follows the documented domestic APA application.
 
-Keep `citationTitleSource`, `citationTitleEn`, and `citationTitleRomanized` in the vault master and published derivative. Missing or stale title metadata fails the build. See [the caption/citation contract](docs/captions-and-citations.md) for evidence, authoring rules, date/punctuation details and audit limitations.
+Keep `citationTitleSource` and `citationTitleEn` in the vault master and published derivative. Missing or stale title metadata fails the build. See [the caption/citation contract](docs/captions-and-citations.md) for evidence, authoring rules, date/punctuation details and audit limitations.
 
 ## Optional engagement setup
 The Vercel function `api/engagement.js` requires server-only environment variables:
@@ -87,7 +87,7 @@ node build.mjs        # local build → dist/
 | CMDSPACE logos and OG images in `assets/logos/`, `assets/og/` | Not covered by MIT. Brand assets of CMDSPACE, all rights reserved |
 | Diagram font subset in `assets/fonts/` (from Pretendard 1.201) | SIL Open Font License 1.1, see [assets/fonts/OFL.txt](assets/fonts/OFL.txt) |
 | `drafts/omnisearch-google-research/assets/*.user.js` | Its own MIT notice (fork of Simon Cambier's userscript), see the bundled `LICENSE.txt` |
-| npm dependencies (`marked`, `koroman`, `playwright`) | Their own licenses |
+| npm dependencies (`marked`, `playwright`) | Their own licenses |
 
 The MIT license covers the engine only. Quoting or sharing a post follows the content license above and the citation block on each page.
 

@@ -12,7 +12,6 @@ summary: AI 시대의 역량은 더 많이 기억하는 능력이 아니라 더 
 updated: 2026-10-17
 citationTitleSource: "선택적 망각의 기술 — AI 시대의 기억 설계와 두뇌-도구 하모니"
 citationTitleEn: "The art of selective forgetting: Designing memory and harmonizing brain and tools in the age of AI"
-citationTitleRomanized: "Seontaekjeok manggagui gisul — AI sidaeui gieok seolgyewa dunoe-dogu hamoni"
 ---
 
 ![머리 밖의 서랍과 보관 공간으로 기억을 옮기는 모습으로 선택적 망각과 외부 기록의 역할을 표현했다.](/images/selective-forgetting/hero-selective-forgetting.jpg "AI 생성 일러스트. 머리 밖의 서랍과 보관 공간으로 기억을 옮기는 모습으로 선택적 망각과 외부 기록의 역할을 표현했다.")

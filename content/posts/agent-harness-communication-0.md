@@ -14,7 +14,6 @@ tags:
 summary: 여섯 편을 읽기 전에 펼치는 지도다. 시리즈의 한 줄 주장, 여섯 편이 하나의 질문에서 갈라지는 논리 구조, 읽는 순서 셋, 편별 요약, 하네스와 이론 쪽 용어 사전, 표기 약속, 그리고 루만은 에이전트 하네스의 왕이었을까라는 처음 질문의 결론을 모았다.
 citationTitleSource: "소통으로 읽는 에이전트 하네스 — 시리즈 지도와 용어"
 citationTitleEn: "Reading the agent harness as communication: Series map and glossary"
-citationTitleRomanized: "Sotongeuro ingneun eijeonteu haneseu — Sirijeu jidowa yongeo"
 ---
 
 ![짙은 초록 나무 책상 위에 펼친 손그림 지형도에 분홍 깃발 핀 여섯 개가 점선 고리로 이어져 있고, 왼쪽 위에 나침반, 오른쪽 위에 카드 묶음, 왼쪽 아래에 기호만 있는 범례 카드, 오른쪽 아래에 돋보기가 놓인 장면.](/images/agent-harness-communication-0/hero-agent-harness-communication-0.png "AI 생성 일러스트. 깃발 핀 여섯 개를 점선 고리로 이은 지형도와 기호만 적힌 범례 카드로, 여섯 편이 하나의 질문에서 갈라져 돌아오는 시리즈 지도와 용어 사전을 표현했다. 실제 지도를 그린 것은 아니다.")

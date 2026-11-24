@@ -35,19 +35,18 @@ The full Korean name's period separates the author element; it is not an initial
 
 ### English rendering of a Korean source
 
-Koo, Y. (2026, October 17). Google geomsaek yeope nae noteureul kkeonae noki [Bringing my notes alongside Google search]. *Jisan.* https://jisan.cmdspace.work/posts/omnisearch-google-research/
+Koo, Y. (2026, October 17). Bringing my notes alongside Google search. *Jisan.* https://jisan.cmdspace.work/posts/omnisearch-google-research/
 
-The original title is romanized and its meaning translated in square brackets. The translation is an explanatory rendering, not a separate English publication. Author spelling uses the established public name Yohan Koo. Jisan is the blog name's romanization, not an invented English title. In-text citation is `(Koo, 2026)`.
+The title is the sentence-case English translation of the Korean title, with no romanized transcription (author decision, 2026-11-24). A romanized Korean title reads as noise to English readers and adds nothing the URL does not already locate. This departs from APA 7's guidance for non-English sources, which gives the original title, romanized for non-Latin scripts, followed by a bracketed translation; the 2026-10-17 contract followed that guidance. The post itself is in Korean; the translated title is not a separate English publication. Author spelling uses the established public name Yohan Koo. Jisan is the blog name's romanization, not an invented English title. In-text citation is `(Koo, 2026)`.
 
 Same-author/same-year suffixes such as 2026a and 2026b depend on the reader's complete reference list and must be assigned there, not independently on each article page.
 
 ### Metadata and copying
 ```yaml
 citationTitleSource: "Current original public title"
-citationTitleEn: "A sentence-case meaning translation"
-citationTitleRomanized: "Romanized original title"
+citationTitleEn: "A sentence-case English title translation"
 ```
-Both master and derivative carry these fields. The build rejects missing translations or a `citationTitleSource` different from `title`, so title edits cannot silently leave stale references. Use `node scripts/prepare-citation.mjs "Original title" "English translation"` for a romanization candidate and review names/loanwords. `koroman` is only a spelling aid; it is not a translator or a substitute for editorial checking. The known 읽기가 form is explicitly corrected.
+Both master and derivative carry these fields. The build rejects missing translations or a `citationTitleSource` different from `title`, so title edits cannot silently leave stale references. `node scripts/prepare-citation.mjs "Original title" "English translation"` prints both fields; review names and product spellings in the translation. `citationTitleRomanized` was removed from the published posts on 2026-11-24 and the build ignores it; older vault masters may still carry it.
 
 Both the sidebar and footer offer Korean and English copy buttons. Clipboard writes contain `text/plain` and `text/html` when supported. HTML preserves blog-name italics, a 0.5-inch hanging indent and double line spacing. Plain-text environments lose those visual styles; no literal Markdown asterisks are inserted. The original `date`, not an unrelated UI modification date, controls the reference date.
 

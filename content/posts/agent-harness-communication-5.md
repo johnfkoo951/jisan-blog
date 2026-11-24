@@ -13,7 +13,6 @@ tags:
 summary: 9요한은 아홉 개의 기능 체계가 아니라 한 조직 안의 아홉 관할이다. 각 요한은 루만의 뜻에서 인격, 곧 기대를 묶어 두는 주소다. 열매는 장식이 아니라 그 부문의 실패 양식을 막는 방어선이고, prime은 왕이 아니라 라우팅과 결재만 하는 직위다. 생성자와 검증자를 가르는 것은 품질 관리 이전에 2차 관찰이다.
 citationTitleSource: "아홉 개의 인격, 아홉 개의 관할 — 9요한의 설계 원리, 덕목은 실패 양식의 방어선이다"
 citationTitleEn: "Nine persons, nine jurisdictions: The design principles of 9Yohan, where virtues are lines of defense against failure modes"
-citationTitleRomanized: "Ahop gaeui ingyeok, ahop gaeui gwanhal — 9yohanui seolgye wolli, deongmogeun silpae yangsigui bangeoseonida"
 ---
 
 ![세 칸씩 세 줄로 나뉜 초록 장식장의 아홉 칸에 모양이 같고 빛깔이 조금씩 다른 등불이 하나씩 들어 있고, 앞의 작은 책상에는 도장과 전달 쪽지만 놓여 있으며, 책상에서 아홉 칸으로 분홍 실이 한 가닥씩 이어지고 등불 하나가 옆 칸으로 빛줄기를 보내는 장면.](/images/agent-harness-communication-5/hero-agent-harness-communication-5.png "AI 생성 일러스트. 한 장식장의 아홉 칸에 든 등불과, 도장과 전달 쪽지만 놓인 앞 책상으로 아홉 관할과 라우팅과 결재만 하는 prime을 표현했다. 옆 칸으로 건너가는 빛줄기는 생성자의 구별을 보는 검증자의 2차 관찰이다. 실제 조직도를 그린 것은 아니다.")

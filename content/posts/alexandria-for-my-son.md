@@ -11,7 +11,6 @@ tags:
 summary: 오랜만에 마신 알렉산드리아 티에서 아들은 치약 향을 맡았고, 후각을 잃은 나는 도서관을 떠올렸다. 칼리마코스의 목록과 내 볼트의 frontmatter, 한 번에 불타지 않은 도서관과 조용히 끊긴 링크, 아들에게 따로 지어 준 도서관과 식탁에서 건너가는 태도까지, AI 시대에 무엇을 물려줄지 묻는다.
 citationTitleSource: "아들에게 남길 알렉산드리아"
 citationTitleEn: "The Alexandria I will leave to my son"
-citationTitleRomanized: "Adeurege namgil alleksandeuria"
 ---
 
 ![녹차 찻잔에서 오르는 김이 아치형 문이 되고, 그 문 너머로 두루마리가 꽂힌 서가와 열주가 이어지는 장면. 찻잔 옆에 민트 한 줄기가 놓여 있다.](/images/alexandria-for-my-son/hero-alexandria-for-my-son.png "AI 생성 일러스트. 민트 녹차의 김이 고대 도서관으로 들어가는 문이 되는 장면으로, 차 한 잔에서 알렉산드리아 도서관으로 이어지는 이 글의 연상을 표현했다. 실제 도서관을 그린 것은 아니다.")

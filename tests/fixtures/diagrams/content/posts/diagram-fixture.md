@@ -6,7 +6,6 @@ kind: 기술
 summary: "코드로 그린 도식이 정적 블로그에서 라이트, 다크, 폰 폭으로 어떻게 보이는지 점검하는 시험용 글이다."
 citationTitleSource: "도식 렌더링 점검용 글"
 citationTitleEn: "A test post for diagram rendering"
-citationTitleRomanized: "Dosik renderingeul jeomgeomhaneun geul"
 ---
 
 이 글은 시험용 픽스처다. 실제 발행 글이 아니다.

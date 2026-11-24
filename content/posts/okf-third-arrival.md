@@ -12,7 +12,6 @@ summary: Google Cloud가 지식을 마크다운+frontmatter 디렉토리로 표�
 updated: 2026-11-11
 citationTitleSource: "OKF, 같은 구조의 세 번째 도착 — Google Open Knowledge Format와 CMDS"
 citationTitleEn: "OKF, the third arrival at the same structure: Google Open Knowledge Format and CMDS"
-citationTitleRomanized: "OKF, gateun gujoui se beonjjae dochak — Google Open Knowledge Format-wa CMDS"
 ---
 
 ![서로 다른 문이 하나의 기록 공간으로 이어지는 모습으로 구조의 독립적 수렴을 표현했다.](/images/okf-third-arrival/hero-okf-third-arrival.jpg "AI 생성 일러스트. 서로 다른 문이 하나의 기록 공간으로 이어지는 모습으로 구조의 독립적 수렴을 표현했다.")

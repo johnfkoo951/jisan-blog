@@ -14,7 +14,6 @@ tags:
 summary: 왜 일곱 층인가. 답은 수가 아니라 소유에 있다. 선언과 관측, 실행과 보기와 결정, 지시와 신호를 세 번 가르면 일곱 책임 영역이 남고, 열세 원칙은 네 묶음이 된다. 루만의 결정 전제로 읽으면 선언 원장은 조직의 기억이고, 하네스의 사고는 결정된 전제가 아니라 아무도 정하지 않은 기본값에서 난다.
 citationTitleSource: "층은 의존의 순서가 아니라 책임의 배열이다 — 소유로 가르는 하네스 일곱 층과 결정 전제"
 citationTitleEn: "Layers are an arrangement of responsibility, not an order of dependence: The seven harness layers cut by ownership, and decision premises"
-citationTitleRomanized: "Cheungeun uijonui sunseoga anira chaegimui baeyeorida — Soyuro gareuneun haneseu ilgop cheunggwa gyeoljeong jeonje"
 ---
 
 ![서로 다른 폭의 유리 선반 일곱 개가 각각 놋쇠 열쇠에 매달려 사다리가 아닌 열린 배열로 떠 있고, 가운데 선반 하나는 열쇠 없이 금이 가 있으며, 가장 아래 선반에는 펼쳐진 장부가 놓인 장면.](/images/agent-harness-communication-2/hero-agent-harness-communication-2.png "AI 생성 일러스트. 열쇠 하나씩에 매달린 유리 선반 일곱 개로 소유에서 나오는 일곱 책임 영역을, 열쇠 없이 금 간 선반으로 결정되지 않은 전제를, 맨 아래의 펼친 장부로 선언 원장을 표현했다. 실제 구조도가 아니다.")

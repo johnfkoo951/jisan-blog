@@ -11,7 +11,6 @@ tags:
 summary: "Zotero에서 내 서버로 옮길 수 있는 것은 내 라이브러리의 첨부파일뿐이다. 시놀로지 WebDAV로 1년 넘게 써 온 구성을 점검하며 파일이 가는 길, Verify Server가 하는 일, 동기화와 백업의 차이, 공개 포트를 하나로 줄이는 법을 도식으로 정리했다."
 citationTitleSource: "조테로 첨부파일을 내 NAS에 두기 — 셀프호스팅으로 되는 것과 안 되는 것"
 citationTitleEn: "Keeping Zotero attachments on my own NAS: What self-hosting can and cannot do"
-citationTitleRomanized: "Jotero cheombupaireul nae NAS-e dugi — Selpeuhoseutingeuro doeneun geotgwa an doeneun geot"
 ---
 
 ![단면으로 자른 2층 집. 위층 서재에서 한 사람이 노트북 앞에서 논문을 읽고, 노트북에서 내려온 분홍 실이 지하의 작은 저장 장치로 이어지며 그 옆 선반에는 꼬리표가 달린 상자들이 줄지어 있다. 지붕에서 나간 초록 실은 구름 위 기둥 건물로 이어지고 실에는 카드 몇 장이 걸려 있다. 집의 문 가운데 옆문 하나만 열려 불이 켜져 있다.](/images/zotero-self-hosting/hero-zotero-self-hosting.png "AI 생성 일러스트. 단면으로 자른 집으로 이 글의 구분을 표현했다. 위층 서재에서 내려간 분홍 실은 지하 보관함과 꼬리표 붙은 상자들로 이어지고, 지붕으로 나간 초록 실은 구름 위 도서관으로 색인 카드만 실어 간다. 첨부파일은 집에 두고 데이터는 zotero.org로 보낸다는 뜻이고, 하나만 열린 옆문은 하나만 여는 공개 포트다. 실제 장비를 그린 것은 아니다.")

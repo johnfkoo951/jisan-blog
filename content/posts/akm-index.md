@@ -13,7 +13,6 @@ tags:
 summary: AI 에이전트가 함께 굴리는 지식관리 시스템의 성숙도를 5필러 25기준으로 잰다. 증거 없는 점수는 없다. 그리고 만든 사람이 중위권이라는 것이 이 평가표의 가장 좋은 증거다.
 citationTitleSource: "측정할 수 없으면 복리도 없다 — AKM Index"
 citationTitleEn: "Without measurement, there is no compounding: AKM Index"
-citationTitleRomanized: "Cheukjeonghal su eopseumyeon bongnido eopda — AKM Index"
 updated: 2026-10-21
 ---
 

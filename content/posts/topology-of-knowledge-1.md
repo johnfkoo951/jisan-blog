@@ -14,7 +14,6 @@ seriesOrder: 1
 updated: 2026-10-17
 citationTitleSource: "지식의 지형학 1부 — 그리고(And)의 세계, 리좀이 그린 태그의 풀밭"
 citationTitleEn: "The topology of knowledge, part 1: The world of and and a rhizomatic grassland of tags"
-citationTitleRomanized: "Jisigui jihyeonghak 1bu — Geurigo(And)ui segye, rijomi geurin taegeuui pulbat"
 ---
 
 ![풀밭 아래로 뻗는 뿌리와 연결망으로 리좀과 태그의 수평적 연결을 표현했다.](/images/topology-of-knowledge-1/hero-topology-of-knowledge-1.jpg "AI 생성 일러스트. 풀밭 아래로 뻗는 뿌리와 연결망으로 리좀과 태그의 수평적 연결을 표현했다.")

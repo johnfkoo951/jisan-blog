@@ -13,7 +13,6 @@ tags:
 summary: 시스템 파일, LLM Wiki, AKM Index, 9요한, CmdMD, 그리고 이 블로그까지. 따로따로 발견되던 여섯 개의 사이트는 사실 한 채의 집이다. 처음으로 전체 지도를 그렸다.
 citationTitleSource: "여섯 개의 문, 한 채의 집 — CMDSPACE 지식 생태계 전체 지도"
 citationTitleEn: "Six doors, one house: A map of the CMDSPACE knowledge ecosystem"
-citationTitleRomanized: "Yeoseot gaeui mun, han chaeui jip — CMDSPACE jisik saengtaegye jeonche jido"
 updated: 2026-10-21
 ---
 

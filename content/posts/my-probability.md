@@ -12,7 +12,6 @@ summary: 언어모델의 본질은 확률 분포다. 일반 모델은 인터넷 
 updated: 2026-10-17
 citationTitleSource: "나만의 확률값 — AI가 절대 가질 수 없는 것"
 citationTitleEn: "My own probability: What AI can never have"
-citationTitleRomanized: "Namanui hwangnyulgap — AI-ga jeoldae gajil su eomneun geot"
 ---
 
 ![어두운 바탕에서 밝은 중심 노드와 주변 노드가 연결된 개념도](/images/my-probability/hero-my-probability.png "AI 생성 일러스트. 개인의 기록과 연결이 고유한 확률값을 만든다는 생각을 노드로 표현한 개념 이미지다. 그림의 숫자는 실제 측정 결과로 해석하지 않는다.")

@@ -11,7 +11,6 @@ tags:
 summary: 具耀翰이라는 이름과 세례요한의 부르심을 따라, 옵시디언과 마크다운으로 하나님과 세상의 기록을 다음 사람에게 건네는 나의 정체성을 묵상한다.
 citationTitleSource: "내 이름은 구요한이다 — 갖추고, 빛내고, 기록하는 부르심"
 citationTitleEn: "My name is Yohan Koo: A calling to equip, illuminate, and record"
-citationTitleRomanized: "Nae ireumeun guyohanida — Gatchugo, binnaego, girokaneun bureusim"
 updated: 2026-10-17
 ---
 

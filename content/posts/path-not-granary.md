@@ -13,7 +13,6 @@ tags:
 summary: 더배러 3주년 회고. 지식은 나눌 때 줄어드는 것이 아니라 그때부터 커지기 시작한다는 믿음, pay it forward, 그리고 이어령 선생님의 질문 곁에서 시작할 새로운 공간에 대하여.
 citationTitleSource: "곳간이 아니라 길이었다"
 citationTitleEn: "It was a path, not a storehouse"
-citationTitleRomanized: "Gotgani anira girieotda"
 ---
 
 ![여러 문과 길이 연결된 집으로 CMDSPACE 지식 생태계의 구조를 표현했다. 실제 건축물 사진은 아니다.](/images/knowledge-ecosystem-map/hero-knowledge-ecosystem-map.jpg "AI 생성 일러스트. 여러 문과 길이 연결된 집으로 CMDSPACE 지식 생태계의 구조를 표현했다. 실제 건축물 사진은 아니다.")

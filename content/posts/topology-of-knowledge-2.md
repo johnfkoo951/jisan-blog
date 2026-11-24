@@ -14,7 +14,6 @@ seriesOrder: 2
 updated: 2026-10-17
 citationTitleSource: "지식의 지형학 2부 — 아니면(Not)의 세계, 루만이 세운 의미의 경계"
 citationTitleEn: "The topology of knowledge, part 2: The world of not and Luhmann's boundaries of meaning"
-citationTitleRomanized: "Jisigui jihyeonghak 2bu — Animyeon(Not)ui segye, rumani seun uimiui gyeonggye"
 ---
 
 ![동심원처럼 나뉜 미로와 카드의 배치로 루만의 시스템과 의미의 경계를 표현했다. 역사적 인물이나 실제 공간을 촬영한 장면은 아니다.](/images/topology-of-knowledge-2/hero-topology-of-knowledge-2.jpg "AI 생성 일러스트. 동심원처럼 나뉜 미로와 카드의 배치로 루만의 시스템과 의미의 경계를 표현했다. 역사적 인물이나 실제 공간을 촬영한 장면은 아니다.")

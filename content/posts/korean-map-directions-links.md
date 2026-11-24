@@ -11,7 +11,6 @@ tags:
 summary: "웹 페이지의 버튼에서 사용자 폰의 지도 앱 길찾기를 바로 여는 링크를 만들었다. 네이버 지도, 카카오맵, 티맵의 앱 스킴과 웹 주소 형식을 지점, 길찾기, 경유지, 좌표 순서로 정리하고, 공식 문서와 자동 브라우저 검사로 무엇을 확인했고 무엇이 남았는지 적었다."
 citationTitleSource: "네이버 지도, 카카오맵, 티맵으로 보내는 길찾기 링크 — 지점과 경로 URL 형식 정리"
 citationTitleEn: "Directions links to Naver Map, Kakao Map, and TMAP: A guide to place and route URL formats"
-citationTitleRomanized: "Neibeo jido, kakaomaep, timaebeuro bonaeneun gilchatgi ringkeu — Jijeomgwa gyeongno URL hyeongsik jeongni"
 ---
 ![왼쪽에 지도 앱으로 보내는 길찾기 링크라는 제목이 있고, 오른쪽 둥근 카드 안에 네이버 지도, 카카오맵, 티맵 이름표와 각각 nmap, kakaomap, tmap으로 시작하는 길찾기 주소 형식이 한 줄씩 적혀 있다.](/images/korean-map-directions-links/hero-korean-map-directions-links.png "HTML/CSS로 렌더링한 도표. 세 지도 앱의 길찾기 앱 스킴 형식을 나란히 적었다. 좌표 자리는 위도와 경도라는 글자로 비워 두었고 실제 지점은 넣지 않았다.")
 

@@ -12,7 +12,6 @@ summary: AI 시대의 격차는 접근권이 아니라 사용 의지에서 갈�
 updated: 2026-10-17
 citationTitleSource: "쓰는 사람과 구경하는 사람 — AI Divide의 시간"
 citationTitleEn: "Those who use it and those who watch: The age of the AI divide"
-citationTitleRomanized: "Sseuneun saramgwa gugyeonghaneun saram — AI Divide-ui sigan"
 ---
 
 ![갈림길의 두 사람으로 AI를 사용하는 사람과 바라보는 사람의 차이를 표현했다.](/images/ai-divide/hero-ai-divide.jpg "AI 생성 일러스트. 갈림길의 두 사람으로 AI를 사용하는 사람과 바라보는 사람의 차이를 표현했다.")
